@@ -14,5 +14,9 @@ namespace LifeMore.Controllers
         {
             return View();
         }
+        public ActionResult Contato()
+        {
+            return View();
+        }
     }
 }
