@@ -117,6 +117,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\cm-overlay.css" />
     <Content Include="css\font-awesome.css" />
@@ -138,16 +141,26 @@
     <Content Include="images\7.jpg" />
     <Content Include="images\8.jpg" />
     <Content Include="images\9.jpg" />
+    <Content Include="images\Balanca.jpg" />
     <Content Include="images\bg1.jpg" />
     <Content Include="images\c-arrows.png" />
     <Content Include="images\close.png" />
+    <Content Include="images\Foto do about.jpg" />
+    <Content Include="images\Healthcare_Usecase_03_03-0.jpg" />
+    <Content Include="images\IDOSARUGAS.jpg" />
+    <Content Include="images\Idososcomendofrutas.jpg" />
     <Content Include="images\img1.jpg" />
     <Content Include="images\img2.jpg" />
     <Content Include="images\img3.jpg" />
     <Content Include="images\left-quotes.png" />
+    <Content Include="images\Medicocomputer.jpg" />
+    <Content Include="images\Mesquini.jpg" />
     <Content Include="images\ne1.jpg" />
     <Content Include="images\ne2.jpg" />
     <Content Include="images\next.png" />
+    <Content Include="images\Nutricio.jpg" />
+    <Content Include="images\Onofre.jpg" />
+    <Content Include="images\Pesos.jpg" />
     <Content Include="images\prev.png" />
     <Content Include="images\right-quotes.png" />
     <Content Include="images\scope.png" />
@@ -177,6 +190,12 @@
     <Content Include="js\wickedpicker.js" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <None Include="scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="scripts\jquery-1.10.2.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
+    <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -206,6 +225,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\About.cshtml" />
+    <Content Include="scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\About.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
