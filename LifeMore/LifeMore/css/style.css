@@ -7,9 +7,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 body{
 	padding:0;
 	margin:0;
-	background:#fff;
-	position:relative;
+	font-size: 16px;
 	font-family: 'ABeeZee', sans-serif;
+    background: url(../images/papeisdeparedess.jpg)no-repeat;
+    position:relative;
+	background-size:cover;
+	background-position:center;
+	background-attachment:fixed;
 }
 body a{
     transition:0.5s all;

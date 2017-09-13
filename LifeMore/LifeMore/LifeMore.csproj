@@ -141,11 +141,12 @@
     <Content Include="images\9.jpg" />
     <Content Include="images\Balanca.jpg" />
     <Content Include="images\bg1.jpg" />
+    <Content Include="images\Entrar\bgCadastrar.jpg" />
+    <Content Include="images\bgEntrar.jpg" />
     <Content Include="images\c-arrows.png" />
     <Content Include="images\close.png" />
-    <Content Include="images\Entrar\bann.jpg" />
+    <Content Include="images\Entrar\Imaaagens.jpg" />
     <Content Include="images\Entrar\into.png" />
-    <Content Include="images\Entrar\side.jpg" />
     <Content Include="images\Entrar\tick.png" />
     <Content Include="images\Foto do about.jpg" />
     <Content Include="images\Healthcare_Usecase_03_03-0.jpg" />
@@ -163,6 +164,7 @@
     <Content Include="images\next.png" />
     <Content Include="images\Nutricio.jpg" />
     <Content Include="images\Onofre.jpg" />
+    <Content Include="images\papeisdeparedess.jpg" />
     <Content Include="images\Pesos.jpg" />
     <Content Include="images\prev.png" />
     <Content Include="images\right-quotes.png" />

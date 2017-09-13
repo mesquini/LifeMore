@@ -5,7 +5,7 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 /* reset */
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,ab,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,ab,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;vertical-align:baseline;}
 article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
 ol,ul{list-style:none;margin:0px;padding:0px;}
 blockquote,q{quotes:none;}
@@ -28,10 +28,10 @@ nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
 img{max-width:100%;}
 /*end reset*/
 /*--start-body--*/
-body{
-     background: url(../images/Entrar/bann.jpg)no-repeat;
+.bgEntrar{
+     background: url(../images/Entrar/Imaaagens.jpg)no-repeat ;
 	position:relative;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'ABeeZee', sans-serif;
 	background-size:cover;
 	background-position:center;
 	background-attachment:fixed;
@@ -96,10 +96,10 @@ body h2 {
 .right-section-w3ls {
     width: 39%;
     float: left;
-    background: url(../images/Entrar/side.jpg)no-repeat;
+    /*background: url(../images/Entrar/side.jpg)no-repeat;*/
     background-size: cover;
     padding: 20px;
-    min-height: 496px;
+    /*min-height: 496px;*/
 }
 /*-- checkbox --*/
 .inset input[type="checkbox"] {
@@ -262,6 +262,7 @@ body h2 {
        background-color: rgba(3, 4, 4, 0.6);
 	width: 45%;
     float: left;
+    margin-left:25%;
 }
 .tab_box{
 	background:#fd926d;
@@ -303,7 +304,7 @@ body h2 {
     text-transform: capitalize;
 }
 .resp-tab-active span {
-    border-bottom-color: #f44b89;
+    border-bottom-color: #336dd4;
 }
 .resp-tabs-container {
     padding: 0px;
@@ -635,7 +636,7 @@ h2.resp-accordion {
 		width: 89.69%;
 		min-height: 170px;
 		float: none;
-		background: url(../images/Entrar/side.jpg)no-repeat 0px -293px;
+		/*background: url(../images/Entrar/side.jpg)no-repeat 0px -293px;*/
 		background-size: cover;
 	}
 }
@@ -687,7 +688,7 @@ h2.resp-accordion {
 	.right-section-w3ls {
 		width: 86.7%;
 		min-height: 150px;
-		background: url(../images/Entrar/side.jpg)no-repeat 0px -216px;
+		/*background: url(../images/Entrar/side.jpg)no-repeat 0px -216px;*/
 		background-size: cover;
 	}
 }
@@ -755,9 +756,18 @@ h2.resp-accordion {
 		margin: 25px 26px;
 	}
 	.right-section-w3ls {
-		background: url(../images/Entrar/side.jpg)no-repeat 0px -181px;
+		/*background: url(../images/Entrar/side.jpg)no-repeat 0px -181px;*/
 		background-size: cover;
 		min-height: 120px;
 	}
 }
 /*--responsive--*/
+.bannerEntrar{
+	background:url(../images/bgEntrar.jpg) no-repeat 0px;
+	background-size:cover;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	-ms-background-size:cover;
+	min-height:88px;
+}
