@@ -28,6 +28,10 @@ nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
 img{max-width:100%;}
 /*end reset*/
 /*--start-body--*/
+.objetivo{
+    color:#fff;
+    padding:20px;
+}
 .bgEntrar{
      background: url(../images/Entrar/Imaaagens.jpg)no-repeat ;
 	position:relative;
@@ -173,7 +177,6 @@ body h2 {
     font-size: 1em;
     color: #fff;
     cursor: pointer;
-    display: block;
     margin: 2em 0 0;
 }
 .login-agileits-top input[type="checkbox"]+label span:first-child {
