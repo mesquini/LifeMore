@@ -977,7 +977,7 @@ figure.effect-julia:hover p {
 
 /*-- Testimonials --*/
 #review {
-    background: url("../images/tes.jpg") no-repeat 0px 0px;
+    background: url("../images/Comidas.jpg") no-repeat 0px 0px;
     background-size: cover;
     -o-background-size: cover;
     -moz-background-size: cover;
@@ -1233,7 +1233,7 @@ li.get-w3 a i {
 /*-- Inner-Pages --*/
 /*-- team --*/
 .team{
-	background:url(../images/55.jpg) no-repeat 0px 0px;
+	background:url('../images/Papel de parede.jpg') no-repeat 0px 0px;
 	background-size:cover;
 }
 .jarallax {

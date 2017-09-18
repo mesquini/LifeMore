@@ -140,7 +140,9 @@
     <Content Include="images\8.jpg" />
     <Content Include="images\9.jpg" />
     <Content Include="images\Balanca.jpg" />
+    <Content Include="images\Barbarafalsa.jpg" />
     <Content Include="images\bg1.jpg" />
+    <Content Include="images\Comidas.jpg" />
     <Content Include="images\Entrar\bgCadastrar.jpg" />
     <Content Include="images\bgEntrar.jpg" />
     <Content Include="images\c-arrows.png" />
@@ -164,14 +166,15 @@
     <Content Include="images\ne2.jpg" />
     <Content Include="images\next.png" />
     <Content Include="images\Nutricio.jpg" />
-    <Content Include="images\Onofre.jpg" />
     <Content Include="images\papeisdeparedess.jpg" />
+    <Content Include="images\Papel de parede.jpg" />
     <Content Include="images\Pesos.jpg" />
     <Content Include="images\prev.png" />
     <Content Include="images\Nossasnoticias.jpg" />
     <Content Include="images\right-quotes.png" />
     <Content Include="images\scope.png" />
     <Content Include="images\single.jpg" />
+    <Content Include="images\Sr.Gabriel.jpg" />
     <Content Include="images\t1.jpg" />
     <Content Include="images\t2.jpg" />
     <Content Include="images\t3.jpg" />
@@ -219,6 +222,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Adm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -254,7 +258,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
