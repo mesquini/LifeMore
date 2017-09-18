@@ -156,6 +156,7 @@
     <Content Include="images\img2.jpg" />
     <Content Include="images\img3.jpg" />
     <Content Include="images\img_avatar2.png" />
+    <Content Include="images\JovemNutricionista.jpeg" />
     <Content Include="images\left-quotes.png" />
     <Content Include="images\Medicocomputer.jpg" />
     <Content Include="images\Mesquini.jpg" />
@@ -167,6 +168,7 @@
     <Content Include="images\papeisdeparedess.jpg" />
     <Content Include="images\Pesos.jpg" />
     <Content Include="images\prev.png" />
+    <Content Include="images\Nossasnoticias.jpg" />
     <Content Include="images\right-quotes.png" />
     <Content Include="images\scope.png" />
     <Content Include="images\single.jpg" />
