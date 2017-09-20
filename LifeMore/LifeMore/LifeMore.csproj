@@ -140,7 +140,7 @@
     <Content Include="images\8.jpg" />
     <Content Include="images\9.jpg" />
     <Content Include="images\Balanca.jpg" />
-    <Content Include="images\Barbarafalsa.jpg" />
+    <Content Include="images\BarbaraVerdadeira.jpg" />
     <Content Include="images\bg1.jpg" />
     <Content Include="images\Comidas.jpg" />
     <Content Include="images\Entrar\bgCadastrar.jpg" />
@@ -151,9 +151,11 @@
     <Content Include="images\Entrar\into.png" />
     <Content Include="images\Entrar\tick.png" />
     <Content Include="images\Foto do about.jpg" />
+    <Content Include="images\GabrielSorrindo.jpg" />
     <Content Include="images\Healthcare_Usecase_03_03-0.jpg" />
     <Content Include="images\IDOSARUGAS.jpg" />
     <Content Include="images\Idososcomendofrutas.jpg" />
+    <Content Include="images\IMG-20170829-WA0020.jpg" />
     <Content Include="images\img1.jpg" />
     <Content Include="images\img2.jpg" />
     <Content Include="images\img3.jpg" />
@@ -174,7 +176,6 @@
     <Content Include="images\right-quotes.png" />
     <Content Include="images\scope.png" />
     <Content Include="images\single.jpg" />
-    <Content Include="images\Sr.Gabriel.jpg" />
     <Content Include="images\t1.jpg" />
     <Content Include="images\t2.jpg" />
     <Content Include="images\t3.jpg" />

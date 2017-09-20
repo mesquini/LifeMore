@@ -579,7 +579,7 @@ a.dropdown-toggle.menu__link {
 }
 .welcome-left p {
     font-size: 1em;
-    color: #777;
+    color: #fff;
     line-height: 1.9em;
     margin-top: 2em;
 }
@@ -1334,7 +1334,7 @@ li.get-w3 a i {
 }
 .team-caption {
     background: #00a0f0;
-    padding: 1em;
+    padding-bottom: 10px;
     position: absolute;
     left: 0;
     bottom: -105%;
