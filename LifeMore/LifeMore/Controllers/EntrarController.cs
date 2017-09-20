@@ -31,10 +31,6 @@ namespace LifeMore.Controllers
                     ViewBag.MsgErro = "Usuário e/ou Senha incorretos!";
                 }
                       
-                       
-
-                
-
             }
 
             if (Session["Paciente"] != null)
