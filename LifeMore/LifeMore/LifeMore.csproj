@@ -24,7 +24,6 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -72,38 +71,27 @@
       <HintPath>..\packages\Microsoft.ApplicationInsights.1.2.3\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.1.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.1.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -152,7 +140,9 @@
     <Content Include="images\8.jpg" />
     <Content Include="images\9.jpg" />
     <Content Include="images\Balanca.jpg" />
+    <Content Include="images\BarbaraVerdadeira.jpg" />
     <Content Include="images\bg1.jpg" />
+    <Content Include="images\Comidas.jpg" />
     <Content Include="images\Entrar\bgCadastrar.jpg" />
     <Content Include="images\bgEntrar.jpg" />
     <Content Include="images\c-arrows.png" />
@@ -161,13 +151,16 @@
     <Content Include="images\Entrar\into.png" />
     <Content Include="images\Entrar\tick.png" />
     <Content Include="images\Foto do about.jpg" />
+    <Content Include="images\GabrielSorrindo.jpg" />
     <Content Include="images\Healthcare_Usecase_03_03-0.jpg" />
     <Content Include="images\IDOSARUGAS.jpg" />
     <Content Include="images\Idososcomendofrutas.jpg" />
+    <Content Include="images\IMG-20170829-WA0020.jpg" />
     <Content Include="images\img1.jpg" />
     <Content Include="images\img2.jpg" />
     <Content Include="images\img3.jpg" />
     <Content Include="images\img_avatar2.png" />
+    <Content Include="images\JovemNutricionista.jpeg" />
     <Content Include="images\left-quotes.png" />
     <Content Include="images\Medicocomputer.jpg" />
     <Content Include="images\Mesquini.jpg" />
@@ -175,10 +168,11 @@
     <Content Include="images\ne2.jpg" />
     <Content Include="images\next.png" />
     <Content Include="images\Nutricio.jpg" />
-    <Content Include="images\Onofre.jpg" />
     <Content Include="images\papeisdeparedess.jpg" />
+    <Content Include="images\Papel de parede.jpg" />
     <Content Include="images\Pesos.jpg" />
     <Content Include="images\prev.png" />
+    <Content Include="images\Nossasnoticias.jpg" />
     <Content Include="images\right-quotes.png" />
     <Content Include="images\scope.png" />
     <Content Include="images\single.jpg" />
@@ -215,8 +209,6 @@
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
     <None Include="scripts\jquery.validate-vsdoc.js" />
-    <Content Include="scripts\jquery.signalR-2.1.2.js" />
-    <Content Include="scripts\jquery.signalR-2.1.2.min.js" />
     <Content Include="scripts\jquery.validate.js" />
     <Content Include="scripts\jquery.validate.min.js" />
     <Content Include="scripts\jquery.validate.unobtrusive.js" />
@@ -228,11 +220,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\EntrarController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Paciente.cs" />
+    <Compile Include="Models\Adm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -259,7 +250,6 @@
     <Content Include="Views\Home\Single.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Entrar\Cadastrar.cshtml" />
-    <Content Include="Views\Perfil\index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -269,6 +259,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -228,7 +228,7 @@ nav.fill ul li a:hover:after {
 	padding-top: 1em;
 }
 .agileits-banner-info p {
-    color: #cac8c9;
+    color: white;
     font-size: 1em;
     line-height: 1.9em;
     letter-spacing: 7px;
@@ -579,7 +579,7 @@ a.dropdown-toggle.menu__link {
 }
 .welcome-left p {
     font-size: 1em;
-    color: #777;
+    color: #fff;
     line-height: 1.9em;
     margin-top: 2em;
 }
@@ -789,7 +789,7 @@ img.zoom-img:hover{
 }
 h3.tittle, h3.tittle-one, .agile-title h3, .team-heading h3, h3.tittle-two, .team-w3l h3, h3.w3l-sing, h3.tittle-agw3, h3.tittle-agilew3, h3.w3l_head, h3.mail-w3 {
     font-size: 3em;
-    color: #333;
+    color: white;
     text-align: center;
     text-transform: uppercase;
 	margin-bottom:1.3em;
@@ -977,7 +977,7 @@ figure.effect-julia:hover p {
 
 /*-- Testimonials --*/
 #review {
-    background: url("../images/tes.jpg") no-repeat 0px 0px;
+    background: url("../images/Comidas.jpg") no-repeat 0px 0px;
     background-size: cover;
     -o-background-size: cover;
     -moz-background-size: cover;
@@ -1233,7 +1233,7 @@ li.get-w3 a i {
 /*-- Inner-Pages --*/
 /*-- team --*/
 .team{
-	background:url(../images/55.jpg) no-repeat 0px 0px;
+	background:url('../images/Papel de parede.jpg') no-repeat 0px 0px;
 	background-size:cover;
 }
 .jarallax {
@@ -1334,7 +1334,7 @@ li.get-w3 a i {
 }
 .team-caption {
     background: #00a0f0;
-    padding: 1em;
+    padding-bottom: 10px;
     position: absolute;
     left: 0;
     bottom: -105%;
@@ -1385,7 +1385,7 @@ li.get-w3 a i {
     margin: 1em 0;
 }
 .news-grid-info p {
-    color: #777;
+    color: white;
     font-size: 1em;
     margin: 1em 0 0 0;
     line-height: 1.9em;
