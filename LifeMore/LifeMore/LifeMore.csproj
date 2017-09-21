@@ -155,15 +155,14 @@
     <Content Include="images\Healthcare_Usecase_03_03-0.jpg" />
     <Content Include="images\IDOSARUGAS.jpg" />
     <Content Include="images\Idososcomendofrutas.jpg" />
+    <Content Include="images\Mesquini.jpg" />
     <Content Include="images\IMG-20170829-WA0020.jpg" />
     <Content Include="images\img1.jpg" />
     <Content Include="images\img2.jpg" />
     <Content Include="images\img3.jpg" />
-    <Content Include="images\img_avatar2.png" />
     <Content Include="images\JovemNutricionista.jpeg" />
     <Content Include="images\left-quotes.png" />
     <Content Include="images\Medicocomputer.jpg" />
-    <Content Include="images\Mesquini.jpg" />
     <Content Include="images\ne1.jpg" />
     <Content Include="images\ne2.jpg" />
     <Content Include="images\next.png" />
@@ -224,6 +223,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Adm.cs" />
+    <Compile Include="Models\Paciente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -250,6 +250,7 @@
     <Content Include="Views\Home\Single.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Entrar\Cadastrar.cshtml" />
+    <Content Include="Views\Perfil\index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
