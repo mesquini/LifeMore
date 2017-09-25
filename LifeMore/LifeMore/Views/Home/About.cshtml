@@ -46,6 +46,18 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="stroke">
                                 <ul class="nav navbar-nav">
+                                    @if (ViewBag.Logado == null)
+                                    {
+
+                                        <li class="entrar"><a href="~/Entrar/Cadastrar">Entrar</a></li>
+
+                                    }
+                                    @if (ViewBag.Logado != null)
+                                    {
+
+                                        <li><a href="~/Perfil/IndexPerfil">Perfil</a></li>
+
+                                    }
                                     <li><a href="~/Home/Index">Home</a></li>
                                     <li class="active"><a href="~/Home/About">Quem somos</a></li>
                                     
@@ -58,12 +70,12 @@
                 </div>
                 <div class="col-md-4 logo">
                     <div class="logo-w3l">
-                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                        <i class="fa fa-stethoscope" aria-hidden="true"></i>
                     </div>
                     <h1><a href="~/Home/Index">LifeMore<span>Cuide de você</span></a></h1>
                 </div>
                 <div class="col-md-4 ph-agile">
-                    <p><i class="fa fa-phone" aria-hidden="true"></i><span>+55 19 9 9865 8943</span></p>
+                    <p><i class="fa fa-phone" aria-hidden="true"></i><span>+00 28 28 28 85</span></p>
                 </div>
                 <div class="clearfix"> </div>
             </div>
@@ -73,7 +85,7 @@
     <!-- main -->
     <!-- About -->
     <div id="about" class="welcome">
-        <!--QUEM SOMOS-->
+                <!--QUEM SOMOS-->
         <div class="container">
             <div class="agile-title">
                 <h3> Quem somos <span></span></h3>
@@ -81,26 +93,24 @@
             <div class="w3ls-row">
                 <div class="col-md-6 welcome-left">
                     <div class="welcome-img">
-                        <img src="~/images/Foto do about.jpg" class="img-responsive zoom-img" alt="" />
+                        <img src="~/images/Quem_somos-Index/Foto do about.jpg" class="img-responsive zoom-img" alt="" />
                     </div>
                     <p>Somos um grupo de jovens preocupado com o bem estar físico e mental do ser humano, por conta disso nós montamos este site focado na melhoria do bem estar físico das pessoas que nos procuram, buscando uma vida saudável e correta.</p>
                 </div>
                 <div class="col-md-6 welcome-right">
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="col-md-6 welcome-left-grids">
-                    <div class="welcome-img">
-                        <img src="~/images/Idososcomendofrutas.jpg" class="img-responsive zoom-img" alt="" />
+                    <div class="col-md-6 welcome-left-grids">
+                        <div class="welcome-img">
+                            <img src="~/images/Quem_somos-Index/Idososcomendofrutas.jpg" class="img-responsive zoom-img" alt="" />
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 welcome-left-grids">
-                    <div class="welcome-img">
-                        <img src="~/images/Pesos.jpg" class="img-responsive zoom-img" alt="" />
+                    <div class="col-md-6 welcome-left-grids">
+                        <div class="welcome-img">
+                            <img src="~/images/Quem_somos-Index/Pesos.jpg" class="img-responsive zoom-img" alt="" />
+                        </div>
+                        <div class="clearfix"> </div>
                     </div>
-                </div>
                 <div class="clearfix"> </div>
             </div>
-            <div class="clearfix"> </div>
         </div>
     </div>
     <!-- //About -->
@@ -111,7 +121,7 @@
             <div class="tip-grids">
                 <div class="col-md-6 tip-grid">
                     <figure class="effect-julia">
-                        <img src="~/images/Healthcare_Usecase_03_03-0.jpg" alt="">
+                        <img src="~/images/Quem_somos-Index/Healthcare_Usecase_03_03-0.jpg" alt="">
                         <figcaption>
                             <h4>Melhores Tratamentos</h4>
                             <p>Nós criamos uma maneira na qual a nutricionista acamponha o paciente de perto.</p>
@@ -122,7 +132,7 @@
                 </div>
                 <div class="col-md-6 tip-grid">
                     <figure class="effect-julia">
-                        <img src="~/images/IDOSARUGAS.jpg" alt="">
+                        <img src="~/images/Quem_somos-Index/IDOSARUGAS.jpg" alt="">
                         <figcaption>
                             <h4>Os melhores especialistas</h4>
                             <p>Nós providenicaremos o melhor profissional para a sua saúde.</p>
@@ -145,12 +155,12 @@
             <div class="agileits-team-grids">
                 <div class="col-md-3 agileits-team-grid">
                     <div class="team-info">
-                        <img src="~/images/BarbaraVerdadeira.jpg" alt="" />
+                        <img src="~/images/Time/BarbaraVerdadeira.jpg" alt="" />
                         <div class="team-caption">
                             <h4>Sra. Barbára Beatriz</h4>
                             <p>Programadora e membro da criação do LifeMore.</p>
                             <ul>
-                                <li><a href="https://www.facebook.com/barbara.beatriz.1420"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
                             </ul>
@@ -159,12 +169,12 @@
                 </div>
                 <div class="col-md-3 agileits-team-grid">
                     <div class="team-info">
-                        <img src="~/images/GabrielSorrindo.jpg" alt="" />
+                        <img src="~/images/Time/GabrielSorrindo.jpg" alt="" />
                         <div class="team-caption">
                             <h4>Sr. Gabriel Souza</h4>
                             <p>Programador e membro da criação e ideia do LifeMore</p>
                             <ul>
-                                <li><a href="https://www.facebook.com/profile.php?id=100002509370480"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
                             </ul>
@@ -173,12 +183,12 @@
                 </div>
                 <div class="col-md-3 agileits-team-grid">
                     <div class="team-info">
-                        <img src="~/images/Mesquini.jpg" alt="" />
+                        <img src="~/images/Time/Mesquini.jpg" alt="" />
                         <div class="team-caption">
                             <h4>Sr. Victor Mesquini</h4>
                             <p>Programador e membro da criação e ideia do LifeMore</p>
                             <ul>
-                                <li><a href="https://www.facebook.com/vmesquini"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
                             </ul>
@@ -199,24 +209,24 @@
             <div class="w3l-event-grids">
                 <div class="col-md-6 w3l-event-grid">
                     <div class="w3l-event-img">
-                        <a href="~/Home/Single"><img src="~/images/Nossasnoticias.jpg" alt="" /></a>
+                        <a href="~/~/Home/Single"><img src="~/images/Quem_somos-Index/Nossasnoticias.jpg" alt="" /></a>
                     </div>
                     <div class="news-grid-info">
-                        <a href="~/Home/Single">Pacientes obesos e com problemas de reeducação alimentar.</a>
+                        <a href="~/~/Home/Single">Pacientes obesos e com problemas de reeducação alimentar.</a>
                         <h5>5 de Novembro de 2016</h5>
                         <p>Aqui pacientes obesos e que necessitam de reeducação alimentar encontram o que procura com eficácia.</p>
-                        <a href="~/Home/Single" class="re-w3">Leia Mais...</a>
+                        <a href="~/~/Home/Single" class="re-w3">Leia Mais...</a>
                     </div>
                 </div>
                 <div class="col-md-6 w3l-event-grid">
                     <div class="w3l-event-img">
-                        <a href="~/Home/Single"><img src="~/images/JovemNutricionista.jpeg"alt="" /></a>
+                        <a href="~/~/Home/Single"><img src="~/images/Quem_somos-Index/JovemNutricionista.jpeg"alt="" /></a>
                     </div>
                     <div class="news-grid-info">
-                        <a href="~/Home/Single">Jovens nutricionistas ajudando jovens pacientes</a>
+                        <a href="~/~/Home/Single">Jovens nutricionistas ajudando jovens pacientes</a>
                         <h5>12 de Dezembro de 2016</h5>
                         <p>Jovens nutricionista que estão dispostas a cuidar de pacientes para o bem estar da sociedade.</p>
-                        <a href="~/Home/Single" class="re-w3">Leia mais...</a>
+                        <a href="~/~/Home/Single" class="re-w3">Leia mais...</a>
                     </div>
                 </div>
                 <div class="clearfix"> </div>
@@ -224,10 +234,10 @@
         </div>
     </div>
                 <!--//screen-gallery-->
-            
-        
+            </div>
+        </div>
         <div class="clearfix"> </div>
-    
+    </div>
     <!-- //Testimonials -->
     <!-- //main -->
     <!-- Footer -->
@@ -286,7 +296,7 @@
                 </div>
                 <div class="right-w3l">
                     <ul class="top-links">
-                        
+                        <li class="get-w3"><a href="mail.html"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Get In Touch</a></li>
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                         <li><a href="#"><i class="fa fa-google-plus"></i></a></li>

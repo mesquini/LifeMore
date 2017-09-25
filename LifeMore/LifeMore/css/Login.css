@@ -28,6 +28,27 @@ nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
 img{max-width:100%;}
 /*end reset*/
 /*--start-body--*/
+.perfil{
+    font-size: 25px;
+    text-align:center;
+    color: white;
+}
+.imagem{
+    text-align: left;
+    background-image: url("../images/Entrar/imagemPadrao.jpeg");
+    width: 225px;
+    height: 225px;
+    
+}
+.nome{
+    font-size: 25px;
+    float: left;
+    padding-left: 250px;
+}
+.cpf{
+    text-align:left;
+    margin-left: 250px;
+}
 .objetivo{
     color:#fff;
     padding:20px;
@@ -801,7 +822,7 @@ h2.resp-accordion {
 }
 /*--responsive--*/
 .bannerEntrar{
-	background:url(../images/bgEntrar.jpg) no-repeat 0px;
+	background:url(../images/Papeis_Parede/bgEntrar.jpg) no-repeat 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;

@@ -9,7 +9,7 @@ body{
 	margin:0;
 	font-size: 16px;
 	font-family: 'ABeeZee', sans-serif;
-    background: url(../images/papeisdeparedess.jpg)no-repeat;
+    background: url(../images/Papeis_Parede/papeisdeparedess.jpg)no-repeat;
     position:relative;
 	background-size:cover;
 	background-position:center;
@@ -50,7 +50,7 @@ label{
 }
 /*-- banner --*/
 .banner{
-	background:url(../images/bg1.jpg) no-repeat 0px 0px;
+	background:url(../images/Papeis_Parede/bg1.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -59,7 +59,7 @@ label{
 	min-height:848px;
 }
 .banner-2{
-	background:url(../images/bg1.jpg) no-repeat 0px 0px;
+	background:url(../images/Papeis_Parede/bg1.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -578,11 +578,11 @@ a.dropdown-toggle.menu__link {
     padding-left: 0.5em;
 }
 .welcome-left p {
-    font-size: 1.01em;
-    color: #000;
+    font-size: 20px;
+    color: #fff;
     line-height: 1.9em;
     margin-top: 2em;
-    font-family: 'Times New Roman', Times, serif;
+
 }
 .open-hours-row {
     background: #83d6ff;
@@ -790,7 +790,7 @@ img.zoom-img:hover{
 }
 h3.tittle, h3.tittle-one, .agile-title h3, .team-heading h3, h3.tittle-two, .team-w3l h3, h3.w3l-sing, h3.tittle-agw3, h3.tittle-agilew3, h3.w3l_head, h3.mail-w3 {
     font-size: 3em;
-    color: black;
+    color: white;
     text-align: center;
     text-transform: uppercase;
 	margin-bottom:1.3em;
@@ -831,7 +831,7 @@ h3.tittle span, h3.tittle-one span, .agile-title h3 span, h4.tittle-two span, .t
 
 /*-- What-we-do --*/
 .tips.w3agile {
-    background: #eee;
+    background: #0009;
 }
 .tip-grid img{
 	width:100%;
@@ -978,7 +978,7 @@ figure.effect-julia:hover p {
 
 /*-- Testimonials --*/
 #review {
-    background: url("../images/Comidas.jpg") no-repeat 0px 0px;
+    background: url("../images/Quem_somos-Index/Pesos.jpg") no-repeat 0px 0px;
     background-size: cover;
     -o-background-size: cover;
     -moz-background-size: cover;
@@ -1234,7 +1234,7 @@ li.get-w3 a i {
 /*-- Inner-Pages --*/
 /*-- team --*/
 .team{
-	background:url('../images/Papel de parede.jpg') no-repeat 0px 0px;
+	background:url('../images/Papeis_Parede/Papel de parede.jpg') no-repeat 0px 0px;
 	background-size:cover;
 }
 .jarallax {
@@ -2249,7 +2249,6 @@ h2.typoh2{
 	}
 	.welcome-left p {
 		margin-top: 1.5em;
-        color:black;
 	}
 	figure.effect-julia h4 {
 		font-size: 1.8em;
@@ -3452,7 +3451,6 @@ h2.typoh2{
 	}
 	.welcome-left p {
 		font-size: 0.85em;
-        color:black;
 	}
 	.open-hours-left h4 {
 		font-size: 1em;
