@@ -58,7 +58,19 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="stroke">
                                 <ul class="nav navbar-nav">
-                                    <li class="entrar"><a href="~/Entrar/Cadastrar">Entrar</a></li>
+                                    @if (ViewBag.Logado == null)
+                                    {
+
+                                        <li class="entrar"><a href="~/Entrar/Cadastrar">Entrar</a></li>
+
+                                    }
+                                    @if (ViewBag.Logado != null)
+                                    {
+                                       
+                                       <li><a href="~/Perfil/index">Perfil</a></li>
+
+                                    }
+
                                     <li class="active"><a href="~/Home/Index">Home</a></li>
                                     <li><a href="~/Home/About">Quem somos</a></li>
                                     <li><a href="~/Home/Contato">Fale conosco</a></li>
@@ -80,6 +92,21 @@
                         <p><i class="fa fa-phone" aria-hidden="true"></i><span>+55 19 9 9865 8943</span></p>
                     </div>
                     <div class="clearfix"> </div>
+
+                    @if (ViewBag.Logado == null)
+                    {
+                        <h1>oi</h1>
+
+
+                    }
+
+                    @if (ViewBag.Logado != null)
+                    {
+
+                        <h1>xau</h1>
+
+                    }
+
                     <!-- banner-text -->
                     <div class="slider">
                         <div class="callbacks_container">
