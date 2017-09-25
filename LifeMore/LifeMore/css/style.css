@@ -9,7 +9,7 @@ body{
 	margin:0;
 	font-size: 16px;
 	font-family: 'ABeeZee', sans-serif;
-    background: url(../images/papeisdeparedess.jpg)no-repeat;
+    background: url(../images/Papeis_Parede/papeisdeparedess.jpg)no-repeat;
     position:relative;
 	background-size:cover;
 	background-position:center;
@@ -50,7 +50,7 @@ label{
 }
 /*-- banner --*/
 .banner{
-	background:url(../images/bg1.jpg) no-repeat 0px 0px;
+	background:url(../images/Papeis_Parede/bg1.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -59,7 +59,7 @@ label{
 	min-height:848px;
 }
 .banner-2{
-	background:url(../images/bg1.jpg) no-repeat 0px 0px;
+	background:url(../images/Papeis_Parede/bg1.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -1233,7 +1233,7 @@ li.get-w3 a i {
 /*-- Inner-Pages --*/
 /*-- team --*/
 .team{
-	background:url('../images/Papel de parede.jpg') no-repeat 0px 0px;
+	background:url(''../images/Papeis_Parede/Papel de parede.jpg'') no-repeat 0px 0px;
 	background-size:cover;
 }
 .jarallax {
