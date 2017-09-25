@@ -105,6 +105,8 @@ body h2 {
     padding: 20px;
     /*min-height: 496px;*/
 }
+
+
 /*-- checkbox --*/
 .inset input[type="checkbox"] {
     display: none;
@@ -199,6 +201,39 @@ body h2 {
     width: 10px;
     height: 10px;
 }
+
+/*RADIO*/
+input[type=radio]{
+    display:none; /* Esconde os inputs */
+}
+ 
+label {
+    cursor: pointer;
+}
+input[type="radio"] + label:before{
+    border: 1px solid #5D5C5C;
+    content: "\00a0";
+    display: inline-block;
+    font: 16px/1em sans-serif;
+    height: 16px;
+    margin: 0 .25em 0 0;
+    padding:0;
+    vertical-align: top;
+    width: 16px;
+    border-radius:4px;
+}
+ 
+input[type="radio"]:checked + label:before{
+    background: #336dd4;
+    color: #FFF;
+    content: "\2714";
+    text-align: center;
+}
+ 
+input[type="radio"]:checked + label:after{
+    font-weight: bold;
+}
+
 /*-- //checkbox --*/
 
 .login-form input[type="submit"] {
