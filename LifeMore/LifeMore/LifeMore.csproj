@@ -129,6 +129,9 @@
     <Content Include="fonts\fontello.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\c-arrows.png" />
+    <Content Include="images\close.png" />
+    <Content Include="images\prev.png" />
     <Content Include="images\Time\BarbaraVerdadeira.jpg" />
     <Content Include="images\Papeis_Parede\bg1.jpg" />
     <Content Include="images\Entrar\bgCadastrar.jpg" />
