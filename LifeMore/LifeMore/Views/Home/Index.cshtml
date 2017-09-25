@@ -67,7 +67,8 @@
                                     @if (ViewBag.Logado != null)
                                     {
                                        
-                                       <li><a href="~/Perfil/index">Perfil</a></li>
+                                       <li><a href="~/Perfil/IndexPerfil">Perfil</a></li>
+                                       <li><a href="#">Cardápio</a></li>
 
                                     }
 
@@ -95,7 +96,7 @@
 
                     @if (ViewBag.Logado == null)
                     {
-                        <h1>oi</h1>
+                        <h2>seja bem-vindo ao site</h2>
 
 
                     }
@@ -103,7 +104,7 @@
                     @if (ViewBag.Logado != null)
                     {
 
-                        <h1>xau</h1>
+                        <h2>@ViewBag.Nome Seja Bem-Vindo</h2>
 
                     }
 
@@ -151,8 +152,8 @@
             <div class="app-w3">
                 <h4>Faça seu agendamento agora:</h4>
                 <div class="app-sub-w3">
-                    <form action="#" method="post">
-                        <input type="text" name="Patient Name" placeholder="Nome do paciente" required="" />
+                    <form action="~/Consulta/IndexConsulta" method="post">
+                        <input type="text" name="nome" placeholder="Nome do paciente" required />
                         <input id="datepicker" name="date" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
                         <input type="text" id="timepicker" name="Time" class="timepicker form-control" value="Hrs:Min">
                         <input type="submit" value="Fazer consulta">
@@ -173,7 +174,7 @@
             <div class="w3ls-row">
                 <div class="col-md-6 welcome-left">
                     <div class="welcome-img">
-                        <img src="~/images/Foto do about.jpg" class="img-responsive zoom-img" alt="" />
+                        <img src="~/images/Quem_somos-Index/Foto_about.jpg" class="img-responsive zoom-img" alt="" />
                     </div>
                     <p>Somos um grupo de jovens preocupado com o bem estar físico e mental do ser humano, por conta disso nós montamos este site focado na melhoria do bem estar físico das pessoas que nos procuram, buscando uma vida saudável e correta.</p>
                 </div>
@@ -182,12 +183,12 @@
                     </div>
                     <div class="col-md-6 welcome-left-grids">
                         <div class="welcome-img">
-                            <img src="~/images/Idososcomendofrutas.jpg" class="img-responsive zoom-img" alt="" />
+                            <img src="~/images/Quem_somos-Index/Idososcomendofrutas.jpg" class="img-responsive zoom-img" alt="" />
                         </div>
                     </div>
                     <div class="col-md-6 welcome-left-grids">
                         <div class="welcome-img">
-                            <img src="~/images/Pesos.jpg" class="img-responsive zoom-img" alt="" />
+                            <img src="~/images/Quem_somos-Index/Pesos.jpg" class="img-responsive zoom-img" alt="" />
                         </div>
                     </div>
                     <div class="clearfix"> </div>
@@ -195,7 +196,6 @@
                 <div class="clearfix"> </div>
             </div>
         </div>
-    </div>
     <!-- //About -->
     <!-- what-we-do -->
     <div class="tips w3agile">
@@ -204,7 +204,7 @@
             <div class="tip-grids">
                 <div class="col-md-6 tip-grid">
                     <figure class="effect-julia">
-                        <img src="~/images/Healthcare_Usecase_03_03-0.jpg" alt="">
+                        <img src="~/images/Quem_somos-Index/Healthcare.jpg" alt="">
                         <figcaption>
                             <h4>Melhores Tratamentos</h4>
                             <p>Nós criamos uma maneira na qual a nutricionista acamponha o paciente de perto.</p>
@@ -215,7 +215,7 @@
                 </div>
                 <div class="col-md-6 tip-grid">
                     <figure class="effect-julia">
-                        <img src="~/images/IDOSARUGAS.jpg" alt="">
+                        <img src="~/images/Quem_somos-Index/IDOSARUGAS.jpg" alt="">
                         <figcaption>
                             <h4>Os melhores especialistas</h4>
                             <p>Nós providenicaremos o melhor profissional para a sua saúde.</p>

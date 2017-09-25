@@ -1,0 +1,60 @@
+﻿body {
+}
+
+
+.consulta1{
+    border: 2px double;
+    width:15%;
+    margin-left:25%;
+    color:gray;
+    float:left;
+    margin-right:10px;
+    
+}
+.consulta1-texto{
+    color:white;
+}
+.consulta2{
+    border: 2px double;
+    width:15%;
+    color:gray;
+    float:left;
+    margin-right:10px;
+}
+.consulta3{
+    border: 2px double;
+    width:15%;
+    float:left;
+    color:gray;
+}
+
+.consulta4{
+    float:left;
+    border: 2px double;
+    width:15%;
+    margin-left:25%;
+    color:gray;
+    margin-right:10px;
+    margin-top:10px;
+}
+.consulta5{
+    margin-right:10px;
+    border: 2px double;
+    width:15%;
+    color:gray;
+    margin-top:10px;
+    float:left;
+}
+.consulta6{
+    border: 2px double;
+    width:15%;
+    color:gray;
+    margin-right:10px;
+    float:left;
+    margin-top:10px;
+}
+
+.divisao{
+    margin-top:50px;
+    margin-bottom:700px;
+}

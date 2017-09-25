@@ -44,14 +44,44 @@ namespace LifeMore.Controllers
         }
         public ActionResult About()
         {
+            if (Session["Paciente"] != null)
+            {
+                ViewBag.Logado = Session["Paciente"];
+                Paciente Paciente = (Paciente)Session["Paciente"];
+                ViewBag.Imagem = Paciente.ImagemPerfil;
+                ViewBag.CPF = Paciente.CPF;
+                ViewBag.Nome = Paciente.Nome;
+                ViewBag.Objetivo = Paciente.Objetivo;
+
+            }
             return View();
         }
         public ActionResult Contato()
         {
+            if (Session["Paciente"] != null)
+            {
+                ViewBag.Logado = Session["Paciente"];
+                Paciente Paciente = (Paciente)Session["Paciente"];
+                ViewBag.Imagem = Paciente.ImagemPerfil;
+                ViewBag.CPF = Paciente.CPF;
+                ViewBag.Nome = Paciente.Nome;
+                ViewBag.Objetivo = Paciente.Objetivo;
+
+            }
             return View();
         }
         public ActionResult Single()
         {
+            if (Session["Paciente"] != null)
+            {
+                ViewBag.Logado = Session["Paciente"];
+                Paciente Paciente = (Paciente)Session["Paciente"];
+                ViewBag.Imagem = Paciente.ImagemPerfil;
+                ViewBag.CPF = Paciente.CPF;
+                ViewBag.Nome = Paciente.Nome;
+                ViewBag.Objetivo = Paciente.Objetivo;
+
+            }
             return View();
         }
     }
