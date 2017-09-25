@@ -124,6 +124,7 @@
     <Content Include="css\Login.css" />
     <Content Include="css\owl.carousel.css" />
     <Content Include="css\style.css" />
+    <Content Include="css\Consulta.css" />
     <Content Include="css\wickedpicker.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\fontello.svg" />
@@ -136,9 +137,9 @@
     <Content Include="images\Entrar\Imaaagens.jpg" />
     <Content Include="images\Entrar\into.png" />
     <Content Include="images\Entrar\tick.png" />
-    <Content Include="images\Quem_somos-Index\Foto do about.jpg" />
+    <Content Include="images\Quem_somos-Index\Foto_about.jpg" />
     <Content Include="images\Time\GabrielSorrindo.jpg" />
-    <Content Include="images\Quem_somos-Index\Healthcare_Usecase_03_03-0.jpg" />
+    <Content Include="images\Quem_somos-Index\Healthcare.jpg" />
     <Content Include="images\Quem_somos-Index\IDOSARUGAS.jpg" />
     <Content Include="images\Quem_somos-Index\Idososcomendofrutas.jpg" />
     <Content Include="images\Entrar\imagemPadrao.jpeg" />
@@ -184,6 +185,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ConsultaController.cs" />
     <Compile Include="Controllers\EntrarController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
@@ -191,6 +193,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Adm.cs" />
+    <Compile Include="Models\Paciente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +220,8 @@
     <Content Include="Views\Home\Single.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Entrar\Cadastrar.cshtml" />
+    <Content Include="Views\Perfil\IndexPerfil.cshtml" />
+    <Content Include="Views\Consulta\IndexConsulta.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -226,7 +231,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Usuario\" />
+    <Folder Include="images\Consulta\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

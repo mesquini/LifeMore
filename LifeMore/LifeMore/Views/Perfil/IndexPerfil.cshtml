@@ -9,9 +9,9 @@
     License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt">
 <head>
-    <title>Contato</title>
+    <title>LifeMore</title>
 
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,17 +25,22 @@
     <link rel="stylesheet" href="~/css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
     <link rel="stylesheet" href="~/css/style.css" type="text/css" media="all" /> <!-- Style-CSS -->
     <link rel="stylesheet" href="~/css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
-    <link type="text/css" rel="stylesheet" href="~/css/cm-overlay.css" />
+    <link rel="stylesheet" href="~/css/jquery-ui.css" /> <!-- Date-script-CSS -->
+    <link href="~/css/wickedpicker.css" rel="stylesheet" type='text/css' media="all" /> <!-- Time-script-CSS -->
     <!-- //css files -->
     <!-- online-fonts -->
     <link href="//fonts.googleapis.com/css?family=Convergence" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=ABeeZee:400,400i" rel="stylesheet">
     <!-- //online-fonts -->
+
+    <link rel="stylesheet" href="~/css/Login.css">
+    <script src="~/js/login.js"></script>
+
 </head>
-<body>
+<body class="bgEntrar">
     <div class="Main-agile">
         <!-- banner -->
-        <div class="banner-2">
+        <div class="bannerEntrar">
             <div class="container">
                 <div class="col-md-4 agile1">
                     <nav class="navbar navbar-default">
@@ -53,90 +58,54 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="stroke">
                                 <ul class="nav navbar-nav">
-                                    @if (ViewBag.Logado == null)
-                                    {
-
-                                        <li class="entrar"><a href="~/Entrar/Cadastrar">Entrar</a></li>
-
-                                    }
-                                    @if (ViewBag.Logado != null)
-                                    {
-
-                                        <li><a href="~/Perfil/IndexPerfil">Perfil</a></li>
-
-                                    }
                                     <li><a href="~/Home/Index">Home</a></li>
                                     <li><a href="~/Home/About">Quem somos</a></li>
-                                    <li class="active"><a href="~/Home/Contato">Fale conosco</a></li>
+                                    <li><a href="~/Home/Contato">Fale conosco</a></li>
+
                                 </ul>
                             </nav>
                         </div>
                         <!-- /.navbar-collapse -->
                     </nav>
                 </div>
-                <div class="col-md-4 logo">
-                    <div class="logo-w3l">
-                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
-                    </div>
-                    <h1><a href="~/Home/Index">Life More<span>Cuide de você</span></a></h1>
-                </div>
-                <div class="col-md-4 ph-agile">
-                    <p><i class="fa fa-phone" aria-hidden="true"></i><span>+55 19 9 9865 8943</span></p>
-                </div>
-                <div class="clearfix"> </div>
             </div>
         </div>
-    </div>
-    <!-- //banner -->
-    <!-- main -->
-    <!-- map -->
-    <div class="map">
-        <ul class="faq">
-            <li class="item1">
-                <a href="#">Mapa de rota interativo<span class="glyphicon glyphicon-menu-down"></span></a>
-                <ul>
-                    <li class="subitem1">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.9544739194134!2d-47.058119685306224!3d-22.91504998500765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8cf3303ceff43%3A0xea485c60a4b21ef5!2sEscola+SENAI+Prof.+Dr.+Euryclides+de+Jesus+Zerbini!5e0!3m2!1spt-BR!2sbr!4v1505151698902" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <!-- //map -->
-    <!-- mail -->
-    <div class="jarallax mail" id="mail">
-        <div class="container">
-            <h3 class="mail-w3">Contate nos<span></span></h3>
-            <div class="w3agile_mail_grids">
-                <div class=" w3agile_mail_grid">
-                    <form action="#" method="post">
-                        <input type="text" placeholder="Nome" name="Name" required="">
-                        <input type="email" placeholder="Email" name="Email" required="">
-                        <textarea name="Message" placeholder="Mensagem" required=""></textarea>
-                        <div class="con-form text-center">
-                            <input type="submit" value="Enviar">
-                        </div>
-                    </form>
 
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- //mail -->
-    <!-- //main -->
-    <!-- Footer -->
+       </div>
+
+    @* perfil *@
+        <div>
+            <h1>@ViewBag.Nome</h1>
+            <h1>@ViewBag.CPF </h1>
+            <h1>@ViewBag.Objetivo</h1>
+            <h1>@ViewBag.Email</h1>
+            <h1>@ViewBag.Endereco</h1>
+            <h1>@ViewBag.Imagem</h1>
+            <h1>@ViewBag.Peso</h1>
+            <h1>@ViewBag.Altura</h1>
+            <h1>@ViewBag.Tel</h1>
+            
+
+
+</div>
+
+
     <div class="footer w3ls">
         <div class="container">
             <div class="footer-main">
                 <div class="footer-top">
                     <div class="col-md-4 services-grids">
-                        <h3>Curiosidades.</h3>
+                        <h3>About Us</h3>
                         <ul>
-                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Buscando o bem estar da sociedade sempre.</a></li>
-                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista jovens e experientes ajudando  clientes de qualquer idade</a></li>
-                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Comer saudávelmente é sinônimo de comer bem.</a></li>
-                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista de esportes pronto para ajudar no melhor desenvolvimento para seu corpo.</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a href="~/Home/Single">Lorem ipsum dolor sit amet, consectetur.</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a href="~/Home/Single">do eiusmod tempor incididunt ut labore.</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a href="~/Home/Single">et dolore magna aliqua.</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a href="~/Home/Single">onec dut quam lscel quam erisque.</a></li>
                         </ul>
+
                     </div>
+
+
                     <div class="col-md-4 ftr-grid">
                         <div class="logo-fo">
                             <div class="logo-w3l">
@@ -179,7 +148,7 @@
                 </div>
                 <div class="right-w3l">
                     <ul class="top-links">
-                        
+
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                         <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -190,51 +159,10 @@
                 </div>
             </div>
         </div>
+
+
     </div>
-    <!-- //Footer -->
-    <!-- js-scripts -->
-    <!-- js -->
-    <script type="text/javascript" src="~/js/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="~/js/bootstrap.js"></script> <!-- Necessary-JavaScript-File-For-Bootstrap -->
-    <!-- //js -->
-    <!-- jarallax-js -->
-    <script src="~/js/jarallax.js"></script>
-    <script src="~/js/SmoothScroll.min.js"></script>
-    <script type="text/javascript">
-				/* init Jarallax */
-				$('.jarallax').jarallax({
-					speed: 0.5,
-					imgWidth: 1366,
-					imgHeight: 768
-				})
-    </script>
-    <!-- //jarallax-js -->
-    <!-- for-Map -->
-    <!-- script for tabs -->
-    <script type="text/javascript">
-			$(function() {
 
-				var menu_ul = $('.faq > li > ul'),
-					   menu_a  = $('.faq > li > a');
 
-				menu_ul.hide();
-
-				menu_a.click(function(e) {
-					e.preventDefault();
-					if(!$(this).hasClass('active')) {
-						menu_a.removeClass('active');
-						menu_ul.filter(':visible').slideUp('normal');
-						$(this).addClass('active').next().stop(true,true).slideDown('normal');
-					} else {
-						$(this).removeClass('active');
-						$(this).next().stop(true,true).slideUp('normal');
-					}
-				});
-
-			});
-    </script>
-    <!-- script for tabs -->
-    <!-- //for-Map -->
-    <!-- //js-scripts -->
 </body>
 </html>

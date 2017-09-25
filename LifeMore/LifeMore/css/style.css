@@ -578,10 +578,11 @@ a.dropdown-toggle.menu__link {
     padding-left: 0.5em;
 }
 .welcome-left p {
-    font-size: 1em;
+    font-size: 20px;
     color: #fff;
     line-height: 1.9em;
     margin-top: 2em;
+
 }
 .open-hours-row {
     background: #83d6ff;
@@ -830,7 +831,7 @@ h3.tittle span, h3.tittle-one span, .agile-title h3 span, h4.tittle-two span, .t
 
 /*-- What-we-do --*/
 .tips.w3agile {
-    background: #eee;
+    background: #0009;
 }
 .tip-grid img{
 	width:100%;
@@ -977,7 +978,7 @@ figure.effect-julia:hover p {
 
 /*-- Testimonials --*/
 #review {
-    background: url("../images/Comidas.jpg") no-repeat 0px 0px;
+    background: url("../images/Quem_somos-Index/Pesos.jpg") no-repeat 0px 0px;
     background-size: cover;
     -o-background-size: cover;
     -moz-background-size: cover;
@@ -1233,7 +1234,7 @@ li.get-w3 a i {
 /*-- Inner-Pages --*/
 /*-- team --*/
 .team{
-	background:url(''../images/Papeis_Parede/Papel de parede.jpg'') no-repeat 0px 0px;
+	background:url('../images/Papeis_Parede/Papel de parede.jpg') no-repeat 0px 0px;
 	background-size:cover;
 }
 .jarallax {

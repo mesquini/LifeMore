@@ -10,7 +10,7 @@ namespace LifeMore.Controllers
     public class PerfilController : Controller
     {
         // GET: Perfil
-        public ActionResult index()
+        public ActionResult IndexPerfil()
         {
             if (Session["Paciente"] != null)
             {
@@ -25,6 +25,7 @@ namespace LifeMore.Controllers
                 ViewBag.Peso = p.Peso;
                 ViewBag.Altura = p.Altura;
                 ViewBag.Tel = p.Telefone;
+                ViewBag.Idade = p.Idade;
 
                 return View();
             }
