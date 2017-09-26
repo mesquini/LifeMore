@@ -35,8 +35,19 @@
 
     <link rel="stylesheet" href="~/css/Login.css">
     <script src="~/js/login.js"></script>
-
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/jquery.maskedinput.js"></script>
 </head>
+<script type="text/javascript">
+    jQuery(function ($) {
+        $("#telefone").mask("(99)9 9999-9999");
+        $("#cpf").mask("999.999.999-99");
+        $("#cpf1").mask("999.999.999-99");
+        $("#peso").mask("999.999"+" Kg");
+        $("#altura").mask("9,99");
+    });
+</script>
+
 <body class="bgEntrar">
     <div class="Main-agile">
         <!-- banner -->
@@ -102,36 +113,41 @@
                             </div>
                             
                             @* CADASTRAR *@
+                            <script src="~/js/Mascara.js"></script>
                             <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
                                 <div class="login-agileits-top sign-up">
-                                    <form action="#" method="post">
+                                    <form action="#" method="post" >
                                         <p>Nome </p>
-                                            <input type="text" name="nome" required />
+                                            <input type="text" name="nome" id="nome" required maxlength="25"/>
                                         <p>CPF</p>
-                                            <input type="text" name="cpf" id="cpf" required/>
+                                             <input type="text" name="cpf" id="cpf1" required placeholder="Ex: 111.111.111-11" />
                                         <p>Email </p>
                                             <input type="email" name="Email" required />
                                         <p>Objetivo</p>
                                             <input type="radio" name="objetivo" id="engordar" value="1" /> <label for="engordar" class="objetivo">Engordar</label>
                                             <input type="radio" name="objetivo" id="emagrecer" value="2" checked/> <label for="emagrecer" class="objetivo">Emagrecer</label>
-                                        <p>Idade</p>
-                                            <input type="text" name="idade" id="idade" required />
+                                        <p>Idade</p> 
+                                            <input type="text" name="idade" id="idade" required maxlength="2"/>
                                         <p>Peso</p>
-                                            <input type="text" id="peso" name="peso" required/>
+                                            <input type="text" id="peso" name="peso" required placeholder="Ex: 080.123"/>
                                         <p>Altura</p>
-                                            <input type="text" id="altura" name="altura"required />
+                                            <input type="text" id="altura" name="altura"required placeholder="Ex: 1,70"/>
                                         <p>Endereço</p>
                                             <input type="text" id="endereco" name="endereco" required/>
                                         <p>Telefone</p>
-                                            <input type="text" id="telefone" name="telefone" required/>
+                                            <input type="text" id="telefone" name="telefone" required placeholder="Ex: (11)1 1111-1111"/>
                                         <p>Senha</p>
                                             <input type="password" name="senha" required />
                                         <p>Foto</p>
                                             <input type="file" id="foto" name="foto" />
                                             <input type="submit" value="Cadastrar">
+                                        
                                     </form>
+                                    
                                 </div>
                             </div>
+                            
+
                         </div>
                     </div>
                 </div>
@@ -167,12 +183,12 @@
             <div class="footer-main">
                 <div class="footer-top">
                     <div class="col-md-4 services-grids">
-                        <h3>About Us</h3>
+                        <h3>Curiosidades</h3>
                         <ul>
-                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a href="~/Home/Single">Lorem ipsum dolor sit amet, consectetur.</a></li>
-                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a href="~/Home/Single">do eiusmod tempor incididunt ut labore.</a></li>
-                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a href="~/Home/Single">et dolore magna aliqua.</a></li>
-                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a href="~/Home/Single">onec dut quam lscel quam erisque.</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Buscando o bem estar da sociedade sempre.</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista jovens e experientes ajudando  clientes de qualquer idade</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Comer saudávelmente é sinônimo de comer bem.</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista de esportes pronto para ajudar no melhor desenvolvimento para seu corpo.</a></li>
                         </ul>
 
                     </div>

@@ -161,6 +161,8 @@
     <Content Include="js\jquery-2.1.4.min.js" />
     <Content Include="js\jquery-ui.js" />
     <Content Include="js\jquery.cm-overlay.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\jquery.maskedinput.js" />
     <Content Include="js\jquery.mobile.custom.min.js" />
     <Content Include="js\jquery.tools.min.js" />
     <Content Include="js\login.js" />
@@ -223,8 +225,8 @@
     <Content Include="Views\Home\Single.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Entrar\Cadastrar.cshtml" />
-    <Content Include="Views\Perfil\IndexPerfil.cshtml" />
     <Content Include="Views\Consulta\IndexConsulta.cshtml" />
+    <Content Include="Views\Perfil\IndexPerfil.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
