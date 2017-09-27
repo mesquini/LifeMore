@@ -133,7 +133,11 @@
     <Content Include="images\c-arrows.png" />
     <Content Include="images\close.png" />
     <Content Include="images\Consulta\Aconselhamento.jpg" />
+    <Content Include="images\Consulta\consulta_inicial.jpg" />
+    <Content Include="images\Consulta\monitoramento.jpg" />
     <Content Include="images\Consulta\Nutricaofamilia.jpg" />
+    <Content Include="images\Consulta\qualidade_vida.jpg" />
+    <Content Include="images\Consulta\sensibilidade_alimento.jpg" />
     <Content Include="images\prev.png" />
     <Content Include="images\Time\BarbaraVerdadeira.jpg" />
     <Content Include="images\Papeis_Parede\bg1.jpg" />
