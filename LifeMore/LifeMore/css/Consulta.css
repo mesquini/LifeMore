@@ -9,7 +9,7 @@
     color:gray;
     float:left;
     margin-right:10px;
-    
+   
 }
 .consulta1-texto{
     color:white;
@@ -58,3 +58,28 @@
     margin-top:50px;
     margin-bottom:700px;
 }
+.botaoAcessar{
+            height: 40px;
+            text-align: center;
+            top: 410px;
+        }
+
+        .botaoAcessar .botao{
+            width: 120px;
+            height: 40px;
+            margin: 0 auto;
+            background-color: #3366ff;
+        }
+
+        .botaoAcessar .botao:hover{
+            background-color: #0033cc;
+            border: 1px solid #000;
+        }
+
+        .botaoAcessar .botao span{
+            color: #ffffff;
+            line-height: 37px;
+            font-family: Calibri;
+            font-size: 18px;
+            cursor: pointer;
+        }
