@@ -23,7 +23,7 @@ namespace LifeMore.Controllers
                 {
                     Paciente P = new Paciente(CPF, Senha);
                     Session["Paciente"] = P;
-                    Response.Redirect("/Perfil/index");
+                    Response.Redirect("/Perfil/IndexPerfil");
                 }
                 else
                 {

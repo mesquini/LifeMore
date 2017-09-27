@@ -847,7 +847,9 @@ $.each( { show: "fadeIn", hide: "fadeOut" }, function( method, defaultEffect ) {
 		if ( hasOptions && $.effects && ( $.effects.effect[ effectName ] || $.uiBackCompat !== false && $.effects[ effectName ] ) ) {
 			element[ method ]( options );
 		} else if ( effectName !== method && element[ effectName ] ) {
-			element[ effectName ]( options.duration, options.easing, callback );
+            element[effectName](options.duration, options.
+                
+                , callback);
 		} else {
 			element.queue(function( next ) {
 				$( this )[ method ]();
