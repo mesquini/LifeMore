@@ -75,10 +75,12 @@
     <br></br>
     @* perfil *@
         <div class="perfil">
-            <p class="nome">Nome: @ViewBag.Nome</p>
-            <br />
-            <p class="cpf">CPF: @ViewBag.CPF </p>
-                <p class="imagem">@ViewBag.Imagem</p>
+            <div class="nome"
+            <p>Nome: @ViewBag.Nome</p>   <div class="imagem"><img src="~/images/Entrar/@ViewBag.Imagem"/> </div>
+            </div>
+            <div class="cpf">
+            <p>CPF: @ViewBag.CPF </p>
+          </div>
             <br />
             <br />    
             <p>Objetivo: @ViewBag.Objetivo</p>
@@ -87,6 +89,7 @@
             <p>Peso: @ViewBag.Peso</p>
             <p>Altura: @ViewBag.Altura</p>
             <p>Telefone: @ViewBag.Tel</p>        
+            <p>Idade: @ViewBag.Idade</p>
 </div>
 
 
@@ -95,12 +98,12 @@
             <div class="footer-main">
                 <div class="footer-top">
                     <div class="col-md-4 services-grids">
-                        <h3>About Us</h3>
+                        <h3>Curiosidades</h3>
                         <ul>
-                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a href="~/Home/Single">Lorem ipsum dolor sit amet, consectetur.</a></li>
-                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a href="~/Home/Single">do eiusmod tempor incididunt ut labore.</a></li>
-                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a href="~/Home/Single">et dolore magna aliqua.</a></li>
-                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a href="~/Home/Single">onec dut quam lscel quam erisque.</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Buscando o bem estar da sociedade sempre.</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista jovens e experientes ajudando  clientes de qualquer idade</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Comer saudávelmente é sinônimo de comer bem.</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista de esportes pronto para ajudar no melhor desenvolvimento para seu corpo.</a></li>
                         </ul>
 
                     </div>

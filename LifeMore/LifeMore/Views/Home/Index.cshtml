@@ -69,13 +69,17 @@
                                        
                                        <li><a href="~/Perfil/IndexPerfil">Perfil</a></li>
                                        <li><a href="#">Cardápio</a></li>
-
                                     }
 
                                     <li class="active"><a href="~/Home/Index">Home</a></li>
                                     <li><a href="~/Home/About">Quem somos</a></li>
                                     <li><a href="~/Home/Contato">Fale conosco</a></li>
-                                    
+                                    @if (ViewBag.Logado != null)
+                                    {
+
+                                        <li><a href="~/Entrar/Sair">Sair</a></li>
+
+                                    }
                                 </ul>
                             </nav>
                         </div>
@@ -96,7 +100,7 @@
 
                     @if (ViewBag.Logado == null)
                     {
-                        <h2>seja bem-vindo ao site</h2>
+                        <h2>seja bem-vindo ao site! </h2>
 
 
                     }
@@ -104,7 +108,7 @@
                     @if (ViewBag.Logado != null)
                     {
 
-                        <h2>@ViewBag.Nome Seja Bem-Vindo</h2>
+                        <h2>@ViewBag.Nome Seja Bem-Vindo ao site!</h2>
 
                     }
 
