@@ -132,6 +132,8 @@
     <Content Include="Global.asax" />
     <Content Include="images\c-arrows.png" />
     <Content Include="images\close.png" />
+    <Content Include="images\Consulta\Aconselhamento.jpg" />
+    <Content Include="images\Consulta\Nutricaofamilia.jpg" />
     <Content Include="images\prev.png" />
     <Content Include="images\Time\BarbaraVerdadeira.jpg" />
     <Content Include="images\Papeis_Parede\bg1.jpg" />
@@ -234,7 +236,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="images\Consulta\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
