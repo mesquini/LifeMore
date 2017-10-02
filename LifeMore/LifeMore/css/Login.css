@@ -237,6 +237,7 @@ input[type=radio]{
  
 label {
     cursor: pointer;
+    
 }
 input[type="radio"] + label:before{
     border: 1px solid #5D5C5C;

@@ -8,7 +8,11 @@ namespace LifeMore.Controllers
 {
     public class ConsultaController : Controller
     {
-        // GET: Consulta
+        // GET: MarcarConsulta
+        public ActionResult MarcarConsulta()
+        {
+            return View();
+        }
         public ActionResult IndexConsulta()
         {
             return View();

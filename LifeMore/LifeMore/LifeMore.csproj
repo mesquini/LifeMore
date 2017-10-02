@@ -196,9 +196,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\ConsultaController.cs" />
     <Compile Include="Controllers\EntrarController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ConsultaController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -233,6 +233,7 @@
     <Content Include="Views\Entrar\Cadastrar.cshtml" />
     <Content Include="Views\Consulta\IndexConsulta.cshtml" />
     <Content Include="Views\Perfil\IndexPerfil.cshtml" />
+    <Content Include="Views\Consulta\MarcarConsulta.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

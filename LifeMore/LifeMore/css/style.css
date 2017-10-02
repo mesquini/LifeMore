@@ -25,6 +25,17 @@ body a{
 a:hover{
 	text-decoration:none;
 }
+.nome{
+  text-align: center;
+    color: white;
+    margin-top: 100px;
+    font-size: 25px;
+}
+.nometexto{
+    margin-left: 880px;
+width: 300px;
+
+}
 input[type="button"],input[type="submit"],.contact-form input[type="submit"]{
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
