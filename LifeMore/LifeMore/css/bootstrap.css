@@ -1965,6 +1965,9 @@ pre code {
   }
   .col-md-3 {
     width: 25%;
+  }
+  .col-md-perfil {
+    width: 25%;
     margin-left:90px;
   }
     .icon-service {
