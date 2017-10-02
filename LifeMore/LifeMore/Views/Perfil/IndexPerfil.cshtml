@@ -58,10 +58,28 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="stroke">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="~/Home/Index">Home</a></li>
+                                    @if (ViewBag.Logado == null)
+                                    {
+
+                                        <li class="entrar"><a href="~/Entrar/Cadastrar">Entrar</a></li>
+
+                                    }
+                                    @if (ViewBag.Logado != null)
+                                    {
+
+                                        <li><a href="~/Perfil/IndexPerfil">Perfil</a></li>
+                                        <li><a href="#">Cardápio</a></li>
+                                    }
+
+                                    <li class="active"><a href="~/Home/Index">Home</a></li>
                                     <li><a href="~/Home/About">Quem somos</a></li>
                                     <li><a href="~/Home/Contato">Fale conosco</a></li>
+                                    @if (ViewBag.Logado != null)
+                                    {
 
+                                        <li><a href="~/Entrar/Sair">Sair</a></li>
+
+                                    }
                                 </ul>
                             </nav>
                         </div>
@@ -72,25 +90,35 @@
         </div>
 
        </div>
-    <br></br>
+    <br />
+    <div class=" textoperfil">
+           Perfil
+    </div>
+    
     @* perfil *@
         <div class="perfil">
-            <div class="nome"
-            <p>Nome: @ViewBag.Nome</p>   <div class="imagem"><img src="~/images/Entrar/@ViewBag.Imagem"/> </div>
+            
+            <div class="imagem">
+                <img src="~/images/Entrar/@ViewBag.Imagem" />
             </div>
-            <div class="cpf">
-            <p>CPF: @ViewBag.CPF </p>
-          </div>
-            <br />
-            <br />    
-            <p>Objetivo: @ViewBag.Objetivo</p>
-            <p>E-mail: @ViewBag.Email</p>
-            <p>Endereço: @ViewBag.Endereco</p>
-            <p>Peso: @ViewBag.Peso</p>
-            <p>Altura: @ViewBag.Altura</p>
-            <p>Telefone: @ViewBag.Tel</p>        
-            <p>Idade: @ViewBag.Idade</p>
-</div>
+
+            <div class="dadosPessoais">
+                <p>Nome: @ViewBag.Nome</p>
+                <p>E-mail: @ViewBag.Email</p>
+                <p>CPF: @ViewBag.CPF </p>
+                <p>Endereço: @ViewBag.Endereco</p>
+                <p>Telefone: @ViewBag.Tel</p>
+            </div>
+
+            <div class="dadosSistema">
+                <p>Objetivo: @ViewBag.Objetivo</p>
+                <p>Peso: @ViewBag.Peso</p>
+                <p>Altura: @ViewBag.Altura</p>
+                <p>Idade: @ViewBag.Idade</p>
+            </div>
+                
+                <div class="espaco"> </div>
+            </div>
 
 
     <div class="footer w3ls">
