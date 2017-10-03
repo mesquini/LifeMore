@@ -12,14 +12,56 @@ namespace LifeMore.Controllers
         // GET: Entrar
         public ActionResult Cadastrar()
         {
-           
+            
+            if (Request.HttpMethod == "POST")
+            {
 
+                String Nome = Request.Form["nome"];
+                String Senha = Request.Form["senha"];
+                String CPF = Request.Form["cpf"];
+                String Email = Request.Form["email"];
+                String Objetivo = Request.Form["objetivo"];
+                String Idade = Request.Form["idade"];
+                String Peso = Request.Form["peso"];
+                String Altura = Request.Form["altura"];
+                String End = Request.Form["endereco"];
+                String Tel = Request.Form["telefone"];
+               
+
+                Paciente NovoUser = new Paciente();
+
+                NovoUser.Nome = Nome;
+                NovoUser.Senha = Senha;
+                NovoUser.CPF = CPF;
+                NovoUser.Email = Email;
+                NovoUser.Objetivo = Objetivo;
+                NovoUser.Idade = Idade;
+                NovoUser.Peso = Peso;
+                NovoUser.Altura = Altura;
+                NovoUser.Telefone = Tel;
+                NovoUser.Endereco = End;
+
+                if (NovoUser.Novo())
+                {
+                    ViewBag.Mensagem = "Usuário criado com sucesso!";
+                    Response.Redirect("/Perfil/IndexPerfil");
+                }
+                else
+                {
+                    ViewBag.Mensagem = "Houve um erro ao criar o Usuário. Verifique os dados e tente novamente.";
+                }
+            }
+            
+            return View();
+        }
+        public ActionResult Logar()
+        {
             if (Request.HttpMethod == "POST")
             {
                 String CPF = Request.Form["cpf"].ToString();
                 String Senha = Request.Form["senha"].ToString();
-               
-                if(Paciente.Autenticar(CPF, Senha))
+
+                if (Paciente.Autenticar(CPF, Senha))
                 {
                     Paciente P = new Paciente(CPF, Senha);
                     Session["Paciente"] = P;
@@ -30,7 +72,7 @@ namespace LifeMore.Controllers
 
                     ViewBag.MsgErro = "Usuário e/ou Senha incorretos!";
                 }
-                      
+
             }
 
             if (Session["Paciente"] != null)
@@ -41,10 +83,11 @@ namespace LifeMore.Controllers
                 ViewBag.CPF = Paciente.CPF;
                 ViewBag.Nome = Paciente.Nome;
                 ViewBag.Objetivo = Paciente.Objetivo;
-                
+
             }
             return View();
         }
+
         public void Sair()
         {
             Session.Abandon();

@@ -1,4 +1,6 @@
 ﻿body {
+    margin:0px;
+
 }
 
 
@@ -76,7 +78,7 @@
             border: 1px solid #000;
         }
 
-        .botaoAcessar .botao span{
+        .botaoAcessar .botao a{
             color: #ffffff;
             line-height: 37px;
             font-family: Calibri;
