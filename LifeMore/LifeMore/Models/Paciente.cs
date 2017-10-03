@@ -17,10 +17,10 @@ namespace LifeMore.Models
         public String Objetivo { get; set; }
         public String Senha { get; set; }
         public String Telefone { get; set; }
-        public Int32 Idade { get; set; }
+        public String Idade { get; set; }
         public String ImagemPerfil { get; set; }
-        public Double Peso { get; set; }
-        public Double Altura { get; set; }
+        public String Peso { get; set; }
+        public String Altura { get; set; }
         public String Endereco { get; set; }
 
         public Paciente() { }
@@ -72,9 +72,9 @@ namespace LifeMore.Models
             this.Objetivo = (String)Leitor["Objetivo"];
             this.ImagemPerfil = (String)Leitor["Foto"];
             this.CPF = (String)Leitor["CPF_Paciente"];
-            this.Altura = (Double)Leitor["Altura"];
-            this.Peso = (Double)Leitor["Peso"];
-            this.Idade = (Int32)Leitor["Idade"];
+            this.Altura = (String)Leitor["Altura"];
+            this.Peso = (String)Leitor["Peso"];
+            this.Idade = (String)Leitor["Idade"];
             this.Telefone = (String)Leitor["Telefone"];
 
 
@@ -82,7 +82,36 @@ namespace LifeMore.Models
 
             Conexao.Close();
         }
+        public Boolean Novo()
+        {
+            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
+            Conexao.Open();
 
+            SqlCommand Comando = new SqlCommand();
+            Comando.Connection = Conexao; /*'458.363.878-77', 'teste', 'Rua 1', 'imagemPadrao.jpeg', 1.71, 'Emagrecer', 75.510, '987456321', 'Teste', 18, 'mesquini@live.com'*/
+            Comando.CommandText = "INSERT INTO Paciente (CPF_Paciente, Nome, Endereco, Foto, Altura, Objetivo, Peso, Telefone, Senha, Idade, Email)"
+              + "VALUES (@CPF_Paciente, @Nome, @Endereco, @Foto, @Altura, @Objetivo, @Peso, @Telefone, @Senha, @Idade, @Email);";
+
+            Comando.Parameters.AddWithValue("@CPF_Paciente", this.CPF);
+            Comando.Parameters.AddWithValue("@Nome", this.Nome);
+            Comando.Parameters.AddWithValue("@Endereco", this.Endereco);
+            Comando.Parameters.AddWithValue("@Foto", "imagemPadrao.jpeg");
+            Comando.Parameters.AddWithValue("@Altura", this.Altura);
+            Comando.Parameters.AddWithValue("@Objetivo", this.Objetivo);
+            Comando.Parameters.AddWithValue("@Peso", this.Peso);
+            Comando.Parameters.AddWithValue("@Telefone", this.Telefone);
+            Comando.Parameters.AddWithValue("@Senha", this.Senha);
+            Comando.Parameters.AddWithValue("@Idade", this.Idade);
+            Comando.Parameters.AddWithValue("@Email", this.Email);
+
+
+
+            Int32 Resultado = Comando.ExecuteNonQuery();
+
+            Conexao.Close();
+
+            return Resultado > 0 ? true : false;
+        }
         public static List<Paciente> ListarP()
         {
             SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
@@ -101,11 +130,11 @@ namespace LifeMore.Models
                 P.Cod = (Int32)Leitor["Cod"];
                 P.Nome = ((String)Leitor["Nome"]);
                 P.Endereco = Leitor["Endereco"].ToString();
-                P.CPF = (String)Leitor["SobrenomeU"];
+                P.CPF = (String)Leitor["CPF_Paciente"];
                 P.Email = ((String)Leitor["Email"]);
                 P.Senha = (String)Leitor["Senha"];
-                P.Altura = (float)Leitor["Altura"];
-                P.Peso = (float)Leitor["Peso"];
+                P.Altura = ((String)Leitor["Altura"]);
+                P.Peso = (String)Leitor["Peso"];
                 P.ImagemPerfil = (String)Leitor["Foto"];
                 P.Telefone = (String)Leitor["Telefone"];
 

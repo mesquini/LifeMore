@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 /* reset */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,ab,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;vertical-align:baseline;}
 article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
-ol,ul{list-style:none;margin:0px;padding:0px;}
+ol,ul{list-style:none;margin-top:16px;padding:0px;}
 blockquote,q{quotes:none;}
 blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
 table{border-collapse:collapse;border-spacing:0;}
@@ -40,7 +40,6 @@ img{max-width:100%;}
 }
 .nome{
     font-size: 25px;
-    float: cemter;
 }
 .cpf{
     text-align:center;
@@ -326,12 +325,12 @@ input[type="radio"]:checked + label:after{
 .top1{
 	margin-top: 2%;
 }
-.resp-tabs-list {
+.resp-tabs-list a{
     list-style: none;
     text-align: left;
     margin-bottom: 2em;
 }
-.resp-tab-item {
+.resp-tab-item a{
     color: #fff;
     font-size: 1.3em;
     cursor: pointer;
@@ -347,7 +346,7 @@ input[type="radio"]:checked + label:after{
     transition: all 0.3s; 
     opacity: .5; 
 }
-.resp-tab-active {
+.resp-tab-active a{
     text-shadow: none;
     color: #fff;
     opacity: 1;
@@ -360,6 +359,16 @@ input[type="radio"]:checked + label:after{
 }
 .resp-tab-active span {
     border-bottom-color: #336dd4;
+}
+.resp-tab-item a {
+    border-bottom: 3px solid transparent;
+	padding: 0 3px 0.4em;
+    text-transform: capitalize;
+    float:left;
+}
+.resp-tab-active a {
+    border-bottom-color: #336dd4;
+    margin-right: 15px;
 }
 .resp-tabs-container {
     padding: 0px;
@@ -379,8 +388,9 @@ h2.resp-accordion {
 }
 .resp-tab-item label {
     margin: 0 0.6em;
-    font-size: 1.2em;
+    font-size: 1.5em;
     vertical-align: middle;
+    float:left; 
 }
 /*-- //SAP --*/
 /*--alert-close--*/
@@ -501,7 +511,7 @@ h2.resp-accordion {
 	.login-agileits-top input[type="checkbox"]+label {
 		font-size: 14px;
 	}
-	.login-agileits-top input[type="checkbox"]+label span:first-child {
+	.login-agileits-top input[type="checkbox"]+label a:first-child {
 		top: 2px;
 	}
 	.sap_tabs, .w3ls-tabs {
@@ -577,10 +587,10 @@ h2.resp-accordion {
 		margin: 1.2em 0 1em 0;
 		font-size: 1.8em;
 	}
-	.resp-tab-item span {
+	.resp-tab-item a {
 		border-bottom: 2px solid transparent;
 	}
-	.resp-tab-active span {
+	.resp-tab-active a {
 		border-bottom-color: #fc636b;
 	}
 }

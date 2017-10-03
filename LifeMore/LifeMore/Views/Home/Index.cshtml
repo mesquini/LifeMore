@@ -34,7 +34,6 @@
     <!-- //online-fonts -->
 
     <link rel="stylesheet" href="~/css/Login.css">
-    <script src="~/js/login.js"></script>
 
 </head>
 <body>
@@ -61,7 +60,7 @@
                                     @if (ViewBag.Logado == null)
                                     {
 
-                                        <li class="entrar"><a href="~/Entrar/Cadastrar">Entrar</a></li>
+                                        <li class="entrar"><a href="~/Entrar/Logar">Entrar</a></li>
 
                                     }
                                     @if (ViewBag.Logado != null)
@@ -246,7 +245,7 @@
                     </div>
                     <h4>Consulta inicial de nutrição</h4><!--topico 1-->
                     <span></span>
-                    <b>Aqui você pode agendar sua primeira consulta com um nutricionista de seu querer.</b>
+                    <b style="color: #fff;">Aqui você pode agendar sua primeira consulta com um nutricionista de seu querer.</b>
                 </div>
                 <div class="col-md-3 feature-grid">
                     <div class="icons-w3">
@@ -254,7 +253,7 @@
                     </div>
                     <h4>Aconselhamento de nutrição</h4><!--topico 2-->
                     <span></span>
-                    <b>Caso você queira revisasr suas dietas pode optar por um aconselhamento, que seria uam consulta mais rápida.</b>
+                    <b style="color: #fff;">Caso você queira revisasr suas dietas pode optar por um aconselhamento, que seria uam consulta mais rápida.</b>
                 </div>
                 <div class="col-md-3 feature-grid">
                     <div class="icons-w3">
@@ -262,7 +261,7 @@
                     </div>
                     <h4>Nutrição para a família</h4><!--topico 3-->
                     <span></span>
-                    <b>Agende uma consulta para todoa a família de maneira rápida e ecônomica.</b>
+                    <b style="color: #fff;">Agende uma consulta para todoa a família de maneira rápida e ecônomica.</b>
                 </div>
                 <div class="col-md-3 feature-grid">
                     <div class="icons-w3">
@@ -270,7 +269,7 @@
                     </div>
                     <h4>Melhoramento de peso</h4><!--topico 4-->
                     <span></span>
-                    <b>Você pode melhorar seu peso com a ajuda de uma dieta que atenderá a suas necessidades.</b>
+                    <b style="color: #fff;">Você pode melhorar seu peso com a ajuda de uma dieta que atenderá a suas necessidades.</b>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -401,11 +400,7 @@
     <!-- //Baneer-js -->
     <!-- Calendar -->
     <script src="~/js/jquery-ui.js"></script>
-    <script>
-						  $(function() {
-							$( "#datepicker,#datepicker1,#datepicker2,#datepicker3" ).datepicker();
-						  });
-    </script>
+    
     <!-- //Calendar -->
     <!-- Time -->
     <script type="text/javascript" src="~/js/wickedpicker.js"></script>
