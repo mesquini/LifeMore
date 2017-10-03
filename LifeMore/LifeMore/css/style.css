@@ -34,7 +34,16 @@ a:hover{
 .nometexto{
     margin-left: 880px;
 width: 300px;
-
+}
+.email{
+    text-align: center;
+color: white;
+font-size: 25px;
+padding-right: 90px;
+}
+.emailtexto{
+    margin-left: 880px;
+width: 300px;
 }
 input[type="button"],input[type="submit"],.contact-form input[type="submit"]{
 	transition:0.5s all;
