@@ -26,25 +26,51 @@ a:hover{
 	text-decoration:none;
 }
 .nome{
-  text-align: center;
-    color: white;
-    margin-top: 100px;
-    font-size: 25px;
+ color: white;
+margin-top: 40px;
+font-size: 25px;
+margin-left: 750px;
 }
 .nometexto{
-    margin-left: 880px;
+    margin-left: 780px;
 width: 300px;
+margin-bottom: 10px;
 }
 .email{
-    text-align: center;
-color: white;
+   color: white;
 font-size: 25px;
-padding-right: 90px;
+margin-left: 750px;
 }
+
 .emailtexto{
-    margin-left: 880px;
-width: 300px;
+    text-align:center;
+    margin-left: 780px;
+    width: 300px;
+    margin-bottom: 10px;
 }
+.telefone{
+    color: white;
+    font-size: 25px;
+margin-left: 750px;
+}
+.telefonetexto{
+    margin-left: 780px;
+    width: 300px;
+    margin-bottom: 10px;
+}
+.Tituloconsulta{
+    color: white;
+text-align: center;
+font-size: 40px;
+margin-top: 75px;
+}
+.mensagem{
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    padding-right: 90px;
+}
+
 input[type="button"],input[type="submit"],.contact-form input[type="submit"]{
 	transition:0.5s all;
 	-webkit-transition:0.5s all;

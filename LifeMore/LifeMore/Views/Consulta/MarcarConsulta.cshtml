@@ -89,17 +89,26 @@
             </div>
         </div>
     </div>
-   
+    <div class="Tituloconsulta">
+        Informações do paciente
+    </div>
     <div class="nome">
         *Nome Completo
     </div>
-        <input class="nometexto" type="text" id="nome" />          
+        <input class="nometexto" type="text" id="nomeconsulta" />          
     <div class="email">
         *Email
     </div>   
-    <div>
-        <input class="emailtexto" type="email" id="email" />
-    </div>
+        <input class="emailtexto" type="text" id="emailconsulta" />
+    <div class="telefone">
+        *Telefone
+    </div> 
+        <input class="telefonetexto" type="text" name="tel" maxlength="12" OnKeyPress="formatar('(##)-####-####', this)" />
+       <div class="mensagem">
+        Sinta-se a vontade para deixar uma mensagem para o seu médico
+        </div>
+    <textarea data-hook="message-field" name="message" type="textarea"></textarea>
+
     <div class="footer w3ls">
         <div class="container">
             <div class="footer-main">

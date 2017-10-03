@@ -175,6 +175,7 @@ legend {
 }
 textarea {
   overflow: auto;
+  margin-left: 880px;
 }
 optgroup {
   font-weight: bold;
@@ -1090,11 +1091,19 @@ body {
 }
 input,
 button,
-select,
-textarea {
+select{
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+  
+}
+textarea{
+    font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin-left: 780px;
+  margin-bottom: 20px;
+  width :300px;
 }
 a {
   color: #337ab7;
