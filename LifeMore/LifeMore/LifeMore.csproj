@@ -229,6 +229,7 @@
     <Content Include="Views\Entrar\Cadastrar.cshtml" />
     <Content Include="Views\Consulta\IndexConsulta.cshtml" />
     <Content Include="Views\Perfil\IndexPerfil.cshtml" />
+    <Content Include="Views\Home\Dicas.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,425 @@
+﻿
+
+<!--
+    Author: W3layouts
+    Author URL: http://w3layouts.com
+    License: Creative Commons Attribution 3.0 Unported
+    License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <title>LifeMore-Dicas</title>
+
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Life More web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--// Meta tag Keywords -->
+    <!-- css files -->
+    <link rel="stylesheet" href="~/css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="~/css/style.css" type="text/css" media="all" /> <!-- Style-CSS -->
+    <link rel="stylesheet" href="~/css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
+    <link rel="stylesheet" href="~/css/jquery-ui.css" /> <!-- Date-script-CSS -->
+    <link href="~/css/wickedpicker.css" rel="stylesheet" type='text/css' media="all" /> <!-- Time-script-CSS -->
+    <!-- //css files -->
+    <!-- online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Convergence" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=ABeeZee:400,400i" rel="stylesheet">
+    <!-- //online-fonts -->
+
+    <link rel="stylesheet" href="~/css/Login.css">
+    <script src="~/js/login.js"></script>
+
+</head>
+<body>
+    <div class="Main-agile">
+        <!-- banner -->
+        <div class="banner">
+            <div class="container">
+                <div class="col-md-4 agile1">
+                    <nav class="navbar navbar-default">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                            <nav class="stroke">
+                                <ul class="nav navbar-nav">
+                                    @if (ViewBag.Logado == null)
+                                    {
+
+                                        <li class="entrar"><a href="~/Entrar/Cadastrar">Entrar</a></li>
+
+                                    }
+                                    @if (ViewBag.Logado != null)
+                                    {
+
+                                        <li><a href="~/Perfil/IndexPerfil">Perfil</a></li>
+                                        <li><a href="#">Cardápio</a></li>
+
+                                    }
+
+                                    <li class="active"><a href="~/Home/Index">Home</a></li>
+                                    <li><a href="~/Home/About">Quem somos</a></li>
+                                    <li><a href="~/Home/Contato">Fale conosco</a></li>
+
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </nav>
+                </div>
+                <div class="col-md-4 logo">
+                    <div class="logo-w3l">
+                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                    </div>
+                    <h1><a href="~/Home/Index">Life More<span>Cuide de você</span></a></h1>
+                </div>
+
+                <div class="col-md-4 ph-agile">
+                    <p><i class="fa fa-phone" aria-hidden="true"></i><span>+55 19 9 9865 8943</span></p>
+                </div>
+                <div class="clearfix"> </div>
+
+                @if (ViewBag.Logado == null)
+                {
+                    <h2>seja bem-vindo ao site</h2>
+
+
+                }
+
+                @if (ViewBag.Logado != null)
+                {
+
+                    <h2>@ViewBag.Nome Seja Bem-Vindo</h2>
+
+                }
+
+                <!-- banner-text -->
+                <div class="slider">
+                    <div class="callbacks_container">
+                        <ul class="rslides callbacks callbacks1" id="slider4">
+                            <li>
+                                <div class="w3layouts-banner-top">
+                                    <div class="container">
+                                        <div class="agileits-banner-info">
+                                            <h3>Melhores Tratamentos</h3>
+                                            <p>Nós providenciamos os melhores serviços médicos.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="w3layouts-banner-top">
+                                    <div class="container">
+                                        <div class="agileits-banner-info">
+                                            <h3>Nós providenciamos</h3>
+                                            <p>Serviços médicos que você pode confiar!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="w3layouts-banner-top">
+                                    <div class="container">
+                                        <div class="agileits-banner-info">
+                                            <h3>Melhor tecnologia</h3>
+                                            <p>Nos preocupamos com sua saúde.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"> </div>
+
+                    <!-- //banner-text -->
+               
+    <!-- //banner -->
+    <!-- main -->
+    <!-- About -->
+    <div id="about" class="welcome">
+        <!--QUEM SOMOS-->
+        <div class="container">
+            <div class="agile-title2">
+                <h3>Só uma cerveja? <span></span></h3>
+            </div>
+            <div class="w3ls-row">
+                <div class="col-md-6 welcome-left">
+                    
+                    <p>Pesquisadores descobriram que beber cerveja pode levantar seu humor e fazer com que você se sinta bem consigo mesmo.
+                     Isso graças a hordenina, uma substância abundante no malte de cevada, ingrediente-chave na bebida alcoólica.
+                     O resultado é a ativação dos receptores de dopamina no cérebro que, por sua vez, desencadeiam um aumento das reações 
+                    químicas que causam boas sensações e atingem a área de tomada de decisão do cérebro.</p>
+                </div>
+                <div class="col-md-6 welcome-right">
+                    <div class="clearfix"> </div>
+                </div>
+               
+                <div class="col-md-6 welcome-left-grids">
+                    <div class="welcome-img">
+                        <img src="~/images/Quem_somos-Index/Pesos.jpg" class="img-responsive zoom-img" alt="" />
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!-- //About -->
+    <!-- what-we-do -->
+    <div class="tips w3agile">
+        <div class="container">
+            <h3 class="tittle-one">O que fazemos<span></span></h3>
+            <div class="tip-grids">
+                <div class="col-md-6 tip-grid">
+                    <figure class="effect-julia">
+                        <img src="~/images/Quem_somos-Index/Healthcare.jpg" alt="">
+                        <figcaption>
+                            <h4>Melhores Tratamentos</h4>
+                            <p>Nós criamos uma maneira na qual a nutricionista acamponha o paciente de perto.</p>
+                            <p>Tratamentos naturais, sem remédios químicos!</p>
+                            <p>Nós cuidaremos da sua saúde.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="col-md-6 tip-grid">
+                    <figure class="effect-julia">
+                        <img src="~/images/Quem_somos-Index/IDOSARUGAS.jpg" alt="">
+                        <figcaption>
+                            <h4>Os melhores especialistas</h4>
+                            <p>Nós providenicaremos o melhor profissional para a sua saúde.</p>
+                            <p>Médicos que você poderá confiar sua saúde.</p>
+                            <p>Nós trabalhamos para o seu bem estar.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <!-- //what-we-do -->
+    <!-- Services -->
+    <!-- Outros servicos -->
+    <div class="feature-w3l">
+
+        <div class="container">
+            <h3 class="tittle"> <span></span></h3>
+            <div class="feature-grids">
+                <div class="col-md-3 feature-grid">
+                    <div class="icons-w3">
+                        <i class="fa fa-user-md" aria-hidden="true"></i>
+                    </div>
+                    <h4>Consulta inicial de nutrição</h4><!--topico 1-->
+                    <span></span>
+                    <b>Aqui você pode agendar sua primeira consulta com um nutricionista de seu querer.</b>
+                </div>
+                <div class="col-md-3 feature-grid">
+                    <div class="icons-w3">
+                        <i class="fa fa-medkit" aria-hidden="true"></i>
+                    </div>
+                    <h4>Aconselhamento de nutrição</h4><!--topico 2-->
+                    <span></span>
+                    <b>Caso você queira revisasr suas dietas pode optar por um aconselhamento, que seria uam consulta mais rápida.</b>
+                </div>
+                <div class="col-md-3 feature-grid">
+                    <div class="icons-w3">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                    </div>
+                    <h4>Nutrição para a família</h4><!--topico 3-->
+                    <span></span>
+                    <b>Agende uma consulta para todoa a família de maneira rápida e ecônomica.</b>
+                </div>
+                <div class="col-md-3 feature-grid">
+                    <div class="icons-w3">
+                        <i class="fa fa-child" aria-hidden="true"></i>
+                    </div>
+                    <h4>Melhoramento de peso</h4><!--topico 4-->
+                    <span></span>
+                    <b>Você pode melhorar seu peso com a ajuda de uma dieta que atenderá a suas necessidades.</b>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <!-- //Services -->
+    <!-- //main -->
+    <!-- Footer -->
+    <div class="footer w3ls">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-top">
+                    <div class="col-md-4 services-grids">
+                        <h3>Curiosidades</h3>
+                        <ul>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Buscando o bem estar da sociedade sempre.</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista jovens e experientes ajudando  clientes de qualquer idade</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Comer saudávelmente é sinônimo de comer bem.</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista de esportes pronto para ajudar no melhor desenvolvimento para seu corpo.</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 ftr-grid">
+                        <div class="logo-fo">
+                            <div class="logo-w3l">
+                                <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                            </div>
+                            <h2><a href="~/Home/Index">Life More<span>Cuide de você</span></a></h2>
+                        </div>
+                    </div>
+                    <div class="col-md-4 ftr-grid fg2">
+                        <h3>Nossos enderços</h3>
+                        <div class="ftr-address">
+                            <div class="local">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            </div>
+                            <div class="ftr-text">
+                                <p>SENAI Zerbini</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="ftr-address">
+                            <div class="local">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                            </div>
+                            <div class="ftr-text">
+                                <p>+55 19 9 9865 8943</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="ftr-address">
+                            <div class="local">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <div class="ftr-text">
+                                <p><a href="mailto:LifeMore@gmail.com">LifeMore@gmail.com</a></p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="right-w3l">
+                    <ul class="top-links">
+
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    </ul>
+                </div>
+                <div class="copyrights">
+                    <p>&copy; 2017 Life More. Todos os direitos reservados | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //Footer -->
+    <!-- js-scripts -->
+    <!-- js -->
+    <script type="text/javascript" src="~/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.js"></script> <!-- Necessary-JavaScript-File-For-Bootstrap -->
+    <!-- //js -->
+    <!-- Baneer-js -->
+
+    <script src="~/js/responsiveslides.min.js"></script>
+    <script>
+						// You can also use "$(window).load(function() {"
+						$(function () {
+						  // Slideshow 4
+						  $("#slider4").responsiveSlides({
+							auto: true,
+							pager:true,
+							nav:false,
+							speed: 500,
+							namespace: "callbacks",
+							before: function () {
+							  $('.events').append("<li>before event fired.</li>");
+							},
+							after: function () {
+							  $('.events').append("<li>after event fired.</li>");
+							}
+						  });
+
+						});
+    </script>
+    <script>
+								// You can also use "$(window).load(function() {"
+								$(function () {
+								  // Slideshow 4
+								  $("#slider3").responsiveSlides({
+									auto: true,
+									pager:false,
+									nav:true,
+									speed: 500,
+									namespace: "callbacks",
+									before: function () {
+									  $('.events').append("<li>before event fired.</li>");
+									},
+									after: function () {
+									  $('.events').append("<li>after event fired.</li>");
+									}
+								  });
+
+								});
+    </script>
+
+
+    <!-- //Baneer-js -->
+    <!-- Calendar -->
+    <script src="~/js/jquery-ui.js"></script>
+    <script>
+						  $(function() {
+							$( "#datepicker,#datepicker1,#datepicker2,#datepicker3" ).datepicker();
+						  });
+    </script>
+    <!-- //Calendar -->
+    <!-- Time -->
+    <script type="text/javascript" src="~/js/wickedpicker.js"></script>
+    <script type="text/javascript">
+				$('.timepicker').wickedpicker({twentyFour: false});
+    </script>
+    <!-- //Time -->
+    <!-- jarallax-js -->
+    <script src="~/js/jarallax.js"></script>
+    <script src="~/js/SmoothScroll.min.js"></script>
+    <script type="text/javascript">
+				/* init Jarallax */
+				$('.jarallax').jarallax({
+					speed: 0.5,
+					imgWidth: 1366,
+					imgHeight: 768
+				})
+    </script>
+    <!-- //jarallax-js -->
+    <!-- for-Testimonials -->
+    <!-- required-js-files-->
+    <link href="~/css/owl.carousel.css" rel="stylesheet">
+    <script src="~/js/owl.carousel.js"></script>
+    <script>
+							    $(document).ready(function() {
+							      $("#owl-demo").owlCarousel({
+							        items : 1,
+							        lazyLoad : true,
+							        autoPlay : true,
+							        navigation : false,
+							        navigationText :  false,
+							        pagination : true,
+							      });
+							    });
+    </script>
+    <!--//required-js-files-->
+    <!-- //for-Testimonials -->
+    <!-- //js-scripts -->
+</body>
+</html>
+
