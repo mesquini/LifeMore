@@ -16,6 +16,32 @@ namespace LifeMore.Controllers
             {
                 ViewBag.Logado = Session["Paciente"];
                 Paciente p = (Paciente)Session["Paciente"];
+                ViewBag.Paciente = p;
+
+                ViewBag.CPF = p.CPF;
+                ViewBag.Nome = p.Nome;
+                ViewBag.Objetivo = p.Objetivo;
+                ViewBag.Email = p.Email;
+                ViewBag.Endereco = p.Endereco;
+                ViewBag.Imagem = p.ImagemPerfil;
+                ViewBag.Peso = p.Peso;
+                ViewBag.Altura = p.Altura;
+                ViewBag.Tel = p.Telefone;
+                ViewBag.Idade = p.Idade;
+
+                return View();
+            }
+                
+            return View();
+        }
+        public ActionResult Editar_Perfil()
+        {
+            if (Session["Paciente"] != null)
+            {
+                ViewBag.Logado = Session["Paciente"];
+                Paciente p = (Paciente)Session["Paciente"];
+                ViewBag.Paciente = p;
+
                 ViewBag.CPF = p.CPF;
                 ViewBag.Nome = p.Nome;
                 ViewBag.Objetivo = p.Objetivo;
@@ -30,7 +56,6 @@ namespace LifeMore.Controllers
                 return View();
             }
 
-            Response.Redirect("~/Home/Index", false);
             return View();
         }
     }

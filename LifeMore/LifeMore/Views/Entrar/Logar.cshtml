@@ -87,12 +87,17 @@
                         </ul>
                         <div class="clear"> </div>
                         <div class="resp-tabs-container">
-
+                            
                             @* LOGAR *@
                             <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
                                 <div class="login-agileits-top">
+                                    @if (ViewBag.MsgErro != null)
+                                    {
+                                        <div class="alert alert-danger">
+                                            <strong>ERRO!</strong> @ViewBag.MsgErro
+                                        </div>
+                                    }
                                     <form action="/Entrar/Logar" method="post">
-                                        <h3>@ViewBag.MsgErro</h3>
                                         <p>CPF</p>
                                         <input type="text" name="cpf" id="cpf" required />
                                         <p>Senha</p>

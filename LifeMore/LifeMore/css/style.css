@@ -1223,6 +1223,8 @@ li.get-w3 a i {
     position: absolute;
     top: -7%;
     right: 26%;
+    margin-left:20px;
+    margin-top:20px;
 }
 
 .copyrights {

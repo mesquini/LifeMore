@@ -37,12 +37,13 @@
     <script src="~/js/jquery.js"></script>
     <script src="~/js/jquery.mask.js"></script>
 </head>
+
 <script type="text/javascript">
     jQuery(function ($) {
         $("#telefone").mask("(99)9 9999-9999");
         $("#cpf1").mask("999.999.999-99");
-        $("#peso").mask("999,999", { required: true});
-        $("#altura").mask("9,99", { required: true });
+        $("#peso").mask("999.999", { required: true});
+        $("#altura").mask("9.99", { required: true });
     });
 </script>
 
@@ -120,12 +121,17 @@
                                             <input type="text" id="telefone" name="telefone" required placeholder="Ex: (11)1 1111-1111"/>
                                         <p>Senha</p>
                                             <input type="password" name="senha" required />
-                                        <p>Foto</p>
-                                            <input type="file" id="foto" name="foto" />
+                                        @*<p>Foto</p>
+                                            <input type="file" id="foto" name="foto" />*@
                                             <input type="submit" value="Cadastrar">
                                         
                                     </form>
-                                    
+                                    @if (ViewBag.MsgErro != null)
+                                    {
+                                        <div class="alert alert-danger">
+                                            <strong>ERRO!</strong> @ViewBag.MsgErro
+                                        </div>
+                                    }
                                 </div>
                             </div>
                             

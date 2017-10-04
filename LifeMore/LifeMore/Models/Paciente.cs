@@ -14,7 +14,7 @@ namespace LifeMore.Models
         public String Nome { get; set; }
         public String Email { get; set; }
         public String CPF { get; set; }
-        public String Objetivo { get; set; }
+        public int Objetivo { get; set; }
         public String Senha { get; set; }
         public String Telefone { get; set; }
         public String Idade { get; set; }
@@ -69,7 +69,7 @@ namespace LifeMore.Models
             this.Senha = (String)Leitor["Senha"];
             this.Endereco = (String)Leitor["Endereco"];
             this.Nome = (String)Leitor["Nome"];
-            this.Objetivo = (String)Leitor["Objetivo"];
+            this.Objetivo = (int)Leitor["Objetivo"];
             this.ImagemPerfil = (String)Leitor["Foto"];
             this.CPF = (String)Leitor["CPF_Paciente"];
             this.Altura = (String)Leitor["Altura"];
@@ -96,6 +96,7 @@ namespace LifeMore.Models
             Comando.Parameters.AddWithValue("@Nome", this.Nome);
             Comando.Parameters.AddWithValue("@Endereco", this.Endereco);
             Comando.Parameters.AddWithValue("@Foto", "imagemPadrao.jpeg");
+            //Comando.Parameters.AddWithValue("@Foto", this.ImagemPerfil);
             Comando.Parameters.AddWithValue("@Altura", this.Altura);
             Comando.Parameters.AddWithValue("@Objetivo", this.Objetivo);
             Comando.Parameters.AddWithValue("@Peso", this.Peso);
@@ -108,6 +109,33 @@ namespace LifeMore.Models
 
             Int32 Resultado = Comando.ExecuteNonQuery();
 
+            Conexao.Close();
+
+            return Resultado > 0 ? true : false;
+        }
+        public Boolean EditarPerfil()
+        {
+            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["Paciente"].ConnectionString);
+            Conexao.Open();
+
+
+            SqlCommand Comando = new SqlCommand();
+            Comando.Connection = Conexao;
+            Comando.CommandText = "UPDATE Paciente SET Peso = @Peso , Altura = @Altura, Foto = @Imagem, Idade = @Idade, Email = @Email, Telefone = @Telefone,"
+               +"Objetivo = @Objetivo, Endereco = @Endereco WHERE Cod = @ID;";
+
+            Comando.Parameters.AddWithValue("@ID", this.Cod);
+            Comando.Parameters.AddWithValue("@Peso", this.Peso);
+            Comando.Parameters.AddWithValue("@Altura", this.Altura);
+            Comando.Parameters.AddWithValue("@Imagem", this.ImagemPerfil);
+            Comando.Parameters.AddWithValue("@Idade", this.Idade);
+            Comando.Parameters.AddWithValue("@Email", this.Email);
+            Comando.Parameters.AddWithValue("@Telefone", this.Telefone);
+            Comando.Parameters.AddWithValue("@Objetivo", this.Objetivo);
+            Comando.Parameters.AddWithValue("@Endereco", this.Endereco);
+
+            Int32 Resultado = Comando.ExecuteNonQuery();
+            
             Conexao.Close();
 
             return Resultado > 0 ? true : false;
@@ -159,11 +187,32 @@ namespace LifeMore.Models
 
             SqlDataReader Leitor = Comando.ExecuteReader();
 
+            if (!Leitor.HasRows)
+            {
+                Conexao.Close();
+                return false;
+            }
             Leitor.Read();
-            
+
             Conexao.Close();
 
             return true;
+        }
+        public Boolean Apagar()
+        {
+            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
+            Conexao.Open();
+
+            SqlCommand Comando = new SqlCommand();
+            Comando.Connection = Conexao;
+            Comando.CommandText = "DELETE FROM Paciente WHERE Cod = @ID;";
+            Comando.Parameters.AddWithValue("@ID", this.Cod);
+
+            Int32 Resultado = Comando.ExecuteNonQuery();
+
+
+
+            return Resultado > 0 ? true : false;
         }
     }
     

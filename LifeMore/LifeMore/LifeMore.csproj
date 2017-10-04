@@ -160,6 +160,8 @@
     <Content Include="images\Quem_somos-Index\Pesos.jpg" />
     <Content Include="images\Quem_somos-Index\Nossasnoticias.jpg" />
     <Content Include="images\right-quotes.png" />
+    <Content Include="images\useredit-hover.png" />
+    <Content Include="js\AcessarPag.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\easing.js" />
     <Content Include="js\easyResponsiveTabs.js" />
@@ -234,6 +236,8 @@
     <Content Include="Views\Consulta\IndexConsulta.cshtml" />
     <Content Include="Views\Perfil\IndexPerfil.cshtml" />
     <Content Include="Views\Entrar\Logar.cshtml" />
+    <Content Include="Views\Consulta\MarcarConsulta.cshtml" />
+    <Content Include="Views\Perfil\Editar_Perfil.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -243,6 +247,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Adm\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
