@@ -258,7 +258,7 @@ body h2 {
 .inset input[type="submit"] {
     font-size: 1em;
     color: #336dd4;
-	background: transparent;
+	
     border: 3px solid #336dd4;
     outline: none;
     cursor: pointer;
