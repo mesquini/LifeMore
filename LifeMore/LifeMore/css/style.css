@@ -54,6 +54,12 @@ margin-left: 750px;
     text-align: center;
     margin-bottom: 20px;
 }
+.titulos{
+    text-align: center;
+    font-size: 75px;
+    margin-top: 50px;
+    color: white;
+}
 .emailtexto{
     text-align:center;
     margin-left: 780px;
