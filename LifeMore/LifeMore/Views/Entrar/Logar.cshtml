@@ -34,35 +34,13 @@
     <!-- //online-fonts -->
 
     <link rel="stylesheet" href="~/css/Login.css">
-    <script src="~/js/login.js" type="text/javascript"></script>
-    <script src="~/js/AcessarPag.js" type="text/javascript"></script>
-
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/jquery.mask.js"></script>
 </head>
 <script type="text/javascript">
-function calcula_imc(){
-var altura = document.imcForm.altura.value;
-var peso = document.imcForm.peso.value;
-
-var quadrado = (altura * altura);
-
-var calculo = (peso/quadrado);
-
-if(calculo<18.5){
-alert("Você está magro com esse indice: " + calculo);
-}
-else if(calculo>=18.5 && calculo<24.9){
-alert("Você está normal com esse indice: " + calculo);
-}
-
-else if(calculo>=25 && calculo<29.9) {
-alert("Você está com sobre peso com esse indice: " + calculo);
-}
-else if(calculo>=30 && calculo<39.9) {
-alert("Você está com obesidade com esse indice: " + calculo);
-}
-else if (calculo>40)
-alert("Você estácom obesidade grave com esse indice: " + calculo);
-}
+    jQuery(function ($) {
+        $("#cpf").mask("999.999.999-99");
+    });
 </script>
 <body class="bgEntrar">
     <div class="Main-agile">
@@ -85,28 +63,10 @@ alert("Você estácom obesidade grave com esse indice: " + calculo);
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="stroke">
                                 <ul class="nav navbar-nav">
-                                    @if (ViewBag.Logado == null)
-                                    {
-
-                                        <li class="entrar"><a href="~/Entrar/Cadastrar">Entrar</a></li>
-
-                                    }
-                                    @if (ViewBag.Logado != null)
-                                    {
-
-                                        <li class="active"><a href="~/Perfil/IndexPerfil">Perfil</a></li>
-                                        <li><a href="#">Cardápio</a></li>
-                                    }
-
-                                    <li ><a href="~/Home/Index">Home</a></li>
-                                    <li ><a href="~/Home/About">Quem somos</a></li>
+                                    <li><a href="~/Home/Index">Home</a></li>
+                                    <li><a href="~/Home/About">Quem somos</a></li>
                                     <li><a href="~/Home/Contato">Fale conosco</a></li>
-                                    @if (ViewBag.Logado != null)
-                                    {
 
-                                        <li><a href="~/Entrar/Sair">Sair</a></li>
-
-                                    }
                                 </ul>
                             </nav>
                         </div>
@@ -116,45 +76,71 @@ alert("Você estácom obesidade grave com esse indice: " + calculo);
             </div>
         </div>
 
-       </div>
-    <br />
-    <div class="textoperfil">
-           Perfil
+
+        <div class="message warning">
+            <div class="inset agile">
+                <div class="sap_tabs w3ls-tabs">
+                    <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                        <ul class="resp-tabs-list">
+                            <li class="resp-tab-item resp-tab-active" aria-controls="tab_item-0" role="tab"><a href="~/Entrar/Logar">Entrar</a><label>/</label></li>
+                            <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><a href="~/Entrar/Cadastrar">Cadastrar</a></li>
+                        </ul>
+                        <div class="clear"> </div>
+                        <div class="resp-tabs-container">
+                            
+                            @* LOGAR *@
+                            <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+                                <div class="login-agileits-top">
+                                    @if (ViewBag.MsgErro != null)
+                                    {
+                                        <div class="alert alert-danger">
+                                            <strong>ERRO!</strong> @ViewBag.MsgErro
+                                        </div>
+                                    }
+                                    <form action="/Entrar/Logar" method="post">
+                                        <p>CPF</p>
+                                        <input type="text" name="cpf" id="cpf" required />
+                                        <p>Senha</p>
+                                        <input type="password" name="senha" id="senha" required />
+                                        <input type="submit" value="Entrar">
+                                    </form>
+
+                                </div>
+                                <div class="login-agileits-bottom">
+                                    <h2><a href="#">Esqueceu a senha?</a></h2>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="right-section-w3ls"></div>
+                <div class="clear"> </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="~/js/jquery-2.1.4.min.js"></script>
+        <script>
+                                $(document).ready(function(c) {
+	                            $('.alert-close').on('click', function(c){
+		                            $('.message').fadeOut('slow', function(c){
+	  		                            $('.message').remove();
+		                            });
+	                            });
+                            });
+        </script>
+        <script src="~/js/easyResponsiveTabs.js" type="text/javascript"></script>
+        <!-- ResponsiveTabs js -->
+        <script type="text/javascript">
+				                $(document).ready(function () {
+					                $('#horizontalTab').easyResponsiveTabs({
+						                type: 'default', //Types: default, vertical, accordion
+						                width: 'auto', //auto or any width like 600px
+						                fit: true   // 100% fit in a container
+					                });
+				                });
+        </script>
+        <!-- //ResponsiveTabs js -->
     </div>
-
-    @* perfil *@
-        <div class="perfil">
-
-            <div class="imagem">
-                <input type="image" title="Editar Informações" onclick="EditaPerfil()" id="edit" src="/images/Entrar/@ViewBag.Imagem" onmouseover="this.src = '/images/useredit-hover.png'"
-                onmouseout="this.src = '/images/Entrar/@ViewBag.Imagem'" class="imgEdit"/>
-            </div>
-
-            <div class="dadosPessoais">
-                <p>Nome: @ViewBag.Nome</p>
-                <p>E-mail: @ViewBag.Email</p>
-                <p>CPF: @ViewBag.CPF </p>
-                <p>Endereço: @ViewBag.Endereco</p>
-                <p>Telefone: @ViewBag.Tel</p>
-            </div>
-
-            <div class="dadosSistema">
-                @if ( ViewBag.Objetivo == 1) { <p>Objetivo: Engordar</p> }
-                else {<p>Objetivo: Emagrecer</p>}
-
-                <p id="peso">Peso: @ViewBag.Peso Kg</p>
-                <p id="altura">Altura: @ViewBag.Altura </p>
-                <a href="#" onclick="calcula_imc()">IMC: </a>
-                <p>Idade: @ViewBag.Idade</p>
-            </div>
-            <div class="btPerfil">
-
-
-            </div>
-            <div class="espaco"> </div>
-         </div>
-
-
     <div class="footer w3ls">
         <div class="container">
             <div class="footer-main">

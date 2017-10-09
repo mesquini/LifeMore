@@ -25,6 +25,70 @@ body a{
 a:hover{
 	text-decoration:none;
 }
+.nome{
+ color: white;
+margin-top: 40px;
+font-size: 25px;
+margin-left: 750px;
+}
+.nometexto{
+    margin-left: 780px;
+width: 300px;
+margin-bottom: 10px;
+}
+.email{
+   color: white;
+font-size: 25px;
+margin-left: 750px;
+}
+.botaoinfo{
+    font-size: 1em;
+    color: #336dd4;
+    background: transparent;
+    border: 3px solid #336dd4;
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    width: 20%;
+    margin-left: 750px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.titulos{
+    text-align: center;
+    font-size: 75px;
+    margin-top: 50px;
+    color: white;
+}
+.emailtexto{
+    text-align:center;
+    margin-left: 780px;
+    width: 300px;
+    margin-bottom: 10px;
+}
+.telefone{
+    color: white;
+    font-size: 25px;
+margin-left: 750px;
+}
+.telefonetexto{
+    margin-left: 780px;
+    width: 300px;
+    margin-bottom: 10px;
+}
+.Tituloconsulta{
+    color: white;
+text-align: center;
+font-size: 40px;
+margin-top: 75px;
+}
+.mensagem{
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    padding-right: 90px;
+}
+
 input[type="button"],input[type="submit"],.contact-form input[type="submit"]{
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
@@ -1212,6 +1276,8 @@ li.get-w3 a i {
     position: absolute;
     top: -7%;
     right: 26%;
+    margin-left:20px;
+    margin-top:20px;
 }
 
 .copyrights {
@@ -1252,7 +1318,8 @@ li.get-w3 a i {
     margin: 1em auto 0;
     width: 40%;	
 }
-.agileits-team-grids {
+
+s {
     margin: 4em 0 0 0;
 }
 .team-info{
@@ -1381,7 +1448,7 @@ li.get-w3 a i {
 	color:#00a0f0;
 }
 .news-grid-info h5 {
-    color: #000;
+    color: white;
     font-size: 1.1em;
     margin: 1em 0;
 }

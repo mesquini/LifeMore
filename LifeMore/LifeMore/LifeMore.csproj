@@ -133,7 +133,11 @@
     <Content Include="images\c-arrows.png" />
     <Content Include="images\close.png" />
     <Content Include="images\Consulta\Aconselhamento.jpg" />
+    <Content Include="images\Consulta\consulta_inicial.jpg" />
+    <Content Include="images\Consulta\monitoramento.jpg" />
     <Content Include="images\Consulta\Nutricaofamilia.jpg" />
+    <Content Include="images\Consulta\qualidade_vida.jpg" />
+    <Content Include="images\Consulta\sensibilidade_alimento.jpg" />
     <Content Include="images\prev.png" />
     <Content Include="images\Time\BarbaraVerdadeira.jpg" />
     <Content Include="images\Papeis_Parede\bg1.jpg" />
@@ -156,6 +160,8 @@
     <Content Include="images\Quem_somos-Index\Pesos.jpg" />
     <Content Include="images\Quem_somos-Index\Nossasnoticias.jpg" />
     <Content Include="images\right-quotes.png" />
+    <Content Include="images\useredit-hover.png" />
+    <Content Include="js\AcessarPag.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\easing.js" />
     <Content Include="js\easyResponsiveTabs.js" />
@@ -164,10 +170,10 @@
     <Content Include="js\jquery-ui.js" />
     <Content Include="js\jquery.cm-overlay.js" />
     <Content Include="js\jquery.js" />
+    <Content Include="js\jquery.mask.js" />
     <Content Include="js\jquery.maskedinput.js" />
     <Content Include="js\jquery.mobile.custom.min.js" />
     <Content Include="js\jquery.tools.min.js" />
-    <Content Include="js\login.js" />
     <Content Include="js\move-top.js" />
     <Content Include="js\owl.carousel.js" />
     <Content Include="js\responsiveslides.min.js" />
@@ -229,7 +235,9 @@
     <Content Include="Views\Entrar\Cadastrar.cshtml" />
     <Content Include="Views\Consulta\IndexConsulta.cshtml" />
     <Content Include="Views\Perfil\IndexPerfil.cshtml" />
-    <Content Include="Views\Home\Dicas.cshtml" />
+    <Content Include="Views\Entrar\Logar.cshtml" />
+    <Content Include="Views\Consulta\MarcarConsulta.cshtml" />
+    <Content Include="Views\Perfil\Editar_Perfil.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -239,6 +247,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Adm\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -56,18 +56,25 @@
                                     @if (ViewBag.Logado == null)
                                     {
 
-                                        <li class="entrar"><a href="~/Entrar/Cadastrar">Entrar</a></li>
+                                        <li class="entrar"><a href="~/Entrar/Logar">Entrar</a></li>
 
                                     }
                                     @if (ViewBag.Logado != null)
                                     {
 
                                         <li><a href="~/Perfil/IndexPerfil">Perfil</a></li>
+                                        <li><a href="#">Cardápio</a></li>
+                                    }
+
+                                    <li ><a href="~/Home/Index">Home</a></li>
+                                    <li ><a href="~/Home/About">Quem somos</a></li>
+                                    <li class="active"><a href="~/Home/Contato">Fale conosco</a></li>
+                                    @if (ViewBag.Logado != null)
+                                    {
+
+                                        <li><a href="~/Entrar/Sair">Sair</a></li>
 
                                     }
-                                    <li><a href="~/Home/Index">Home</a></li>
-                                    <li><a href="~/Home/About">Quem somos</a></li>
-                                    <li class="active"><a href="~/Home/Contato">Fale conosco</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -77,6 +84,8 @@
                 <div class="col-md-4 logo">
                     <div class="logo-w3l">
                         <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                        <br />
+                        <br />
                     </div>
                     <h1><a href="~/Home/Index">Life More<span>Cuide de você</span></a></h1>
                 </div>

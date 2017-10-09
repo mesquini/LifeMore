@@ -34,17 +34,16 @@
     <!-- //online-fonts -->
 
     <link rel="stylesheet" href="~/css/Login.css">
-    <script src="~/js/login.js"></script>
     <script src="~/js/jquery.js"></script>
-    <script src="~/js/jquery.maskedinput.js"></script>
+    <script src="~/js/jquery.mask.js"></script>
 </head>
+
 <script type="text/javascript">
     jQuery(function ($) {
         $("#telefone").mask("(99)9 9999-9999");
-        $("#cpf").mask("999.999.999-99");
         $("#cpf1").mask("999.999.999-99");
-        $("#peso").mask("999.999"+" Kg");
-        $("#altura").mask("9,99");
+        $("#peso").mask("999.999", { required: true});
+        $("#altura").mask("9.99", { required: true });
     });
 </script>
 
@@ -88,41 +87,25 @@
                 <div class="sap_tabs w3ls-tabs">
                     <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
                         <ul class="resp-tabs-list">
-                            <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>Entrar</span></li>
-                            <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><label>/</label><span>Cadastrar</span></li>
+                            <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><a href="~/Entrar/Logar">Entrar</a><label>/</label></li>
+                            <li class="resp-tab-item resp-tab-active" aria-controls="tab_item-1" role="tab"><a href="~/Entrar/Cadastrar">Cadastrar</a></li>
                         </ul>
                         <div class="clear"> </div>
                         <div class="resp-tabs-container">
 
-                            @* LOGAR *@
-                            <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
-                                <div class="login-agileits-top">
-                                    <form action="/Entrar/Cadastrar" method="post">
-                                        <h3>@ViewBag.MsgErro</h3>
-                                        <p>CPF</p>
-                                        <input type="text" name="cpf" id="cpf" required />
-                                        <p>Senha</p>
-                                        <input type="password" name="senha" id="senha" required />
-                                        <input type="submit" value="Entrar">
-                                    </form>
-                                    
-                                </div>
-                                <div class="login-agileits-bottom">
-                                    <h2><a href="#">Esqueceu a senha?</a></h2>
-                                </div>
-                            </div>
+                           
                             
                             @* CADASTRAR *@
                             <script src="~/js/Mascara.js"></script>
                             <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
                                 <div class="login-agileits-top sign-up">
-                                    <form action="#" method="post" >
+                                    <form action="/Entrar/Cadastrar" method="post" >
                                         <p>Nome </p>
                                             <input type="text" name="nome" id="nome" required maxlength="25"/>
                                         <p>CPF</p>
                                              <input type="text" name="cpf" id="cpf1" required placeholder="Ex: 111.111.111-11" />
                                         <p>Email </p>
-                                            <input type="email" name="Email" required />
+                                            <input type="email" name="email" id="email" required />
                                         <p>Objetivo</p>
                                             <input type="radio" name="objetivo" id="engordar" value="1" /> <label for="engordar" class="objetivo">Engordar</label>
                                             <input type="radio" name="objetivo" id="emagrecer" value="2" checked/> <label for="emagrecer" class="objetivo">Emagrecer</label>
@@ -138,12 +121,17 @@
                                             <input type="text" id="telefone" name="telefone" required placeholder="Ex: (11)1 1111-1111"/>
                                         <p>Senha</p>
                                             <input type="password" name="senha" required />
-                                        <p>Foto</p>
-                                            <input type="file" id="foto" name="foto" />
+                                        @*<p>Foto</p>
+                                            <input type="file" id="foto" name="foto" />*@
                                             <input type="submit" value="Cadastrar">
                                         
                                     </form>
-                                    
+                                    @if (ViewBag.MsgErro != null)
+                                    {
+                                        <div class="alert alert-danger">
+                                            <strong>ERRO!</strong> @ViewBag.MsgErro
+                                        </div>
+                                    }
                                 </div>
                             </div>
                             
