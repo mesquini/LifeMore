@@ -95,19 +95,19 @@
     <div class="nome">
         *Nome Completo
     </div>
-        <input class="nometexto" type="text" id="nomeconsulta" />          
+        <input class="nometexto" type="text" id="nomeconsulta" name="nomeconsulta" />          
     <div class="email">
         *Email
     </div>   
-        <input class="emailtexto" type="text" id="emailconsulta" />
+        <input class="emailtexto" type="text" id="emailconsulta" name="emailconsulta" />
     <div class="telefone">
         *Telefone
     </div> 
-        <input class="telefonetexto" type="text" name="tel" maxlength="12" OnKeyPress="formatar('(##)-####-####', this)" />
+        <input class="telefonetexto" type="text" id="textelfone" name="textelefone" maxlength="12" OnKeyPress="formatar('(##)-####-####', this)" />
        <div class="mensagem">
         Sinta-se a vontade para deixar uma mensagem para o seu médico
         </div>
-        <textarea data-hook="message-field" name="message" type="textarea">
+        <textarea data-hook="message-field" id="mensagemconsulta" name="mensagemconsulta" type="textarea">
         </textarea>
     <button class="botaoinfo">
         Enviar Informações
