@@ -28,10 +28,94 @@ nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
 img{max-width:100%;}
 /*end reset*/
 /*--start-body--*/
+button.btConcluirCSS{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	color: #050505;
+	padding: 8px 30px;
+	background: -moz-linear-gradient(
+		top,
+		#bdbdbd 0%,
+		#005eff);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#bdbdbd),
+		to(#005eff));
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-radius: 30px;
+	border: 2px solid #000000;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 4px 0px 1px rgba(255,255,255,0.2);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 4px 0px 1px rgba(255,255,255,0.2);
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 4px 0px 1px rgba(255,255,255,0.2);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.4),
+		1px 1px 0px rgba(255,255,255,0.5);
+}
+
+button.btConcluirCSS:hover{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 22px;
+	color: #050505;
+	padding: 8px 30px;
+	background: -moz-linear-gradient(
+		top,
+		#6377db 0%,
+		#2b2bc2);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#6377db),
+		to(#2b2bc2));
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-radius: 30px;
+	border: 2px solid #000000;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 4px 0px 1px rgba(255,255,255,0.2);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 4px 0px 1px rgba(255,255,255,0.2);
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 4px 0px 1px rgba(255,255,255,0.2);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.4),
+		1px 1px 0px rgba(255,255,255,0.5);
+
+
+}
+.btConcluir{
+    text-align: center;
+    margin-bottom:15px;
+}
+.editPerfil{
+    color:black;
+}
+.editTel{
+    color:black;
+    margin-left:7px;
+}
+
+.editPeso{
+    color:black;
+    margin-left:22px;
+}
+.editIdade{
+    color:black;
+    margin-left:9px;
+}
 .perfil{
     font-size: 25px;
     color: white;
     height: 225px;
+    margin-bottom: 50px;
 }
 .textoperfil{
     color: white;
@@ -43,18 +127,20 @@ img{max-width:100%;}
     width: 225px;
     height: 225px;
     float: left;
+    margin: 0px 0px 20px 20px;
 }
 .dadosPessoais{
-    width: 400px;
+    width: 450px;
     height: 225px;
     float: left;
-    margin-left: 8px;
+    margin-left: 10px;
 }
 
 .dadosSistema {
-    width: 400px;
+    width: 450px;
     height: 225px;
     float: left;
+    margin-left: 88px;
 }
 
 .espaco{
@@ -114,13 +200,13 @@ body h2 {
     margin: 18px 0 5px;
 }
 .inset a {
-   font-size: 15px;
-    color: #eb5424;
+   /*font-size: 15px;
+    color: #eb5424;*/
     font-weight: 400;
     margin-top: 15px;
     text-align: center;
     margin: 0 auto;
-    display: block;
+    /*display: block;*/
 }
 .inset a:hover {
 	text-decoration:underline;

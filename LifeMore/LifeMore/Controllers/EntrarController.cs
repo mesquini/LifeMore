@@ -20,12 +20,13 @@ namespace LifeMore.Controllers
                 String Senha = Request.Form["senha"];
                 String CPF = Request.Form["cpf"];
                 String Email = Request.Form["email"];
-                String Objetivo = Request.Form["objetivo"];
+                int Objetivo = int.Parse(Request.Form["objetivo"]);
                 String Idade = Request.Form["idade"];
                 String Peso = Request.Form["peso"];
                 String Altura = Request.Form["altura"];
                 String End = Request.Form["endereco"];
                 String Tel = Request.Form["telefone"];
+                String Foto = Request.Form["foto"];
                
 
                 Paciente NovoUser = new Paciente();
@@ -40,6 +41,7 @@ namespace LifeMore.Controllers
                 NovoUser.Altura = Altura;
                 NovoUser.Telefone = Tel;
                 NovoUser.Endereco = End;
+                NovoUser.ImagemPerfil = Foto;
 
                 if (NovoUser.Novo())
                 {
@@ -69,10 +71,8 @@ namespace LifeMore.Controllers
                 }
                 else
                 {
-
-                    ViewBag.MsgErro = "Usuário e/ou Senha incorretos!";
+                  ViewBag.MsgErro = "CPF e/ou Senha incorreto!";
                 }
-
             }
 
             if (Session["Paciente"] != null)
