@@ -32,7 +32,7 @@ namespace LifeMore.Models
 
             SqlCommand Comando = new SqlCommand();
             Comando.Connection = Conexao;
-            Comando.CommandText = "SELECT * FROM Paciente WHERE ID=@ID;";
+            Comando.CommandText = "SELECT * FROM Paciente WHERE Cod=@ID;";
             Comando.Parameters.AddWithValue("@ID", ID);
 
             SqlDataReader Leitor = Comando.ExecuteReader();

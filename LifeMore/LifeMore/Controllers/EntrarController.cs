@@ -79,6 +79,8 @@ namespace LifeMore.Controllers
             {
                 ViewBag.Logado = Session["Paciente"];
                 Paciente Paciente = (Paciente)Session["Paciente"];
+
+
                 ViewBag.Imagem = Paciente.ImagemPerfil;
                 ViewBag.CPF = Paciente.CPF;
                 ViewBag.Nome = Paciente.Nome;
@@ -87,7 +89,7 @@ namespace LifeMore.Controllers
             }
             return View();
         }
-
+       
         public void Sair()
         {
             Session.Abandon();

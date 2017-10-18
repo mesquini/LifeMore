@@ -57,7 +57,7 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="stroke">
                                 <ul class="nav navbar-nav">
-                                    @if (ViewBag.Logado == null)
+                                    @if (ViewBag.Logado == null && ViewBag.LogadoA == null)
                                     {
 
                                         <li class="entrar"><a href="~/Entrar/Logar">Entrar</a></li>
@@ -69,11 +69,15 @@
                                        <li><a href="~/Perfil/IndexPerfil">Perfil</a></li>
                                        <li><a href="#">Cardápio</a></li>
                                     }
+                                    @if (ViewBag.LogadoA != null)
+                                    {
+                                        <li><a href="~/Adm/Listar">Perfil</a></li>
+                                    }
 
                                     <li class="active"><a href="~/Home/Index">Home</a></li>
                                     <li><a href="~/Home/About">Quem somos</a></li>
                                     <li><a href="~/Home/Contato">Fale conosco</a></li>
-                                    @if (ViewBag.Logado != null)
+                                    @if (ViewBag.Logado != null || ViewBag.LogadoA != null)
                                     {
 
                                         <li><a href="~/Entrar/Sair">Sair</a></li>
@@ -104,7 +108,7 @@
 
                     }
 
-                    @if (ViewBag.Logado != null)
+                    @if (ViewBag.Logado != null || ViewBag.LogadoA != null)
                     {
 
                         <h2>@ViewBag.Nome Seja Bem-Vindo ao site!</h2>
@@ -159,7 +163,7 @@
                         <input type="text" name="nome" placeholder="Nome do paciente" required />
                         <input id="datepicker" name="date" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
                         <input type="text" id="timepicker" name="Time" class="timepicker form-control" value="Hrs:Min">
-                        <a href= "~/Consulta/IndexConsulta"></a><input type="submit" value="Fazer consulta">
+                        <input type="submit" value="Fazer consulta">
                     </form>
                 </div>
             </div>

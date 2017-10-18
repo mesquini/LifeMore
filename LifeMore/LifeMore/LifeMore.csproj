@@ -133,7 +133,6 @@
     <Content Include="images\c-arrows.png" />
     <Content Include="images\close.png" />
     <Content Include="images\Consulta\Aconselhamento.jpg" />
-    <Content Include="images\Consulta\bandeja.png" />
     <Content Include="images\Consulta\consulta_inicial.jpg" />
     <Content Include="images\Consulta\monitoramento.jpg" />
     <Content Include="images\Consulta\Nutricaofamilia.jpg" />
@@ -199,15 +198,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdmController.cs" />
+    <Compile Include="Controllers\AlimentosController.cs" />
+    <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\ConsultaController.cs" />
     <Compile Include="Controllers\EntrarController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NutricionistaController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Adm.cs" />
     <Compile Include="Models\MarcarConsulta.cs" />
+    <Compile Include="Models\Nutricionista.cs" />
     <Compile Include="Models\Paciente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -240,6 +244,12 @@
     <Content Include="Views\Entrar\Logar.cshtml" />
     <Content Include="Views\Consulta\MarcarConsulta.cshtml" />
     <Content Include="Views\Perfil\Editar_Perfil.cshtml" />
+    <Content Include="Views\Adm\Listar.cshtml" />
+    <Content Include="Views\Adm\LogarAdm.cshtml" />
+    <Content Include="Views\Nutricionista\CadastrarN.cshtml" />
+    <Content Include="Views\Alimentos\CadastrarA.cshtml" />
+    <Content Include="Views\Categoria\CadastrarC.cshtml" />
+    <Content Include="Views\Nutricionista\Ver.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -249,7 +259,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Adm\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
