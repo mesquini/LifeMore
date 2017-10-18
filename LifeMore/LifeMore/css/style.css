@@ -15,6 +15,16 @@ body{
 	background-position:center;
 	background-attachment:fixed;
 }
+.precoconsulta{
+    margin-left: 750px;
+margin-bottom: 20px;
+color: darkgray;
+font-size: 25px;
+border: solid;
+width: 400px;
+background: white;
+text-align: center;
+}
 body a{
     transition:0.5s all;
 	-webkit-transition:0.5s all;
