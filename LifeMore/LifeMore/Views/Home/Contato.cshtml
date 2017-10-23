@@ -53,7 +53,7 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="stroke">
                                 <ul class="nav navbar-nav">
-                                    @if (ViewBag.Logado == null)
+                                    @if (ViewBag.Logado == null && ViewBag.LogadoA == null)
                                     {
 
                                         <li class="entrar"><a href="~/Entrar/Logar">Entrar</a></li>
@@ -65,11 +65,14 @@
                                         <li><a href="~/Perfil/IndexPerfil">Perfil</a></li>
                                         <li><a href="#">Cardápio</a></li>
                                     }
-
+                                    @if (ViewBag.LogadoA != null)
+                                    {
+                                        <li><a href="~/Adm/Listar">Perfil</a></li>
+                                    }
                                     <li ><a href="~/Home/Index">Home</a></li>
                                     <li ><a href="~/Home/About">Quem somos</a></li>
                                     <li class="active"><a href="~/Home/Contato">Fale conosco</a></li>
-                                    @if (ViewBag.Logado != null)
+                                    @if (ViewBag.Logado != null || ViewBag.LogadoA != null)
                                     {
 
                                         <li><a href="~/Entrar/Sair">Sair</a></li>

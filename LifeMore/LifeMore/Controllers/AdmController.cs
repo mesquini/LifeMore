@@ -30,7 +30,7 @@ namespace LifeMore.Controllers
 
             if (Session["Adm"] != null)
             {
-                ViewBag.Logado = Session["Adm"];
+                ViewBag.LogadoA = Session["Adm"];
                 Adm Adms = (Adm)Session["Adm"];
 
                 ViewBag.Nome = Adms.Nome;
@@ -50,58 +50,21 @@ namespace LifeMore.Controllers
             ViewBag.Logado = Session["Adm"];
             Adm p = (Adm)Session["Adm"];
 
-                List<Paciente> ps = Paciente.ListarP();
-                 List<Nutricionista> ns = Nutricionista.ListarN();
+             List<Paciente> ps = Paciente.ListarP();
+             List<Nutricionista> ns = Nutricionista.ListarN();
+             List<Categoria> cs = Categoria.ListarC();
+             List<Alimento> a = Alimento.ListarA();
 
-                ViewBag.Usuario = ps;
+            ViewBag.Usuario = ps;
             ViewBag.Nutricionista = ns;
+            ViewBag.Categoria = cs;
+            ViewBag.Alimento = a;
 
                
             return View();
         }
-        public ActionResult ApagarP(String ID)
-        {
-            if (Session["Adm"] == null)
-            {
-                Response.Redirect("~/Home/Index", false);
-            }
-
-            Paciente Pacientes = new Paciente(Convert.ToInt32(ID));
-            
-
-            if (Pacientes.Apagar())
-            {
-                TempData["Mensagem"] = "Usuario removido com sucesso!";
-            }
-            else
-            {
-                TempData["Mensagem"] = "Não foi possível remover o Usuario. Verifique os dados e tente novamente";
-            }
-
-            return RedirectToAction("Listar");
-        }
-        public ActionResult ApagarN(String ID)
-        {
-            if (Session["Adm"] == null)
-            {
-                Response.Redirect("~/Home/Index", false);
-            }
-            
-            Nutricionista Nutri = new Nutricionista(Convert.ToInt32(ID));
-
-            if (Nutri.Apagar())
-            {
-                ViewBag.Mensagem = "Nutricionista removida com sucesso!";
-            }
-
-           
-            else
-            {
-                TempData["Mensagem"] = "Não foi possível remover o Usuario. Verifique os dados e tente novamente";
-            }
-
-            return RedirectToAction("Listar");
-        }
+        
+       
         public void Sair()
         {
             Session.Abandon();
