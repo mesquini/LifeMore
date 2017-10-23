@@ -175,7 +175,7 @@ legend {
 }
 textarea {
   overflow: auto;
-  margin-left: 880px;
+
 }
 optgroup {
   font-weight: bold;
@@ -1109,7 +1109,7 @@ textarea{
     font-family: inherit;
   font-size: inherit;
   line-height: inherit;
-  margin-left: 780px;
+
   margin-bottom: 20px;
   width :300px;
 }

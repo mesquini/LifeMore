@@ -1,7 +1,239 @@
 ﻿
 @{
-    ViewBag.Title = "CadastrarN";
+    Layout = null;
 }
 
-<h2>CadastrarN</h2>
+<!--
+    Author: W3layouts
+    Author URL: http://w3layouts.com
+    License: Creative Commons Attribution 3.0 Unported
+    License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <title>LifeMore</title>
 
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Life More web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--// Meta tag Keywords -->
+    <!-- css files -->
+    <link rel="stylesheet" href="~/css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="~/css/style.css" type="text/css" media="all" /> <!-- Style-CSS -->
+    <link rel="stylesheet" href="~/css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
+    <link rel="stylesheet" href="~/css/jquery-ui.css" /> <!-- Date-script-CSS -->
+    <link href="~/css/wickedpicker.css" rel="stylesheet" type='text/css' media="all" /> <!-- Time-script-CSS -->
+    <!-- //css files -->
+    <!-- online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Convergence" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=ABeeZee:400,400i" rel="stylesheet">
+    <!-- //online-fonts -->
+
+    <link rel="stylesheet" href="~/css/Login.css">
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/jquery.mask.js"></script>
+</head>
+
+<script type="text/javascript">
+    jQuery(function ($) {
+        $("#telefone").mask("(99)9 9999-9999");
+        $("#cpf1").mask("999.999.999-99");
+        $("#peso").mask("999.999", { required: true});
+        $("#altura").mask("9.99", { required: true });
+    });
+</script>
+
+<body class="bgEntrar">
+    <div class="Main-agile">
+        <!-- banner -->
+        <div class="bannerEntrar">
+            <div class="container">
+                <div class="col-md-4 agile1">
+                    <nav class="navbar navbar-default">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                            <nav class="stroke">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="~/Home/Index">Home</a></li>
+                                    <li><a href="~/Home/About">Quem somos</a></li>
+                                    <li><a href="~/Home/Contato">Fale conosco</a></li>
+
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="message warning">
+            <div class="inset agile">
+                <div class="sap_tabs w3ls-tabs">
+                    <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                        <a href="~/Adm/Listar">Voltar</a>
+                        <ul class="resp-tabs-list">
+                            <li class="resp-tab-item resp-tab-active" aria-controls="tab_item-1" role="tab"><a href="~/Nutricionista/CadastrarN">Cadastrar Nutricionista</a></li>
+                        </ul>
+                        <div class="clear"> </div>
+                        <div class="resp-tabs-container">
+
+                            <script src="~/js/Mascara.js"></script>
+                            <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+                                <div class="login-agileits-top sign-up">
+                                    <form action="/Nutricionista/CadastrarN" method="post">
+                                        <p>Nome do Nutricionista: </p>
+                                        <input type="text" name="nomeN" id="nomeN" required maxlength="25" />
+                                        <p>Senha: </p>
+                                        <input type="password" id="senhaN" name="senhaN" required />
+                                        <p>CPF: </p>
+                                        <input type="text" name="cpfN" id="cpfN" />
+                                        <p>Email: </p>
+                                        <input type="text" name="emailN" id="emailN" required />
+                                        <p>Endereço:</p>
+                                        <input type="text" name="enderecoN" id="enderecoN" required maxlength="2" />
+                                        <p>Idade: </p>
+                                        <input type="text" id="idadeN" name="idadeN" />                                                  
+                                        <p>Telefone: </p>
+                                        <input type="text" id="telefoneN" name="telefoneN" required />
+                                        <p>Local de trabalho: </p>
+                                        <input type="text" id="localtrabN" name="localtrabN" required />
+                                        <p>Biografia: </p>
+                                        <textarea data-hook="message-field" id="biografiaN" name="biografiaN" type="textarea"></textarea>
+                                        <p>Foto:</p>
+                                        <input type="file" id="fotoN" name="fotoN" />
+                                        <input type="submit" value="Cadastrar Nutricionista">
+
+                                    </form>
+                                    @if (ViewBag.MsgErro != null)
+                                    {
+                                        <div class="alert alert-danger">
+                                            <strong>ERRO!</strong> @ViewBag.MsgErro
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="right-section-w3ls"></div>
+                <div class="clear"> </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="~/js/jquery-2.1.4.min.js"></script>
+        <script>
+                                $(document).ready(function(c) {
+	                            $('.alert-close').on('click', function(c){
+		                            $('.message').fadeOut('slow', function(c){
+	  		                            $('.message').remove();
+		                            });
+	                            });
+                            });
+        </script>
+        <script src="~/js/easyResponsiveTabs.js" type="text/javascript"></script>
+        <!-- ResponsiveTabs js -->
+        <script type="text/javascript">
+				                $(document).ready(function () {
+					                $('#horizontalTab').easyResponsiveTabs({
+						                type: 'default', //Types: default, vertical, accordion
+						                width: 'auto', //auto or any width like 600px
+						                fit: true   // 100% fit in a container
+					                });
+				                });
+        </script>
+        <!-- //ResponsiveTabs js -->
+    </div>
+    <div class="footer w3ls">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-top">
+                    <div class="col-md-4 services-grids">
+                        <h3>Curiosidades</h3>
+                        <ul>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Buscando o bem estar da sociedade sempre.</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista jovens e experientes ajudando  clientes de qualquer idade</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Comer saudávelmente é sinônimo de comer bem.</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista de esportes pronto para ajudar no melhor desenvolvimento para seu corpo.</a></li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class="col-md-4 ftr-grid">
+                        <div class="logo-fo">
+                            <div class="logo-w3l">
+                                <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                            </div>
+                            <h2><a href="~/Home/Index">Life More<span>Cuide de você</span></a></h2>
+                        </div>
+                    </div>
+                    <div class="col-md-4 ftr-grid fg2">
+                        <h3>Nossos enderços</h3>
+                        <div class="ftr-address">
+                            <div class="local">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            </div>
+                            <div class="ftr-text">
+                                <p>SENAI Zerbini</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="ftr-address">
+                            <div class="local">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                            </div>
+                            <div class="ftr-text">
+                                <p>+55 19 9 9865 8943</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="ftr-address">
+                            <div class="local">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <div class="ftr-text">
+                                <p><a href="mailto:LifeMore@gmail.com">LifeMore@gmail.com</a></p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="right-w3l">
+                    <ul class="top-links">
+
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    </ul>
+                </div>
+                <div class="copyrights">
+                    <p>&copy; 2017 Life More. Todos os direitos reservados | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</body>
+</html>
