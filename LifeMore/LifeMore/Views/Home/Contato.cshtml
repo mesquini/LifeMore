@@ -53,26 +53,29 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="stroke">
                                 <ul class="nav navbar-nav">
-                                    @if (ViewBag.Logado == null)
+                                    @if (ViewBag.Logado == null && ViewBag.LogadoA == null)
                                     {
 
-                                        <li class="entrar"><a href="~/Entrar/Logar">Entrar</a></li>
+                                        <li class="entrar"><a href="~/Entrar/Logar" style="text-shadow: 3px 2px 0px #000000">Entrar</a></li>
 
                                     }
                                     @if (ViewBag.Logado != null)
                                     {
 
-                                        <li><a href="~/Perfil/IndexPerfil">Perfil</a></li>
-                                        <li><a href="#">Cardápio</a></li>
+                                        <li><a href="~/Perfil/IndexPerfil" style="text-shadow: 3px 2px 0px #000000">Perfil</a></li>
+                                        <li><a href="#" style="text-shadow: 3px 2px 0px #000000">Cardápio</a></li>
                                     }
-
-                                    <li ><a href="~/Home/Index">Home</a></li>
-                                    <li ><a href="~/Home/About">Quem somos</a></li>
-                                    <li class="active"><a href="~/Home/Contato">Fale conosco</a></li>
-                                    @if (ViewBag.Logado != null)
+                                    @if (ViewBag.LogadoA != null)
+                                    {
+                                        <li><a href="~/Adm/Listar" style="text-shadow: 3px 2px 0px #000000">Perfil</a></li>
+                                    }
+                                    <li ><a href="~/Home/Index" style="text-shadow: 3px 2px 0px #000000">Home</a></li>
+                                    <li ><a href="~/Home/About" style="text-shadow: 3px 2px 0px #000000">Quem somos</a></li>
+                                    <li class="active"><a href="~/Home/Contato" style="text-shadow: 3px 2px 0px #000000">Fale conosco</a></li>
+                                    @if (ViewBag.Logado != null || ViewBag.LogadoA != null)
                                     {
 
-                                        <li><a href="~/Entrar/Sair">Sair</a></li>
+                                        <li><a href="~/Entrar/Sair" style="text-shadow: 3px 2px 0px #000000">Sair</a></li>
 
                                     }
                                 </ul>
@@ -87,10 +90,10 @@
                         <br />
                         <br />
                     </div>
-                    <h1><a href="~/Home/Index">Life More<span>Cuide de você</span></a></h1>
+                    <h1><a href="~/Home/Index" style="text-shadow: 5px 2px 0px #000000">Life More<span style="text-shadow: 3px 2px 0px #000000">Cuide de você</span></a></h1>
                 </div>
                 <div class="col-md-4 ph-agile">
-                    <p><i class="fa fa-phone" aria-hidden="true"></i><span>+55 19 9 9865 8943</span></p>
+                    <p style="text-shadow: 2px 1px 0px #000000"><i class="fa fa-phone" aria-hidden="true"></i><span style="text-shadow: 2px 1px 0px #000000">+55 19 9 9865 8943</span></p>
                 </div>
                 <div class="clearfix"> </div>
             </div>
@@ -102,7 +105,7 @@
     <div class="map">
         <ul class="faq">
             <li class="item1">
-                <a href="#">Mapa de rota interativo<span class="glyphicon glyphicon-menu-down"></span></a>
+                <a href="#" style="text-shadow: 3px 2px 0px #000000">Mapa de rota interativo<span class="glyphicon glyphicon-menu-down"></span></a>
                 <ul>
                     <li class="subitem1">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.9544739194134!2d-47.058119685306224!3d-22.91504998500765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8cf3303ceff43%3A0xea485c60a4b21ef5!2sEscola+SENAI+Prof.+Dr.+Euryclides+de+Jesus+Zerbini!5e0!3m2!1spt-BR!2sbr!4v1505151698902" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>                    </li>
@@ -114,7 +117,7 @@
     <!-- mail -->
     <div class="jarallax mail" id="mail">
         <div class="container">
-            <h3 class="mail-w3">Contate nos<span></span></h3>
+            <h3 class="mail-w3" style="text-shadow: 5px 2px 0px #000000">Contate nos<span></span></h3>
             <div class="w3agile_mail_grids">
                 <div class=" w3agile_mail_grid">
                     <form action="#" method="post">
@@ -161,7 +164,7 @@
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                             </div>
                             <div class="ftr-text">
-                                <p>SENAI Zerbini</p>
+                                <p style="text-shadow: 2px 1px 0px #000000">SENAI Zerbini</p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
@@ -170,7 +173,7 @@
                                 <i class="fa fa-phone" aria-hidden="true"></i>
                             </div>
                             <div class="ftr-text">
-                                <p>+55 19 9 9865 8943</p>
+                                <p style="text-shadow: 2px 1px 0px #000000">+55 19 9 9865 8943</p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
@@ -179,7 +182,7 @@
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                             </div>
                             <div class="ftr-text">
-                                <p><a href="mailto:LifeMore@gmail.com">LifeMore@gmail.com</a></p>
+                                <p style="text-shadow: 2px 1px 0px #000000"><a href="mailto:LifeMore@gmail.com">LifeMore@gmail.com</a></p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
@@ -195,7 +198,7 @@
                     </ul>
                 </div>
                 <div class="copyrights">
-                    <p>&copy; 2017 Life More. Todos os direitos reservados | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+                    <p style="text-shadow: 2px 1px 0px #000000">&copy; 2017 Life More. Todos os direitos reservados | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
                 </div>
             </div>
         </div>

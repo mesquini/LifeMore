@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     Layout = null;
 }
 
@@ -37,11 +38,16 @@
     <script src="~/js/jquery.js"></script>
     <script src="~/js/jquery.mask.js"></script>
 </head>
+
 <script type="text/javascript">
     jQuery(function ($) {
-        $("#cpf").mask("999.999.999-99");
+        $("#telefone").mask("(99)9 9999-9999");
+        $("#cpf1").mask("999.999.999-99");
+        $("#peso").mask("999.999", { required: true});
+        $("#altura").mask("9.99", { required: true });
     });
 </script>
+
 <body class="bgEntrar">
     <div class="Main-agile">
         <!-- banner -->
@@ -63,9 +69,9 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="stroke">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000">Home</a></li>
-                                    <li><a href="~/Home/About" style="text-shadow: 2px 1px 0px #000000">Quem somos</a></li>
-                                    <li><a href="~/Home/Contato" style="text-shadow: 2px 1px 0px #000000">Fale conosco</a></li>
+                                    <li><a href="~/Home/Index">Home</a></li>
+                                    <li><a href="~/Home/About">Quem somos</a></li>
+                                    <li><a href="~/Home/Contato">Fale conosco</a></li>
 
                                 </ul>
                             </nav>
@@ -81,35 +87,46 @@
             <div class="inset agile">
                 <div class="sap_tabs w3ls-tabs">
                     <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                        <a href="~/Adm/Listar">Voltar</a>
                         <ul class="resp-tabs-list">
-                            <li class="resp-tab-item resp-tab-active" aria-controls="tab_item-0" role="tab"><a href="~/Entrar/Logar" style="text-shadow: 2px 1px 0px #000000">Entrar</a><label>/</label></li>
-                            <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><a href="~/Entrar/Cadastrar" style="text-shadow: 2px 1px 0px #000000">Cadastrar</a></li>
+                            <li class="resp-tab-item resp-tab-active" aria-controls="tab_item-1" role="tab"><a href="~/Alimentos/CadastrarA">Cadastrar Alimento</a></li>
                         </ul>
                         <div class="clear"> </div>
                         <div class="resp-tabs-container">
-                            
-                            @* LOGAR *@
-                            <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
-                                <div class="login-agileits-top">
+
+                            <script src="~/js/Mascara.js"></script>
+                            <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+                                <div class="login-agileits-top sign-up">
+                                    <form action="/Alimentos/CadastrarA" method="post">
+                                        <p>Nome do alimento: </p>
+                                        <input type="text" name="nomeA" id="nomeA" required maxlength="25" />
+                                        <p>Peso:</p>
+                                        <input type="text" name="pesoA" id="pesoA" required placeholder="Ex: 1,70" />
+                                        <p>Caloria: </p>
+                                        <input type="text" name="caloriaA" id="caloriaA" required />
+                                        <p>Gordura:</p>
+                                        <input type="text" name="gorduraA" id="gorduraA" required maxlength="2" />
+                                        <p>Carboidrato:</p>
+                                        <input type="text" id="carboidratoA" name="carboidratoA" />
+                                        <p>Proteína: </p>
+                                        <input type="text" id="proteinaA" name="proteinaA" />
+                                        <p>Categoria: </p>                                     
+                                                <select name="categoriaA" id="categoriaA">
+                                                    <option>Selecione a categoria...</option>
+                                                    <option value="0"></option>
+                                                </select>
+                                                <input type="submit" value="Cadastrar Alimeto">
+
+                                    </form>
                                     @if (ViewBag.MsgErro != null)
                                     {
                                         <div class="alert alert-danger">
                                             <strong>ERRO!</strong> @ViewBag.MsgErro
                                         </div>
                                     }
-                                    <form action="/Entrar/Logar" method="post">
-                                        <p style="text-shadow: 2px 1px 0px #000000">CPF</p>
-                                        <input type="text" name="cpf" id="cpf" required />
-                                        <p style="text-shadow: 2px 1px 0px #000000">Senha</p>
-                                        <input type="password" name="senha" id="senha" required />
-                                        <input type="submit" value="Entrar">
-                                    </form>
-
-                                </div>
-                                <div class="login-agileits-bottom">
-                                    <h2><a href="#" style="text-shadow: 2px 1px 0px #000000">Esqueceu a senha?</a></h2>
                                 </div>
                             </div>
+
 
                         </div>
                     </div>

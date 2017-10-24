@@ -12,24 +12,15 @@ namespace LifeMore.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            if (Request.HttpMethod == "POST")
+            
+            if(Session["Adm"] != null)
             {
-                String CPF = Request.Form["cpf"].ToString();
-                String Senha = Request.Form["senha"].ToString();
 
-                if (Paciente.Autenticar(CPF, Senha))
-                {
-                    Paciente P = new Paciente(CPF, Senha);
-                    Session["Paciente"] = P;
-                    Response.Redirect("/Perfil/IndexPerfil");
-                }
-                else
-                {
-
-                    ViewBag.MsgErro = "Usuário e/ou Senha incorretos!";
-                }
-
+                ViewBag.LogadoA = Session["Adm"];
+                Adm p = (Adm)Session["Adm"];
+                ViewBag.Nome = p.Nome;
             }
+
             if (Session["Paciente"] != null)
             {
                 ViewBag.Logado = Session["Paciente"];
@@ -54,6 +45,14 @@ namespace LifeMore.Controllers
                 ViewBag.Objetivo = Paciente.Objetivo;
 
             }
+
+            if (Session["Adm"] != null)
+            {
+
+                ViewBag.LogadoA = Session["Adm"];
+                Adm p = (Adm)Session["Adm"];
+                ViewBag.Nome = p.Nome;
+            }
             return View();
         }
         public ActionResult Contato()
@@ -68,6 +67,14 @@ namespace LifeMore.Controllers
                 ViewBag.Objetivo = Paciente.Objetivo;
 
             }
+
+            if (Session["Adm"] != null)
+            {
+
+                ViewBag.LogadoA = Session["Adm"];
+                Adm p = (Adm)Session["Adm"];
+                ViewBag.Nome = p.Nome;
+            }
             return View();
         }
         public ActionResult Single()
@@ -81,6 +88,14 @@ namespace LifeMore.Controllers
                 ViewBag.Nome = Paciente.Nome;
                 ViewBag.Objetivo = Paciente.Objetivo;
 
+            }
+
+            if (Session["Adm"] != null)
+            {
+
+                ViewBag.LogadoA = Session["Adm"];
+                Adm p = (Adm)Session["Adm"];
+                ViewBag.Nome = p.Nome;
             }
             return View();
 

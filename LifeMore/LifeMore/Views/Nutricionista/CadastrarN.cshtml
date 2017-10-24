@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     Layout = null;
 }
 
@@ -37,11 +38,16 @@
     <script src="~/js/jquery.js"></script>
     <script src="~/js/jquery.mask.js"></script>
 </head>
+
 <script type="text/javascript">
     jQuery(function ($) {
-        $("#cpf").mask("999.999.999-99");
+        $("#telefone").mask("(99)9 9999-9999");
+        $("#cpf1").mask("999.999.999-99");
+        $("#peso").mask("999.999", { required: true});
+        $("#altura").mask("9.99", { required: true });
     });
 </script>
+
 <body class="bgEntrar">
     <div class="Main-agile">
         <!-- banner -->
@@ -63,9 +69,9 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="stroke">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000">Home</a></li>
-                                    <li><a href="~/Home/About" style="text-shadow: 2px 1px 0px #000000">Quem somos</a></li>
-                                    <li><a href="~/Home/Contato" style="text-shadow: 2px 1px 0px #000000">Fale conosco</a></li>
+                                    <li><a href="~/Home/Index">Home</a></li>
+                                    <li><a href="~/Home/About">Quem somos</a></li>
+                                    <li><a href="~/Home/Contato">Fale conosco</a></li>
 
                                 </ul>
                             </nav>
@@ -81,35 +87,49 @@
             <div class="inset agile">
                 <div class="sap_tabs w3ls-tabs">
                     <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                        <a href="~/Adm/Listar">Voltar</a>
                         <ul class="resp-tabs-list">
-                            <li class="resp-tab-item resp-tab-active" aria-controls="tab_item-0" role="tab"><a href="~/Entrar/Logar" style="text-shadow: 2px 1px 0px #000000">Entrar</a><label>/</label></li>
-                            <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><a href="~/Entrar/Cadastrar" style="text-shadow: 2px 1px 0px #000000">Cadastrar</a></li>
+                            <li class="resp-tab-item resp-tab-active" aria-controls="tab_item-1" role="tab"><a href="~/Nutricionista/CadastrarN">Cadastrar Nutricionista</a></li>
                         </ul>
                         <div class="clear"> </div>
                         <div class="resp-tabs-container">
-                            
-                            @* LOGAR *@
-                            <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
-                                <div class="login-agileits-top">
+
+                            <script src="~/js/Mascara.js"></script>
+                            <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+                                <div class="login-agileits-top sign-up">
+                                    <form action="/Nutricionista/CadastrarN" method="post">
+                                        <p style="text-shadow: 2px 1px 0px #000000">Nome do Nutricionista: </p>
+                                        <input type="text" name="nomeN" id="nomeN" required maxlength="25" />
+                                        <p style="text-shadow: 2px 1px 0px #000000">Senha: </p>
+                                        <input type="password" id="senhaN" name="senhaN" required />
+                                        <p style="text-shadow: 2px 1px 0px #000000">CPF: </p>
+                                        <input type="text" name="cpfN" id="cpfN" />
+                                        <p style="text-shadow: 2px 1px 0px #000000">Email: </p>
+                                        <input type="text" name="emailN" id="emailN" required />
+                                        <p style="text-shadow: 2px 1px 0px #000000">Endereço:</p>
+                                        <input type="text" name="enderecoN" id="enderecoN" required maxlength="2" />
+                                        <p style="text-shadow: 2px 1px 0px #000000">Idade: </p>
+                                        <input type="text" id="idadeN" name="idadeN" />                                                  
+                                        <p style="text-shadow: 2px 1px 0px #000000">Telefone: </p>
+                                        <input type="text" id="telefoneN" name="telefoneN" required />
+                                        <p style="text-shadow: 2px 1px 0px #000000">Local de trabalho: </p>
+                                        <input type="text" id="localtrabN" name="localtrabN" required />
+                                        <p style="text-shadow: 2px 1px 0px #000000">Biografia: </p>
+                                        <textarea data-hook="message-field" id="biografiaN" name="biografiaN" type="textarea"></textarea>
+                                        <p style="text-shadow: 2px 1px 0px #000000">Foto:</p>
+                                        <input type="file" id="fotoN" name="fotoN" />
+                                        <input type="submit" value="Cadastrar Nutricionista">
+
+                                    </form>
                                     @if (ViewBag.MsgErro != null)
                                     {
                                         <div class="alert alert-danger">
                                             <strong>ERRO!</strong> @ViewBag.MsgErro
                                         </div>
                                     }
-                                    <form action="/Entrar/Logar" method="post">
-                                        <p style="text-shadow: 2px 1px 0px #000000">CPF</p>
-                                        <input type="text" name="cpf" id="cpf" required />
-                                        <p style="text-shadow: 2px 1px 0px #000000">Senha</p>
-                                        <input type="password" name="senha" id="senha" required />
-                                        <input type="submit" value="Entrar">
-                                    </form>
-
-                                </div>
-                                <div class="login-agileits-bottom">
-                                    <h2><a href="#" style="text-shadow: 2px 1px 0px #000000">Esqueceu a senha?</a></h2>
                                 </div>
                             </div>
+
 
                         </div>
                     </div>
@@ -172,7 +192,7 @@
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                             </div>
                             <div class="ftr-text">
-                                <p>SENAI Zerbini</p>
+                                <p style="text-shadow: 2px 1px 0px #000000">SENAI Zerbini</p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
@@ -181,7 +201,7 @@
                                 <i class="fa fa-phone" aria-hidden="true"></i>
                             </div>
                             <div class="ftr-text">
-                                <p>+55 19 9 9865 8943</p>
+                                <p style="text-shadow: 2px 1px 0px #000000">+55 19 9 9865 8943</p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
@@ -190,7 +210,7 @@
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                             </div>
                             <div class="ftr-text">
-                                <p><a href="mailto:LifeMore@gmail.com">LifeMore@gmail.com</a></p>
+                                <p style="text-shadow: 2px 1px 0px #000000"><a href="mailto:LifeMore@gmail.com">LifeMore@gmail.com</a></p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
@@ -206,7 +226,7 @@
                     </ul>
                 </div>
                 <div class="copyrights">
-                    <p>&copy; 2017 Life More. Todos os direitos reservados | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+                    <p style="text-shadow: 2px 1px 0px #000000">&copy; 2017 Life More. Todos os direitos reservados | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
                 </div>
             </div>
         </div>

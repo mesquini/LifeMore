@@ -131,21 +131,21 @@ alert("Você estácom obesidade grave com esse indice: " + calculo);
             </div>
 
             <div class="dadosPessoais">
-                <p>Nome: @ViewBag.Nome</p>
-                <p>E-mail: @ViewBag.Email</p>
-                <p>CPF: @ViewBag.CPF </p>
-                <p>Endereço: @ViewBag.Endereco</p>
-                <p>Telefone: @ViewBag.Tel</p>
+                <p style="text-shadow: 2px 1px 0px #000000">Nome: @ViewBag.Nome</p>
+                <p style="text-shadow: 2px 1px 0px #000000">E-mail: @ViewBag.Email</p>
+                <p style="text-shadow: 2px 1px 0px #000000">CPF: @ViewBag.CPF </p>
+                <p style="text-shadow: 2px 1px 0px #000000">Endereço: @ViewBag.Endereco</p>
+                <p style="text-shadow: 2px 1px 0px #000000">Telefone: @ViewBag.Tel</p>
             </div>
 
             <div class="dadosSistema">
-                @if ( ViewBag.Objetivo == 1) { <p>Objetivo: Engordar</p> }
-                else {<p>Objetivo: Emagrecer</p>}
+                @if ( ViewBag.Objetivo == 1) { <p style="text-shadow: 2px 1px 0px #000000">Objetivo: Engordar</p> }
+                else {<p style="text-shadow: 2px 1px 0px #000000">Objetivo: Emagrecer</p>}
 
                 <p id="peso">Peso: @ViewBag.Peso Kg</p>
-                <p id="altura">Altura: @ViewBag.Altura </p>
-                <a href="#" onclick="calcula_imc()">IMC: </a>
-                <p>Idade: @ViewBag.Idade</p>
+                <p id="altura">Altura: @ViewBag.Altura Cm</p>
+                <a href="#"> Calcular IMC </a>
+                <p style="text-shadow: 2px 1px 0px #000000">Idade: @ViewBag.Idade</p>
             </div>
             <div class="btPerfil">
 
@@ -186,7 +186,7 @@ alert("Você estácom obesidade grave com esse indice: " + calculo);
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                             </div>
                             <div class="ftr-text">
-                                <p>SENAI Zerbini</p>
+                                <p style="text-shadow: 2px 1px 0px #000000">SENAI Zerbini</p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
@@ -195,7 +195,7 @@ alert("Você estácom obesidade grave com esse indice: " + calculo);
                                 <i class="fa fa-phone" aria-hidden="true"></i>
                             </div>
                             <div class="ftr-text">
-                                <p>+55 19 9 9865 8943</p>
+                                <p style="text-shadow: 2px 1px 0px #000000">+55 19 9 9865 8943</p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
@@ -204,7 +204,7 @@ alert("Você estácom obesidade grave com esse indice: " + calculo);
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                             </div>
                             <div class="ftr-text">
-                                <p><a href="mailto:LifeMore@gmail.com">LifeMore@gmail.com</a></p>
+                                <p style="text-shadow: 2px 1px 0px #000000"><a href="mailto:LifeMore@gmail.com">LifeMore@gmail.com</a></p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
@@ -220,7 +220,7 @@ alert("Você estácom obesidade grave com esse indice: " + calculo);
                     </ul>
                 </div>
                 <div class="copyrights">
-                    <p>&copy; 2017 Life More. Todos os direitos reservados | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+                    <p style="text-shadow: 2px 1px 0px #000000">&copy; 2017 Life More. Todos os direitos reservados | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
                 </div>
             </div>
         </div>

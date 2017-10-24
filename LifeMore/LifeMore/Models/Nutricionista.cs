@@ -8,31 +8,29 @@ using System.Web.Mvc;
 
 namespace LifeMore.Models
 {
-    public class Paciente
+    public class Nutricionista
     {
         public Int32 Cod { get; set; }
         public String Nome { get; set; }
         public String Email { get; set; }
         public String CPF { get; set; }
-        public int Objetivo { get; set; }
         public String Senha { get; set; }
         public String Telefone { get; set; }
-        public String Idade { get; set; }
+        public Int32 Idade { get; set; }
         public String ImagemPerfil { get; set; }
-        public String Peso { get; set; }
-        public String Altura { get; set; }
+        public String LocalTrabalho { get; set; }
+        public String Bio { get; set; }
         public String Endereco { get; set; }
+        public Nutricionista() { }
 
-        public Paciente() { }
-
-        public Paciente(Int32 ID)
+        public Nutricionista(Int32 ID)
         {
             SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
             Conexao.Open();
 
             SqlCommand Comando = new SqlCommand();
             Comando.Connection = Conexao;
-            Comando.CommandText = "SELECT * FROM Paciente WHERE Cod=@ID;";
+            Comando.CommandText = "SELECT * FROM Nutricionista WHERE Cod=@ID;";
             Comando.Parameters.AddWithValue("@ID", ID);
 
             SqlDataReader Leitor = Comando.ExecuteReader();
@@ -43,20 +41,20 @@ namespace LifeMore.Models
             this.Email = (String)Leitor["Email"];
             this.Senha = (String)Leitor["Senha"];
             this.Nome = (String)Leitor["Nome"];
-            this.CPF = (String)Leitor["CPF_Paciente"];
+            this.CPF = (String)Leitor["CPF_Nutri"];
 
             Conexao.Close();
         }
 
 
-        public Paciente(String CPF, String Senha)
+        public Nutricionista(String CPF, String Senha)
         {
             SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
             Conexao.Open();
 
             SqlCommand Comando = new SqlCommand();
             Comando.Connection = Conexao;
-            Comando.CommandText = "SELECT * FROM Paciente WHERE CPF_Paciente=@CPF AND Senha=@Senha;";
+            Comando.CommandText = "SELECT * FROM Nutricionista WHERE CPF_Nutri=@CPF AND Senha=@Senha;";
             Comando.Parameters.AddWithValue("@CPF", CPF);
             Comando.Parameters.AddWithValue("@Senha", Senha);
 
@@ -69,12 +67,11 @@ namespace LifeMore.Models
             this.Senha = (String)Leitor["Senha"];
             this.Endereco = (String)Leitor["Endereco"];
             this.Nome = (String)Leitor["Nome"];
-            this.Objetivo = (int)Leitor["Objetivo"];
+            this.Idade = (int)Leitor["Idade"];
             this.ImagemPerfil = (String)Leitor["Foto"];
-            this.CPF = (String)Leitor["CPF_Paciente"];
-            this.Altura = (String)Leitor["Altura"];
-            this.Peso = (String)Leitor["Peso"];
-            this.Idade = (String)Leitor["Idade"];
+            this.CPF = (String)Leitor["CPF_Nutri"];
+            this.Bio = (String)Leitor["Bio"];
+            this.LocalTrabalho = (String)Leitor["LocalTrabalho"];
             this.Telefone = (String)Leitor["Telefone"];
 
 
@@ -88,23 +85,20 @@ namespace LifeMore.Models
             Conexao.Open();
 
             SqlCommand Comando = new SqlCommand();
-            Comando.Connection = Conexao; /*'458.363.878-77', 'teste', 'Rua 1', 'imagemPadrao.jpeg', 1.71, 'Emagrecer', 75.510, '987456321', 'Teste', 18, 'mesquini@live.com'*/
-            Comando.CommandText = "INSERT INTO Paciente (CPF_Paciente, Nome, Endereco, Foto, Altura, Objetivo, Peso, Telefone, Senha, Idade, Email)"
-              + "VALUES (@CPF_Paciente, @Nome, @Endereco, @Foto, @Altura, @Objetivo, @Peso, @Telefone, @Senha, @Idade, @Email);";
+            Comando.Connection = Conexao; /*'111.111.111-11','1', 40, 'Rua40','mesquini@live.com', '(19)9 8745-6321', 'Nutri', 'imagemPadrao.jpeg', 'SENAI'*/
+            Comando.CommandText = "INSERT INTO Nutricionista (CPF_Nutri, Senha, Idade, Endereco, Email, Telefone, Nome, Foto, LocalTrabalho, Bio)"
+              + "VALUES                                     (@CPF_Nutri, @Senha, @Idade, @Endereco, @Email, @Telefone, @Nome, @Foto, @LocalTrabalho, @Bio);";
 
-            Comando.Parameters.AddWithValue("@CPF_Paciente", this.CPF);
-            Comando.Parameters.AddWithValue("@Nome", this.Nome);
-            Comando.Parameters.AddWithValue("@Endereco", this.Endereco);
-            Comando.Parameters.AddWithValue("@Foto", "imagemPadrao.jpeg");
-            //Comando.Parameters.AddWithValue("@Foto", this.ImagemPerfil);
-            Comando.Parameters.AddWithValue("@Altura", this.Altura);
-            Comando.Parameters.AddWithValue("@Objetivo", this.Objetivo);
-            Comando.Parameters.AddWithValue("@Peso", this.Peso);
-            Comando.Parameters.AddWithValue("@Telefone", this.Telefone);
+            Comando.Parameters.AddWithValue("@CPF_Nutri", this.CPF);
             Comando.Parameters.AddWithValue("@Senha", this.Senha);
             Comando.Parameters.AddWithValue("@Idade", this.Idade);
+            Comando.Parameters.AddWithValue("@Endereco", this.Endereco);
             Comando.Parameters.AddWithValue("@Email", this.Email);
-
+            Comando.Parameters.AddWithValue("@Telefone", this.Telefone);
+            Comando.Parameters.AddWithValue("@Nome", this.Nome);
+            Comando.Parameters.AddWithValue("@Foto", "imagemPadrao.jpeg");
+            Comando.Parameters.AddWithValue("@Objetivo", this.LocalTrabalho);
+            Comando.Parameters.AddWithValue("@Bio", this.Bio);
 
 
             Int32 Resultado = Comando.ExecuteNonQuery();
@@ -115,64 +109,62 @@ namespace LifeMore.Models
         }
         public Boolean EditarPerfil()
         {
-            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["Paciente"].ConnectionString);
+            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["Nutricionista"].ConnectionString);
             Conexao.Open();
 
 
             SqlCommand Comando = new SqlCommand();
             Comando.Connection = Conexao;
-            Comando.CommandText = "UPDATE Paciente SET Peso = @Peso , Altura = @Altura, Foto = @Imagem, Idade = @Idade, Email = @Email, Telefone = @Telefone,"
-               +"Objetivo = @Objetivo, Endereco = @Endereco WHERE Cod = @ID;";
+            Comando.CommandText = "UPDATE Nutricionista SET Foto = @Imagem, Idade = @Idade, Email = @Email, Telefone = @Telefone, LocalTrabalho = @LocalTrabalho Bio = @Bio"
+               + "Objetivo = @Objetivo, Endereco = @Endereco WHERE Cod = @ID;";
 
             Comando.Parameters.AddWithValue("@ID", this.Cod);
-            Comando.Parameters.AddWithValue("@Peso", this.Peso);
-            Comando.Parameters.AddWithValue("@Altura", this.Altura);
             Comando.Parameters.AddWithValue("@Imagem", this.ImagemPerfil);
             Comando.Parameters.AddWithValue("@Idade", this.Idade);
             Comando.Parameters.AddWithValue("@Email", this.Email);
             Comando.Parameters.AddWithValue("@Telefone", this.Telefone);
-            Comando.Parameters.AddWithValue("@Objetivo", this.Objetivo);
-            Comando.Parameters.AddWithValue("@Endereco", this.Endereco);
+            Comando.Parameters.AddWithValue("@LocalTrabalho", this.LocalTrabalho);
+            Comando.Parameters.AddWithValue("@Bio", this.Bio);
 
             Int32 Resultado = Comando.ExecuteNonQuery();
-            
+
             Conexao.Close();
 
             return Resultado > 0 ? true : false;
         }
-        public static List<Paciente> ListarP()
+        public static List<Nutricionista> ListarN()
         {
             SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
             Conexao.Open();
 
             SqlCommand Comando = new SqlCommand();
             Comando.Connection = Conexao;
-            Comando.CommandText = "SELECT * FROM Paciente;";
+            Comando.CommandText = "SELECT * FROM Nutricionista;";
 
             SqlDataReader Leitor = Comando.ExecuteReader();
 
-            List<Paciente> Pacientes = new List<Paciente>();
+            List<Nutricionista> Nutricionistas = new List<Nutricionista>();
             while (Leitor.Read())
             {
-                Paciente P = new Paciente();
-                P.Cod = (Int32)Leitor["Cod"];
-                P.Nome = ((String)Leitor["Nome"]);
-                P.Endereco = Leitor["Endereco"].ToString();
-                P.CPF = (String)Leitor["CPF_Paciente"];
-                P.Email = ((String)Leitor["Email"]);
-                P.Senha = (String)Leitor["Senha"];
-                P.Altura = ((String)Leitor["Altura"]);
-                P.Peso = (String)Leitor["Peso"];
-                P.ImagemPerfil = (String)Leitor["Foto"];
-                P.Telefone = (String)Leitor["Telefone"];
+                Nutricionista N = new Nutricionista();
+                N.Cod = (Int32)Leitor["Cod"];
+                N.CPF = (String)Leitor["CPF_Nutri"];
+                N.Senha = (String)Leitor["Senha"];
+                N.Idade = (Int32)Leitor["Idade"];
+                N.Endereco = Leitor["Endereco"].ToString();
+                N.Email = ((String)Leitor["Email"]);
+                N.Telefone = (String)Leitor["Telefone"];
+                N.Nome = ((String)Leitor["Nome"]);
+                N.ImagemPerfil = (String)Leitor["Foto"];
+                N.LocalTrabalho = (String)Leitor["LocalTrabalho"];
+                N.Bio = ((String)Leitor["Bio"]);
 
-
-                Pacientes.Add(P);
+                Nutricionistas.Add(N);
             }
 
             Conexao.Close();
 
-            return Pacientes;
+            return Nutricionistas;
         }
         public static Boolean Autenticar(String CPF, String Senha)
         {
@@ -181,7 +173,7 @@ namespace LifeMore.Models
 
             SqlCommand Comando = new SqlCommand();
             Comando.Connection = Conexao;
-            Comando.CommandText = "SELECT * FROM Paciente WHERE CPF_Paciente=@CPF AND Senha=@Senha;";
+            Comando.CommandText = "SELECT * FROM Nutricionista WHERE CPF_Nutri=@CPF AND Senha=@Senha;";
             Comando.Parameters.AddWithValue("@CPF", CPF);
             Comando.Parameters.AddWithValue("@Senha", Senha);
 
@@ -205,7 +197,7 @@ namespace LifeMore.Models
 
             SqlCommand Comando = new SqlCommand();
             Comando.Connection = Conexao;
-            Comando.CommandText = "DELETE FROM Paciente WHERE Cod = @ID;";
+            Comando.CommandText = "DELETE FROM Nutricionista WHERE Cod = @ID;";
             Comando.Parameters.AddWithValue("@ID", this.Cod);
 
             Int32 Resultado = Comando.ExecuteNonQuery();
@@ -215,5 +207,5 @@ namespace LifeMore.Models
             return Resultado > 0 ? true : false;
         }
     }
-    
+
 }

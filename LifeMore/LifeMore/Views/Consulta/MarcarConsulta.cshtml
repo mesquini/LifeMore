@@ -35,9 +35,48 @@
 
     <link rel="stylesheet" href="~/css/Login.css">
     <script src="~/js/login.js"></script>
+    @* INICIA O JAVA SCRIPT DA PÁGINA COM FUNÇÃO DE MOSTRAR  AO USUÁRIO O  *@
+    <script>
+        function textoConsulta() {
+            var url = new URL(window.location.href);
+            var id_tipo = url.searchParams.get("id");
+            switch (id_tipo) {
+                case "1":
+                    document.getElementById("tipoConsulta").innerText = "Consulta inicial de nutrição";
+                    document.getElementById("precoConsulta").innerText = "Preço: R$ 200,00";
+                    document.getElementById("horaConsulta").innerText = "Horário: 1h";
+                    break;
+                case "2":
+                    document.getElementById("tipoConsulta").innerText = "Aconselhamento de nutrição";
+                    document.getElementById("precoConsulta").innerText = "Preço: R$ 100,00";
+                    document.getElementById("horaConsulta").innerText = "Horário: 1h";
+                    break;
+                case "3":
+                    document.getElementById("tipoConsulta").innerText = "Nutrição para a família";
+                    document.getElementById("precoConsulta").innerText = "Preço: R$ 100,00";
+                    document.getElementById("horaConsulta").innerText = "Horário: 1h e 30 min";
+                    break;
+                case "4":
+                    document.getElementById("tipoConsulta").innerText = "Monitoramento de peso";
+                    document.getElementById("precoConsulta").innerText = "Preço: R$ 70,00";
+                    document.getElementById("horaConsulta").innerText = "Horário: 1h";
+                    break;
+                case "5":
+                    document.getElementById("tipoConsulta").innerText = "Melhorando a qualidade de vida";
+                    document.getElementById("precoConsulta").innerText = "Preço: R$ 50,00";
+                    document.getElementById("horaConsulta").innerText = "Horário: 1h";
+                    break;
+                case "6":
+                    document.getElementById("tipoConsulta").innerText = "Sensibilidade e alimentos";
+                    document.getElementById("precoConsulta").innerText = "Preço: R$ 80,00";
+                    document.getElementById("horaConsulta").innerText = "1h";
+                    break;
+            }
+        }
+    </script>
 
 </head>
-<body class="bgEntrar">
+<body class="bgEntrar" onload="textoConsulta()">
     <div class="Main-agile">
         <!-- banner -->
         <div class="bannerEntrar">
@@ -95,7 +134,7 @@
     <div class="nome">
         *Nome Completo
     </div>
-        <input class="nometexto" type="text" id="nomeconsulta" name="nomeconsulta" />          
+        <input class="nometexto" type="text" id="nomeconsulta" name="nomeconsulta   " />          
     <div class="email">
         *Email
     </div>   
@@ -104,17 +143,19 @@
         *Telefone
     </div> 
         <input class="telefonetexto" type="text" id="textelfone" name="textelefone" maxlength="12" OnKeyPress="formatar('(##)-####-####', this)" />
-       <div class="mensagem">
-        Sinta-se a vontade para deixar uma mensagem para o seu médico
-        </div>
-        <textarea data-hook="message-field" id="mensagemconsulta" name="mensagemconsulta" type="textarea">
-        </textarea>
+    <div class="mensagem">
+        <p>Sinta-se a vontade para deixar uma mensagem para o seu médico</p>
+        <textarea data-hook="message-field" id="mensagemconsulta" name="mensagemconsulta" type="textarea"></textarea>
+    </div>
+    <div class="precoconsulta">
+            <p id="precoConsulta"></p>
+            <p id="horaConsulta"></p>
+        <p id="tipoConsulta"></p>
+    </div>
     <button class="botaoinfo">
         Enviar Informações
     </button>
-    <div class="precoconsulta">
-
-    </div>
+   
     <div class="footer w3ls">
         <div class="container">
             <div class="footer-main">

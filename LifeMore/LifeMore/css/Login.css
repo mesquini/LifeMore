@@ -10,7 +10,8 @@ article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, s
 ol,ul{list-style:none;margin:0px;padding:0px;}
 blockquote,q{quotes:none;}
 blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
-table{border-collapse:collapse;border-spacing:0;}
+table{border-collapse:collapse;border-spacing:0;width: 1600px; text-align: center}
+table tbody tr:hover{background-color: #bdbdbd}
 /* start editing from here */
 a{text-decoration:none;}
 .txt-rt{text-align:right;}/* text align right */
@@ -349,6 +350,9 @@ input[type="radio"]:checked + label:after{
     font-weight: bold;
 }
 
+
+
+
 /*-- //checkbox --*/
 
 .login-form input[type="submit"] {
@@ -499,6 +503,95 @@ h2.resp-accordion {
     height: 60px;
 }
 /*--//alert-close--*/
+
+/**/
+
+.nav_tabs{
+    width: 1800px;
+    height: 800px;
+    margin: 100px auto;
+    position: relative;
+    margin-top:15px;
+}
+
+.nav_tabs h2{
+    /*font-size: 2.3em;
+	font-family: 'Open Sans', sans-serif;
+	color:#B01030;
+    text-align: center;*/
+    font-size: 2.5em;
+margin: 0;
+color: #B01030;
+font-family: 'Titillium Web', sans-serif;
+font-weight: 600;
+text-align: center;
+}
+
+.nav_tabs ul{
+    list-style: none;
+}
+
+.nav-tabs ul li{
+    padding-left:360px;
+}
+
+.tabs{
+    float:left;
+    border-bottom:12px solid #333;
+}
+
+.nav_tabs label{
+    width: 436px;
+    padding: 25px;
+    background-color: #B01030;
+    display: block;
+    color: #ffffff;
+    cursor: pointer;
+    text-align: center;
+}
+
+.rd_tabs:checked~label{
+    background-color: #333;
+    color:#ffffff;
+}
+
+.rd_tabs:checked~.nav_tabs{
+    border-bottom:10px solid #333;
+}
+
+.rd_tabs{
+    display:none;
+}
+
+.content_tab{
+    border: 5px solid #333;
+    display: none;
+    position:relative;
+    height: 600px;
+    width:1744px;
+    left:0;
+    padding: 10px;
+    background-color:#ffffff;
+    padding-bottom: 840px;
+}
+
+.rd_tabs:checked~.content_tab{
+    display:block;
+    position:absolute;
+    top:70px;
+}
+
+.Produto{
+     background-color: #B01030;
+     padding: 50px 50px;
+     
+}
+.texto{
+    color:white;
+    text-align: center;
+}
+/**/
+
 /*--/copy-right--*/
 .copy-right {
     text-align: center;
