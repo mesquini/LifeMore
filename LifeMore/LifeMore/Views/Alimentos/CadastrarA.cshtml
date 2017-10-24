@@ -105,15 +105,17 @@
                                         <p>Caloria: </p>
                                         <input type="text" name="caloriaA" id="caloriaA" required />
                                         <p>Gordura:</p>
-                                        <input type="text" name="idade" id="idade" required maxlength="2" />
+                                        <input type="text" name="gorduraA" id="gorduraA" required maxlength="2" />
                                         <p>Carboidrato:</p>
                                         <input type="text" id="carboidratoA" name="carboidratoA" />
                                         <p>Proteína: </p>
                                         <input type="text" id="proteinaA" name="proteinaA" />
-                                        <p>Categoria: </p>
-                                        <input type="text" id="categoriaA" name="categoriaA" required />
-                                       
-                                        <input type="submit" value="Cadastrar Alimeto">
+                                        <p>Categoria: </p>                                     
+                                                <select name="categoriaA" id="categoriaA">
+                                                    <option>Selecione a categoria...</option>
+                                                    <option value="0"></option>
+                                                </select>
+                                                <input type="submit" value="Cadastrar Alimeto">
 
                                     </form>
                                     @if (ViewBag.MsgErro != null)
