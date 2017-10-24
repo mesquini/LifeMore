@@ -138,6 +138,15 @@
     <Content Include="images\Consulta\Nutricaofamilia.jpg" />
     <Content Include="images\Consulta\qualidade_vida.jpg" />
     <Content Include="images\Consulta\sensibilidade_alimento.jpg" />
+    <Content Include="images\Dicas\agua.jpg" />
+    <Content Include="images\Dicas\bolo_banana.jpeg" />
+    <Content Include="images\Dicas\colageno.jpg" />
+    <Content Include="images\Dicas\exercicio.jpg" />
+    <Content Include="images\Dicas\fibras.jpg" />
+    <Content Include="images\Dicas\fisico.jpg" />
+    <Content Include="images\Dicas\frutas.jpg" />
+    <Content Include="images\Dicas\gorduras.jpg" />
+    <Content Include="images\Dicas\torta_frango.jpg" />
     <Content Include="images\prev.png" />
     <Content Include="images\Time\BarbaraVerdadeira.jpg" />
     <Content Include="images\Papeis_Parede\bg1.jpg" />
