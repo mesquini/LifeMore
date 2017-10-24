@@ -1017,3 +1017,11 @@ text-align: center;
 	-ms-background-size:cover;
 	min-height:88px;
 }
+
+/*pagina dicas css*/
+.boloDBanana{
+
+    float: right;
+    margin-bottom:900px;
+    margin-right: 15px;
+}
