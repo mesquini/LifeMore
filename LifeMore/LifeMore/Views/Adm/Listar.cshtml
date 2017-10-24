@@ -124,7 +124,7 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="stroke">
                                 <ul class="nav navbar-nav"> 
-                                    @if (ViewBag.Logado != null)
+                                    @if (ViewBag.LogadoA != null)
                                     {
 
                                         <li class="active"><a href="~/Adm/Listar">Perfil</a></li>
@@ -188,9 +188,9 @@
                                         <td>
                                         @if (P.Objetivo == 1)
                                         {
-                                        <p>Engordar</p> }
+                                        <p style="text-shadow: 2px 1px 0px #000000">Engordar</p> }
                                          else {
-                                        <p>Emagrecer</p>}
+                                        <p style="text-shadow: 2px 1px 0px #000000">Emagrecer</p>}
                                         </td>
                                         <td>@(P.Idade)</td>
                                         <td>@(P.Peso)</td>
@@ -217,7 +217,7 @@
                     <section>
                         <table border="1">
                             <thead>
-                                <tr><a href="/Pacote/Novo/">Cadastrar um novo Nutricionista</a></tr>
+                                <tr><a href="~/Nutricionista/CadastrarN">Cadastrar um novo Nutricionista</a></tr>
                                 <tr class="Produto">
                                     <th class="texto">Nome</th>
                                     <th class="texto">Senha</th>
@@ -247,7 +247,7 @@
                                         <td>@(N.LocalTrabalho)</td>
                                         <td>@(N.Bio)</td>
                                         <td>
-                                            <a href="~/Adm/ApagarN/@(N.Cod)">Apagar</a>
+                                            <a href="~/Nustricionista/ApagarN/@(N.Cod)">Apagar</a>
                                         </td>
                                     </tr>
                                }
@@ -268,27 +268,30 @@
                                 <tr><a href="/DLCs/Novo/">Cadastrar uma novo alimento</a></tr>
                                 <tr class="Produto">
                                     <th class="texto">Nome</th>
-                                    <th class="texto">Categoria</th>
+                                    <th class="texto">Peso</th>
                                     <th class="texto">Caloria</th>
-                                    <th class="texto">Descrição</th>
-                                    <th class="texto">Preço</th>
-                                    <th class="texto">Ações</th>
+                                    <th class="texto">Gordura</th>
+                                    <th class="texto">Carboidrato</th>
+                                    <th class="texto">Proteina</th>
+                                    <th class="texto">Categoria</th>
+                                    <th class="texto">Ação</th>
                                 </tr>
                             </thead>
                             <tbody>
-                               
+                               @foreach(var A in ViewBag.Alimento) { 
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>@(A.Nome)</td>
+                                        <td>@(A.Peso)</td>
+                                        <td>@(A.Caloria)</td>
+                                        <td>@(A.Gordura)</td>
+                                        <td>@(A.Carboidrato)</td>
+                                        <td>@(A.Proteina)</td>
+                                        <td>@(A.Categoria)</td>
                                         <td>
-                                            <a href="/DLCs/Alterar/">Alterar</a> |
-                                            <a href="/DLCs/Apagar/">Apagar</a>
+                                            <a href="/Alimentos/ApagarA/@(A.Cod)">Apagar</a>
                                         </td>
                                     </tr>
-                                
+                                }
                             </tbody>
                         </table>
                     </section>
@@ -300,33 +303,26 @@
                 <input type="button" name="tabs" class="rd_tabs" id="tab4">
                 <label for="tab4" id="label4"> Categorias </label>
                 <div class="content_tab" id="content_tab4">
-                    <section>
+                    <section >
                         <table border="1">
                             <thead>
-                                <tr><a href="/Posts/NovoPost/">Cadastrar uma nova Categoria</a></tr>
+                                <tr><a href="~/Categoria/CadastrarC">Cadastrar uma nova Categoria</a></tr>
                                 <tr class="Produto">
-                                    <th class="texto">Autor</th>
-                                    <th class="texto">Título</th>
-                                    <th class="texto">Imagem</th>
-                                    <th class="texto">Descrição</th>
-                                    <th class="texto">Data</th>
-                                    <th class="texto">Ação</th>
+                                    <th class="texto">Codigo</th>
+                                    <th class="texto">Nome</th>
+                                    <th class="texto">Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
-                               
+                               @foreach(var C in ViewBag.Categoria) { 
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>@(C.Cod)</td>
+                                        <td>@(C.Nome)</td>
                                         <td>
-                                            <a href="~/Posts/Posts/">Alterar</a> |
-                                            <a href="~/Posts/Apagar/">Apagar</a>
+                                            <a href="~/Categoria/ApagarC/@(C.Cod)">Apagar</a>
                                         </td>
                                     </tr>
-                                
+                                }
                             </tbody>
                         </table>
                     </section>
@@ -367,7 +363,7 @@
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                             </div>
                             <div class="ftr-text">
-                                <p>SENAI Zerbini</p>
+                                <p style="text-shadow: 2px 1px 0px #000000">SENAI Zerbini</p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
@@ -376,7 +372,7 @@
                                 <i class="fa fa-phone" aria-hidden="true"></i>
                             </div>
                             <div class="ftr-text">
-                                <p>+55 19 9 9865 8943</p>
+                                <p style="text-shadow: 2px 1px 0px #000000">+55 19 9 9865 8943</p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
@@ -385,7 +381,7 @@
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                             </div>
                             <div class="ftr-text">
-                                <p><a href="mailto:LifeMore@gmail.com">LifeMore@gmail.com</a></p>
+                                <p style="text-shadow: 2px 1px 0px #000000"><a href="mailto:LifeMore@gmail.com">LifeMore@gmail.com</a></p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
@@ -401,7 +397,7 @@
                     </ul>
                 </div>
                 <div class="copyrights">
-                    <p>&copy; 2017 Life More. Todos os direitos reservados | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+                    <p style="text-shadow: 2px 1px 0px #000000">&copy; 2017 Life More. Todos os direitos reservados | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
                 </div>
             </div>
         </div>

@@ -138,6 +138,7 @@
     <Content Include="images\Consulta\Nutricaofamilia.jpg" />
     <Content Include="images\Consulta\qualidade_vida.jpg" />
     <Content Include="images\Consulta\sensibilidade_alimento.jpg" />
+    <Content Include="images\Papeis_Parede\papeisdeparedess.jpg" />
     <Content Include="images\prev.png" />
     <Content Include="images\Time\BarbaraVerdadeira.jpg" />
     <Content Include="images\Papeis_Parede\bg1.jpg" />
@@ -155,7 +156,6 @@
     <Content Include="images\Quem_somos-Index\JovemNutricionista.jpeg" />
     <Content Include="images\Quem_somos-Index\Medicocomputer.jpg" />
     <Content Include="images\Time\Mesquini.jpg" />
-    <Content Include="images\Papeis_Parede\papeisdeparedess.jpg" />
     <Content Include="images\Papeis_Parede\Papel de parede.jpg" />
     <Content Include="images\Quem_somos-Index\Pesos.jpg" />
     <Content Include="images\Quem_somos-Index\Nossasnoticias.jpg" />
@@ -210,6 +210,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Adm.cs" />
+    <Compile Include="Models\Alimento.cs" />
+    <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\MarcarConsulta.cs" />
     <Compile Include="Models\Nutricionista.cs" />
     <Compile Include="Models\Paciente.cs" />
@@ -249,7 +251,7 @@
     <Content Include="Views\Nutricionista\CadastrarN.cshtml" />
     <Content Include="Views\Alimentos\CadastrarA.cshtml" />
     <Content Include="Views\Categoria\CadastrarC.cshtml" />
-    <Content Include="Views\Nutricionista\Ver.cshtml" />
+    <Content Include="Views\Adm\Ver.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

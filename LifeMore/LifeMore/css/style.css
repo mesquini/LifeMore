@@ -4,16 +4,16 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
-body{
-	padding:0;
-	margin:0;
-	font-size: 16px;
-	font-family: 'ABeeZee', sans-serif;
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    font-family: 'ABeeZee', sans-serif;
     background: url(../images/Papeis_Parede/papeisdeparedess.jpg)no-repeat;
-    position:relative;
-	background-size:cover;
-	background-position:center;
-	background-attachment:fixed;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 .CadastroA{
 
