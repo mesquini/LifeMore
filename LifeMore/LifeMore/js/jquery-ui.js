@@ -4380,7 +4380,7 @@ $.effects = {
 	support = color.support = {},
 
 	// element for support tests
-	supportElem = jQuery( "<p>" )[ 0 ],
+	supportElem = jQuery( "<p style="text-shadow: 2px 1px 0px #000000">" )[ 0 ],
 
 	// colors = jQuery.Color.names
 	colors,
