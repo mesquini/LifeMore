@@ -16,6 +16,8 @@ namespace LifeMore.Models
 
         public Adm() { }
 
+
+
         public Adm(Int32 ID)
         {
             SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
