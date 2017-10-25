@@ -39,29 +39,29 @@
 
 </head>
 <script type="text/javascript">
-function calcula_imc(){
-var altura = document.imcForm.altura.value;
-var peso = document.imcForm.peso.value;
+    function calcula_imc(){
+    var altura = document.imcForm.altura.value;
+    var peso = document.imcForm.peso.value;
 
-var quadrado = (altura * altura);
+    var quadrado = (altura * altura);
 
-var calculo = (peso/quadrado);
+    var calculo = (peso/quadrado);
 
-if(calculo<18.5){
-alert("Você está magro com esse indice: " + calculo);
-}
-else if(calculo>=18.5 && calculo<24.9){
-alert("Você está normal com esse indice: " + calculo);
-}
+    if(calculo<18.5){
+    alert("Você está magro com esse indice: " + calculo);
+    }
+    else if(calculo>=18.5 && calculo<24.9){
+    alert("Você está normal com esse indice: " + calculo);
+    }
 
-else if(calculo>=25 && calculo<29.9) {
-alert("Você está com sobre peso com esse indice: " + calculo);
-}
-else if(calculo>=30 && calculo<39.9) {
-alert("Você está com obesidade com esse indice: " + calculo);
-}
-else if (calculo>40)
-alert("Você estácom obesidade grave com esse indice: " + calculo);
+    else if(calculo>=25 && calculo<29.9) {
+    alert("Você está com sobre peso com esse indice: " + calculo);
+    }
+    else if(calculo>=30 && calculo<39.9) {
+    alert("Você está com obesidade com esse indice: " + calculo);
+    }
+    else if (calculo>40)
+    alert("Você estácom obesidade grave com esse indice: " + calculo);
 }
 </script>
 <body class="bgEntrar">
@@ -126,8 +126,8 @@ alert("Você estácom obesidade grave com esse indice: " + calculo);
         <div class="perfil">
 
             <div class="imagem">
-                <input type="image" title="Editar Informações" onclick="EditaPerfil()" id="edit" src="/images/Entrar/@ViewBag.Imagem" onmouseover="this.src = '/images/useredit-hover.png'"
-                onmouseout="this.src = '/images/Entrar/@ViewBag.Imagem'" class="imgEdit"/>
+                <input type="image" title="Editar Informações" onclick="EditaPerfil()" id="edit" src="/images/img_users/@ViewBag.Imagem" onmouseover="this.src = '/images/useredit-hover.png'"
+                onmouseout="this.src = '/images/img_users/@ViewBag.Imagem'" class="imgEdit"/>
             </div>
 
             <div class="dadosPessoais">
@@ -142,9 +142,9 @@ alert("Você estácom obesidade grave com esse indice: " + calculo);
                 @if ( ViewBag.Objetivo == 1) { <p style="text-shadow: 2px 1px 0px #000000">Objetivo: Engordar</p> }
                 else {<p style="text-shadow: 2px 1px 0px #000000">Objetivo: Emagrecer</p>}
 
-                <p id="peso">Peso: @ViewBag.Peso Kg</p>
-                <p id="altura">Altura: @ViewBag.Altura Cm</p>
-                <a href="#"> Calcular IMC </a>
+                <p id="peso" style="text-shadow: 2px 1px 0px #000000">Peso: @ViewBag.Peso Kg</p>
+                <p id="altura" style="text-shadow: 2px 1px 0px #000000">Altura: @ViewBag.Altura Cm</p>
+                <a href="#" style="text-shadow: 2px 1px 0px #000000"> Calcular IMC </a>
                 <p style="text-shadow: 2px 1px 0px #000000">Idade: @ViewBag.Idade</p>
             </div>
             <div class="btPerfil">
