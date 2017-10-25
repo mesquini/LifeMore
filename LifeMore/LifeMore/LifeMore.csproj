@@ -255,6 +255,10 @@
     <Content Include="Views\Entrar\Logar.cshtml" />
     <Content Include="Views\Consulta\MarcarConsulta.cshtml" />
     <Content Include="Views\Perfil\Editar_Perfil.cshtml" />
+    <Content Include="Views\Alimentos\CadastrarA.cshtml" />
+    <Content Include="Views\Categoria\CadastrarC.cshtml" />
+    <Content Include="Views\Home\Dicas.cshtml" />
+    <Content Include="Views\Nutricionista\CadastrarN.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -100,16 +100,16 @@
         <div class="perfil">
 
             <div class="imagem">
-                <input type="image" title="Editar Informações" onclick="EditaPerfil()" id="edit" src="/images/Entrar/@ViewBag.Imagem" onmouseover="this.src = '/images/useredit-hover.png'"
+                <input type="image" title="Editar Informações" onclick="EditaPerfil()" id="edit" name="imag" src="/images/Entrar/@ViewBag.Imagem" onmouseover="this.src = '/images/useredit-hover.png'"
                        onmouseout="this.src = '/images/Entrar/@ViewBag.Imagem'"  />
             </div>
 
             <div class="dadosPessoais">
                 <p style="text-shadow: 2px 1px 0px #000000">Nome: @ViewBag.Nome</p>
-                <p style="text-shadow: 2px 1px 0px #000000">E-mail: <input type="text" value="@ViewBag.Email" class="editPerfil" required/></p>
+                <p style="text-shadow: 2px 1px 0px #000000">E-mail: <input type="text" value="@ViewBag.Email" class="editPerfil" name="Email" required/></p>
                 <p style="text-shadow: 2px 1px 0px #000000">CPF: @ViewBag.CPF </p>
-                <p style="text-shadow: 2px 1px 0px #000000">Endereço: <input type="text" value="@ViewBag.Endereco" class="editPerfil"required /></p>
-                <p style="text-shadow: 2px 1px 0px #000000">Telefone: <input type="text" value="@ViewBag.Tel" class="editTel" required/></p>
+                <p style="text-shadow: 2px 1px 0px #000000">Endereço: <input type="text" value="@ViewBag.Endereco" class="editPerfil" name="Endereco" required /></p>
+                <p style="text-shadow: 2px 1px 0px #000000">Telefone: <input type="text" value="@ViewBag.Tel" class="editTel" name="Tel" required/></p>
                 
             </div>
 
@@ -119,9 +119,9 @@
                     <input type="radio" name="objetivo" id="engordar" value="1" /> <label for="engordar" class="objetivo">Engordar</label>
                     <input type="radio" name="objetivo" id="emagrecer" value="2" checked/> <label for="emagrecer" class="objetivo">Emagrecer</label>
                 </p>
-                <p style="text-shadow: 2px 1px 0px #000000">Peso: <input type="text" value="@ViewBag.Peso" class="editPeso" required /></p>
-                <p style="text-shadow: 2px 1px 0px #000000">Altura: <input type="text" value="@ViewBag.Altura" class="editPerfil" required/></p>
-                <p style="text-shadow: 2px 1px 0px #000000">Idade: <input type="text" value="@ViewBag.Idade" class="editIdade" required/></p>
+                <p style="text-shadow: 2px 1px 0px #000000">Peso: <input type="text" value="@ViewBag.Peso" class="editPeso" name="Peso" required /></p>
+                <p style="text-shadow: 2px 1px 0px #000000">Altura: <input type="text" value="@ViewBag.Altura" class="editPerfil" name="Altura" required/></p>
+                <p style="text-shadow: 2px 1px 0px #000000">Idade: <input type="text" value="@ViewBag.Idade" class="editIdade" name="Idade" required/></p>
             </div>
             <div class="btPerfil">
             </div>
