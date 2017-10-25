@@ -38,16 +38,6 @@
     <script src="~/js/jquery.js"></script>
     <script src="~/js/jquery.mask.js"></script>
 </head>
-
-<script type="text/javascript">
-    jQuery(function ($) {
-        $("#telefone").mask("(99)9 9999-9999");
-        $("#cpf1").mask("999.999.999-99");
-        $("#peso").mask("999.999", { required: true});
-        $("#altura").mask("9.99", { required: true });
-    });
-</script>
-
 <body class="bgEntrar">
     <div class="Main-agile">
         <!-- banner -->
@@ -115,7 +105,7 @@
                                                     <option>Selecione a categoria...</option>
                                                     <option value="0"></option>
                                                 </select>
-                                                <input type="submit" value="Cadastrar Alimeto">
+                                                <input type="submit" value="Cadastrar Alimento">
 
                                     </form>
                                     @if (ViewBag.MsgErro != null)

@@ -38,15 +38,6 @@
     <script src="~/js/jquery.js"></script>
     <script src="~/js/jquery.mask.js"></script>
 </head>
-<script type="text/javascript">
-    jQuery(function ($) {
-        $("#telefone").mask("(99)9 9999-9999");
-        $("#cpf1").mask("999.999.999-99");
-        $("#peso").mask("999.999", { required: true});
-        $("#altura").mask("9.99", { required: true });
-    });
-</script>
-
 <body class="bgEntrar">
     <div class="Main-agile">
         <!-- banner -->
@@ -79,64 +70,47 @@
                     </nav>
                 </div>
             </div>
-        </div>
-
-
-        <div class="message warning">
-            <div class="inset agile">
-                <div class="sap_tabs w3ls-tabs">
-                    <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
-                        <a href="~/Adm/Listar">Voltar</a>
-                        <ul class="resp-tabs-list">
-                            <li class="resp-tab-item resp-tab-active" aria-controls="tab_item-1" role="tab"><a href="~/Nutricionista/CadastrarN">Cadastrar Nutricionista</a></li>
-                        </ul>
-                        <div class="clear"> </div>
-                        <div class="resp-tabs-container">
-
-                            <script src="~/js/Mascara.js"></script>
-                            <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
-                                <div class="login-agileits-top sign-up">
-                                    <form action="/Nutricionista/CadastrarN" method="post">
-                                        <p style="text-shadow: 2px 1px 0px #000000">Nome do Nutricionista: </p>
-                                        <input type="text" name="nomeN" id="nomeN" required maxlength="25" />
-                                        <p style="text-shadow: 2px 1px 0px #000000">Senha: </p>
-                                        <input type="password" id="senhaN" name="senhaN" required />
-                                        <p style="text-shadow: 2px 1px 0px #000000">CPF: </p>
-                                        <input type="text" name="cpfN" id="cpfN" />
-                                        <p style="text-shadow: 2px 1px 0px #000000">Email: </p>
-                                        <input type="text" name="emailN" id="emailN" required />
-                                        <p style="text-shadow: 2px 1px 0px #000000">Endereço:</p>
-                                        <input type="text" name="enderecoN" id="enderecoN" required maxlength="2" />
-                                        <p style="text-shadow: 2px 1px 0px #000000">Idade: </p>
-                                        <input type="text" id="idadeN" name="idadeN" />                                                  
-                                        <p style="text-shadow: 2px 1px 0px #000000">Telefone: </p>
-                                        <input type="text" id="telefoneN" name="telefoneN" required />
-                                        <p style="text-shadow: 2px 1px 0px #000000">Local de trabalho: </p>
-                                        <input type="text" id="localtrabN" name="localtrabN" required />
-                                        <p style="text-shadow: 2px 1px 0px #000000">Biografia: </p>
-                                        <textarea data-hook="message-field" id="biografiaN" name="biografiaN" type="textarea"></textarea>
-                                        <p style="text-shadow: 2px 1px 0px #000000">Foto:</p>
-                                        <input type="file" id="fotoN" name="fotoN" />
-                                        <input type="submit" value="Cadastrar Nutricionista">
-
-                                    </form>
-                                    @if (ViewBag.MsgErro != null)
-                                    {
-                                        <div class="alert alert-danger">
-                                            <strong>ERRO!</strong> @ViewBag.MsgErro
-                                        </div>
-                                    }
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="right-section-w3ls"></div>
-                <div class="clear"> </div>
+        </div>            
+        <div class="mostrar">
+     <textarea style="width: 400px; height:400px;" data-hook="message-field" id="mostrarC" name="mostrarC" type="textarea"></textarea>
+        </div>    
+        <div class="fundo">
+            <br />          <br />
+                                                    <p style="font-size: 50px;
+                                                         text-align: center;
+                                                         color: white;">Cardápio</p>         
+            <div class="CadastrarC">
+                <p>Nome do paciente: </p>
+                <select name="nomeC" id="nomeC">
+                    <option>Selecione o paciente...</option>
+                    <option value="0"></option>
+                </select>
+                <br />   <br />
+                <p>Adicionar Alimento: </p>
+                <select name="alimento1" id="alimento1">
+                    <option>Selecione o alimento...</option>
+                    <option value="0"></option>
+                </select>
+                <br />          <br />
+                <select name="alimento2" id="alimento2">
+                    <option>Selecione o alimento...</option>
+                    <option value="0"></option>
+                </select>
+                <br />                   <br />
+                <select name="alimento3" id="alimento3">
+                    <option>Selecione o alimento...</option>
+                    <option value="0"></option>
+                </select>                <br />          <br />
+                <select name="alimento4" id="alimento4">
+                    <option>Selecione o alimento...</option>
+                    <option value="0"></option>
+                </select>                <br />   <br />
+                <p>Observações do cardápio: </p>
+                <textarea data-hook="message-field" id="InformacoesC" name="InformacoesC" type="textarea"></textarea>
+                <input type="submit" value="Cadastrar Cardápio">
             </div>
         </div>
+        
         <script type="text/javascript" src="~/js/jquery-2.1.4.min.js"></script>
         <script>
                                 $(document).ready(function(c) {
@@ -236,3 +210,4 @@
 
 </body>
 </html>
+
