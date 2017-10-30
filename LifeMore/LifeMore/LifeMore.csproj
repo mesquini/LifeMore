@@ -147,6 +147,7 @@
     <Content Include="images\Dicas\frutas.jpg" />
     <Content Include="images\Dicas\gorduras.jpg" />
     <Content Include="images\Dicas\torta_frango.jpg" />
+    <Content Include="images\img_users\imagemPadrao.jpeg" />
     <Content Include="images\prev.png" />
     <Content Include="images\Time\BarbaraVerdadeira.jpg" />
     <Content Include="images\Papeis_Parede\bg1.jpg" />
@@ -209,6 +210,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdmController.cs" />
     <Compile Include="Controllers\AlimentosController.cs" />
+    <Compile Include="Controllers\CardapioController.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\ConsultaController.cs" />
     <Compile Include="Controllers\EntrarController.cs" />
@@ -257,8 +259,12 @@
     <Content Include="Views\Perfil\Editar_Perfil.cshtml" />
     <Content Include="Views\Alimentos\CadastrarA.cshtml" />
     <Content Include="Views\Categoria\CadastrarC.cshtml" />
-    <Content Include="Views\Home\Dicas.cshtml" />
     <Content Include="Views\Nutricionista\CadastrarN.cshtml" />
+    <Content Include="Views\Adm\Listar.cshtml" />
+    <Content Include="Views\Adm\LogarAdm.cshtml" />
+    <Content Include="Views\Adm\Ver.cshtml" />
+    <Content Include="Views\Cardapio\CadastrarC.cshtml" />
+    <Content Include="Views\Home\Dicas.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -268,7 +274,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Adm\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

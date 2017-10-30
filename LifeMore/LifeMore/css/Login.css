@@ -1,4 +1,4 @@
-/*--
+    /*--
 Author: W3layouts
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -102,15 +102,24 @@ button.btConcluirCSS:hover{
 .editTel{
     color:black;
     margin-left:7px;
+    width:180px;
 }
 
 .editPeso{
     color:black;
     margin-left:22px;
+    width:105px;
+}
+.editAltura{
+    color:black;
+    margin-left:2px;
+    width:105px;
 }
 .editIdade{
     color:black;
     margin-left:9px;
+    width: 35px;
+    text-align: center;
 }
 .perfil{
     font-size: 25px;
@@ -337,6 +346,7 @@ input[type="radio"] + label:before{
     vertical-align: top;
     width: 16px;
     border-radius:4px;
+    margin-top: 10px;
 }
  
 input[type="radio"]:checked + label:before{
@@ -344,6 +354,7 @@ input[type="radio"]:checked + label:before{
     color: #FFF;
     content: "\2714";
     text-align: center;
+    margin-top: 10px;
 }
  
 input[type="radio"]:checked + label:after{
@@ -1024,4 +1035,9 @@ text-align: center;
     float: right;
     margin-bottom:900px;
     margin-right: 280px;
+}
+.imgEdit{
+    width:200px;
+    border-radius: 500px 500px ;
+    border: 3px solid black;
 }

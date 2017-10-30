@@ -12,6 +12,11 @@ namespace LifeMore.Controllers
         // GET: Perfil
         public ActionResult IndexPerfil()
         {
+
+            if (Session["Paciente"] == null)
+            {
+                Response.Redirect("/Home/Index", false);
+            }
             if (Session["Paciente"] != null)
             {
                 ViewBag.Logado = Session["Paciente"];
@@ -38,43 +43,68 @@ namespace LifeMore.Controllers
         {
             if (Session["Paciente"] == null)
             {
-                Response.Redirect("~/Home/Index", false);
+                Response.Redirect("/Home/Index", false);
             }
+
+            ViewBag.Logado = Session["Paciente"];
+            Paciente p = (Paciente)Session["Paciente"];
+            ViewBag.Paciente = (Paciente)Session["Paciente"];
+
             if (Request.HttpMethod == "POST")
-            {
-                Paciente p = (Paciente)Session["Paciente"];
+                {
+                    String Email = Request.Form["Email"];
+                    String Endereco = Request.Form["Endereco"];
+                    String Tel = Request.Form["Tel"];
+                    Int32 Objetivo = Int32.Parse(Request.Form["Objetivo"]);
+                    String Peso = Request.Form["Peso"];
+                    String Altura = Request.Form["Altura"];
+                    String Idade = Request.Form["Idade"];
+                    //String Image = Request.Form["Imag"];
 
-                String Email = Request.Form["Email"];
-                String Endereco = Request.Form["Endereco"];
-                String Tel = Request.Form["Tel"];
-                String Objetivo = Request.Form["Objetivo"];
-                String Peso = Request.Form["Peso"];
-                String Altura = Request.Form["Altura"];
-                String Idade = Request.Form["Idade"];
-                String Image = Request.Form["Imag"];
+                    Paciente novoUser = new Paciente();
 
-                Paciente novoUser = new Paciente();
-                
-                novoUser.Email = Email;
-                novoUser.Endereco = Endereco;
-                novoUser.ImagemPerfil = Image;
-                novoUser.Peso = Peso;
-                novoUser.Altura = Altura;
-                novoUser.Telefone = Tel;
-                novoUser.Idade = Idade;
+                     novoUser = (Paciente)Session["Paciente"];
+                      novoUser.Email = Email;
+                    novoUser.Endereco = Endereco;
+                    //novoUser.ImagemPerfil = Image;
+                    novoUser.Peso = Peso;
+                    novoUser.Altura = Altura;
+                    novoUser.Telefone = Tel;
+                    novoUser.Idade = Idade;
+                    novoUser.Objetivo = Objetivo;
+                    int ID = novoUser.Cod;
+
+                foreach (string fileName in Request.Files)
+                {
+                    HttpPostedFileBase postedFile = Request.Files[fileName];
+                    int contentLength = postedFile.ContentLength;
+                    string contentType = postedFile.ContentType;
+                    string nome = postedFile.FileName;
+
+                    if (contentType.IndexOf("jpeg") > 0 || contentType.IndexOf("jpg") > 0 || contentType.IndexOf("png") > 0)
+                    {
+                        
+                        postedFile.SaveAs(HttpRuntime.AppDomainAppPath + "\\images\\img_users\\" + "imagemPerfil" + ID + ".jpg");
+                        postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images\img_users" + "imagemPerfil" + ID + ".jpg");
+                    }
+                    else
+                     postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
+
+                }
+                novoUser.ImagemPerfil = "imagemPerfil" + ID + ".jpg";
 
                 if (novoUser.EditarPerfil())
-                {
-                    ViewBag.Mensagem = "Perfil Atualizado com sucesso!";
-                    Response.Redirect("/Perfil/IndexPerfil");
-                }
-                else
-                {
-                    ViewBag.Mensagem = "Erro ao atualizar, tente novamente";
-                }
+                    {
+                        ViewBag.Mensagem = "Perfil Atualizado com sucesso!";
+                        Response.Redirect("/Perfil/IndexPerfil");
+                    Session["Paciente"] = novoUser;
+                    ViewBag.Paciente = (Paciente)Session["Paciente"];
+                    }
+                    else
+                    {
+                        ViewBag.Mensagem = "Erro ao atualizar, tente novamente";
+                    }
 
-                List<Paciente> User = Paciente.ListarP();
-                ViewBag.Paciente = User;
                 return View();
             }
 

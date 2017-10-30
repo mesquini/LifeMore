@@ -115,7 +115,7 @@ namespace LifeMore.Models
         }
         public Boolean EditarPerfil()
         {
-            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["Paciente"].ConnectionString);
+            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
             Conexao.Open();
 
 
