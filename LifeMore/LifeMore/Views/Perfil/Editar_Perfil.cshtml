@@ -100,11 +100,11 @@
 
     </div>
     <br />
-    <div class="textoperfil">
-        Perfil
-    </div>
+
+    <div class="textoperfil">Perfil</div>
+
     @if (ViewBag.Logado != null) {
-    <form action="/Perfil/Editar_Perfil" method="POST" enctype="multipart/form-data">
+    <form action="~/Perfil/Editar_Perfil" method="post" enctype="multipart/form-data">
         @* perfil *@
         <div class="perfil">
 
