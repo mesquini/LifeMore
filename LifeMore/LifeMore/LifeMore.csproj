@@ -133,6 +133,7 @@
     <Content Include="images\c-arrows.png" />
     <Content Include="images\close.png" />
     <Content Include="images\Consulta\Aconselhamento.jpg" />
+    <Content Include="images\Consulta\botaovoltar.png" />
     <Content Include="images\Consulta\consulta_inicial.jpg" />
     <Content Include="images\Consulta\monitoramento.jpg" />
     <Content Include="images\Consulta\Nutricaofamilia.jpg" />
