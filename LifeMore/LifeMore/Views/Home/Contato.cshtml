@@ -70,6 +70,7 @@
                                         <li><a href="~/Adm/Listar" style="text-shadow: 3px 2px 0px #000000">Perfil</a></li>
                                     }
                                     <li ><a href="~/Home/Index" style="text-shadow: 3px 2px 0px #000000">Home</a></li>
+                                    <li class="active"><a href="~/Home/Dicas" style="text-shadow: 2px 1px 0px #000000">Dicas</a></li>
                                     <li ><a href="~/Home/About" style="text-shadow: 3px 2px 0px #000000">Quem somos</a></li>
                                     <li class="active"><a href="~/Home/Contato" style="text-shadow: 3px 2px 0px #000000">Fale conosco</a></li>
                                     @if (ViewBag.Logado != null || ViewBag.LogadoA != null)
@@ -119,7 +120,7 @@
         <div class="container">
             <h3 class="mail-w3" style="text-shadow: 5px 2px 0px #000000">Contate nos<span></span></h3>
             <div class="w3agile_mail_grids">
-                <div class=" w3agile_mail_grid">
+                <div class="w3agile_mail_grid">
                     <form action="#" method="post">
                         <input type="text" placeholder="Nome" name="Name" required="">
                         <input type="email" placeholder="Email" name="Email" required="">
