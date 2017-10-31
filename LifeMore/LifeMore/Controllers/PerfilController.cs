@@ -1,6 +1,8 @@
 ﻿using LifeMore.Models;
+using Symphonya_RedeSocial.Models;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -59,9 +61,10 @@ namespace LifeMore.Controllers
                     String Peso = Request.Form["Peso"];
                     String Altura = Request.Form["Altura"];
                     String Idade = Request.Form["Idade"];
-                    //String Image = Request.Form["Imag"];
 
-                    Paciente novoUser = new Paciente();
+                HttpPostedFileBase NovaImagemPerfil = Request.Files["Imag"];
+
+                Paciente novoUser = new Paciente();
 
                      novoUser = (Paciente)Session["Paciente"];
                       novoUser.Email = Email;
@@ -80,19 +83,22 @@ namespace LifeMore.Controllers
                     int contentLength = postedFile.ContentLength;
                     string contentType = postedFile.ContentType;
                     string nome = postedFile.FileName;
-
+                    Imagem img = new Imagem();
+                    
                     if (contentType.IndexOf("jpeg") > 0 || contentType.IndexOf("jpg") > 0 || contentType.IndexOf("png") > 0)
                     {
-                        
-                        postedFile.SaveAs(HttpRuntime.AppDomainAppPath + "\\images\\img_users\\" + "imagemPerfil" + ID + ".jpg");
-                        postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images\img_users" + "imagemPerfil" + ID + ".jpg");
+                        Bitmap arquivoConvertido = img.ResizeImage(postedFile.InputStream, 100, 100);
+                        string nomeArquivoUpload = "imagemPerfil" + ID + ".jpg";
+                        postedFile.SaveAs(HttpRuntime.AppDomainAppPath + "\\images\\img_users\\" + nomeArquivoUpload);
+                        postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images\img_users" + nomeArquivoUpload);
+
+                        novoUser.ImagemPerfil = nomeArquivoUpload;
                     }
                     else
                      postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
                   
 
                 }
-                novoUser.ImagemPerfil = "imagemPerfil" + ID + ".jpg";
 
                 if (novoUser.EditarPerfil())
                     {
