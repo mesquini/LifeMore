@@ -133,6 +133,7 @@
     <Content Include="images\c-arrows.png" />
     <Content Include="images\close.png" />
     <Content Include="images\Consulta\Aconselhamento.jpg" />
+    <Content Include="images\Consulta\botaovoltar.png" />
     <Content Include="images\Consulta\consulta_inicial.jpg" />
     <Content Include="images\Consulta\monitoramento.jpg" />
     <Content Include="images\Consulta\Nutricaofamilia.jpg" />
@@ -224,6 +225,7 @@
     <Compile Include="Models\Adm.cs" />
     <Compile Include="Models\Alimento.cs" />
     <Compile Include="Models\Categoria.cs" />
+    <Compile Include="Models\Imagem.cs" />
     <Compile Include="Models\MarcarConsulta.cs" />
     <Compile Include="Models\Nutricionista.cs" />
     <Compile Include="Models\Paciente.cs" />

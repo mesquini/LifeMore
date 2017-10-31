@@ -68,8 +68,9 @@ margin-left: 750px;
 .titulos{
     text-align: center;
     font-size: 75px;
-    margin-top: 50px;
+    margin-top: 20px;
     color: white;
+    margin-bottom: 20px;
 }
 .emailtexto{
     text-align:center;
@@ -91,7 +92,6 @@ margin-left: 750px;
     color: white;
 text-align: center;
 font-size: 40px;
-margin-top: 75px;
 }
 .mensagem{
     text-align: center;
