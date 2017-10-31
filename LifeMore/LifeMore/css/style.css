@@ -1553,24 +1553,24 @@ a.re-w3:hover {
 }
 .opinion form input[type="text"], .opinion form input[type="email"] {
     width: 100%;
-    color: #999999;
+    color: black;
     outline: none;
     font-size: .9em;
     padding: .5em;
     margin: 0 .5em 1em 0;
-    border: solid 1px #999999;
+    border: solid 2px black;
     -webkit-appearance: none;
     background: none;
 }
 .opinion form textarea {
     resize: none;
     width: 100%;
-    color: #999999;
+    color: black;
     font-size: .9em;
     outline: none;
     resize: none;
     padding: .5em;
-    border: solid 1px #999999;
+    border: solid 2px black;
     min-height: 125px;
 	background: none;
 }
