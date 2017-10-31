@@ -224,6 +224,7 @@
     <Compile Include="Models\Adm.cs" />
     <Compile Include="Models\Alimento.cs" />
     <Compile Include="Models\Categoria.cs" />
+    <Compile Include="Models\Imagem.cs" />
     <Compile Include="Models\MarcarConsulta.cs" />
     <Compile Include="Models\Nutricionista.cs" />
     <Compile Include="Models\Paciente.cs" />
