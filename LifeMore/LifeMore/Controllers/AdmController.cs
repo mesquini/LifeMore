@@ -60,8 +60,22 @@ namespace LifeMore.Controllers
             ViewBag.Categoria = cs;
             ViewBag.Alimento = a;
 
-               
             return View();
+        }
+
+        public ActionResult previsualizacao(Int32 id)
+        {
+            Nutricionista nutricionistas = new Nutricionista(id);
+            if (nutricionistas.BuscarDados(id))
+            {
+                TempData["Nutricionista"] = nutricionistas;
+
+                return RedirectToAction("VerN", "Nutricionista");
+            }
+            else
+            {
+                return RedirectToAction("Listar", "Adm");
+            }
         }
         
        

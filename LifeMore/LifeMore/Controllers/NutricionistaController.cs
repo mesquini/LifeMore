@@ -15,16 +15,15 @@ namespace LifeMore.Controllers
             if (Request.HttpMethod == "POST")
             {
 
-                String Nome = Request.Form["nome"];
-                String Senha = Request.Form["senha"];
-                String CPF = Request.Form["cpf"];
-                String Email = Request.Form["email"];
-                int Idade = int.Parse(Request.Form["idade"]);
-                String LocalTrabalho = Request.Form["LocalTrabalho"];
+                String Nome = Request.Form["nomeN"];
+                String Senha = Request.Form["senhaN"];
+                String CPF = Request.Form["cpfN"];
+                String Email = Request.Form["emailN"];
+                int Idade = int.Parse(Request.Form["idadeN"]);
+                String LocalTrabalho = Request.Form["localtrabN"];
                 String Bio = Request.Form["bio"];
-                String End = Request.Form["endereco"];
-                String Tel = Request.Form["telefone"];
-                String Foto = Request.Form["foto"];
+                String End = Request.Form["enderecoN"];
+                String Tel = Request.Form["telefoneN"];
 
 
                 Nutricionista NovoUser = new Nutricionista();
@@ -36,7 +35,6 @@ namespace LifeMore.Controllers
                 NovoUser.Idade = Idade;
                 NovoUser.Telefone = Tel;
                 NovoUser.Endereco = End;
-                NovoUser.ImagemPerfil = Foto;
                 NovoUser.Bio = Bio;
                 NovoUser.LocalTrabalho = LocalTrabalho;
 
@@ -54,6 +52,27 @@ namespace LifeMore.Controllers
             }
             return View();
         }
+
+        public ActionResult VerN()
+        {
+            if (Session["Adm"] == null)
+            {
+                Response.Redirect("~/Home/Index", false);
+            }
+            if(TempData["Nutricionista"] != null)
+            {
+                ViewBag.Perfil = (Nutricionista)TempData["Nutricionista"];
+            }
+
+            //Nutricionista n = new Nutricionista();
+            //if (n.BuscarDados(id))
+            //{
+            //    Nutricionista nutri = new Nutricionista(id);
+            //    ViewBag.Nustricionista = nutri;
+            //}
+
+            return View();
+        }
         public ActionResult ApagarN(String ID)
         {
             if (Session["Adm"] == null)
@@ -66,6 +85,7 @@ namespace LifeMore.Controllers
             if (Nutri.Apagar())
             {
                 ViewBag.Mensagem = "Nutricionista removida com sucesso!";
+                Response.Redirect("~/Adm/Listar");
             }
 
 
@@ -74,7 +94,7 @@ namespace LifeMore.Controllers
                 TempData["Mensagem"] = "Não foi possível remover o Usuario. Verifique os dados e tente novamente";
             }
 
-            return RedirectToAction("Listar");
+            return RedirectToAction("/Adm/Listar");
         }
     }
 }

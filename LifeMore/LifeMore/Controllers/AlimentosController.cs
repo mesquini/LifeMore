@@ -70,7 +70,7 @@ namespace LifeMore.Controllers
                 TempData["Mensagem"] = "Não foi possível remover o Alimento. Verifique os dados e tente novamente";
             }
 
-            return RedirectToAction("Listar");
+            return RedirectToAction("/Adm/Listar");
         }
     }
 }

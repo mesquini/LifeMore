@@ -117,5 +117,26 @@ namespace LifeMore.Controllers
 
             return View();
         }
+        public ActionResult ApagarP(String ID)
+        {
+            if (Session["Paciente"] == null)
+            {
+                Response.Redirect("/Home/Index", false);
+            }
+
+            Paciente P = new Paciente(Convert.ToInt32(ID));
+
+
+            if (P.Apagar())
+            {
+                TempData["Mensagem"] = "Post removido com sucesso!";
+            }
+            else
+            {
+                TempData["Mensagem"] = "Não foi possível remover o Post. Verifique os dados e tente novamente";
+            }
+
+            return RedirectToAction("Listar", "Adm");
+        }
     }
 }
