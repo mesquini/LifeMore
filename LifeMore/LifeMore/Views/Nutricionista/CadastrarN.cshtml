@@ -40,10 +40,8 @@
 </head>
 <script type="text/javascript">
     jQuery(function ($) {
-        $("#telefone").mask("(99)9 9999-9999");
-        $("#cpf1").mask("999.999.999-99");
-        $("#peso").mask("999.999", { required: true});
-        $("#altura").mask("9.99", { required: true });
+        $("#telefoneN").mask("(99)9 9999-9999");
+        $("#cpfN").mask("999.999.999-99");
     });
 </script>
 
@@ -68,9 +66,12 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="stroke">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="~/Home/Index">Home</a></li>
-                                    <li><a href="~/Home/About">Quem somos</a></li>
-                                    <li><a href="~/Home/Contato">Fale conosco</a></li>
+                                    <li class="active"><a href="~/Adm/Listar" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                    <li><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000">Home</a></li>
+                                    <li><a href="~/Home/Dicas" style="text-shadow: 2px 1px 0px #000000">Dicas</a></li>
+                                    <li><a href="~/Home/About" style="text-shadow: 2px 1px 0px #000000">Quem somos</a></li>
+                                    <li><a href="~/Home/Contato" style="text-shadow: 2px 1px 0px #000000">Fale conosco</a></li>
+                                    <li><a href="~/Adm/Sair" style="text-shadow: 2px 1px 0px #000000">Sair</a></li>
 
                                 </ul>
                             </nav>
@@ -114,16 +115,14 @@
                                         <p style="text-shadow: 2px 1px 0px #000000">Local de trabalho: </p>
                                         <input type="text" id="localtrabN" name="localtrabN" required />
                                         <p style="text-shadow: 2px 1px 0px #000000">Biografia: </p>
-                                        <textarea data-hook="message-field" id="biografiaN" name="biografiaN" type="textarea"></textarea>
-                                        <p style="text-shadow: 2px 1px 0px #000000">Foto:</p>
-                                        <input type="file" id="fotoN" name="fotoN" />
+                                        <textarea data-hook="message-field" id="bio" name="bio" type="textarea"></textarea>
                                         <input type="submit" value="Cadastrar Nutricionista">
 
                                     </form>
-                                    @if (ViewBag.MsgErro != null)
+                                    @if (ViewBag.Mensagem != null)
                                     {
                                         <div class="alert alert-danger">
-                                            <strong>ERRO!</strong> @ViewBag.MsgErro
+                                            <strong>ERRO!</strong> @ViewBag.Mensagem
                                         </div>
                                     }
                                 </div>
