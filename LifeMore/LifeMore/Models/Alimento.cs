@@ -48,10 +48,9 @@ namespace LifeMore.Models
 
             SqlCommand Comando = new SqlCommand();
             Comando.Connection = Conexao; 
-            Comando.CommandText = "INSERT INTO Alimento (Cod_Alimento, Nome, Peso, Caloria, Gordura, Carboidrato, Proteina, Categoria)"
-              + "VALUES (@Cod, @Nome, @Peso, @Caloria, @Gordura, @Carboidrato, @Proteina, @Categoria);";
-
-            Comando.Parameters.AddWithValue("@Cod_Alimento", this.Cod);
+            Comando.CommandText = "INSERT INTO Alimento (Nome, Peso, Caloria, Gordura, Carboidrato, Proteina, Categoria)"
+              + "VALUES (@Nome, @Peso, @Caloria, @Gordura, @Carboidrato, @Proteina, @Categoria);";
+            
             Comando.Parameters.AddWithValue("@Nome", this.Nome);
             Comando.Parameters.AddWithValue("@Peso", this.Peso);
             Comando.Parameters.AddWithValue("@Caloria", this.Caloria);
