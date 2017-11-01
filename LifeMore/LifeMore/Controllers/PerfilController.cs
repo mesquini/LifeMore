@@ -96,6 +96,7 @@ namespace LifeMore.Controllers
                     }
                     else
                      postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
+                  
 
                 }
 
