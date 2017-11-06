@@ -77,8 +77,33 @@ namespace LifeMore.Controllers
                 return RedirectToAction("Listar", "Adm");
             }
         }
-        
-       
+        public ActionResult previsualizacaoP(Int32 id)
+        {
+            Paciente Pacientes = new Paciente(id);
+            if (Pacientes.BuscarDados(id))
+            {
+                TempData["Paciente"] = Pacientes;
+
+                return RedirectToAction("VerP", "Adm");
+            }
+            else
+            {
+                return RedirectToAction("Listar", "Adm");
+            }
+        }
+        public ActionResult VerP()
+        {
+            if (Session["Adm"] == null)
+            {
+                Response.Redirect("~/Home/Index", false);
+            }
+            if (TempData["Paciente"] != null)
+            {
+                ViewBag.Perfil = (Paciente)TempData["Paciente"];
+            }
+            return View();
+        }
+
         public void Sair()
         {
             Session.Abandon();

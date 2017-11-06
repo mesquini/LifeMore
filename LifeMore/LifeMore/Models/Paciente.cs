@@ -42,8 +42,15 @@ namespace LifeMore.Models
             this.Cod = (Int32)Leitor["Cod"];
             this.Email = (String)Leitor["Email"];
             this.Senha = (String)Leitor["Senha"];
+            this.Endereco = (String)Leitor["Endereco"];
             this.Nome = (String)Leitor["Nome"];
+            this.Objetivo = (int)Leitor["Objetivo"];
+            this.ImagemPerfil = (String)Leitor["Foto"];
             this.CPF = (String)Leitor["CPF_Paciente"];
+            this.Altura = (String)Leitor["Altura"];
+            this.Peso = (String)Leitor["Peso"];
+            this.Idade = (String)Leitor["Idade"];
+            this.Telefone = (String)Leitor["Telefone"];
 
             Conexao.Close();
         }
@@ -140,6 +147,41 @@ namespace LifeMore.Models
 
             return Resultado > 0 ? true : false;
         }
+        public Boolean BuscarDados(Int32 ID)
+        {
+            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
+            Conexao.Open();
+
+            SqlCommand Comando = new SqlCommand();
+            Comando.Connection = Conexao;
+            Comando.CommandText = "SELECT * FROM Paciente WHERE Cod = @ID;";
+            Comando.Parameters.AddWithValue("@ID", ID);
+
+            SqlDataReader Leitor = Comando.ExecuteReader();
+
+            Boolean resultado = Leitor.HasRows;
+
+            Leitor.Read();
+
+            this.Cod = (Int32)Leitor["Cod"];
+
+            Paciente Pacientes = new Paciente((Int32)Leitor["Cod"]);
+            
+            this.Email = (String)Leitor["Email"];
+            this.Senha = (String)Leitor["Senha"];
+            this.Endereco = (String)Leitor["Endereco"];
+            this.Nome = (String)Leitor["Nome"];
+            this.Objetivo = (int)Leitor["Objetivo"];
+            this.ImagemPerfil = (String)Leitor["Foto"];
+            this.CPF = (String)Leitor["CPF_Paciente"];
+            this.Altura = (String)Leitor["Altura"];
+            this.Peso = (String)Leitor["Peso"];
+            this.Idade = (String)Leitor["Idade"];
+            this.Telefone = (String)Leitor["Telefone"];
+
+            Conexao.Close();
+            return resultado;
+        }
         public static List<Paciente> ListarP()
         {
             SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
@@ -159,6 +201,7 @@ namespace LifeMore.Models
                 P.Nome = ((String)Leitor["Nome"]);
                 P.Endereco = Leitor["Endereco"].ToString();
                 P.CPF = (String)Leitor["CPF_Paciente"];
+                P.Idade = (String)Leitor["Idade"];
                 P.Email = ((String)Leitor["Email"]);
                 P.Senha = (String)Leitor["Senha"];
                 P.Altura = ((String)Leitor["Altura"]);

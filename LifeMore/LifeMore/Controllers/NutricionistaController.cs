@@ -63,14 +63,6 @@ namespace LifeMore.Controllers
             {
                 ViewBag.Perfil = (Nutricionista)TempData["Nutricionista"];
             }
-
-            //Nutricionista n = new Nutricionista();
-            //if (n.BuscarDados(id))
-            //{
-            //    Nutricionista nutri = new Nutricionista(id);
-            //    ViewBag.Nustricionista = nutri;
-            //}
-
             return View();
         }
         public ActionResult ApagarN(String ID)
@@ -85,7 +77,6 @@ namespace LifeMore.Controllers
             if (Nutri.Apagar())
             {
                 ViewBag.Mensagem = "Nutricionista removida com sucesso!";
-                Response.Redirect("~/Adm/Listar");
             }
 
 
@@ -94,7 +85,7 @@ namespace LifeMore.Controllers
                 TempData["Mensagem"] = "Não foi possível remover o Usuario. Verifique os dados e tente novamente";
             }
 
-            return RedirectToAction("/Adm/Listar");
+            return RedirectToAction("Listar", "Adm");
         }
     }
 }

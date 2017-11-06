@@ -38,7 +38,14 @@
     <script src="~/js/AcessarPag.js" type="text/javascript"></script>
 
     <script src="~/js/jquery.js" type="text/javascript"></script>
+    @*<script language="JavaScript">
 
+        function pergunta(){
+           if (confirm('Tem certeza que deseja deletar?')){
+               document.seuformulario.submit("~/Perfil/ApagarP/"+@(ViewBag.Cod))
+           }
+        }
+    </script>*@ 
     <script>
         $(document).ready(function () {
             $("#content_tab1").css("display", "block");
@@ -126,6 +133,7 @@
                                 <ul class="nav navbar-nav"> 
                                     <li class="active" ><a href="~/Adm/Listar" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
                                     <li><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000">Home</a></li>
+                                    <li><a href="~/Home/Dicas" style="text-shadow: 2px 1px 0px #000000">Dicas</a></li>
                                     <li><a href="~/Home/About" style="text-shadow: 2px 1px 0px #000000">Quem somos</a></li>
                                     <li><a href="~/Home/Contato" style="text-shadow: 2px 1px 0px #000000">Fale conosco</a></li>
                                     <li><a href="~/Adm/Sair" style="text-shadow: 2px 1px 0px #000000">Sair</a></li>
@@ -164,7 +172,7 @@
                     <section>
                         <table border="1">
                             <thead>
-                                <tr><a href="/Usuario/Novo/">Cadastrar novo Usuário</a></tr>
+                                <tr><a href="/Entrar/Cadastrar/">Cadastrar novo Usuário</a></tr>
                                 <tr class="Produto">
                                     <th class="texto">Nome</th>
                                     <th class="texto">Senha</th>
@@ -205,7 +213,7 @@
                                         <td>@(P.Telefone)</td>
                                         <td>@(P.ImagemPerfil)</td>
                                         <td>
-                                            <a href="~/Adm/ApagarP/@(P.Cod)">Apagar</a>
+                                            <a href="~/Perfil/ApagarP/@(P.Cod)">Apagar/</a>
                                         </td>
                                     </tr>
                                 }
@@ -253,7 +261,8 @@
                                         <td>@(N.LocalTrabalho)</td>
                                         <td>@(N.Bio)</td>
                                         <td>
-                                            <a href="~/Nustricionista/ApagarN/@(N.Cod)">Apagar</a>
+                                            <a href="~/Nutricionista/ApagarN/@(N.Cod)">Apagar/</a>
+                                            <a href="~/Adm/previsualizacao/@(N.Cod)">Ver</a>
                                         </td>
                                     </tr>
                                }
@@ -288,11 +297,11 @@
                                     <tr>
                                         <td>@(A.Nome)</td>
                                         <td>@(A.Peso)</td>
-                                        <td>@(A.Caloria)</td>
-                                        <td>@(A.Gordura)</td>
-                                        <td>@(A.Carboidrato)</td>
-                                        <td>@(A.Proteina)</td>
-                                        <td>@(A.Categoria)</td>
+                                        <td>@(A.Caloria) Kcal</td>
+                                        <td>@(A.Gordura) g</td>
+                                        <td>@(A.Carboidrato) g</td>
+                                        <td>@(A.Proteina) g</td>
+                                        <td>@(A.Categoria1)</td>
                                         <td>
                                             <a href="/Alimentos/ApagarA/@(A.Cod)">Apagar</a>
                                         </td>
