@@ -92,7 +92,7 @@
                                 <div class="login-agileits-top sign-up">
                                     <form action="/Alimentos/CadastrarA" method="post">
                                         <p>Nome do alimento: </p>
-                                        <input type="text" name="nomeA" id="nomeA" required maxlength="25" />
+                                        <input type="text" name="nomeA" id="nomeA" required maxlength="50" />
                                         <p>Peso:</p>
                                         <input type="text" name="pesoA" id="pesoA" required  />
                                         <p>Caloria: </p>
@@ -103,12 +103,11 @@
                                         <input type="text" id="carboidratoA" name="carboidratoA" />
                                         <p>Proteína: </p>
                                         <input type="text" id="proteinaA" name="proteinaA" />
-                                        <p>Categoria: </p>    
-                                        
+                                        <p>Categoria: </p>                                            
                                                 <select name="categoriaA" id="categoriaA">
 
                                                     <option>Selecione a categoria...</option>
-@foreach (var C in ViewBag.Categoria)
+                @foreach (var C in ViewBag.Categoria)
 {
                                                     <option value="@(C.Cod)">@(C.Nome)</option>
 }
