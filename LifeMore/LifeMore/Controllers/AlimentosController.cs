@@ -14,6 +14,7 @@ namespace LifeMore.Controllers
         {
             if (Request.HttpMethod == "POST")
             {
+                
 
                 String Nome = Request.Form["nomeA"];
                 String Peso = Request.Form["pesoA"];
@@ -21,7 +22,7 @@ namespace LifeMore.Controllers
                 double Gordura = Double.Parse(Request.Form["gorduraA"]);
                 double Carboidrato = Double.Parse(Request.Form["carboidratoA"]);
                 double Proteina = Double.Parse(Request.Form["proteinaA"]);
-                Int32 Categoria = Int32.Parse(Request.Form["categoriaA"]);
+                Int32 Cat = Int32.Parse(Request.Form["categoriaA"]);
 
                 Alimento Ali = new Alimento();
 
@@ -31,7 +32,7 @@ namespace LifeMore.Controllers
                 Ali.Gordura = Gordura;
                 Ali.Carboidrato = Carboidrato;
                 Ali.Proteina = Proteina;
-                Ali.Categoria = Categoria;
+                Ali.Categoria = Cat;
 
                 if (Ali.Novo())
                 {
@@ -43,6 +44,9 @@ namespace LifeMore.Controllers
                     ViewBag.Mensagem = "Houve um erro ao criar o Usuário. Verifique os dados e tente novamente.";
                 }
             }
+
+            List<Categoria> cs = Categoria.ListarC();
+            ViewBag.Categoria = cs;
 
             return View();
         }
@@ -66,7 +70,7 @@ namespace LifeMore.Controllers
                 TempData["Mensagem"] = "Não foi possível remover o Alimento. Verifique os dados e tente novamente";
             }
 
-            return RedirectToAction("Listar");
+            return RedirectToAction("/Adm/Listar");
         }
     }
 }

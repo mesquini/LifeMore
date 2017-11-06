@@ -53,7 +53,7 @@ namespace LifeMore.Controllers
                 TempData["Mensagem"] = "Não foi possível remover a Categoria. Verifique os dados e tente novamente";
             }
 
-            return RedirectToAction("Listar");
+            return RedirectToAction("/Adm/Listar");
         }
     }
 }

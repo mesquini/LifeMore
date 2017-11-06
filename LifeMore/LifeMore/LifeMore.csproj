@@ -191,6 +191,7 @@
     <Content Include="js\responsiveslides.min.js" />
     <Content Include="js\SmoothScroll.min.js" />
     <Content Include="js\wickedpicker.js" />
+    <Content Include="Lifemore.asmx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
@@ -221,6 +222,10 @@
     <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Lifemore.asmx.cs">
+      <DependentUpon>Lifemore.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Models\Adm.cs" />
     <Compile Include="Models\Alimento.cs" />
@@ -265,9 +270,12 @@
     <Content Include="Views\Nutricionista\CadastrarN.cshtml" />
     <Content Include="Views\Adm\Listar.cshtml" />
     <Content Include="Views\Adm\LogarAdm.cshtml" />
-    <Content Include="Views\Adm\Ver.cshtml" />
+    <Content Include="Views\Nutricionista\VerN.cshtml" />
     <Content Include="Views\Cardapio\CadastrarC.cshtml" />
     <Content Include="Views\Home\Dicas.cshtml" />
+    <Content Include="Views\Alimentos\Listar.cshtml" />
+    <Content Include="Views\Categoria\Listar.cshtml" />
+    <Content Include="Views\Nutricionista\Listar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

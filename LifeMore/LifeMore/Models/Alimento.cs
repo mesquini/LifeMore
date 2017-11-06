@@ -17,6 +17,7 @@ namespace LifeMore.Models
         public double Carboidrato { get; set; }
         public double Proteina { get; set; }
         public Int32 Categoria { get; set; }
+        public String Categoria1 { get; set; }
 
         public Alimento() { }
 
@@ -48,10 +49,9 @@ namespace LifeMore.Models
 
             SqlCommand Comando = new SqlCommand();
             Comando.Connection = Conexao; 
-            Comando.CommandText = "INSERT INTO Alimento (Cod_Alimento, Nome, Peso, Caloria, Gordura, Carboidrato, Proteina, Categoria)"
-              + "VALUES (@Cod, @Nome, @Peso, @Caloria, @Gordura, @Carboidrato, @Proteina, @Categoria);";
-
-            Comando.Parameters.AddWithValue("@Cod_Alimento", this.Cod);
+            Comando.CommandText = "INSERT INTO Alimento (Nome, Peso, Caloria, Gordura, Carboidrato, Proteina, Categoria)"
+              + "VALUES (@Nome, @Peso, @Caloria, @Gordura, @Carboidrato, @Proteina, @Categoria);";
+            
             Comando.Parameters.AddWithValue("@Nome", this.Nome);
             Comando.Parameters.AddWithValue("@Peso", this.Peso);
             Comando.Parameters.AddWithValue("@Caloria", this.Caloria);
@@ -73,7 +73,8 @@ namespace LifeMore.Models
 
             SqlCommand Comando = new SqlCommand();
             Comando.Connection = Conexao;
-            Comando.CommandText = "SELECT * FROM Alimento;";
+            Comando.CommandText = "select A.Nome, A.Peso, A.Caloria, A.Gordura, A.Carboidrato, A.Proteina ,C.Nome as Categoria from Alimento A, Categoria C where Cod_Categoria = A.Categoria;";
+
 
             SqlDataReader Leitor = Comando.ExecuteReader();
 
@@ -81,14 +82,14 @@ namespace LifeMore.Models
             while (Leitor.Read())
             {
                 Alimento A = new Alimento();
-                A.Cod = (Int32)Leitor["Cod_Alimento"];
+                //A.Cod = (Int32)Leitor["Cod_Alimento"];
                 A.Nome = ((String)Leitor["Nome"]);
                 A.Peso = ((String)Leitor["Peso"]);
                 A.Caloria = (double)Leitor["Caloria"];
                 A.Gordura = ((double)Leitor["Gordura"]);
                 A.Carboidrato = (double)Leitor["Carboidrato"];
                 A.Proteina = (double)Leitor["Proteina"];
-                A.Categoria = (Int32)Leitor["Categoria"];
+                A.Categoria1 = (String)Leitor["Categoria"];
 
                 Alimentos.Add(A);
             }
