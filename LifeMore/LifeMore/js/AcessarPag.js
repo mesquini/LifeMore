@@ -7,3 +7,6 @@ function Perfil() {
 function VoltarConsulta() {
     window.location = "../Consulta/IndexConsulta";
 }
+function feedback() {
+    window.location = "../Home/Single";
+}

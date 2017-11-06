@@ -38,7 +38,14 @@
     <script src="~/js/AcessarPag.js" type="text/javascript"></script>
 
     <script src="~/js/jquery.js" type="text/javascript"></script>
+    @*<script language="JavaScript">
 
+        function pergunta(){
+           if (confirm('Tem certeza que deseja deletar?')){
+               document.seuformulario.submit("~/Perfil/ApagarP/"+@(ViewBag.Cod))
+           }
+        }
+    </script>*@ 
     <script>
         $(document).ready(function () {
             $("#content_tab1").css("display", "block");
@@ -206,7 +213,8 @@
                                         <td>@(P.Telefone)</td>
                                         <td>@(P.ImagemPerfil)</td>
                                         <td>
-                                            <a href="~/Perfil/ApagarP/@(P.Cod)">Apagar</a>
+                                            <a href="~/Perfil/ApagarP/@(P.Cod)">Apagar/</a>
+                                            <a href="~/Adm/previsualizacaoP/@(P.Cod)">Ver</a>
                                         </td>
                                     </tr>
                                 }
@@ -273,7 +281,7 @@
                     <section>
                         <table border="1">
                             <thead>
-                                <tr><a href="/Alimentos/CadastrarA/">Cadastrar uma novo alimento</a></tr>
+                                <tr><a href="~/Alimentos/CadastrarA/">Cadastrar uma novo alimento</a></tr>
                                 <tr class="Produto">
                                     <th class="texto">Nome</th>
                                     <th class="texto">Peso</th>
@@ -296,7 +304,7 @@
                                         <td>@(A.Proteina) g</td>
                                         <td>@(A.Categoria1)</td>
                                         <td>
-                                            <a href="/Alimentos/ApagarA/@(A.Cod)">Apagar</a>
+                                            <a href="~/Alimentos/ApagarA/@(A.Cod)">Apagar</a>
                                         </td>
                                     </tr>
                                 }
