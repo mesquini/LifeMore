@@ -1,5 +1,4 @@
 ﻿using LifeMore.Models;
-using Symphonya_RedeSocial.Models;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -69,7 +68,6 @@ namespace LifeMore.Controllers
                      novoUser = (Paciente)Session["Paciente"];
                       novoUser.Email = Email;
                     novoUser.Endereco = Endereco;
-                    //novoUser.ImagemPerfil = Image;
                     novoUser.Peso = Peso;
                     novoUser.Altura = Altura;
                     novoUser.Telefone = Tel;

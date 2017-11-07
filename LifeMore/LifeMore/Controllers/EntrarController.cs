@@ -58,6 +58,8 @@ namespace LifeMore.Controllers
         }
         public ActionResult Logar()
         {
+            Session.Clear();
+
             if (Request.HttpMethod == "POST")
             {
                 String CPF = Request.Form["cpf"].ToString();
