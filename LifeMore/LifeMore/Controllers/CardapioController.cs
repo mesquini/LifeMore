@@ -14,6 +14,7 @@ namespace LifeMore.Controllers
         {
             if (Request.HttpMethod == "POST")
             {
+                String Nutricionista = Request.Form["nomeNC"];
                 String Nome = Request.Form["NomeC"];            
                 String Alimento = Request.Form["Alimento1"];
                 String Informacoes = Request.Form["InformacoesC"];
@@ -24,7 +25,9 @@ namespace LifeMore.Controllers
 
             List<Alimento> al = Alimento.ListarA();
             ViewBag.Alimento = al;
-            
+
+            List<Nutricionista> nt = Nutricionista.ListarN();
+            ViewBag.Nutricionista = nt;
             return View();
         }
         
