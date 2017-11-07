@@ -150,7 +150,8 @@ button.btConcluirCSS:hover{
     width: 450px;
     height: 225px;
     float: left;
-    margin-left: 10px;
+    text-align: left;
+    margin-left: 25px;
 }
 
 .dadosSistema {
@@ -158,6 +159,7 @@ button.btConcluirCSS:hover{
     height: 225px;
     float: left;
     margin-left: 88px;
+    text-align: left;
 }
 
 .espaco{
@@ -590,7 +592,7 @@ text-align: center;
     left:0;
     padding: 10px;
     background-color:#ffffff;
-    padding-bottom: 840px;
+    padding-bottom: 830px;
 }
 
 .rd_tabs:checked~.content_tab{
@@ -1051,7 +1053,7 @@ text-align: center;
 }
 /*PAGINA PERFIL, BOTAO IMC*/
 .btIMC {
-    margin-left:14%;
+    margin-left:12%;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 18px;
 	color: #050505;
