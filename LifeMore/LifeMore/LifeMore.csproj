@@ -277,6 +277,8 @@
     <Content Include="Views\Nutricionista\Listar.cshtml" />
     <Content Include="Views\Adm\VerP.cshtml" />
     <Content Include="Views\Nutricionista\VerN.cshtml" />
+    <Content Include="Views\Nutricionista\Perfil.cshtml" />
+    <Content Include="Views\Nutricionista\Editar_Perfil.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

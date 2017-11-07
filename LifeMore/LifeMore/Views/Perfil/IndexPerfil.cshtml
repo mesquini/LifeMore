@@ -119,17 +119,17 @@
         </div>
 
        </div>
-    <br />
-    <div class="textoperfil" style="text-shadow: 5px 2px 0px #000000">
-           Perfil
-    </div>
+    <div class="tips w3agile">
+        <div class="textoperfil" style="text-shadow: 5px 2px 0px #000000; margin-bottom:25px;">
+            Perfil
+        </div>
 
-    @* perfil *@
+        @* perfil *@
         <div class="perfil">
 
             <div class="imagem">
                 <input type="image" title="Editar Informações" onclick="EditaPerfil()" id="edit" src="/images/img_users/@ViewBag.Imagem" onmouseover="this.src = '/images/useredit-hover.png'"
-                onmouseout="this.src = '/images/img_users/@ViewBag.Imagem'" class="imgEdit"/>
+                       onmouseout="this.src = '/images/img_users/@ViewBag.Imagem'" class="imgEdit" />
             </div>
 
             <div class="dadosPessoais">
@@ -141,13 +141,14 @@
             </div>
 
             <div class="dadosSistema">
-                @if ( ViewBag.Objetivo == 1) { <p style="text-shadow: 2px 1px 0px #000000">Objetivo: Engordar</p> }
+                @if (ViewBag.Objetivo == 1)
+                { <p style="text-shadow: 2px 1px 0px #000000">Objetivo: Engordar</p> }
                 else {<p style="text-shadow: 2px 1px 0px #000000">Objetivo: Emagrecer</p>}
 
                 <span style="text-shadow: 2px 1px 0px #000000">Peso: </span><span style="text-shadow: 2px 1px 0px #000000" id="peso">@ViewBag.Peso </span><span style="text-shadow: 2px 1px 0px #000000"> Kg</span><br />
                 <span style="text-shadow: 2px 1px 0px #000000">Altura: </span> <span style="text-shadow: 2px 1px 0px #000000" id="alt"> @ViewBag.Altura </span> <span style="text-shadow: 2px 1px 0px #000000"> Cm</span>
                 <p style="text-shadow: 2px 1px 0px #000000">Idade: @ViewBag.Idade</p>
-                
+
             </div>
             <div class="btPerfil">
                 <input type="button" class="btIMC" value="Calcular IMC" onClick="calcularIMC()" name="button">
@@ -157,81 +158,81 @@
                 <input type="button" class="btIMC" value="Feedback" onClick="feedback()" name="button">
             </div>
             <div class="espaco"> </div>
-         </div>
-
-
-    <div class="footer w3ls">
-        <div class="container">
-            <div class="footer-main">
-                <div class="footer-top">
-                    <div class="col-md-4 services-grids">
-                        <h3>Curiosidades</h3>
-                        <ul>
-                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Buscando o bem estar da sociedade sempre.</a></li>
-                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista jovens e experientes ajudando  clientes de qualquer idade</a></li>
-                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Comer saudávelmente é sinônimo de comer bem.</a></li>
-                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista de esportes pronto para ajudar no melhor desenvolvimento para seu corpo.</a></li>
-                        </ul>
-
-                    </div>
-
-
-                    <div class="col-md-4 ftr-grid">
-                        <div class="logo-fo">
-                            <div class="logo-w3l">
-                                <i class="fa fa-heartbeat" aria-hidden="true"></i>
-                            </div>
-                            <h2><a href="~/Home/Index">Life More<span>Cuide de você</span></a></h2>
-                        </div>
-                    </div>
-                    <div class="col-md-4 ftr-grid fg2">
-                        <h3>Nossos enderços</h3>
-                        <div class="ftr-address">
-                            <div class="local">
-                                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                            </div>
-                            <div class="ftr-text">
-                                <p style="text-shadow: 2px 1px 0px #000000">SENAI Zerbini</p>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="ftr-address">
-                            <div class="local">
-                                <i class="fa fa-phone" aria-hidden="true"></i>
-                            </div>
-                            <div class="ftr-text">
-                                <p style="text-shadow: 2px 1px 0px #000000">+55 19 9 9865 8943</p>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="ftr-address">
-                            <div class="local">
-                                <i class="fa fa-envelope" aria-hidden="true"></i>
-                            </div>
-                            <div class="ftr-text">
-                                <p style="text-shadow: 2px 1px 0px #000000"><a href="mailto:LifeMore@gmail.com">LifeMore@gmail.com</a></p>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="right-w3l">
-                    <ul class="top-links">
-
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    </ul>
-                </div>
-                <div class="copyrights">
-                    <p style="text-shadow: 2px 1px 0px #000000">&copy; 2017 Life More. Todos os direitos reservados | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
-                </div>
-            </div>
+        </div>
         </div>
 
+        <div class="footer w3ls">
+            <div class="container">
+                <div class="footer-main">
+                    <div class="footer-top">
+                        <div class="col-md-4 services-grids">
+                            <h3>Curiosidades</h3>
+                            <ul>
+                                <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Buscando o bem estar da sociedade sempre.</a></li>
+                                <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista jovens e experientes ajudando  clientes de qualquer idade</a></li>
+                                <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Comer saudávelmente é sinônimo de comer bem.</a></li>
+                                <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista de esportes pronto para ajudar no melhor desenvolvimento para seu corpo.</a></li>
+                            </ul>
 
-    </div>
+                        </div>
+
+
+                        <div class="col-md-4 ftr-grid">
+                            <div class="logo-fo">
+                                <div class="logo-w3l">
+                                    <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                                </div>
+                                <h2><a href="~/Home/Index">Life More<span>Cuide de você</span></a></h2>
+                            </div>
+                        </div>
+                        <div class="col-md-4 ftr-grid fg2">
+                            <h3>Nossos enderços</h3>
+                            <div class="ftr-address">
+                                <div class="local">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                </div>
+                                <div class="ftr-text">
+                                    <p style="text-shadow: 2px 1px 0px #000000">SENAI Zerbini</p>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="ftr-address">
+                                <div class="local">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                </div>
+                                <div class="ftr-text">
+                                    <p style="text-shadow: 2px 1px 0px #000000">+55 19 9 9865 8943</p>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="ftr-address">
+                                <div class="local">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                </div>
+                                <div class="ftr-text">
+                                    <p style="text-shadow: 2px 1px 0px #000000"><a href="mailto:LifeMore@gmail.com">LifeMore@gmail.com</a></p>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="right-w3l">
+                        <ul class="top-links">
+
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="copyrights">
+                        <p style="text-shadow: 2px 1px 0px #000000">&copy; 2017 Life More. Todos os direitos reservados | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
 
 
 </body>
