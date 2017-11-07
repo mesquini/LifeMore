@@ -74,13 +74,17 @@
 " data-hook="message-field" id="mostrarC" name="mostrarC" type="textarea"></textarea>
         </div>    
         <div class="fundo">
-            <br />          <br />
-                                                    <p style="font-size: 50px;
+            <br />          <br />                 <p style="font-size: 50px;
                                                          text-align: center;
                                                          color: white;">Cardápio</p>         
             <div class="CadastrarC">
                 <form action="/Cardapio/CadastrarC" method="post">
 
+                    <p style="color:white;">Nome do Cardapio: </p>
+                    <input type="text" name="CardapioC" id="CardapioC" required maxlength="50" />
+                    <p style="color:white;">Nome da nutricionista: </p>
+                    <p>@ViewBag.Nutricionista.Nome</p>
+                    <br />          <br />
                     <p style="color:white;">Nome do paciente: </p>
                     <select name="nomeC" id="nomeC">
                         <option>Selecione o paciente...</option>
