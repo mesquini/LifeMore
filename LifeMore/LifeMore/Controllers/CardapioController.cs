@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LifeMore.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,19 @@ namespace LifeMore.Controllers
         // GET: Cardapio
         public ActionResult CadastrarC()
         {
+            if (Request.HttpMethod == "POST")
+            {
+                String Nome = Request.Form["NomeC"];            
+                String Alimento = Request.Form["Alimento1"];
+                String Informacoes = Request.Form["InformacoesC"];
+            }
 
+            List<Paciente> pc = Paciente.ListarP();
+            ViewBag.Paciente = pc;
+
+            List<Alimento> al = Alimento.ListarA();
+            ViewBag.Alimento = al;
+            
             return View();
         }
         
