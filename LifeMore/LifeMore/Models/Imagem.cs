@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 
-namespace Symphonya_RedeSocial.Models
+namespace LifeMore.Models
 {
     public class Imagem
     {
