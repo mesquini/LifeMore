@@ -89,6 +89,24 @@ namespace LifeMore.Models
 
             Conexao.Close();
         }
+        public Boolean VerificaCPF(String CPF)
+        {
+            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
+            Conexao.Open();
+
+            SqlCommand Comando = new SqlCommand();
+            Comando.Connection = Conexao;
+
+            Comando.CommandText = "SELECT * FROM Paciente WHERE CPF_Paciente = @CPF_Paciente";
+
+            Comando.Parameters.AddWithValue("@CPF_Paciente", this.CPF);
+
+            Int32 Resultado = Comando.ExecuteNonQuery();
+
+            Conexao.Close();
+
+            return Resultado > 0 ? true : false;
+        }
         public Boolean Novo()
         {
             SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
@@ -113,7 +131,7 @@ namespace LifeMore.Models
             Comando.Parameters.AddWithValue("@Email", this.Email);
 
 
-
+            
             Int32 Resultado = Comando.ExecuteNonQuery();
 
             Conexao.Close();
