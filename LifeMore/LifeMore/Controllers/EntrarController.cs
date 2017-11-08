@@ -85,6 +85,7 @@ namespace LifeMore.Controllers
 
                     if (Nutricionista.Autenticar(CPF, Senha))
                     {
+                    
                         Nutricionista N = new Nutricionista(CPF, Senha);
                         Session["Nutricionista"] = N;
                         Response.Redirect("/Nutricionista/Perfil");

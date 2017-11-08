@@ -93,6 +93,8 @@ namespace LifeMore.Controllers
         }
         public ActionResult VerP()
         {
+            ViewBag.LogadoA = Session["Adm"];
+
             if (Session["Adm"] == null)
             {
                 Response.Redirect("~/Home/Index", false);

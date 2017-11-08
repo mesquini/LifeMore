@@ -17,5 +17,5 @@ function Consulta() {
     window.location = "../Home/Single";
 }
 function EditaPerfilNutri() {
-    window.location = "../Nutricionista/Editar_Perfil";
+    window.location = "../Nutricionista/EditarPerfil";
 }

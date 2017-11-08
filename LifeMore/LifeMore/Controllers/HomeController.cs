@@ -21,6 +21,13 @@ namespace LifeMore.Controllers
                 ViewBag.Nome = p.Nome;
             }
 
+            if (Session["Nutricionista"] != null)
+            {
+
+                ViewBag.LogadoN = Session["Nutricionista"];
+                Nutricionista n = (Nutricionista)Session["Adm"];
+            }
+
             if (Session["Paciente"] != null)
             {
                 ViewBag.Logado = Session["Paciente"];
@@ -46,6 +53,13 @@ namespace LifeMore.Controllers
 
             }
 
+            if (Session["Nutricionista"] != null)
+            {
+
+                ViewBag.LogadoN = Session["Nutricionista"];
+                Nutricionista n = (Nutricionista)Session["Adm"];
+            }
+
             if (Session["Adm"] != null)
             {
 
@@ -67,7 +81,12 @@ namespace LifeMore.Controllers
                 ViewBag.Objetivo = Paciente.Objetivo;
 
             }
+            if (Session["Nutricionista"] != null)
+            {
 
+                ViewBag.LogadoN = Session["Nutricionista"];
+                Nutricionista n = (Nutricionista)Session["Adm"];
+            }
             if (Session["Adm"] != null)
             {
 
@@ -89,7 +108,12 @@ namespace LifeMore.Controllers
                 ViewBag.Objetivo = Paciente.Objetivo;
 
             }
+            if (Session["Nutricionista"] != null)
+            {
 
+                ViewBag.LogadoN = Session["Nutricionista"];
+                Nutricionista n = (Nutricionista)Session["Adm"];
+            }
             if (Session["Adm"] != null)
             {
 
@@ -113,6 +137,19 @@ namespace LifeMore.Controllers
                 ViewBag.Nome = Paciente.Nome;
                 ViewBag.Objetivo = Paciente.Objetivo;
 
+            }
+            if (Session["Nutricionista"] != null)
+            {
+
+                ViewBag.LogadoN = Session["Nutricionista"];
+                Nutricionista n = (Nutricionista)Session["Adm"];
+            }
+            if (Session["Adm"] != null)
+            {
+
+                ViewBag.LogadoA = Session["Adm"];
+                Adm p = (Adm)Session["Adm"];
+                ViewBag.Nome = p.Nome;
             }
             return View();
         }

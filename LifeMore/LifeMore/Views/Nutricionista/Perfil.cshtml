@@ -59,23 +59,22 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="stroke">
                                 <ul class="nav navbar-nav">
-                                    @if (ViewBag.Logado == null)
+                                    @if (ViewBag.LogadoN == null)
                                     {
 
                                         <li class="entrar"><a href="~/Entrar/Cadastrar" style="text-shadow: 2px 1px 0px #000000">Entrar</a></li>
 
                                     }
-                                    @if (ViewBag.Logado != null)
+                                    @if (ViewBag.LogadoN != null)
                                     {
 
                                         <li class="active"><a href="~/Perfil/IndexPerfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
-                                        <li><a href="#" style="text-shadow: 2px 1px 0px #000000">Cardápio</a></li>
                                     }
 
                                     <li><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000">Home</a></li>
                                     <li><a href="~/Home/About" style="text-shadow: 2px 1px 0px #000000">Quem somos</a></li>
                                     <li><a href="~/Home/Contato" style="text-shadow: 2px 1px 0px #000000">Fale conosco</a></li>
-                                    @if (ViewBag.Logado != null)
+                                    @if (ViewBag.LogadoN != null)
                                     {
 
                                         <li><a href="~/Entrar/Sair" style="text-shadow: 2px 1px 0px #000000">Sair</a></li>
@@ -109,13 +108,13 @@
                 <p style="text-shadow: 2px 1px 0px #000000">CPF: @ViewBag.CPF </p>
                 <p style="text-shadow: 2px 1px 0px #000000">Endereço: @ViewBag.Endereco</p>
                 <p style="text-shadow: 2px 1px 0px #000000">Telefone: @ViewBag.Tel</p>
+                <p style="text-shadow: 2px 1px 0px #000000">Idade: @ViewBag.Idade</p>
             </div>
 
             <div class="dadosSistema">
 
                 <p style="text-shadow: 2px 1px 0px #000000">Local de Trabalho: @ViewBag.LocalTrabalho</p>
                 <p style="text-shadow: 2px 1px 0px #000000">Bio: @ViewBag.Bio</p>
-                <p style="text-shadow: 2px 1px 0px #000000">Idade: @ViewBag.Idade</p>
 
             </div>
             <div class="btPerfil">

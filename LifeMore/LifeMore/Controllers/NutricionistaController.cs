@@ -56,6 +56,8 @@ namespace LifeMore.Controllers
 
         public ActionResult VerN()
         {
+            ViewBag.LogadoA = Session["Adm"];
+
             if (Session["Adm"] == null)
             {
                 Response.Redirect("~/Home/Index", false);
@@ -76,7 +78,7 @@ namespace LifeMore.Controllers
             }
             if (Session["Nutricionista"] != null)
             {
-                ViewBag.Logado = Session["Nutricionista"];
+                ViewBag.LogadoN = Session["Nutricionista"];
                 Nutricionista p = (Nutricionista)Session["Nutricionista"];
                 ViewBag.Paciente = p;
                 
@@ -95,26 +97,27 @@ namespace LifeMore.Controllers
 
             return View();
         }
-        public ActionResult Editar_Perfil()
+        public ActionResult EditarPerfil()
         {
             if (Session["Nutricionista"] == null)
             {
                 Response.Redirect("/Home/Index", false);
             }
 
-            ViewBag.Logado = Session["Nutricionista"];
-            Nutricionista p = (Nutricionista)Session["Nutricionista"];
+            ViewBag.LogadoN = Session["Nutricionista"];
+            Nutricionista N = (Nutricionista)Session["Nutricionista"];
             ViewBag.Nutricionista = (Nutricionista)Session["Nutricionista"];
+
+            
 
             if (Request.HttpMethod == "POST")
             {
                 String Email = Request.Form["Email"];
                 String Endereco = Request.Form["Endereco"];
+                String Bio = Request.Form["Bio"];
+                String Trab = Request.Form["LocalTrabalho"];
                 String Tel = Request.Form["Tel"];
-                Int32 Objetivo = Int32.Parse(Request.Form["Objetivo"]);
-                String Peso = Request.Form["Peso"];
-                String Altura = Request.Form["Altura"];
-                String Idade = Request.Form["Idade"];
+                int Idade = int.Parse(Request.Form["Idade"]);
 
                 HttpPostedFileBase NovaImagemPerfil = Request.Files["Imag"];
 
@@ -123,7 +126,10 @@ namespace LifeMore.Controllers
                 novoUser = (Nutricionista)Session["Nutricionista"];
                 novoUser.Email = Email;
                 novoUser.Endereco = Endereco;
+                novoUser.Bio = Bio;
+                novoUser.LocalTrabalho = Trab;
                 novoUser.Telefone = Tel;
+                novoUser.Idade = Idade;
                 int ID = novoUser.Cod;
 
                 foreach (string fileName in Request.Files)
@@ -152,9 +158,9 @@ namespace LifeMore.Controllers
                 if (novoUser.EditarPerfil())
                 {
                     ViewBag.Mensagem = "Perfil Atualizado com sucesso!";
-                    Response.Redirect("/Perfil/IndexPerfil");
-                    Session["Paciente"] = novoUser;
-                    ViewBag.Paciente = (Paciente)Session["Paciente"];
+                    Response.Redirect("/Nutricionista/Perfil");
+                    Session["Nutricionista"] = novoUser;
+                    ViewBag.Nutricionista = (Nutricionista)Session["Nutricionista"];
                 }
                 else
                 {
