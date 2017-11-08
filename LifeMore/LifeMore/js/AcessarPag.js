@@ -10,3 +10,12 @@ function VoltarConsulta() {
 function feedback() {
     window.location = "../Home/Single";
 }
+function CadastraC() {
+    window.location = "../Cardapio/CadastrarC";
+}
+function Consulta() {
+    window.location = "../Home/Single";
+}
+function EditaPerfilNutri() {
+    window.location = "../Nutricionista/Editar_Perfil";
+}

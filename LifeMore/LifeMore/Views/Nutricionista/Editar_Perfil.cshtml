@@ -86,9 +86,7 @@
                                     <li><a href="~/Home/Contato" style="text-shadow: 2px 1px 0px #000000">Fale conosco</a></li>
                                     @if (ViewBag.Logado != null)
                                     {
-
                                         <li><a href="~/Entrar/Sair" style="text-shadow: 2px 1px 0px #000000">Sair</a></li>
-
                                     }
                                 </ul>
                             </nav>
@@ -102,9 +100,6 @@
     </div>
     <div class="tips w3agile">
         <div class="textoperfil" style="text-shadow: 5px 2px 0px #000000">Perfil</div>
-
-        @if (ViewBag.Logado != null)
-        {
             <form action="~/Perfil/Editar_Perfil" method="post" enctype="multipart/form-data">
                 @* perfil *@
                 <div class="perfil">
@@ -142,8 +137,7 @@
                 <div class="btConcluir">
                     <button type="submit" class="btConcluirCSS">Concluir</button>
                 </div>
-            </form>
-        }
+            </form>        
         @if (ViewBag.Mensagem != null)
         {
             <div class="alert alert-danger" style="text-align:center">

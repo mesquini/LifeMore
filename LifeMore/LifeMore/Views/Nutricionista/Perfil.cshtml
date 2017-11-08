@@ -93,19 +93,18 @@
     </div>
     <div class="tips w3agile">
         <div class="textoperfil" style="text-shadow: 5px 2px 0px #000000; margin-bottom:25px;">
-            Perfil
+            Perfil Nutricionista
         </div>
 
         @* perfil *@
         <div class="perfil">
 
             <div class="imagem">
-                <input type="image" title="Editar Informações" onclick="EditaPerfil()" id="edit" src="/images/img_users/@ViewBag.Imagem" onmouseover="this.src = '/images/useredit-hover.png'"
+                <input type="image" title="Editar Informações" onclick="EditaPerfilNutri()" id="edit" src="/images/img_users/@ViewBag.Imagem" onmouseover="this.src = '/images/useredit-hover.png'"
                        onmouseout="this.src = '/images/img_users/@ViewBag.Imagem'" class="imgEdit" />
             </div>
-
             <div class="dadosPessoais">
-                <p style="text-shadow: 2px 1px 0px #000000">Nome: @ViewBag.Nome</p>
+                <p style="text-shadow: 2px 1px 0px #000000">Nome: @(ViewBag.Nome)</p>
                 <p style="text-shadow: 2px 1px 0px #000000">E-mail: @ViewBag.Email</p>
                 <p style="text-shadow: 2px 1px 0px #000000">CPF: @ViewBag.CPF </p>
                 <p style="text-shadow: 2px 1px 0px #000000">Endereço: @ViewBag.Endereco</p>
@@ -113,22 +112,20 @@
             </div>
 
             <div class="dadosSistema">
-                @if (ViewBag.Objetivo == 1)
-                { <p style="text-shadow: 2px 1px 0px #000000">Objetivo: Engordar</p> }
-                else {<p style="text-shadow: 2px 1px 0px #000000">Objetivo: Emagrecer</p>}
 
-                <span style="text-shadow: 2px 1px 0px #000000">Peso: </span><span style="text-shadow: 2px 1px 0px #000000" id="peso">@ViewBag.Peso </span><span style="text-shadow: 2px 1px 0px #000000"> Kg</span><br />
-                <span style="text-shadow: 2px 1px 0px #000000">Altura: </span> <span style="text-shadow: 2px 1px 0px #000000" id="alt"> @ViewBag.Altura </span> <span style="text-shadow: 2px 1px 0px #000000"> Cm</span>
+                <p style="text-shadow: 2px 1px 0px #000000">Local de Trabalho: @ViewBag.LocalTrabalho</p>
+                <p style="text-shadow: 2px 1px 0px #000000">Bio: @ViewBag.Bio</p>
                 <p style="text-shadow: 2px 1px 0px #000000">Idade: @ViewBag.Idade</p>
 
             </div>
             <div class="btPerfil">
-                <input type="button" class="btIMC" value="Calcular IMC" onClick="calcularIMC()" name="button">
+                <input type="button" class="btIMC" value="Cadastrar Cardapio" onClick="CadastraC()" name="button">
                 <br>
                 <p name="massacor" id="massacor" size="15" style="text-shadow: 2px 1px 0px #000000"> </p>
                 <br>
-                <input type="button" class="btIMC" value="Feedback" onClick="feedback()" name="button">
+                <input type="button" class="btIMC" value="Consulta" onClick="Consulta()" name="button">
             </div>
+
             <div class="espaco"> </div>
         </div>
     </div>

@@ -79,7 +79,7 @@ namespace LifeMore.Controllers
                 ViewBag.Logado = Session["Nutricionista"];
                 Nutricionista p = (Nutricionista)Session["Nutricionista"];
                 ViewBag.Paciente = p;
-
+                
                 ViewBag.CPF = p.CPF;
                 ViewBag.Nome = p.Nome;
                 ViewBag.Email = p.Email;
@@ -87,6 +87,8 @@ namespace LifeMore.Controllers
                 ViewBag.Imagem = p.ImagemPerfil;
                 ViewBag.Tel = p.Telefone;
                 ViewBag.Idade = p.Idade;
+                ViewBag.LocalTrabalho = p.LocalTrabalho;
+                ViewBag.Bio = p.Bio;
 
                 return View();
             }
@@ -116,17 +118,12 @@ namespace LifeMore.Controllers
 
                 HttpPostedFileBase NovaImagemPerfil = Request.Files["Imag"];
 
-                Paciente novoUser = new Paciente();
+                Nutricionista novoUser = new Nutricionista();
 
-                novoUser = (Paciente)Session["Paciente"];
+                novoUser = (Nutricionista)Session["Nutricionista"];
                 novoUser.Email = Email;
                 novoUser.Endereco = Endereco;
-                //novoUser.ImagemPerfil = Image;
-                novoUser.Peso = Peso;
-                novoUser.Altura = Altura;
                 novoUser.Telefone = Tel;
-                novoUser.Idade = Idade;
-                novoUser.Objetivo = Objetivo;
                 int ID = novoUser.Cod;
 
                 foreach (string fileName in Request.Files)
