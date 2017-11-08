@@ -33,6 +33,7 @@ namespace LifeMore.Controllers
 
                 NovoUser.Nome = Nome;
                 NovoUser.Senha = Senha;
+                
                 NovoUser.CPF = CPF;
                 NovoUser.Email = Email;
                 NovoUser.Objetivo = Objetivo;
@@ -43,15 +44,24 @@ namespace LifeMore.Controllers
                 NovoUser.Endereco = End;
                 NovoUser.ImagemPerfil = Foto;
 
-                if (NovoUser.Novo())
+                if (NovoUser.VerificaCPF(CPF))
                 {
-                    ViewBag.Mensagem = "Usuário criado com sucesso!";
-                    Response.Redirect("/Perfil/IndexPerfil");
+                    if (NovoUser.Novo())
+                    {
+                        ViewBag.Mensagem = "Usuário criado com sucesso!";
+                        Response.Redirect("/Perfil/IndexPerfil");
+                    }
+                    else
+                    {
+                        ViewBag.Mensagem = "Houve um erro ao criar o Usuário. Verifique os dados e tente novamente.";
+                    }
                 }
                 else
                 {
-                    ViewBag.Mensagem = "Houve um erro ao criar o Usuário. Verifique os dados e tente novamente.";
+                    ViewBag.CPF = "CPF já cadastrado!";
                 }
+                
+                
             }
             
             return View();
@@ -71,25 +81,34 @@ namespace LifeMore.Controllers
                     Session["Paciente"] = P;
                     Response.Redirect("/Perfil/IndexPerfil");
                 }
-                else
+                   
+
+                    if (Nutricionista.Autenticar(CPF, Senha))
+                    {
+                        Nutricionista N = new Nutricionista(CPF, Senha);
+                        Session["Nutricionista"] = N;
+                        Response.Redirect("/Nutricionista/Perfil");
+                    }
+                    else
+                    {
+                        ViewBag.MsgErro = "CPF e/ou Senha incorreto!";
+                    }
+                
+
+                if (Session["Paciente"] != null)
                 {
-                  ViewBag.MsgErro = "CPF e/ou Senha incorreto!";
+                    ViewBag.Logado = Session["Paciente"];
+                    Paciente Paciente = (Paciente)Session["Paciente"];
+
+                    ViewBag.CPF = Paciente.CPF;
+                    ViewBag.Nome = Paciente.Nome;
+                    ViewBag.Objetivo = Paciente.Objetivo;
+
                 }
             }
-
-            if (Session["Paciente"] != null)
-            {
-                ViewBag.Logado = Session["Paciente"];
-                Paciente Paciente = (Paciente)Session["Paciente"];
-
-                ViewBag.CPF = Paciente.CPF;
-                ViewBag.Nome = Paciente.Nome;
-                ViewBag.Objetivo = Paciente.Objetivo;
+                return View();
 
             }
-            return View();
-        }
-       
         public void Sair()
         {
             Session.Abandon();

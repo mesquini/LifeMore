@@ -70,24 +70,21 @@ namespace LifeMore.Controllers
         public ActionResult Perfil()
         {
 
-            if (Session["Paciente"] == null)
+            if (Session["Nutricionista"] == null)
             {
                 Response.Redirect("/Home/Index", false);
             }
-            if (Session["Paciente"] != null)
+            if (Session["Nutricionista"] != null)
             {
-                ViewBag.Logado = Session["Paciente"];
-                Paciente p = (Paciente)Session["Paciente"];
+                ViewBag.Logado = Session["Nutricionista"];
+                Nutricionista p = (Nutricionista)Session["Nutricionista"];
                 ViewBag.Paciente = p;
 
                 ViewBag.CPF = p.CPF;
                 ViewBag.Nome = p.Nome;
-                ViewBag.Objetivo = p.Objetivo;
                 ViewBag.Email = p.Email;
                 ViewBag.Endereco = p.Endereco;
                 ViewBag.Imagem = p.ImagemPerfil;
-                ViewBag.Peso = p.Peso;
-                ViewBag.Altura = p.Altura;
                 ViewBag.Tel = p.Telefone;
                 ViewBag.Idade = p.Idade;
 
@@ -98,14 +95,14 @@ namespace LifeMore.Controllers
         }
         public ActionResult Editar_Perfil()
         {
-            if (Session["Paciente"] == null)
+            if (Session["Nutricionista"] == null)
             {
                 Response.Redirect("/Home/Index", false);
             }
 
-            ViewBag.Logado = Session["Paciente"];
-            Paciente p = (Paciente)Session["Paciente"];
-            ViewBag.Paciente = (Paciente)Session["Paciente"];
+            ViewBag.Logado = Session["Nutricionista"];
+            Nutricionista p = (Nutricionista)Session["Nutricionista"];
+            ViewBag.Nutricionista = (Nutricionista)Session["Nutricionista"];
 
             if (Request.HttpMethod == "POST")
             {
