@@ -10,7 +10,7 @@ article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, s
 ol,ul{list-style:none;margin:0px;padding:0px;}
 blockquote,q{quotes:none;}
 blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
-table{border-collapse:collapse;border-spacing:0;width: 1600px; text-align: center}
+table{border-collapse:collapse;border-spacing:0;width: 1710px; text-align: center}
 table tbody tr:hover{background-color: #bdbdbd}
 /* start editing from here */
 a{text-decoration:none;}
@@ -155,7 +155,7 @@ button.btConcluirCSS:hover{
 }
 
 .dadosSistema {
-    width: 330px;
+    width: 500px;
     height: 225px;
     float: left;
     margin-left: 88px;
