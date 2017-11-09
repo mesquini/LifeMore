@@ -57,9 +57,36 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="stroke">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000" >Home</a></li>
-                                    <li><a href="~/Home/About"style="text-shadow: 2px 1px 0px #000000">Quem somos</a></li>
-                                    <li><a href="~/Home/Contato"style="text-shadow: 2px 1px 0px #000000">Fale conosco</a></li>
+                                    @if (ViewBag.Logado == null && ViewBag.LogadoA == null && ViewBag.LogadoN == null)
+                                    {
+                                        <li class="entrar"><a href="~/Entrar/Logar" style="text-shadow: 2px 1px 0px #000000">Entrar</a></li>
+
+                                    }
+                                    @if (ViewBag.Logado != null)
+                                    {
+
+                                        <li><a href="~/Perfil/IndexPerfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                        <li><a href="#" style="text-shadow: 2px 1px 0px #000000">Cardápio</a></li>
+                                    }
+                                    @if (ViewBag.LogadoA != null)
+                                    {
+                                        <li><a href="~/Adm/Listar" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                    }
+                                    @if (ViewBag.LogadoN != null)
+                                    {
+                                        <li><a href="~/Nutricionista/Perfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                    }
+
+                                    <li class="active"><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000">Home</a></li>
+                                    <li><a href="~/Home/Dicas" style="text-shadow: 2px 1px 0px #000000">Dicas</a></li>
+                                    <li><a href="~/Home/About" style="text-shadow: 2px 1px 0px #000000">Quem somos</a></li>
+                                    <li><a href="~/Home/Contato" style="text-shadow: 2px 1px 0px #000000">Fale conosco</a></li>
+                                    @if (ViewBag.Logado != null || ViewBag.LogadoA != null || ViewBag.LogadoN != null)
+                                    {
+
+                                        <li><a href="~/Entrar/Sair" style="text-shadow: 2px 1px 0px #000000">Sair</a></li>
+
+                                    }
 
                                 </ul>
                             </nav>
@@ -78,8 +105,8 @@
 
                     <p style="color:white;">Nome do Cardapio: </p>
                     <input type="text" name="CardapioC" id="CardapioC" required maxlength="50" />
-                    @*<p style="color:white;">Nome da nutricionista: </p>
-                    <p>@ViewBag.Nutricionista.Nome</p>*@
+                    <p style="color:white;">Nome da nutricionista: </p>
+                    <p>@ViewBag.Nutricionista.Nome</p>
                     <br />          <br />
                     <p style="color:white;">Nome do paciente: </p>
                     <select name="nomeC" id="nomeC">

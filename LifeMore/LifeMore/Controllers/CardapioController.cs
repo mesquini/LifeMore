@@ -12,6 +12,15 @@ namespace LifeMore.Controllers
         // GET: Cardapio
         public ActionResult CadastrarC()
         {
+            if (Session["Nutricionista"] == null)
+            {
+                Response.Redirect("/Home/Index", false);
+            }
+
+            ViewBag.LogadoN = Session["Nutricionista"];
+            Nutricionista N = (Nutricionista)Session["Nutricionista"];
+            ViewBag.Nutricionista = (Nutricionista)Session["Nutricionista"];
+
             if (Request.HttpMethod == "POST")
             {
                 String Nutricionista = Request.Form["nomeNC"];
@@ -26,8 +35,8 @@ namespace LifeMore.Controllers
             List<Alimento> al = Alimento.ListarA();
             ViewBag.Alimento = al;
 
-            List<Nutricionista> nt = Nutricionista.ListarN();
-            ViewBag.Nutricionista = nt;
+            //List<Nutricionista> nt = Nutricionista.ListarN();
+            //ViewBag.Nutricionista = nt;
             return View();
         }
         
