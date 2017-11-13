@@ -124,10 +124,11 @@
                 <h3 class="mail-w3" style="text-shadow: 5px 2px 0px #000000">Contate nos<span></span></h3>
                 <div class="w3agile_mail_grids">
                     <div class="w3agile_mail_grid">
-                        <form action="#" method="post">
-                            <input type="text" placeholder="Nome" name="Name" required="">
-                            <input type="email" placeholder="Email" name="Email" required="">
-                            <textarea name="Message" placeholder="Mensagem" required=""></textarea>
+                        <form action="/Home/EnviarEmail" method="post">
+                            <input type="text" placeholder="Nome" name="Nome" id="Nome" required="">
+                            <input type="email" placeholder="Email" name="Email" id="Email" required="" >
+                            <input type="text" placeholder="Assunto" name="Assunto" id="Assunto" required="" style="margin-bottom:20px;width: 97.3%;margin-left: 15px;">
+                            <textarea name="Mesagem" id="Mensagem" placeholder="Mensagem" required=""></textarea>
                             <div class="con-form text-center">
                                 <input type="submit" value="Enviar">
                             </div>
