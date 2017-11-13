@@ -106,7 +106,9 @@
                     <p style="color:white;">Nome do Cardapio: </p>
                     <input type="text" name="CardapioC" id="CardapioC" required maxlength="50" />
                     <p style="color:white;">Nome da nutricionista: </p>
-                    <p>@ViewBag.Nutricionista.Nome</p>
+                    <p style="font-size: 20px;
+                              text-shadow: white 1px 1px;
+                              color: white;">@ViewBag.Nutricionista.Nome</p>
                     <br />          <br />
                     <p style="color:white;">Nome do paciente: </p>
                     <select name="nomeC" id="nomeC">
@@ -116,15 +118,18 @@
                         }
                     </select>
                     <br />   <br />
-                    <p style="color:white;">Adicionar Alimento: </p>
+                    <p style="float: right;color: white;">Quantidade:</p>
+                   
+                    <p style="color:white; width:200px;">Adicionar Alimento: </p>
+                    
                     <select name="alimento1" id="alimento1">
                         <option>Selecione o alimento...</option>
 @foreach (var A in ViewBag.Alimento)
 {
-                        <option value="@(A.Cod)">@(A.Nome)</option>
-}
+                        <option value="@(A.Cod)">@(A.Nome)</option>}
                     </select>
-                    <br />          <br />
+                    <input style="text-align:center; width:50px;margin-left: 30px;" maxlength="2" placeholder="01" type="text">
+                       <br />          <br />
                     <select name="alimento2" id="alimento2">
                         <option>Selecione o alimento...</option>
 @foreach (var A in ViewBag.Alimento)
@@ -132,6 +137,7 @@
                         <option value="@(A.Cod)">@(A.Nome)</option>
 }
                     </select>
+                    <input style="width:50px;margin-left: 30px;" maxlength="2;" type="text">
                     <br />                   <br />
                     <select name="alimento3" id="alimento3">
                         <option>Selecione o alimento...</option>
@@ -139,14 +145,17 @@
 {
                         <option value="@(A.Cod)">@(A.Nome)</option>
 }
-                    </select>                <br />          <br />
+                    </select>   
+                      <input style="width:50px;margin-left: 30px;" maxlength="2;" type="text">
+                               <br />          <br />
                     <select name="alimento4" id="alimento4">
                         <option>Selecione o alimento...</option>
 @foreach (var A in ViewBag.Alimento)
 {
                         <option value="@(A.Cod)">@(A.Nome)</option>
 }
-                    </select>         
+                    </select>      
+                    <input style="width:50px;margin-left: 30px;" maxlength="2;" type="text">   
                     <br />   <br />
                     <select name="alimento5" id="alimento5">
                         <option>Selecione o alimento...</option>
@@ -155,6 +164,7 @@
                             <option value="@(A.Cod)">@(A.Nome)</option>
                         }
                     </select>   
+                    <input style="width:50px;margin-left: 30px;" maxlength="2;" type="text">
                            <br />   <br />
                     <p style="color:white;">Observações do cardápio: </p>
                     <textarea data-hook="message-field" id="InformacoesC" name="InformacoesC" type="textarea"></textarea>
