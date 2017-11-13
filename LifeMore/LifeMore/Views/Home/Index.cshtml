@@ -34,7 +34,55 @@
     <!-- //online-fonts -->
 
     <link rel="stylesheet" href="~/css/Login.css">
+    <!-- js-scripts -->
+    <!-- js -->
+    <script type="text/javascript" src="~/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.js"></script> <!-- Necessary-JavaScript-File-For-Bootstrap -->
+    <!-- //js -->
+    <!-- Baneer-js -->
 
+    <script src="~/js/responsiveslides.min.js"></script>
+    <script>
+        // You can also use "$(window).load(function() {"
+        $(function () {
+            // Slideshow 4
+            $("#slider4").responsiveSlides({
+                auto: true,
+                pager: true,
+                nav: false,
+                speed: 500,
+                namespace: "callbacks",
+                before: function () {
+                    $('.events').append("<li>before event fired.</li>");
+                },
+                after: function () {
+                    $('.events').append("<li>after event fired.</li>");
+                }
+            });
+
+        });
+    </script>
+    <script>
+        // You can also use "$(window).load(function() {"
+        $(function () {
+            // Slideshow 4
+            $("#slider3").responsiveSlides({
+                auto: true,
+                pager: false,
+                nav: true,
+                speed: 500,
+                namespace: "callbacks",
+                before: function () {
+                    $('.events').append("<li>before event fired.</li>");
+                },
+                after: function () {
+                    $('.events').append("<li>after event fired.</li>");
+                }
+            });
+
+        });
+    </script>
+  
 </head>
 <body>
     <div class="Main-agile">
@@ -354,97 +402,52 @@
             </div>
         </div>
         <!-- //Footer -->
-        <!-- js-scripts -->
-        <!-- js -->
-        <script type="text/javascript" src="~/js/jquery-2.1.4.min.js"></script>
-        <script type="text/javascript" src="~/js/bootstrap.js"></script> <!-- Necessary-JavaScript-File-For-Bootstrap -->
-        <!-- //js -->
-        <!-- Baneer-js -->
+    <!-- //Calendar -->
+    <!-- Time -->
+    <script type="text/javascript" src="~/js/wickedpicker.js"></script>
+    <script type="text/javascript">
+        $('.timepicker').wickedpicker({ twentyFour: false });
+    </script>
+    <!-- //Time -->
+    <!-- //Baneer-js -->
+    <!-- Calendar -->
+    <script src="~/js/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker,#datepicker1,#datepicker2,#datepicker3").datepicker();
+        });
+    </script>
 
-        <script src="~/js/responsiveslides.min.js"></script>
-        <script>
-            // You can also use "$(window).load(function() {"
-            $(function () {
-                // Slideshow 4
-                $("#slider4").responsiveSlides({
-                    auto: true,
-                    pager: true,
-                    nav: false,
-                    speed: 500,
-                    namespace: "callbacks",
-                    before: function () {
-                        $('.events').append("<li>before event fired.</li>");
-                    },
-                    after: function () {
-                        $('.events').append("<li>after event fired.</li>");
-                    }
-                });
-
+    <!-- jarallax-js -->
+    <script src="~/js/jarallax.js"></script>
+    <script src="~/js/SmoothScroll.min.js"></script>
+    <script type="text/javascript">
+        /* init Jarallax */
+        $('.jarallax').jarallax({
+            speed: 0.5,
+            imgWidth: 1366,
+            imgHeight: 768
+        })
+    </script>
+    <!-- //jarallax-js -->
+    <!-- for-Testimonials -->
+    <!-- required-js-files-->
+    <link href="~/css/owl.carousel.css" rel="stylesheet">
+    <script src="~/js/owl.carousel.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#owl-demo").owlCarousel({
+                items: 1,
+                lazyLoad: true,
+                autoPlay: true,
+                navigation: false,
+                navigationText: false,
+                pagination: true,
             });
-        </script>
-        <script>
-            // You can also use "$(window).load(function() {"
-            $(function () {
-                // Slideshow 4
-                $("#slider3").responsiveSlides({
-                    auto: true,
-                    pager: false,
-                    nav: true,
-                    speed: 500,
-                    namespace: "callbacks",
-                    before: function () {
-                        $('.events').append("<li>before event fired.</li>");
-                    },
-                    after: function () {
-                        $('.events').append("<li>after event fired.</li>");
-                    }
-                });
-
-            });
-        </script>
-
-
-        <!-- //Baneer-js -->
-        <!-- Calendar -->
-        <script src="~/js/jquery-ui.js"></script>
-
-        <!-- //Calendar -->
-        <!-- Time -->
-        <script type="text/javascript" src="~/js/wickedpicker.js"></script>
-        <script type="text/javascript">
-            $('.timepicker').wickedpicker({ twentyFour: false });
-        </script>
-        <!-- //Time -->
-        <!-- jarallax-js -->
-        <script src="~/js/jarallax.js"></script>
-        <script src="~/js/SmoothScroll.min.js"></script>
-        <script type="text/javascript">
-            /* init Jarallax */
-            $('.jarallax').jarallax({
-                speed: 0.5,
-                imgWidth: 1366,
-                imgHeight: 768
-            })
-        </script>
-        <!-- //jarallax-js -->
-        <!-- for-Testimonials -->
-        <!-- required-js-files-->
-        <link href="~/css/owl.carousel.css" rel="stylesheet">
-        <script src="~/js/owl.carousel.js"></script>
-        <script>
-            $(document).ready(function () {
-                $("#owl-demo").owlCarousel({
-                    items: 1,
-                    lazyLoad: true,
-                    autoPlay: true,
-                    navigation: false,
-                    navigationText: false,
-                    pagination: true,
-                });
-            });
-        </script>
-        <!--//required-js-files-->
-        <!-- //for-Testimonials -->
-        <!-- //js-scripts -->
+        });
+    </script>
+    <!--//required-js-files-->
+    <!-- //for-Testimonials -->
+    <!-- //js-scripts -->
 </body>
 </html>
