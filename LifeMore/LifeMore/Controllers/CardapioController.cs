@@ -27,6 +27,7 @@ namespace LifeMore.Controllers
                 String Nome = Request.Form["NomeC"];            
                 String Alimento = Request.Form["Alimento1"];
                 String Informacoes = Request.Form["InformacoesC"];
+                Int32 Qnt = int.Parse(Request.Form["Qnt"]);
             }
 
             List<Paciente> pc = Paciente.ListarP();
