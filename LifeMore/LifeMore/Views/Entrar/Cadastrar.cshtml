@@ -41,8 +41,8 @@
 
 <script type="text/javascript">
     jQuery(function ($) {
-        $("#telefone").mask("(99)9 9999-9999");
-        $("#cpf1").mask("999.999.999-99");
+        $("#telefone").mask("(99)9 9999-9999", { required: true });
+        $("#cpf1").mask("999.999.999-99", { required: true });
         $("#peso").mask("999.999", { required: true});
         $("#altura").mask("9.99", { required: true });
     });
@@ -70,6 +70,7 @@
                             <nav class="stroke">
                                 <ul class="nav navbar-nav">
                                     <li><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000">Home</a></li>
+                                    <li><a href="~/Home/Dicas" style="text-shadow: 2px 1px 0px #000000">Dicas</a></li>
                                     <li><a href="~/Home/About" style="text-shadow: 2px 1px 0px #000000">Quem somos</a></li>
                                     <li><a href="~/Home/Contato" style="text-shadow: 2px 1px 0px #000000">Fale conosco</a></li>
 
@@ -97,7 +98,6 @@
                            
                             
                             @* CADASTRAR *@
-                            <script src="~/js/Mascara.js"></script>
                             <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
                                 <div class="login-agileits-top sign-up">
                                     <form action="/Entrar/Cadastrar" method="post" >
@@ -127,10 +127,18 @@
                                             <input type="submit" value="Cadastrar">
                                         
                                     </form>
+                                    <br/><br />
                                     @if (ViewBag.MsgErro != null)
                                     {
                                         <div class="alert alert-danger">
                                             <strong>ERRO!</strong> @ViewBag.MsgErro
+                                        </div>
+                                    }
+                                    <br /><br />
+                                    @if (ViewBag.CPF != null)
+                                    {
+                                        <div class="alert alert-danger">
+                                            <strong>ERRO!</strong> @ViewBag.CPF
                                         </div>
                                     }
                                 </div>

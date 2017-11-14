@@ -115,18 +115,18 @@ namespace LifeMore.Models
         }
         public Boolean EditarPerfil()
         {
-            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["Nutricionista"].ConnectionString);
+            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
             Conexao.Open();
 
 
             SqlCommand Comando = new SqlCommand();
             Comando.Connection = Conexao;
-            Comando.CommandText = "UPDATE Nutricionista SET Foto = @Imagem, Idade = @Idade, Email = @Email, Telefone = @Telefone, LocalTrabalho = @LocalTrabalho Bio = @Bio"
-               + "Objetivo = @Objetivo, Endereco = @Endereco WHERE Cod = @ID;";
+            Comando.CommandText = "UPDATE Nutricionista SET Idade = @Idade, Endereco = @Endereco, Email = @Email, Telefone = @Telefone, LocalTrabalho = @LocalTrabalho, Bio = @Bio"
+               + " WHERE Cod = @ID;";
 
             Comando.Parameters.AddWithValue("@ID", this.Cod);
-            Comando.Parameters.AddWithValue("@Imagem", this.ImagemPerfil);
             Comando.Parameters.AddWithValue("@Idade", this.Idade);
+            Comando.Parameters.AddWithValue("@Endereco", this.Endereco);
             Comando.Parameters.AddWithValue("@Email", this.Email);
             Comando.Parameters.AddWithValue("@Telefone", this.Telefone);
             Comando.Parameters.AddWithValue("@LocalTrabalho", this.LocalTrabalho);

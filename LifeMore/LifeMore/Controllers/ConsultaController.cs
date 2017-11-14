@@ -31,6 +31,9 @@ namespace LifeMore.Controllers
                 ViewBag.Objetivo = Paciente.Objetivo;
 
             }
+            List<Nutricionista> ns = Nutricionista.ListarN();
+            ViewBag.Nutricionista = ns;
+
             return View();
         }
         public ActionResult IndexConsulta()

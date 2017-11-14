@@ -34,10 +34,10 @@
     <!-- //online-fonts -->
 
     <link rel="stylesheet" href="~/css/Login.css">
-    <script src="~/js/login.js"></script>
-    <link rel="stylesheet" href="~/css/Consulta.css" />
-
+    <script src="~/js/login.js" type="text/javascript"></script>
+    <script src="~/js/AcessarPag.js" type="text/javascript"></script>
 </head>
+
 <body class="bgEntrar">
     <div class="Main-agile">
         <!-- banner -->
@@ -59,24 +59,22 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="stroke">
                                 <ul class="nav navbar-nav">
-                                    @if (ViewBag.Logado == null)
+                                    @if (ViewBag.LogadoN == null)
                                     {
 
                                         <li class="entrar"><a href="~/Entrar/Cadastrar" style="text-shadow: 2px 1px 0px #000000">Entrar</a></li>
 
                                     }
-                                    @if (ViewBag.Logado != null)
+                                    @if (ViewBag.LogadoN != null)
                                     {
 
-                                        <li><a href="~/Perfil/IndexPerfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
-                                        <li><a href="#" style="text-shadow: 2px 1px 0px #000000">Cardápio</a></li>
+                                        <li class="active"><a href="~/Perfil/IndexPerfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
                                     }
 
-                                    <li ><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000">Home</a></li>
-                                    <li ><a href="~/Home/Dicas" style="text-shadow: 2px 1px 0px #000000">Dicas</a></li>
+                                    <li><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000">Home</a></li>
                                     <li><a href="~/Home/About" style="text-shadow: 2px 1px 0px #000000">Quem somos</a></li>
                                     <li><a href="~/Home/Contato" style="text-shadow: 2px 1px 0px #000000">Fale conosco</a></li>
-                                    @if (ViewBag.Logado != null)
+                                    @if (ViewBag.LogadoN != null)
                                     {
 
                                         <li><a href="~/Entrar/Sair" style="text-shadow: 2px 1px 0px #000000">Sair</a></li>
@@ -92,84 +90,43 @@
         </div>
 
     </div>
-   
-    @* consulta *@
-    
-        <div class="tips w3agile">
-            <div class="divisao">
-                <div class="titulos">
-                    Consultas
-                </div>
+    <div class="tips w3agile">
+        <div class="textoperfil" style="text-shadow: 5px 2px 0px #000000; margin-bottom:25px;">
+            Perfil Nutricionista
+        </div>
 
-                <div class="consulta1">
-                    <img src="~/images/Consulta/consulta_inicial.jpg" height="210"/>
-                    <p class="consulta1-texto">Consulta inicial de nutrição</p>
-                    <p class="consulta1-texto"> 1 h | R$200,00 </p>
-                    <div class="botaoAcessar">
-                        <div class="botao">
-                            <a href="~/Consulta/MarcarConsulta?id=1" >Consultar</a>
-                        </div>
-                    </div>
+        @* perfil *@
+        <div class="perfil">
 
-                </div>
-                <div class="consulta2">
-                    <img src="~/images/Consulta/Aconselhamento.jpg" />
-                    <p class="consulta1-texto">Aconselhamento de nutrição</p>
-                    <p class="consulta1-texto"> 1 h | R$100,00 </p>
-                    <div class="botaoAcessar">
-                        <div class="botao">
-                            <a href="~/Consulta/MarcarConsulta?id=2">Consultar</a>
-                        </div>
-                    </div>
+            <div class="imagem">
+                <input type="image" title="Editar Informações" onclick="EditaPerfilNutri()" id="edit" src="/images/img_users/@ViewBag.Imagem" onmouseover="this.src = '/images/useredit-hover.png'"
+                       onmouseout="this.src = '/images/img_users/@ViewBag.Imagem'" class="imgEdit" />
+            </div>
+            <div class="dadosPessoais">
+                <p style="text-shadow: 2px 1px 0px #000000">Nome: @(ViewBag.Nome)</p>
+                <p style="text-shadow: 2px 1px 0px #000000">E-mail: @ViewBag.Email</p>
+                <p style="text-shadow: 2px 1px 0px #000000">CPF: @ViewBag.CPF </p>
+                <p style="text-shadow: 2px 1px 0px #000000">Endereço: @ViewBag.Endereco</p>
+                <p style="text-shadow: 2px 1px 0px #000000">Telefone: @ViewBag.Tel</p>
+                <p style="text-shadow: 2px 1px 0px #000000">Idade: @ViewBag.Idade</p>
+            </div>
 
-                </div>
-                <div class="consulta3">
-                    <img src="~/images/Consulta/Nutricaofamilia.jpg" />
-                    <p class="consulta1-texto">Nutrição para a família</p>
-                    <p class="consulta1-texto"> 1 h 30 min | R$100,00 </p>
-                    <div class="botaoAcessar">
-                        <div class="botao">
-                            <a href="~/Consulta/MarcarConsulta?id=3">Consultar</a>
-                        </div>
-                    </div>
+            <div class="dadosSistema">
 
-                </div>
-                <div class="consulta4">
-                    <img src="~/images/Consulta/monitoramento.jpg" width="350" height="200"/>
-                    <p class="consulta1-texto">Monitoramento de peso</p>
-                    <p class="consulta1-texto"> 1 h | R$70,00 </p>
-                    <div class="botaoAcessar">
-                        <div class="botao">
-                            <a href="~/Consulta/MarcarConsulta?id=4">Consultar</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="consulta5">
-                    <img src="~/images/Consulta/qualidade_vida.jpg" />
-                    <p class="consulta1-texto">Melhorando a qualidade de vida</p>
-                    <p class="consulta1-texto"> 1 h | R$50,00 </p>
-                    <div class="botaoAcessar">
-                        <div class="botao">
-                            <a href="~/Consulta/MarcarConsulta?id=5">Consultar</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="consulta6">
-                    <img src="~/images/Consulta/sensibilidade_alimento.jpg" height="200" />
-                    <p class="consulta1-texto">Sensibilidade e alimentos</p>
-                    <p class="consulta1-texto"> 1 h | R$80,00 </p>
-                    <div class="botaoAcessar">
-                        <div class="botao">
-                            <a href="~/Consulta/MarcarConsulta?id=6">Consultar</a>
-                        </div>
-                    </div>
-
-                </div>
-
+                <p style="text-shadow: 2px 1px 0px #000000">Local de Trabalho: @ViewBag.LocalTrabalho</p>
+                <p style="text-shadow: 2px 1px 0px #000000">Bio: @ViewBag.Bio</p>
 
             </div>
+            <div class="btPerfil">
+                <input type="button" class="btIMC" value="Cadastrar Cardapio" onClick="CadastraC()" name="button">
+                <br>
+                <p name="massacor" id="massacor" size="15" style="text-shadow: 2px 1px 0px #000000"> </p>
+                <br>
+                <input type="button" class="btIMC" value="Consulta" onClick="Consulta()" name="button">
+            </div>
+
+            <div class="espaco"> </div>
+        </div>
     </div>
 
     <div class="footer w3ls">
@@ -203,7 +160,7 @@
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                             </div>
                             <div class="ftr-text">
-                                <p>SENAI Zerbini</p>
+                                <p style="text-shadow: 2px 1px 0px #000000">SENAI Zerbini</p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
@@ -212,7 +169,7 @@
                                 <i class="fa fa-phone" aria-hidden="true"></i>
                             </div>
                             <div class="ftr-text">
-                                <p>+55 19 9 9865 8943</p>
+                                <p style="text-shadow: 2px 1px 0px #000000">+55 19 9 9865 8943</p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
@@ -221,7 +178,7 @@
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                             </div>
                             <div class="ftr-text">
-                                <p><a href="mailto:LifeMore@gmail.com">LifeMore@gmail.com</a></p>
+                                <p style="text-shadow: 2px 1px 0px #000000"><a href="mailto:LifeMore@gmail.com">LifeMore@gmail.com</a></p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
@@ -237,7 +194,7 @@
                     </ul>
                 </div>
                 <div class="copyrights">
-                    <p>&copy; 2017 Life More. Todos os direitos reservados | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+                    <p style="text-shadow: 2px 1px 0px #000000">&copy; 2017 Life More. Todos os direitos reservados | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
                 </div>
             </div>
         </div>
@@ -248,3 +205,4 @@
 
 </body>
 </html>
+

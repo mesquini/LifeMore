@@ -28,7 +28,7 @@ namespace LifeMore.Models
 
             SqlCommand Comando = new SqlCommand();
             Comando.Connection = Conexao;
-            Comando.CommandText = "SELECT * FROM Alimento WHERE Cod_Alimento=@ID;";
+            Comando.CommandText = "SELECT * FROM Alimento WHERE Cod_Alimento = @ID;";
             Comando.Parameters.AddWithValue("@ID", ID);
 
             SqlDataReader Leitor = Comando.ExecuteReader();
@@ -73,7 +73,7 @@ namespace LifeMore.Models
 
             SqlCommand Comando = new SqlCommand();
             Comando.Connection = Conexao;
-            Comando.CommandText = "select A.Nome, A.Peso, A.Caloria, A.Gordura, A.Carboidrato, A.Proteina ,C.Nome as Categoria from Alimento A, Categoria C where Cod_Categoria = A.Categoria;";
+            Comando.CommandText = "select A.Cod_Alimento, A.Nome, A.Peso, A.Caloria, A.Gordura, A.Carboidrato, A.Proteina ,C.Nome as Categoria from Alimento A, Categoria C where Cod_Categoria = A.Categoria;";
 
 
             SqlDataReader Leitor = Comando.ExecuteReader();
@@ -82,7 +82,7 @@ namespace LifeMore.Models
             while (Leitor.Read())
             {
                 Alimento A = new Alimento();
-                //A.Cod = (Int32)Leitor["Cod_Alimento"];
+                A.Cod = (Int32)Leitor["Cod_Alimento"];
                 A.Nome = ((String)Leitor["Nome"]);
                 A.Peso = ((String)Leitor["Peso"]);
                 A.Caloria = (double)Leitor["Caloria"];

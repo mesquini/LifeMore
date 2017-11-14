@@ -1,13 +1,4 @@
-﻿@{
-    Layout = null;
-}
-
-<!--
-    Author: W3layouts
-    Author URL: http://w3layouts.com
-    License: Creative Commons Attribution 3.0 Unported
-    License URL: http://creativecommons.org/licenses/by/3.0/
--->
+﻿
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -22,7 +13,7 @@
         function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!--// Meta tag Keywords -->
     <!-- css files -->
-    <link rel="stylesheet" href="~/css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="~/css/bootstrap.css" type="text/css"> <!-- Bootstrap-Core-CSS -->
     <link rel="stylesheet" href="~/css/style.css" type="text/css" media="all" /> <!-- Style-CSS -->
     <link rel="stylesheet" href="~/css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
     <link rel="stylesheet" href="~/css/jquery-ui.css" /> <!-- Date-script-CSS -->
@@ -34,37 +25,17 @@
     <!-- //online-fonts -->
 
     <link rel="stylesheet" href="~/css/Login.css">
-    <script src="~/js/login.js" type="text/javascript"></script>
     <script src="~/js/AcessarPag.js" type="text/javascript"></script>
-    
-    <script type="text/javascript">
-        function calcularIMC() {
-            
-            var peso = document.getElementById("peso").innerText;
-            
-            var alt = document.getElementById("alt").innerText;
-            
-  var IMC = peso / (alt * alt)
 
-    if (IMC <18.5)
-        document.getElementById("massacor").innerText = IMC.toFixed(3) + " - Peso Baixo, procure um especialista! ";
-    if (IMC >=18.5 && IMC <=24.9)
-        document.getElementById("massacor").innerText = IMC.toFixed(3) + " - Peso Ideal, continue assim! ";
-    if (IMC >=25 && IMC <=29.9)
-        document.getElementById("massacor").innerText = IMC.toFixed(3) + " - Acima do Peso, cuide melhor da sua alimentação! ";
-    if (IMC >= 30 && IMC <= 34.9)
-        document.getElementById("massacor").innerText = IMC.toFixed(3) + " - Obesidade Tipo I, procure um especialista urgente!  ";
-    if (IMC >= 35 && IMC <= 39.9)
-        document.getElementById("massacor").innerText = IMC.toFixed(3) + " - Obesidade Tipo II, procure um especialista urgente!  ";
-    if (IMC >= 40 && IMC <= 49.9)
-        document.getElementById("massacor").innerText = IMC.toFixed(3) + " - Obesidade Mórbida, procure um especialista urgente!  ";
-    if (IMC > 40)
-        document.getElementById("massacor").innerText = IMC.toFixed(3) + " - Obesidade Extrema, procure um especialista urgente!  ";
-    }
-
-// End -->
-    </script>
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/jquery.mask.js"></script>
 </head>
+
+<script type="text/javascript">
+    jQuery(function ($) {
+        $("#tel").mask("(99)9 9999-9999", { required: true });
+    });
+</script>
 
 <body class="bgEntrar">
     <div class="Main-agile">
@@ -87,28 +58,14 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="stroke">
                                 <ul class="nav navbar-nav">
-                                    @if (ViewBag.Logado == null)
-                                    {
-
-                                        <li class="entrar"><a href="~/Entrar/Cadastrar" style="text-shadow: 2px 1px 0px #000000">Entrar</a></li>
-
-                                    }
-                                    @if (ViewBag.Logado != null)
-                                    {
-
-                                        <li class="active"><a href="~/Perfil/IndexPerfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
-                                        <li><a href="#" style="text-shadow: 2px 1px 0px #000000">Cardápio</a></li>
-                                    }
-
-                                    <li ><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000">Home</a></li>
-                                    <li ><a href="~/Home/About" style="text-shadow: 2px 1px 0px #000000">Quem somos</a></li>
+                                    <li class="entrar"><a href="~/Entrar/Cadastrar" style="text-shadow: 2px 1px 0px #000000">Entrar</a></li>
+                                    <li class="active"><a href="~/Perfil/IndexPerfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                    <li><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000">Home</a></li>
+                                    <li><a href="~/Home/Dicas" style="text-shadow: 2px 1px 0px #000000">Dicas</a></li>
+                                    <li><a href="~/Home/About" style="text-shadow: 2px 1px 0px #000000">Quem somos</a></li>
                                     <li><a href="~/Home/Contato" style="text-shadow: 2px 1px 0px #000000">Fale conosco</a></li>
-                                    @if (ViewBag.Logado != null)
-                                    {
-
-                                        <li><a href="~/Entrar/Sair" style="text-shadow: 2px 1px 0px #000000">Sair</a></li>
-
-                                    }
+                                    <li><a href="~/Entrar/Sair" style="text-shadow: 2px 1px 0px #000000">Sair</a></li>
+                                    
                                 </ul>
                             </nav>
                         </div>
@@ -118,49 +75,52 @@
             </div>
         </div>
 
-       </div>
+    </div>
     <div class="tips w3agile">
-        <div class="textoperfil" style="text-shadow: 5px 2px 0px #000000; margin-bottom:25px;">
-            Perfil
+        <div class="textoperfil" style="text-shadow: 5px 2px 0px #000000">Perfil - Nutricionista</div>
+            <form action="~/Nutricionista/EditarPerfil" method="post" enctype="multipart/form-data">
+                @* perfil *@
+                <div class="perfil">
+
+                    <div class="imagem">
+                        <input type="image" title="Editar Informações" id="edit" src="/images/img_users/@ViewBag.Nutricionista.ImagemPerfil" onmouseover="this.src = '/images/useredit-hover.png'"
+                               onmouseout="this.src = '/images/img_users/@ViewBag.Nutricionista.ImagemPerfil'" class="imgEdit" />
+                        <input type="file" name="Img" id="Img" runat="server" />
+                    </div>
+
+                    <div class="dadosPessoais">
+                        <p style="text-shadow: 2px 1px 0px #000000">Nome: @ViewBag.Nutricionista.Nome</p>
+                        <p style="text-shadow: 2px 1px 0px #000000">E-mail: <input type="text" value="@ViewBag.Nutricionista.Email" class="editPerfil" name="Email" id="Email" required /></p>
+                        <p style="text-shadow: 2px 1px 0px #000000">CPF: @ViewBag.Nutricionista.CPF </p>
+                        <p style="text-shadow: 2px 1px 0px #000000">Endereço: <input type="text" value="@ViewBag.Nutricionista.Endereco" class="editPerfil" name="Endereco" id="Endereco" required /></p>
+                        <p style="text-shadow: 2px 1px 0px #000000">Telefone: <input type="text" id="tel" value="@ViewBag.Nutricionista.Telefone" class="editTel" name="Tel" required /></p>
+                        <p style="text-shadow: 2px 1px 0px #000000">Idade: <input type="text" value="@ViewBag.Nutricionista.Idade" class="editIdade" name="Idade" maxlength="2" required /></p>
+
+                    </div>
+
+                    <div class="dadosSistema">
+                        <p style="text-shadow: 2px 1px 0px #000000">Local de Trabalho: <input type="text" value="@ViewBag.Nutricionista.LocalTrabalho" class="editIdade" style="width: 450px; text-align:left" name="LocalTrabalho" id="LocalTrabalho" required /></p>
+
+                        <p style="text-shadow: 2px 1px 0px #000000">Biografia:</p>
+                        <textarea type="text" id="Bio" class="editPeso" name="Bio" required style="height:150px; width:450px;">@ViewBag.Nutricionista.Bio</textarea>
+
+                    </div>
+                    <div class="btPerfil">
+                    </div>
+                    <div class="espaco"> </div>
+
+                </div>
+                <div class="btConcluir">
+                    <button type="submit" class="btConcluirCSS">Concluir</button>
+                </div>
+            </form>        
+        @if (ViewBag.Mensagem != null)
+        {
+            <div class="alert alert-danger" style="text-align:center">
+                <strong>ERRO!</strong> @ViewBag.Mensagem
+            </div>
+        }
         </div>
-
-        @* perfil *@
-        <div class="perfil">
-
-            <div class="imagem">
-                <input type="image" title="Editar Informações" onclick="EditaPerfil()" id="edit" src="/images/img_users/@ViewBag.Imagem" onmouseover="this.src = '/images/useredit-hover.png'"
-                       onmouseout="this.src = '/images/img_users/@ViewBag.Imagem'" class="imgEdit" />
-            </div>
-
-            <div class="dadosPessoais">
-                <p style="text-shadow: 2px 1px 0px #000000">Nome: @ViewBag.Nome</p>
-                <p style="text-shadow: 2px 1px 0px #000000">E-mail: @ViewBag.Email</p>
-                <p style="text-shadow: 2px 1px 0px #000000">CPF: @ViewBag.CPF </p>
-                <p style="text-shadow: 2px 1px 0px #000000">Endereço: @ViewBag.Endereco</p>
-                <p style="text-shadow: 2px 1px 0px #000000">Telefone: @ViewBag.Tel</p>
-            </div>
-
-            <div class="dadosSistema">
-                @if (ViewBag.Objetivo == 1)
-                { <p style="text-shadow: 2px 1px 0px #000000">Objetivo: Engordar</p> }
-                else {<p style="text-shadow: 2px 1px 0px #000000">Objetivo: Emagrecer</p>}
-
-                <span style="text-shadow: 2px 1px 0px #000000">Peso: </span><span style="text-shadow: 2px 1px 0px #000000" id="peso">@ViewBag.Peso </span><span style="text-shadow: 2px 1px 0px #000000"> Kg</span><br />
-                <span style="text-shadow: 2px 1px 0px #000000">Altura: </span> <span style="text-shadow: 2px 1px 0px #000000" id="alt"> @ViewBag.Altura </span> <span style="text-shadow: 2px 1px 0px #000000"> Cm</span>
-                <p style="text-shadow: 2px 1px 0px #000000">Idade: @ViewBag.Idade</p>
-
-            </div>
-            <div class="btPerfil">
-                <input type="button" class="btIMC" value="Calcular IMC" onClick="calcularIMC()" name="button">
-                <br>
-                <p name="massacor" id="massacor" size="15" style="text-shadow: 2px 1px 0px #000000"> </p>
-                <br>
-                <input type="button" class="btIMC" value="Feedback" onClick="feedback()" name="button">
-            </div>
-            <div class="espaco"> </div>
-        </div>
-        </div>
-
         <div class="footer w3ls">
             <div class="container">
                 <div class="footer-main">

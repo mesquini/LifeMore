@@ -35,8 +35,6 @@
     <!-- //online-fonts -->
 
     <link rel="stylesheet" href="~/css/Login.css">
-    <script src="~/js/jquery.js"></script>
-    <script src="~/js/jquery.mask.js"></script>
 </head>
 <body class="bgEntrar">
     <div class="Main-agile">
@@ -59,9 +57,36 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="stroke">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="~/Home/Index">Home</a></li>
-                                    <li><a href="~/Home/About">Quem somos</a></li>
-                                    <li><a href="~/Home/Contato">Fale conosco</a></li>
+                                    @if (ViewBag.Logado == null && ViewBag.LogadoA == null && ViewBag.LogadoN == null)
+                                    {
+                                        <li class="entrar"><a href="~/Entrar/Logar" style="text-shadow: 2px 1px 0px #000000">Entrar</a></li>
+
+                                    }
+                                    @if (ViewBag.Logado != null)
+                                    {
+
+                                        <li><a href="~/Perfil/IndexPerfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                        <li><a href="#" style="text-shadow: 2px 1px 0px #000000">Cardápio</a></li>
+                                    }
+                                    @if (ViewBag.LogadoA != null)
+                                    {
+                                        <li><a href="~/Adm/Listar" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                    }
+                                    @if (ViewBag.LogadoN != null)
+                                    {
+                                        <li><a href="~/Nutricionista/Perfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                    }
+
+                                    <li class="active"><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000">Home</a></li>
+                                    <li><a href="~/Home/Dicas" style="text-shadow: 2px 1px 0px #000000">Dicas</a></li>
+                                    <li><a href="~/Home/About" style="text-shadow: 2px 1px 0px #000000">Quem somos</a></li>
+                                    <li><a href="~/Home/Contato" style="text-shadow: 2px 1px 0px #000000">Fale conosco</a></li>
+                                    @if (ViewBag.Logado != null || ViewBag.LogadoA != null || ViewBag.LogadoN != null)
+                                    {
+
+                                        <li><a href="~/Entrar/Sair" style="text-shadow: 2px 1px 0px #000000">Sair</a></li>
+
+                                    }
 
                                 </ul>
                             </nav>
@@ -70,69 +95,145 @@
                     </nav>
                 </div>
             </div>
-        </div>            
-        <div class="mostrar">
-     <textarea style="width: 400px; height:400px;
-" data-hook="message-field" id="mostrarC" name="mostrarC" type="textarea"></textarea>
-        </div>    
+        </div>                     
         <div class="fundo">
-            <br />          <br />
-                                                    <p style="font-size: 50px;
+            <br />          <br />                 <p style="font-size: 50px;
                                                          text-align: center;
-                                                         color: white;">Cardápio</p>         
+                                                         color: white;">Cardápio</p>
             <div class="CadastrarC">
-                <p>Nome do paciente: </p>
-                <select name="nomeC" id="nomeC">
-                    <option>Selecione o paciente...</option>
-                    <option value="0"></option>
-                </select>
-                <br />   <br />
-                <p>Adicionar Alimento: </p>
-                <select name="alimento1" id="alimento1">
-                    <option>Selecione o alimento...</option>
-                    <option value="0"></option>
-                </select>
-                <br />          <br />
-                <select name="alimento2" id="alimento2">
-                    <option>Selecione o alimento...</option>
-                    <option value="0"></option>
-                </select>
-                <br />                   <br />
-                <select name="alimento3" id="alimento3">
-                    <option>Selecione o alimento...</option>
-                    <option value="0"></option>
-                </select>                <br />          <br />
-                <select name="alimento4" id="alimento4">
-                    <option>Selecione o alimento...</option>
-                    <option value="0"></option>
-                </select>                <br />   <br />
-                <p>Observações do cardápio: </p>
-                <textarea data-hook="message-field" id="InformacoesC" name="InformacoesC" type="textarea"></textarea>
-                <input type="submit" value="Cadastrar Cardápio">
-            </div>
+                <form action="/Cardapio/CadastrarC" method="post">
+
+                    <p style="color:white;">Nome do Cardapio: </p>
+                    <input type="text" name="CardapioC" id="CardapioC" required maxlength="50" />
+                    <p style="color:white;">Nome da nutricionista: </p>
+                    <p style="font-size: 20px; 
+                              text-shadow: white 1px 1px;
+                              color: white;" id="@ViewBag.Nutricionista.Cod">@ViewBag.Nutricionista.Nome</p>
+                            <br />
+                            <p style="color:white;">Nome do paciente: </p>
+                            <select name="nomeP" id="nomeP">
+                                <option>Selecione o paciente...</option>
+                                @foreach (var P in ViewBag.Paciente)
+                                {
+                                    <option value="@(P.CPF)">@(P.Nome)</option>
+                                }
+                            </select>
+                            <br />   <br />
+
+                            <p style="float: right;color: white;">Quantidade:</p>
+                            <p style="color:white; width:200px;">Adicionar Alimento: </p>
+
+                            <select name="alimento1" id="alimento1">
+                                <option>Selecione o alimento...</option>
+                                @foreach (var A in ViewBag.Alimento)
+                                {
+                                    <option value="@(A.Cod)">@(A.Nome)</option>}
+                            </select>
+                            <input style="text-align:center; width:50px;margin-left: 30px;" maxlength="2" id="Qtd1" name="Qtd1" placeholder="00" type="number" required>
+                            <br />          <br />
+                    <p style="color:white; width:200px;">Adicionar Observação: </p>
+                            <textarea data-hook="message-field" name="Informacoes1" type="textarea" style="width: 300px;height: 47px;" id="Informacoes1" required></textarea>
+                            <br />  <br />
+
+                    <p style="float: right;color: white;">Quantidade:</p>
+                    <p style="color:white; width:200px;">Adicionar Alimento: </p>
+                            <select name="alimento2" id="alimento2">
+                                <option>Selecione o alimento...</option>
+                                @foreach (var A in ViewBag.Alimento)
+                                {
+                                    <option value="@(A.Cod)">@(A.Nome)</option>
+                                }
+                            </select>
+                            <input style="width:50px;margin-left: 30px;" maxlength="2" placeholder="00" id="Qtd2" name="Qtd2" type="number">
+                            <br />                   <br />
+                    <p style="color:white; width:200px;">Adicionar Observação: </p>
+                            <textarea data-hook="message-field" name="Informacoes2" type="textarea" style="width: 300px;height: 47px;" id="Informacoes2"></textarea>
+                            <br />  <br />
+
+                    <p style="float: right;color: white;">Quantidade:</p>
+                    <p style="color:white; width:200px;">Adicionar Alimento: </p>
+                            <select name="alimento3" id="alimento3">
+                                <option>Selecione o alimento...</option>
+                                @foreach (var A in ViewBag.Alimento)
+                                {
+                                    <option value="@(A.Cod)">@(A.Nome)</option>
+                                }
+                            </select>
+                            <input style="width:50px;margin-left: 30px;" maxlength="2" placeholder="00" id="Qtd3" name="Qtd3" type="number">
+                            <br />          <br />
+                    <p style="color:white; width:200px;">Adicionar Observação: </p>
+                            <textarea data-hook="message-field" name="Informacoes3" type="textarea" style="width: 300px;height: 47px;" id="Informacoes3"></textarea>
+                            <br />  <br />
+
+                    <p style="float: right;color: white;">Quantidade:</p>
+                    <p style="color:white; width:200px;">Adicionar Alimento: </p>
+                            <select name="alimento4" id="alimento4">
+                                <option>Selecione o alimento...</option>
+                                @foreach (var A in ViewBag.Alimento)
+                                {
+                                    <option value="@(A.Cod)">@(A.Nome)</option>
+                                }
+                            </select>
+                            <input style="width:50px;margin-left: 30px;" maxlength="2" placeholder="00" id="Qtd4" name="Qtd4" type="number">
+                            <br />   <br />
+                    <p style="color:white; width:200px;">Adicionar Observação: </p>
+                            <textarea data-hook="message-field" name="Informacoes4" type="textarea" style="width: 300px;height: 47px;" id="Informacoes4"></textarea>
+                            <br />  <br />
+
+                    <p style="float: right;color: white;">Quantidade:</p>
+                    <p style="color:white; width:200px;">Adicionar Alimento: </p>
+                            <select name="alimento5" id="alimento5">
+                                <option>Selecione o alimento...</option>
+                                @foreach (var A in ViewBag.Alimento)
+                                {
+                                    <option value="@(A.Cod)">@(A.Nome)</option>
+                                }
+                            </select>
+                            <input style="width:50px;margin-left: 30px;" maxlength="2" placeholder="00" id="Qtd5" name="Qtd5" type="number">
+                            <br />  <br />
+                    <p style="color:white; width:200px;">Adicionar Observação: </p>
+                            <textarea data-hook="message-field" name="Informacoes5" type="textarea" style="width: 300px;height: 47px;" id="Informacoes5"></textarea>
+                            <br />   <br />
+                            <div style="text-align:center;">
+                                <input style="font-size: 1em;
+    color: #336dd4;
+    border: 3px solid #336dd4;
+    outline: none;
+    cursor: pointer;
+    padding: .6em 1em;          
+    -webkit-appearance: none;
+    float:left;
+	margin: 2em 0 0;
+    transition: 0.5s all ;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    margin-top: 1px;"
+                                       type="reset" value="Limpar" />
+                            </div>
+                            <input style="font-size: 1em;
+    color: #336dd4;
+    border: 3px solid #336dd4;
+    outline: none;
+    cursor: pointer;
+    padding: .6em 1em;
+    -webkit-appearance: none;
+    float:right;
+	margin: 2em 0 0;
+	    transition: 0.5s all ;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    margin-top: 1px;"
+                                   type="submit" value="Cadastrar Cardápio" />
+                        </form>
+                    </div>
+                    <br />
+                    
+                </div>
         </div>
-        
-        <script type="text/javascript" src="~/js/jquery-2.1.4.min.js"></script>
-        <script>
-                                $(document).ready(function(c) {
-	                            $('.alert-close').on('click', function(c){
-		                            $('.message').fadeOut('slow', function(c){
-	  		                            $('.message').remove();
-		                            });
-	                            });
-                            });
-        </script>
-        <script src="~/js/easyResponsiveTabs.js" type="text/javascript"></script>
-        <!-- ResponsiveTabs js -->
-        <script type="text/javascript">
-				                $(document).ready(function () {
-					                $('#horizontalTab').easyResponsiveTabs({
-						                type: 'default', //Types: default, vertical, accordion
-						                width: 'auto', //auto or any width like 600px
-						                fit: true   // 100% fit in a container
-					                });
-				                });
-        </script>
         <!-- //ResponsiveTabs js -->
     </div>
     <div class="footer w3ls">

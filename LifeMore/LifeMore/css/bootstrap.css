@@ -123,6 +123,7 @@ button {
 button,
 select {
   text-transform: none;
+  width: 300px;
 }
 button,
 html input[type="button"],
@@ -1100,16 +1101,9 @@ select{
    background-color: rgba(3, 4, 4, 0.6);
 width: 600px;
 margin-left: 650px;
-height: 690px;
+height: 1310px;
 }
-.CadastrarC {
-   width: 400px;
-height: 400px;
-margin-left: 190px;
-margin-bottom: 300px;
-margin-top: 70px;
-Color: black;
-}
+
 .mostrar{
    float: right;
 width: 200px;
@@ -1121,7 +1115,6 @@ button,a:hover{
     font-family: inherit;
 font-size: inherit;
 line-height: inherit;
-height: 50px;
 color: blue;
 background: transparent;
 }

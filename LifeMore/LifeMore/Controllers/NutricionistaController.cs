@@ -1,6 +1,7 @@
 ﻿using LifeMore.Models;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -55,6 +56,8 @@ namespace LifeMore.Controllers
 
         public ActionResult VerN()
         {
+            ViewBag.LogadoA = Session["Adm"];
+
             if (Session["Adm"] == null)
             {
                 Response.Redirect("~/Home/Index", false);
@@ -63,13 +66,109 @@ namespace LifeMore.Controllers
             {
                 ViewBag.Perfil = (Nutricionista)TempData["Nutricionista"];
             }
+            return View();
+        }
 
-            //Nutricionista n = new Nutricionista();
-            //if (n.BuscarDados(id))
-            //{
-            //    Nutricionista nutri = new Nutricionista(id);
-            //    ViewBag.Nustricionista = nutri;
-            //}
+        public ActionResult Perfil()
+        {
+
+            if (Session["Nutricionista"] == null)
+            {
+                Response.Redirect("/Home/Index", false);
+            }
+            if (Session["Nutricionista"] != null)
+            {
+                ViewBag.LogadoN = Session["Nutricionista"];
+                Nutricionista p = (Nutricionista)Session["Nutricionista"];
+                ViewBag.Paciente = p;
+                
+                ViewBag.CPF = p.CPF;
+                ViewBag.Nome = p.Nome;
+                ViewBag.Email = p.Email;
+                ViewBag.Endereco = p.Endereco;
+                ViewBag.Imagem = p.ImagemPerfil;
+                ViewBag.Tel = p.Telefone;
+                ViewBag.Idade = p.Idade;
+                ViewBag.LocalTrabalho = p.LocalTrabalho;
+                ViewBag.Bio = p.Bio;
+
+                return View();
+            }
+
+            return View();
+        }
+        public ActionResult EditarPerfil()
+        {
+            if (Session["Nutricionista"] == null)
+            {
+                Response.Redirect("/Home/Index", false);
+            }
+
+            ViewBag.LogadoN = Session["Nutricionista"];
+            Nutricionista N = (Nutricionista)Session["Nutricionista"];
+            ViewBag.Nutricionista = (Nutricionista)Session["Nutricionista"];
+
+            
+
+            if (Request.HttpMethod == "POST")
+            {
+                String Email = Request.Form["Email"];
+                String Endereco = Request.Form["Endereco"];
+                String Bio = Request.Form["Bio"];
+                String Trab = Request.Form["LocalTrabalho"];
+                String Tel = Request.Form["Tel"];
+                int Idade = int.Parse(Request.Form["Idade"]);
+
+                HttpPostedFileBase NovaImagemPerfil = Request.Files["Imag"];
+
+                Nutricionista novoUser = new Nutricionista();
+
+                novoUser = (Nutricionista)Session["Nutricionista"];
+                novoUser.Email = Email;
+                novoUser.Endereco = Endereco;
+                novoUser.Bio = Bio;
+                novoUser.LocalTrabalho = Trab;
+                novoUser.Telefone = Tel;
+                novoUser.Idade = Idade;
+                int ID = novoUser.Cod;
+
+                foreach (string fileName in Request.Files)
+                {
+                    HttpPostedFileBase postedFile = Request.Files[fileName];
+                    int contentLength = postedFile.ContentLength;
+                    string contentType = postedFile.ContentType;
+                    string nome = postedFile.FileName;
+                    Imagem img = new Imagem();
+
+                    if (contentType.IndexOf("jpeg") > 0 || contentType.IndexOf("jpg") > 0 || contentType.IndexOf("png") > 0)
+                    {
+                        Bitmap arquivoConvertido = img.ResizeImage(postedFile.InputStream, 100, 100);
+                        string nomeArquivoUpload = "imagemPerfil" + ID + ".jpg";
+                        postedFile.SaveAs(HttpRuntime.AppDomainAppPath + "\\images\\img_users\\" + nomeArquivoUpload);
+                        postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images\img_users" + nomeArquivoUpload);
+
+                        novoUser.ImagemPerfil = nomeArquivoUpload;
+                    }
+                    else
+                        postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
+
+
+                }
+
+                if (novoUser.EditarPerfil())
+                {
+                    ViewBag.Mensagem = "Perfil Atualizado com sucesso!";
+                    Response.Redirect("/Nutricionista/Perfil");
+                    Session["Nutricionista"] = novoUser;
+                    ViewBag.Nutricionista = (Nutricionista)Session["Nutricionista"];
+                }
+                else
+                {
+                    ViewBag.Mensagem = "Erro ao atualizar, tente novamente";
+                }
+
+                return View();
+            }
 
             return View();
         }
@@ -85,7 +184,6 @@ namespace LifeMore.Controllers
             if (Nutri.Apagar())
             {
                 ViewBag.Mensagem = "Nutricionista removida com sucesso!";
-                Response.Redirect("~/Adm/Listar");
             }
 
 
@@ -94,7 +192,7 @@ namespace LifeMore.Controllers
                 TempData["Mensagem"] = "Não foi possível remover o Usuario. Verifique os dados e tente novamente";
             }
 
-            return RedirectToAction("/Adm/Listar");
+            return RedirectToAction("Listar", "Adm");
         }
     }
 }

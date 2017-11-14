@@ -100,56 +100,57 @@
         </div>
 
     </div>
-    <br />
+    <div class="tips w3agile">
+        <div class="textoperfil" style="text-shadow: 5px 2px 0px #000000">Perfil</div>
 
-    <div class="textoperfil" style="text-shadow: 2px 1px 0px #000000">Perfil</div>
+        @if (ViewBag.Logado != null)
+        {
+            <form action="~/Perfil/Editar_Perfil" method="post" enctype="multipart/form-data">
+                @* perfil *@
+                <div class="perfil">
 
-    @if (ViewBag.Logado != null) {
-    <form action="~/Perfil/Editar_Perfil" method="post" enctype="multipart/form-data">
-        @* perfil *@
-        <div class="perfil">
+                    <div class="imagem">
+                        <input type="image" title="Editar Informações" id="edit" src="/images/img_users/@ViewBag.Paciente.ImagemPerfil" onmouseover="this.src = '/images/useredit-hover.png'"
+                               onmouseout="this.src = '/images/img_users/@ViewBag.Paciente.ImagemPerfil'" class="imgEdit" />
+                        <input type="file" name="Imagem" id="img"/>
+                    </div>
 
-            <div class="imagem">
-                <input type="image" title="Editar Informações"  id="edit" src="/images/img_users/@ViewBag.Paciente.ImagemPerfil" onmouseover="this.src = '/images/useredit-hover.png'"
-                       onmouseout="this.src = '/images/img_users/@ViewBag.Paciente.ImagemPerfil'" class="imgEdit" />
-                <input type="file" name="Imagem" id="img" runat="server"/>
+                    <div class="dadosPessoais">
+                        <p style="text-shadow: 2px 1px 0px #000000">Nome: @ViewBag.Paciente.Nome</p>
+                        <p style="text-shadow: 2px 1px 0px #000000">E-mail: <input type="text" value="@ViewBag.Paciente.Email" class="editPerfil" name="Email" required /></p>
+                        <p style="text-shadow: 2px 1px 0px #000000">CPF: @ViewBag.Paciente.CPF </p>
+                        <p style="text-shadow: 2px 1px 0px #000000">Endereço: <input type="text" value="@ViewBag.Paciente.Endereco" class="editPerfil" name="Endereco" required /></p>
+                        <p style="text-shadow: 2px 1px 0px #000000">Telefone: <input type="text" id="telefone" value="@ViewBag.Paciente.Telefone" class="editTel" name="Tel" required /></p>
+
+                    </div>
+
+                    <div class="dadosSistema">
+                        <p style="text-shadow: 2px 1px 0px #000000">
+                            Objetivo:
+                            <input type="radio" name="objetivo" id="engordar" value="1" /> <label for="engordar" class="objetivo">Engordar</label>
+                            <input type="radio" name="objetivo" id="emagrecer" value="2" checked /> <label for="emagrecer" class="objetivo">Emagrecer</label>
+                        </p>
+                        <p style="text-shadow: 2px 1px 0px #000000">Peso: <input type="text" id="peso" value="@ViewBag.Paciente.Peso" class="editPeso" name="Peso" required />Kg </p>
+                        <p style="text-shadow: 2px 1px 0px #000000">Altura: <input type="text" id="altura" value="@ViewBag.Paciente.Altura" class="editAltura" name="Altura" required />M</p>
+                        <p style="text-shadow: 2px 1px 0px #000000">Idade: <input type="text" value="@ViewBag.Paciente.Idade" class="editIdade" name="Idade" maxlength="2" required /></p>
+                    </div>
+                    <div class="btPerfil">
+                    </div>
+                    <div class="espaco"> </div>
+
+                </div>
+                <div class="btConcluir">
+                    <button type="submit" class="btConcluirCSS">Concluir</button>
+                </div>
+            </form>
+        }
+        @if (ViewBag.Mensagem != null)
+        {
+            <div class="alert alert-danger" style="text-align:center">
+                <strong>ERRO!</strong> @ViewBag.Mensagem
             </div>
-
-            <div class="dadosPessoais">
-                <p style="text-shadow: 2px 1px 0px #000000">Nome: @ViewBag.Paciente.Nome</p>
-                <p style="text-shadow: 2px 1px 0px #000000">E-mail: <input type="text" value="@ViewBag.Paciente.Email" class="editPerfil" name="Email" required/></p>
-                <p style="text-shadow: 2px 1px 0px #000000">CPF: @ViewBag.Paciente.CPF </p>
-                <p style="text-shadow: 2px 1px 0px #000000">Endereço: <input type="text" value="@ViewBag.Paciente.Endereco" class="editPerfil" name="Endereco" required /></p>
-                <p style="text-shadow: 2px 1px 0px #000000">Telefone: <input type="text" id="telefone" value="@ViewBag.Paciente.Telefone" class="editTel" name="Tel" required/></p>
-                
-            </div>
-
-            <div class="dadosSistema">
-                <p style="text-shadow: 2px 1px 0px #000000">
-                    Objetivo:
-                    <input type="radio" name="objetivo" id="engordar" value="1" /> <label for="engordar" class="objetivo">Engordar</label>
-                    <input type="radio" name="objetivo" id="emagrecer" value="2" checked/> <label for="emagrecer" class="objetivo">Emagrecer</label>
-                </p>
-                <p style="text-shadow: 2px 1px 0px #000000">Peso: <input type="text" id="peso" value="@ViewBag.Paciente.Peso" class="editPeso" name="Peso" required />Kg </p>
-                <p style="text-shadow: 2px 1px 0px #000000">Altura: <input type="text" id="altura" value="@ViewBag.Paciente.Altura" class="editAltura" name="Altura" required/>M</p>
-                <p style="text-shadow: 2px 1px 0px #000000">Idade: <input type="text" value="@ViewBag.Paciente.Idade" class="editIdade" name="Idade" maxlength="2" required/></p>
-            </div>
-            <div class="btPerfil">
-            </div>
-            <div class="espaco"> </div>
-
-            </div>
-        <div class="btConcluir">
-            <button type="submit"  class="btConcluirCSS">Concluir</button>
+        }
         </div>
-   </form>
-    }
-    @if (ViewBag.Mensagem != null)
-    {
-        <div class="alert alert-danger" style="text-align:center">
-            <strong >ERRO!</strong> @ViewBag.Mensagem
-        </div>
-    }
         <div class="footer w3ls">
             <div class="container">
                 <div class="footer-main">

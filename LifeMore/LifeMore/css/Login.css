@@ -10,7 +10,7 @@ article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, s
 ol,ul{list-style:none;margin:0px;padding:0px;}
 blockquote,q{quotes:none;}
 blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
-table{border-collapse:collapse;border-spacing:0;width: 1600px; text-align: center}
+table{border-collapse:collapse;border-spacing:0;width: 1710px; text-align: center}
 table tbody tr:hover{background-color: #bdbdbd}
 /* start editing from here */
 a{text-decoration:none;}
@@ -59,7 +59,14 @@ button.btConcluirCSS{
 		0px -1px 0px rgba(000,000,000,0.4),
 		1px 1px 0px rgba(255,255,255,0.5);
 }
-
+.CadastrarC {
+   width: 400px;
+height: 400px;
+margin-left: 100px;
+margin-bottom: 300px;
+margin-top: 10px;
+Color: black;
+}
 button.btConcluirCSS:hover{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 22px;
@@ -143,14 +150,16 @@ button.btConcluirCSS:hover{
     width: 450px;
     height: 225px;
     float: left;
-    margin-left: 10px;
+    text-align: left;
+    margin-left: 25px;
 }
 
 .dadosSistema {
-    width: 330px;
+    width: 500px;
     height: 225px;
     float: left;
     margin-left: 88px;
+    text-align: left;
 }
 
 .espaco{
@@ -583,7 +592,7 @@ text-align: center;
     left:0;
     padding: 10px;
     background-color:#ffffff;
-    padding-bottom: 840px;
+    padding-bottom: 830px;
 }
 
 .rd_tabs:checked~.content_tab{
@@ -1044,7 +1053,7 @@ text-align: center;
 }
 /*PAGINA PERFIL, BOTAO IMC*/
 .btIMC {
-    margin-left:14%;
+    margin-left:12%;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 18px;
 	color: #050505;

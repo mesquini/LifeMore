@@ -36,6 +36,9 @@
     <link rel="stylesheet" href="~/css/Login.css">
     <script src="~/js/AcessarPag.js"></script>
 
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/jquery.mask.js"></script>
+
     @* INICIA O JAVA SCRIPT DA PÁGINA COM FUNÇÃO DE MOSTRAR  AO USUÁRIO O  *@
     <script>
         function textoConsulta() {
@@ -75,7 +78,11 @@
             }
         }
     </script>
-
+    <script type="text/javascript">
+    jQuery(function ($) {
+        $("#telefone").mask("(99)9 9999-9999", { required: true });
+    });
+    </script>
 </head>
 <body class="bgEntrar" onload="textoConsulta()">
     <div class="Main-agile">
@@ -101,24 +108,24 @@
                                     @if (ViewBag.Logado == null)
                                     {
 
-                                        <li class="entrar"><a href="~/Entrar/Cadastrar">Entrar</a></li>
+                                        <li class="entrar"><a href="~/Entrar/Cadastrar" style="text-shadow: 2px 1px 0px #000000">Entrar</a></li>
 
                                     }
                                     @if (ViewBag.Logado != null)
                                     {
 
-                                        <li><a href="~/Perfil/IndexPerfil">Perfil</a></li>
-                                        <li><a href="#">Cardápio</a></li>
+                                        <li><a href="~/Perfil/IndexPerfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                        <li><a href="#"style="text-shadow: 2px 1px 0px #000000">Cardápio</a></li>
                                     }
 
-                                    <li class="active"><a href="~/Home/Index"style="text-shadow: 2px 1px 0px #000000">Home</a></li>
-                                    <li class="active"><a href="~/Home/Dicas" style="text-shadow: 2px 1px 0px #000000">Dicas</a></li>
+                                    <li><a href="~/Home/Index"style="text-shadow: 2px 1px 0px #000000">Home</a></li>
+                                    <li><a href="~/Home/Dicas" style="text-shadow: 2px 1px 0px #000000">Dicas</a></li>
                                     <li><a href="~/Home/About"style="text-shadow: 2px 1px 0px #000000">Quem somos</a></li>
                                     <li><a href="~/Home/Contato"style="text-shadow: 2px 1px 0px #000000">Fale conosco</a></li>
                                     @if (ViewBag.Logado != null)
                                     {
 
-                                        <li><a href="~/Entrar/Sair">Sair</a></li>
+                                        <li><a href="~/Entrar/Sair" style="text-shadow: 2px 1px 0px #000000">Sair</a></li>
 
                                     }
                                 </ul>
@@ -130,35 +137,47 @@
             </div>
         </div>
     </div>
+    
     <img  style="width: 100px; height: 100px; margin-left: 50px; margin-top: 10px; cursor: pointer" src="~/images/Consulta/botaovoltar.png" onclick="VoltarConsulta()"/>
-    <div style="text-shadow: 2px 1px 0px #000000" class="Tituloconsulta">
-        Informações do paciente
-    </div>
-    <div style="text-shadow: 2px 1px 0px #000000" class="nome">
-        *Nome Completo
-    </div>
-        <input class="nometexto" type="text" id="nomeconsulta" name="nomeconsulta   " />          
-    <div style="text-shadow: 2px 1px 0px #000000"  class="email">
-        *Email
-    </div>   
-        <input class="emailtexto" type="text" id="emailconsulta" name="emailconsulta" />
-    <div style="text-shadow: 2px 1px 0px #000000" class="telefone">
-        *Telefone
-    </div> 
-        <input class="telefonetexto" type="text" id="textelfone" name="textelefone" maxlength="12" OnKeyPress="formatar('(##)-####-####', this)" />
-    <div class="mensagem">
-        <p style="text-shadow: 2px 1px 0px #000000" >Sinta-se a vontade para deixar uma mensagem para o seu médico</p>
-        <textarea data-hook="message-field" id="mensagemconsulta" name="mensagemconsulta" type="textarea"></textarea>
-    </div>
-    <div style="text-shadow: 2px 1px 0px #000000" class="precoconsulta">
+    <form action="#" method="post">
+        <div style="text-shadow: 2px 1px 0px #000000" class="Tituloconsulta" >
+            Informações do paciente
+        </div>
+        <div style="text-shadow: 2px 1px 0px #000000" class="nome">
+            <p style="color:white;">*Nome do Nutricionista: </p>
+            <select name="nomeN" id="nomeN" style="color:black; margin-left: 29px;">
+                <option style="color:black">Selecione o Nutricionista...</option>
+                @foreach (var N in ViewBag.Nutricionista)
+                {
+                    <option value="@(N.Cod)" style="color:black">@(N.Nome)</option>
+                }
+            </select>
+        </div>
+        <div style="text-shadow: 2px 1px 0px #000000" class="nome">
+            *Nome Completo
+        </div>
+        <input class="nometexto" type="text" id="nomeconsulta" name="nomeconsulta   " required />
+        <div style="text-shadow: 2px 1px 0px #000000" class="email">
+            *Email
+        </div>
+        <input class="emailtexto" type="text" id="emailconsulta" name="emailconsulta" required/>
+        <div style="text-shadow: 2px 1px 0px #000000" class="telefone">
+            *Telefone
+        </div>
+        <input class="telefonetexto" type="text" id="telefone" name="telefone"/>
+        <div class="mensagem">
+            <p style="text-shadow: 2px 1px 0px #000000">Sinta-se a vontade para deixar uma mensagem para o seu médico</p>
+            <textarea data-hook="message-field" id="mensagemconsulta" name="mensagemconsulta" type="textarea"></textarea>
+        </div>
+        <div style="text-shadow: 2px 1px 0px #000000" class="precoconsulta">
             <p id="precoConsulta"></p>
             <p id="horaConsulta"></p>
-        <p id="tipoConsulta"></p>
-    </div>
-    <button class="botaoinfo">
-        Enviar Informações
-    </button>
-   
+            <p id="tipoConsulta"></p>
+        </div>
+        <button class="botaoinfo">
+            Enviar Informações
+        </button>
+    </form>
     <div class="footer w3ls">
         <div class="container">
             <div class="footer-main">
