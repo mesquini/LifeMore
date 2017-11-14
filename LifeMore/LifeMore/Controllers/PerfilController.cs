@@ -136,5 +136,9 @@ namespace LifeMore.Controllers
 
             return RedirectToAction("Listar", "Adm");
         }
+        public ActionResult Cardapio()
+        {
+            return View();
+        }
     }
 }

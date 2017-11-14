@@ -131,6 +131,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="images\c-arrows.png" />
+    <Content Include="images\Cardapio\tracobranco.png" />
     <Content Include="images\close.png" />
     <Content Include="images\Consulta\Aconselhamento.jpg" />
     <Content Include="images\Consulta\botaovoltar.png" />
@@ -280,6 +281,9 @@
     <Content Include="Views\Nutricionista\VerN.cshtml" />
     <Content Include="Views\Nutricionista\Perfil.cshtml" />
     <Content Include="Views\Nutricionista\EditarPerfil.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Perfil\Cardapio.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
