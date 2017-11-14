@@ -12,9 +12,12 @@ namespace LifeMore.Models
         
         public Int32 Cod_Cardapio { get; set; }
         public String Nome { get; set; }
-        public String NomeCliente { get; set; }
-        public String NomeNutri { get; set; }
-            public Cardapio() { }
+        public String Cod_Cliente { get; set; }
+        public String Cod_Nutri { get; set; }
+        public Int32 Cod_Alimento { get; set; }
+        public Int32 Qtd { get; set; }
+        public String Observacao { get; set; }
+        public Cardapio() { }
 
 
         public Cardapio(Int32 ID)
@@ -33,8 +36,8 @@ namespace LifeMore.Models
 
             this.Cod_Cardapio = (Int32)Leitor["Cod_Cardapio"];
             this.Nome = (String)Leitor["Nome"];
-            this.NomeCliente = (String)Leitor["NomeCliente"];
-            this.NomeNutri = (String)Leitor["NomeNutri"];
+            this.Cod_Cliente = (String)Leitor["Cod_Cliente"];
+            this.Cod_Nutri = (String)Leitor["Cod_Nutri"];
 
             Conexao.Close();
         }
@@ -45,13 +48,36 @@ namespace LifeMore.Models
 
             SqlCommand Comando = new SqlCommand();
             Comando.Connection = Conexao;
-            Comando.CommandText = "INSERT INTO Cardapio (Cod_Cardapio, Nome, NomeCliente, NomeNutri)"
-              + "VALUES                             (@Cod_Cardapio, @Nome, @NomeCliente, @NomeNutri);";
-
-            Comando.Parameters.AddWithValue("@Cod_Cardapio", this.Cod_Cardapio);
+            Comando.CommandText = "INSERT INTO Cardapio (Nome, Cod_Cliente, Cod_Nutri)"
+              + "VALUES                             (@Nome, @Cod_Cliente, @Cod_Nutri);";
+            
             Comando.Parameters.AddWithValue("@Nome", this.Nome);
-            Comando.Parameters.AddWithValue("@NomeCliente", this.NomeCliente);
-            Comando.Parameters.AddWithValue("@NomeNutri", this.NomeNutri);
+            Comando.Parameters.AddWithValue("@Cod_Cliente", this.Cod_Cliente);
+            Comando.Parameters.AddWithValue("@Cod_Nutri", this.Cod_Nutri);
+
+
+
+            Int32 Resultado = Comando.ExecuteNonQuery();
+
+            Conexao.Close();
+
+            return Resultado > 0 ? true : false;
+        }
+        public Boolean NovoCardapio()
+        {
+            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
+            Conexao.Open();
+
+            SqlCommand Comando = new SqlCommand();
+            Comando.Connection = Conexao;
+            Comando.CommandText = "INSERT INTO CardapioAlimento (Cod_Alimento, Cod_Cardapio, Observacao, Qnt)"
+              + "VALUES                             (@Cod_Alimento, @Cod_Cardapio, @Observacao, @Qnt);";
+
+            Comando.Parameters.AddWithValue("@Cod_Alimento", this.Cod_Alimento);
+            Comando.Parameters.AddWithValue("@Cod_Cardapio", this.Cod_Cardapio);
+            Comando.Parameters.AddWithValue("@Observacao", this.Observacao);
+            Comando.Parameters.AddWithValue("@Qnt", this.Qtd);
+
 
 
             Int32 Resultado = Comando.ExecuteNonQuery();
@@ -77,9 +103,9 @@ namespace LifeMore.Models
             {
                 Cardapio N = new Cardapio();
                 N.Cod_Cardapio = (Int32)Leitor["Cod_Cardapio"];
-                N.Nome = ((String)Leitor["Nome"]);
-                N.NomeCliente = (String)Leitor["NomeCliente"];
-                N.NomeNutri = (String)Leitor["NomeNutri"];
+                N.Nome = (String)Leitor["Nome"];
+                N.Cod_Cliente = (String)Leitor["Cod_Cliente"];
+                N.Cod_Nutri = (String)Leitor["Cod_Nutri"];
 
                 Cardapios.Add(N);
             }
@@ -87,6 +113,22 @@ namespace LifeMore.Models
             Conexao.Close();
 
             return Cardapios;
+        }
+
+        public static int ultimoCardapio()
+        {
+            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
+            Conexao.Open();
+
+            SqlCommand Comando = new SqlCommand();
+            Comando.Connection = Conexao;
+
+            Comando.CommandText = "SELECT MAX(Cod_Cardapio) FROM Cardapio;";
+
+            int Cod_Cardapio = Convert.ToInt32(Comando.ExecuteScalar());
+
+            Conexao.Close();
+            return Cod_Cardapio;
         }
     }
 }
