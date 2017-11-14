@@ -21,16 +21,24 @@ namespace LifeMore
     {
 
         [WebMethod]
-        
-            public Paciente Autenticar(String cpf, String senha)
+
+        public Paciente AutenticarP(String CPF, String Senha)
+        {
+            Paciente.Autenticar(CPF, Senha);
+            Paciente P = new Paciente(CPF, Senha);
+
+            return P;
+        }
+
+        [WebMethod]
+
+        public Nutricionista AutenticarN(String CPF, String Senha)
         {
 
-            Paciente.Autenticar(cpf, senha);
 
-            Paciente p = new Paciente(cpf, senha);
-            
-            return p;
-        
-    }
-    }
+            Nutricionista.Autenticar(CPF, Senha);
+            Nutricionista N = new Nutricionista(CPF, Senha);
+            return N;
+        }
+}
 }
