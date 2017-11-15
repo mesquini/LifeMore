@@ -1,4 +1,4 @@
-/*--
+    /*--
 Author: W3layouts
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -10,7 +10,7 @@ article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, s
 ol,ul{list-style:none;margin:0px;padding:0px;}
 blockquote,q{quotes:none;}
 blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
-table{border-collapse:collapse;border-spacing:0;width: 1600px; text-align: center}
+table{border-collapse:collapse;border-spacing:0;width: 1710px; text-align: center}
 table tbody tr:hover{background-color: #bdbdbd}
 /* start editing from here */
 a{text-decoration:none;}
@@ -59,7 +59,14 @@ button.btConcluirCSS{
 		0px -1px 0px rgba(000,000,000,0.4),
 		1px 1px 0px rgba(255,255,255,0.5);
 }
-
+.CadastrarC {
+   width: 400px;
+height: 400px;
+margin-left: 100px;
+margin-bottom: 300px;
+margin-top: 10px;
+Color: black;
+}
 button.btConcluirCSS:hover{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 22px;
@@ -102,15 +109,24 @@ button.btConcluirCSS:hover{
 .editTel{
     color:black;
     margin-left:7px;
+    width:180px;
 }
 
 .editPeso{
     color:black;
     margin-left:22px;
+    width:105px;
+}
+.editAltura{
+    color:black;
+    margin-left:2px;
+    width:105px;
 }
 .editIdade{
     color:black;
     margin-left:9px;
+    width: 35px;
+    text-align: center;
 }
 .perfil{
     font-size: 25px;
@@ -134,14 +150,16 @@ button.btConcluirCSS:hover{
     width: 450px;
     height: 225px;
     float: left;
-    margin-left: 10px;
+    text-align: left;
+    margin-left: 25px;
 }
 
 .dadosSistema {
-    width: 450px;
+    width: 500px;
     height: 225px;
     float: left;
     margin-left: 88px;
+    text-align: left;
 }
 
 .espaco{
@@ -327,7 +345,7 @@ label {
     
 }
 input[type="radio"] + label:before{
-    border: 1px solid #5D5C5C;
+    border: 1px solid black;
     content: "\00a0";
     display: inline-block;
     font: 16px/1em sans-serif;
@@ -337,6 +355,7 @@ input[type="radio"] + label:before{
     vertical-align: top;
     width: 16px;
     border-radius:4px;
+    margin-top: 10px;
 }
  
 input[type="radio"]:checked + label:before{
@@ -344,6 +363,7 @@ input[type="radio"]:checked + label:before{
     color: #FFF;
     content: "\2714";
     text-align: center;
+    margin-top: 10px;
 }
  
 input[type="radio"]:checked + label:after{
@@ -572,7 +592,7 @@ text-align: center;
     left:0;
     padding: 10px;
     background-color:#ffffff;
-    padding-bottom: 840px;
+    padding-bottom: 830px;
 }
 
 .rd_tabs:checked~.content_tab{
@@ -1016,4 +1036,86 @@ text-align: center;
 	-o-background-size:cover;
 	-ms-background-size:cover;
 	min-height:88px;
+}
+
+/*pagina dicas css*/
+.boloDBanana{
+
+    float: right;
+    margin-bottom:900px;
+    margin-right: 280px;
+}
+.imgEdit{
+    width:100%;
+    height:100%;
+    border-radius: 500px 500px ;
+    border: 3px solid black;
+}
+/*PAGINA PERFIL, BOTAO IMC*/
+.btIMC {
+    margin-left:12%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	color: #050505;
+	padding: 10px 50px;
+	background: -moz-linear-gradient(
+		top,
+		#ffffff 0%,
+		#3853bd 76%,
+		#2a3ea3);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#ffffff),
+		color-stop(0.76, #3853bd),
+		to(#2a3ea3));
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+	border: 2px solid #000000;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 1px 1px 2px rgba(0,0,0,0.6);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 1px 1px 2px rgba(0,0,0,0.6);
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 1px 1px 2px rgba(0,0,0,0.6);
+	text-shadow:
+		0px -1px 0px rgba(0,0,0,0.2),
+		1px 1px 0px rgba(242,242,242,1);
+}
+.btIMC:hover {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 19px;
+	color: #050505;
+	padding: 10px 50px;
+	background: -moz-linear-gradient(
+		top,
+		#bec3cc 0%,
+		#313d6b 100%,
+		#213cc2);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#bec3cc),
+		color-stop(1.0, #313d6b),
+		to(#213cc2));
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+	border: 2px solid #000000;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 1px 1px 2px rgba(0,0,0,0.6);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 1px 1px 2px rgba(0,0,0,0.6);
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 1px 1px 2px rgba(0,0,0,0.6);
+	text-shadow:
+		0px -1px 0px rgba(0,0,0,0.2),
+		1px 1px 0px rgba(242,242,242,1);
+
+
 }

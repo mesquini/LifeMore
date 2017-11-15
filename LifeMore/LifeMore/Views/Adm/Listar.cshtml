@@ -38,7 +38,14 @@
     <script src="~/js/AcessarPag.js" type="text/javascript"></script>
 
     <script src="~/js/jquery.js" type="text/javascript"></script>
+    @*<script language="JavaScript">
 
+        function pergunta(){
+           if (confirm('Tem certeza que deseja deletar?')){
+               document.seuformulario.submit("~/Perfil/ApagarP/"+@(ViewBag.Cod))
+           }
+        }
+    </script>*@ 
     <script>
         $(document).ready(function () {
             $("#content_tab1").css("display", "block");
@@ -124,16 +131,12 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="stroke">
                                 <ul class="nav navbar-nav"> 
-                                    @if (ViewBag.LogadoA != null)
-                                    {
-
-                                        <li class="active"><a href="~/Adm/Listar">Perfil</a></li>
-                                    }
-
-                                    <li><a href="~/Home/Index">Home</a></li>
-                                    <li><a href="~/Home/About">Quem somos</a></li>
-                                    <li><a href="~/Home/Contato">Fale conosco</a></li>
-                                    <li><a href="~/Adm/Sair">Sair</a></li>
+                                    <li class="active" ><a href="~/Adm/Listar" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                    <li><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000">Home</a></li>
+                                    <li><a href="~/Home/Dicas" style="text-shadow: 2px 1px 0px #000000">Dicas</a></li>
+                                    <li><a href="~/Home/About" style="text-shadow: 2px 1px 0px #000000">Quem somos</a></li>
+                                    <li><a href="~/Home/Contato" style="text-shadow: 2px 1px 0px #000000">Fale conosco</a></li>
+                                    <li><a href="~/Adm/Sair" style="text-shadow: 2px 1px 0px #000000">Sair</a></li>
                                     
                                 </ul>
                             </nav>
@@ -141,6 +144,17 @@
                         <!-- /.navbar-collapse -->
                     </nav>
                 </div>
+                <div class="col-md-4 logo">
+                    <div class="logo-w3l">
+                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                    </div>
+                    <h1><a href="~/Home/Index" style="text-shadow: 5px 2px 0px #000000">Life More<span style="text-shadow: 2px 1px 0px #000000">Cuide de você</span></a></h1>
+                </div>
+
+                <div class="col-md-4 ph-agile">
+                    <p><i class="fa fa-phone" aria-hidden="true"></i><span style="text-shadow: 2px 1px 0px #000000">+55 19 9 9865 8943</span></p>
+                </div>
+                <div class="clearfix"> </div>
             </div>
         </div>
 
@@ -158,7 +172,7 @@
                     <section>
                         <table border="1">
                             <thead>
-                                <tr><a href="/Usuario/Novo/">Cadastrar novo Usuário</a></tr>
+                                <tr><a href="/Entrar/Cadastrar/">Cadastrar novo Usuário</a></tr>
                                 <tr class="Produto">
                                     <th class="texto">Nome</th>
                                     <th class="texto">Senha</th>
@@ -188,9 +202,9 @@
                                         <td>
                                         @if (P.Objetivo == 1)
                                         {
-                                        <p style="text-shadow: 2px 1px 0px #000000">Engordar</p> }
+                                        <p>Engordar</p> }
                                          else {
-                                        <p style="text-shadow: 2px 1px 0px #000000">Emagrecer</p>}
+                                        <p>Emagrecer</p>}
                                         </td>
                                         <td>@(P.Idade)</td>
                                         <td>@(P.Peso)</td>
@@ -199,7 +213,8 @@
                                         <td>@(P.Telefone)</td>
                                         <td>@(P.ImagemPerfil)</td>
                                         <td>
-                                            <a href="~/Adm/ApagarP/@(P.Cod)">Apagar</a>
+                                            <a href="~/Perfil/ApagarP/@(P.Cod)">Apagar/</a>
+                                            <a href="~/Adm/previsualizacaoP/@(P.Cod)">Ver</a>
                                         </td>
                                     </tr>
                                 }
@@ -245,9 +260,10 @@
                                         <td>@(N.Telefone)</td>
                                         <td>@(N.ImagemPerfil)</td>
                                         <td>@(N.LocalTrabalho)</td>
-                                        <td>@(N.Bio)</td>
+                                        <td>@(N.Bio.Substring(0, Math.Min(N.Bio.Length, 45)) + "...")</td>
                                         <td>
-                                            <a href="~/Nustricionista/ApagarN/@(N.Cod)">Apagar</a>
+                                            <a href="~/Nutricionista/ApagarN/@(N.Cod)">Apagar/</a>
+                                            <a href="~/Adm/previsualizacao/@(N.Cod)">Ver</a>
                                         </td>
                                     </tr>
                                }
@@ -261,11 +277,11 @@
             <li class="tabs">
                 <input type="button" name="tabs" class="rd_tabs" id="tab3">
                 <label for="tab3" id="label3"> Alimentos </label>
-                <div class="content_tab" id="content_tab3">
-                    <section>
+                <div class="content_tab" id="content_tab3" style="overflow: scroll;" >
+                    <section style="padding-bottom: 20px">
                         <table border="1">
                             <thead>
-                                <tr><a href="/DLCs/Novo/">Cadastrar uma novo alimento</a></tr>
+                                <tr><a href="~/Alimentos/CadastrarA/">Cadastrar uma novo alimento</a></tr>
                                 <tr class="Produto">
                                     <th class="texto">Nome</th>
                                     <th class="texto">Peso</th>
@@ -282,13 +298,13 @@
                                     <tr>
                                         <td>@(A.Nome)</td>
                                         <td>@(A.Peso)</td>
-                                        <td>@(A.Caloria)</td>
-                                        <td>@(A.Gordura)</td>
-                                        <td>@(A.Carboidrato)</td>
-                                        <td>@(A.Proteina)</td>
-                                        <td>@(A.Categoria)</td>
+                                        <td>@(A.Caloria) Kcal</td>
+                                        <td>@(A.Gordura) g</td>
+                                        <td>@(A.Carboidrato) g</td>
+                                        <td>@(A.Proteina) g</td>
+                                        <td>@(A.Categoria1)</td>
                                         <td>
-                                            <a href="/Alimentos/ApagarA/@(A.Cod)">Apagar</a>
+                                            <a href="~/Alimentos/ApagarA/@(A.Cod)">Apagar</a>
                                         </td>
                                     </tr>
                                 }
@@ -357,7 +373,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 ftr-grid fg2">
-                        <h3>Nossos enderços</h3>
+                        <h3>Nossos endereços</h3>
                         <div class="ftr-address">
                             <div class="local">
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>

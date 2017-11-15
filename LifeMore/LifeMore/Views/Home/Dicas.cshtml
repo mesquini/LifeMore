@@ -1,0 +1,387 @@
+﻿@{
+    Layout = null;
+}
+<!--
+    Author: W3layouts
+    Author URL: http://w3layouts.com
+    License: Creative Commons Attribution 3.0 Unported
+    License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <title>LifeMore - Dicas</title>
+
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Life More web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--// Meta tag Keywords -->
+    <!-- css files -->
+    <link rel="stylesheet" href="~/css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="~/css/style.css" type="text/css" media="all" /> <!-- Style-CSS -->
+    <link rel="stylesheet" href="~/css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
+    <link rel="stylesheet" href="~/css/jquery-ui.css" /> <!-- Date-script-CSS -->
+    <link href="~/css/wickedpicker.css" rel="stylesheet" type='text/css' media="all" /> <!-- Time-script-CSS -->
+    <!-- //css files -->
+    <!-- online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Convergence" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=ABeeZee:400,400i" rel="stylesheet">
+    <!-- //online-fonts -->
+
+    <link rel="stylesheet" href="~/css/Login.css">
+
+</head>
+<body class="bgEntrar">
+    <div class="Main-agile">
+        <!-- banner -->
+        <div class="bannerEntrar">
+            <div class="container">
+                <div class="col-md-4 agile1">
+                    <nav class="navbar navbar-default">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                            <nav class="stroke">
+                                <ul class="nav navbar-nav">
+                                    @if (ViewBag.Logado == null && ViewBag.LogadoA == null && ViewBag.LogadoN == null)
+                                    {
+                                        <li class="entrar"><a href="~/Entrar/Logar" style="text-shadow: 2px 1px 0px #000000">Entrar</a></li>
+
+                                    }
+                                    @if (ViewBag.Logado != null)
+                                    {
+
+                                        <li><a href="~/Perfil/IndexPerfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                        <li><a href="~/Perfil/Cardapio" style="text-shadow: 2px 1px 0px #000000">Cardápio</a></li>
+                                    }
+                                    @if (ViewBag.LogadoA != null)
+                                    {
+                                        <li><a href="~/Adm/Listar" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                    }
+                                    @if (ViewBag.LogadoN != null)
+                                    {
+                                        <li><a href="~/Nutricionista/Perfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                    }
+
+                                    <li ><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000">Home</a></li>
+                                    <li class="active"><a href="~/Home/Dicas" style="text-shadow: 2px 1px 0px #000000">Dicas</a></liclass="active">
+                                    <li><a href="~/Home/About" style="text-shadow: 2px 1px 0px #000000">Quem somos</a></li>
+                                    <li><a href="~/Home/Contato" style="text-shadow: 2px 1px 0px #000000">Fale conosco</a></li>
+                                    @if (ViewBag.Logado != null || ViewBag.LogadoA != null || ViewBag.LogadoN != null)
+                                    {
+                                        <li><a href="~/Entrar/Sair" style="text-shadow: 2px 1px 0px #000000">Sair</a></li>
+
+                                    }
+                                </ul>
+                            </nav>
+                        </div>
+                    </nav>
+                </div>
+                <!-- Logo do site -->                
+                <div class="col-md-4 logo">
+                    <div class="logo-w3l">
+                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                    </div>
+                    <h1><a href="~/Home/Index" style="text-shadow: 5px 3px 0px #000000">Life More<span style="text-shadow: 2px 1px 0px #000000">Cuidando de você</span></a></h1>
+                </div>
+                <div class="col-md-4 ph-agile">
+                    <p><i class="fa fa-phone" aria-hidden="true"></i><span style="text-shadow: 2px 1px 0px #000000">+55 19 9 9865 8943</span></p>
+                </div>            
+        </div>
+
+    </div>  
+    
+
+    <!-- Menu -->
+    <!--Titulo da pagina-->
+    <div class="tips w3agile">
+        <!--<div id="about" class="welcome">-->
+
+        <!--SAUDE EM DIA-->
+        <div class="container">
+            <div class="agile-title2">
+                <h3 class="tittle-one">Saúde em dia<span></span></h3>
+            </div>
+            <div class="w3ls-row">
+                <div class="col-md-6 welcome-left">
+
+                    <p>
+                        Ter a saúde em dia é questão de criar e manter hábitos simples que incluem alimentação saudável, monitoramento constante das condições gerais e um estado mental positivo.
+                        A boa notícia é que nem tudo se resume à restrição ou vigilância e ingerir algumas doses de bebidas alcoólicas e também comer chocolate fazem parte dessa rotina.
+                    </p>
+
+                </div>
+                <div class="col-md-6 welcome-right">
+                    <div class="clearfix"> </div>
+                </div>
+                <!--Imagem 1-->
+                <div class="col-md-6 welcome-left-grids">
+                    <div class="">
+                        <img src="~/images/Dicas/frutas.jpg" width="500" alt="" />
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!-- //About -->
+    <!-- what-we-do -->
+    <div class="tips w3agile">
+        <div class="container">
+            <h3 class="tittle-one">Adiquira esses hábitos<span></span></h3>
+            <div class="tip-grids">
+                <!-- Imagem 2-->
+                <div class="col-md-6 tip-grid">
+                    <figure class="effect-julia">
+                        <img src="~/images/Dicas/fisico.jpg" width="500" height="300" alt="">
+                        <figcaption>
+                            <h4>Faça atividades ao ar livre</h4>
+                        </figcaption>
+                    </figure>
+                </div>
+                <!-- Imagem 3-->
+                <div class="col-md-6 tip-grid">
+                    <figure class="effect-julia">
+                        <img src="~/images/Dicas/exercicio.jpg" width="500" height="300" alt="">
+                        <figcaption>
+                            <h4>Pratiques treinos funcionais</h4>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <!-- //what-we-do -->
+    <!-- Services -->
+
+    <!-- Para que serve o colageno -->
+    <div class="tips w3agile">
+        <div class="container">
+            <h3 class="tittle-one">Para que serve o Colágeno<span></span></h3>
+
+            <div class="w3ls-row">
+                <div class="col-md-6 welcome-left">
+
+                    <p style="text-align: center; font-size:20px; color:white;">
+                        O colágeno é uma proteína que dá estrutura,
+                        firmeza e elasticidade à pele, que é produzida naturalmente pelo corpo,
+                        mas que também pode ser encontrada em alimentos como carne e gelatina. Veja alguns benefícios:
+                    </p>
+                    <ul style="text-align: left; font-size:20px; color:white;">
+                        <li>- Diminuição da espessura dos fios de cabelo.</li>
+                        <li>- Aumento da flacidez e perda de elasticidade da pele.</li>
+                        <li>- Surgimento de rugas e de linhas de expressão.</li>
+                        <li>- Aparecimento de estrias.</li>
+                        <li>- Pele fina e desidratada.</li>
+                        <li>- Diminuição da densidade dos ossos como nos casos de osteopenia e osteoporose por exemplo.</li>
+                        <li>- Enfraquecimento das articulações e dos ligamentos.</li>
+                    </ul>
+
+
+
+                </div>
+                <div class="col-md-6 welcome-right">
+                    <div class="clearfix"> </div>
+                </div>
+
+                <!-- Imagem 4-->
+                <div class="col-md-6 welcome-left-grids">
+                    <img src="~/images/Dicas/colageno.jpg" width="500" alt="" />
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="tips w3agile">
+        <div style="text-align: left;font-size:20px; color:white; margin-left:150px;">
+
+            <h3 class="tittle-one">Receitas<span></span></h3>
+
+
+
+            <h2>Bolo de banana e aveia</h2>
+
+
+            <div>
+                <p>Ingredientes:</p>
+                
+                    
+                
+                <div class="boloDBanana">
+                    <img src="~/images/Dicas/bolo_banana.jpeg" width="400" alt="" />
+                </div>
+                <ul>
+                <li>•4 colheres de sopa óleo de coco</li>
+                <li>•1 colher de sopa fermento</li>
+                <li>•2 colheres de sopa farinha de linhaça</li>
+                <li>•200 ml leite</li>
+                <li>•2 médios ovos</li>
+                <li>•300g banana madura</li>
+                <li>•120g de açucar mascavo</li>
+                <li>•100g de aveia</li>
+                <li>•15g germen</li>
+                </ul>
+            </div>
+
+            <!--<dl>-->
+            <p>Modo de preparo:</p>
+            <ul>
+                <li>•Bata a banana, leite, ovos e óleo. Acrescente o açúcar e bata novamente.</li>
+                <li>•Insira o germen e a linhaça, deixando a aveia por último.</li>
+                <li>•Pré aqueça o forno.</li>
+                <li>•Unte a forma como de costume e acrescente na massa o fermento.</li>
+                <li>•Coloque para assar 200°C por 30 minutos ou até que doure.</li>
+            </ul>
+
+
+
+
+            <h2 style="margin-top:30px;">Torta de Frango </h2>
+
+            <p style="text-align:center;">(Sem farinha de trigo)</p>
+            <p>Ingredientes:</p>
+            <ul>
+                <li>•295 g creme de leite leve</li>
+                <li>•1 colher de sopa fermento em pó químico</li>
+                <li>•1 colher de sopa fermento</li>
+                <li>•4 médios ovos</li>
+                <li>•500 g peito de frango</li>
+            </ul>
+
+            <!--<dl>-->
+            <p>Modo de preparo:</p>
+            <ul>
+                <li>•Cozinhar e desfiar o frango.</li>
+                <li>•Em um recipiente, colocar o ovo e o creme de leite e misturar bem.</li>
+                <li>•Adicionar o queijo ralado, frango e temperos a gosto.</li>
+                <li>•Misturar tudo muito bem e colocar o fermento.</li>
+                <li>•Passar a mistura para um refratário e assar por cerca de 30 minutos em forno pre aquecido por 10 minutos.</li>
+            </ul>
+
+            <div style="margin-bottom:30px;margin-top:10px;">
+                <img src="~/images/Dicas/torta_frango.jpg" width="400" alt="" />
+            </div>
+
+
+            <h2>Cookies de Gergelim e Linhaça</h2>
+
+            <p>Ingredientes:</p>
+            <ul>
+                <li>•15 g fermento em pó químico</li>
+                <li>•3 colheres de sopa gergelim branco natural</li>
+                <li>•3/4 xícara manteiga com sal</li>
+                <li>•1 grandes clara de ovo</li>
+                <li>•2 colheres de sopa, moídas sementes de linhaça</li>
+                <li>•1 xícara água</li>
+                <li>•2 1/2 xícaras farinha de trigo branca</li>
+            </ul>
+
+            <!--<dl>-->
+            <p>Modo de preparo:</p>
+            <ul>
+                <li>•Misture a manteiga, fermento, a linhaça e o trigo em uma tigela. Vá acrescentando aos poucos a água e misture até virar uma massa homogenia.</li>
+                <li>•Molde os cookies como quer, uma dica é fazer pequenas bolinhas.</li>
+                <li>•Coloque em uma assadeira untada mantendo uma distância entre eles. Pinceles a clara sobre eles e coloque o gergelim para finalizar.</li>
+                <li>•O forno deve ser pré aquecido a 200° e deixe por 40 minutos.</li>
+            </ul>
+
+        </div>
+        <
+    </div>
+
+    <!--  class="container"-->
+
+    <div class="footer w3ls">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-top">
+                    <div class="col-md-4 services-grids">
+                        <h3>Curiosidades</h3>
+                        <ul>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Buscando o bem estar da sociedade sempre.</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista jovens e experientes ajudando  clientes de qualquer idade</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Comer saudávelmente é sinônimo de comer bem.</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista de esportes pronto para ajudar no melhor desenvolvimento para seu corpo.</a></li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class="col-md-4 ftr-grid">
+                        <div class="logo-fo">
+                            <div class="logo-w3l">
+                                <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                            </div>
+                            <h2><a href="~/Home/Index">Life More<span>Cuidando de você</span></a></h2>
+                        </div>
+                    </div>
+                    <div class="col-md-4 ftr-grid fg2">
+                        <h3>Nossos endereços</h3>
+                        <div class="ftr-address">
+                            <div class="local">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            </div>
+                            <div class="ftr-text">
+                                <p>SENAI Zerbini</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="ftr-address">
+                            <div class="local">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                            </div>
+                            <div class="ftr-text">
+                                <p>+55 19 9 9865 8943</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="ftr-address">
+                            <div class="local">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <div class="ftr-text">
+                                <p><a href="mailto:LifeMore@gmail.com">LifeMore@gmail.com</a></p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="right-w3l">
+                    <ul class="top-links">
+
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    </ul>
+                </div>
+                <div class="copyrights">
+                    <p>&copy; 2017 Life More. Todos os direitos reservados | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>
+
+<!-- style="margin-bottom:30px; margin-top:10px;"-->

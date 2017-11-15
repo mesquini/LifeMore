@@ -1,7 +1,4 @@
-﻿@{
-    Layout = null;
-}
-
+﻿
 <!--
     Author: W3layouts
     Author URL: http://w3layouts.com
@@ -22,7 +19,7 @@
         function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!--// Meta tag Keywords -->
     <!-- css files -->
-    <link rel="stylesheet" href="~/css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="~/css/bootstrap.css" type="text/css"> <!-- Bootstrap-Core-CSS -->
     <link rel="stylesheet" href="~/css/style.css" type="text/css" media="all" /> <!-- Style-CSS -->
     <link rel="stylesheet" href="~/css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
     <link rel="stylesheet" href="~/css/jquery-ui.css" /> <!-- Date-script-CSS -->
@@ -34,10 +31,18 @@
     <!-- //online-fonts -->
 
     <link rel="stylesheet" href="~/css/Login.css">
-    <script src="~/js/login.js" type="text/javascript"></script>
     <script src="~/js/AcessarPag.js" type="text/javascript"></script>
 
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/jquery.mask.js"></script>
 </head>
+<script type="text/javascript">
+    jQuery(function ($) {
+        $("#telefone").mask("(99)9 9999-9999", { required: true });
+        $("#peso").mask("999.999", { required: true});
+        $("#altura").mask("9.99", { required: true });
+    });
+</script>
 <body class="bgEntrar">
     <div class="Main-agile">
         <!-- banner -->
@@ -62,23 +67,24 @@
                                     @if (ViewBag.Logado == null)
                                     {
 
-                                        <li class="entrar"><a href="~/Entrar/Cadastrar">Entrar</a></li>
+                                        <li class="entrar"><a href="~/Entrar/Cadastrar" style="text-shadow: 2px 1px 0px #000000">Entrar</a></li>
 
                                     }
                                     @if (ViewBag.Logado != null)
                                     {
 
-                                        <li class="active"><a href="~/Perfil/IndexPerfil">Perfil</a></li>
-                                        <li><a href="#">Cardápio</a></li>
+                                        <li class="active"><a href="~/Perfil/IndexPerfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                        <li><a href="~/Perfil/Cardapio" style="text-shadow: 2px 1px 0px #000000">Cardápio</a></li>
                                     }
 
-                                    <li><a href="~/Home/Index">Home</a></li>
-                                    <li><a href="~/Home/About">Quem somos</a></li>
-                                    <li><a href="~/Home/Contato">Fale conosco</a></li>
+                                    <li><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000">Home</a></li>
+                                    <li><a href="~/Home/Dicas" style="text-shadow: 2px 1px 0px #000000">Dicas</a></li>
+                                    <li><a href="~/Home/About" style="text-shadow: 2px 1px 0px #000000">Quem somos</a></li>
+                                    <li><a href="~/Home/Contato" style="text-shadow: 2px 1px 0px #000000">Fale conosco</a></li>
                                     @if (ViewBag.Logado != null)
                                     {
 
-                                        <li><a href="~/Entrar/Sair">Sair</a></li>
+                                        <li><a href="~/Entrar/Sair" style="text-shadow: 2px 1px 0px #000000">Sair</a></li>
 
                                     }
                                 </ul>
@@ -91,52 +97,57 @@
         </div>
 
     </div>
-    <br />
-    <div class="textoperfil">
-        Perfil
-    </div>
-    <form action="/Perfil/Editar_Perfil" method="POST">
-        @* perfil *@
-        <div class="perfil">
+    <div class="tips w3agile">
+        <div class="textoperfil" style="text-shadow: 5px 2px 0px #000000">Perfil</div>
 
-            <div class="imagem">
-                <input type="image" title="Editar Informações" onclick="EditaPerfil()" id="edit" src="/images/Entrar/@ViewBag.Imagem" onmouseover="this.src = '/images/useredit-hover.png'"
-                       onmouseout="this.src = '/images/Entrar/@ViewBag.Imagem'"  />
-            </div>
+        @if (ViewBag.Logado != null)
+        {
+            <form action="~/Perfil/Editar_Perfil" method="post" enctype="multipart/form-data">
+                @* perfil *@
+                <div class="perfil">
 
-            <div class="dadosPessoais">
-                <p style="text-shadow: 2px 1px 0px #000000">Nome: @ViewBag.Nome</p>
-                <p style="text-shadow: 2px 1px 0px #000000">E-mail: <input type="text" value="@ViewBag.Email" class="editPerfil" required/></p>
-                <p style="text-shadow: 2px 1px 0px #000000">CPF: @ViewBag.CPF </p>
-                <p style="text-shadow: 2px 1px 0px #000000">Endereço: <input type="text" value="@ViewBag.Endereco" class="editPerfil"required /></p>
-                <p style="text-shadow: 2px 1px 0px #000000">Telefone: <input type="text" value="@ViewBag.Tel" class="editTel" required/></p>
-                
-            </div>
+                    <div class="imagem">
+                        <input type="image" title="Editar Informações" id="edit" src="/images/img_users/@ViewBag.Paciente.ImagemPerfil" onmouseover="this.src = '/images/useredit-hover.png'"
+                               onmouseout="this.src = '/images/img_users/@ViewBag.Paciente.ImagemPerfil'" class="imgEdit" />
+                        <input type="file" name="Imagem" id="img"/>
+                    </div>
 
-            <div class="dadosSistema">
-                <p style="text-shadow: 2px 1px 0px #000000">
-                    Objetivo:
-                    <input type="radio" name="objetivo" id="engordar" value="1" /> <label for="engordar" class="objetivo">Engordar</label>
-                    <input type="radio" name="objetivo" id="emagrecer" value="2" checked/> <label for="emagrecer" class="objetivo">Emagrecer</label>
-                </p>
-                <p style="text-shadow: 2px 1px 0px #000000">Peso: <input type="text" value="@ViewBag.Peso" class="editPeso" required /></p>
-                <p style="text-shadow: 2px 1px 0px #000000">Altura: <input type="text" value="@ViewBag.Altura" class="editPerfil" required/></p>
-                <p style="text-shadow: 2px 1px 0px #000000">Idade: <input type="text" value="@ViewBag.Idade" class="editIdade" required/></p>
-            </div>
-            <div class="btPerfil">
-            </div>
-            <div class="espaco"> </div>
+                    <div class="dadosPessoais">
+                        <p style="text-shadow: 2px 1px 0px #000000">Nome: @ViewBag.Paciente.Nome</p>
+                        <p style="text-shadow: 2px 1px 0px #000000">E-mail: <input type="text" value="@ViewBag.Paciente.Email" class="editPerfil" name="Email" required /></p>
+                        <p style="text-shadow: 2px 1px 0px #000000">CPF: @ViewBag.Paciente.CPF </p>
+                        <p style="text-shadow: 2px 1px 0px #000000">Endereço: <input type="text" value="@ViewBag.Paciente.Endereco" class="editPerfil" name="Endereco" required /></p>
+                        <p style="text-shadow: 2px 1px 0px #000000">Telefone: <input type="text" id="telefone" value="@ViewBag.Paciente.Telefone" class="editTel" name="Tel" required /></p>
 
+                    </div>
+
+                    <div class="dadosSistema">
+                        <p style="text-shadow: 2px 1px 0px #000000">
+                            Objetivo:
+                            <input type="radio" name="objetivo" id="engordar" value="1" /> <label for="engordar" class="objetivo">Engordar</label>
+                            <input type="radio" name="objetivo" id="emagrecer" value="2" checked /> <label for="emagrecer" class="objetivo">Emagrecer</label>
+                        </p>
+                        <p style="text-shadow: 2px 1px 0px #000000">Peso: <input type="text" id="peso" value="@ViewBag.Paciente.Peso" class="editPeso" name="Peso" required />Kg </p>
+                        <p style="text-shadow: 2px 1px 0px #000000">Altura: <input type="text" id="altura" value="@ViewBag.Paciente.Altura" class="editAltura" name="Altura" required />M</p>
+                        <p style="text-shadow: 2px 1px 0px #000000">Idade: <input type="text" value="@ViewBag.Paciente.Idade" class="editIdade" name="Idade" maxlength="2" required /></p>
+                    </div>
+                    <div class="btPerfil">
+                    </div>
+                    <div class="espaco"> </div>
+
+                </div>
+                <div class="btConcluir">
+                    <button type="submit" class="btConcluirCSS">Concluir</button>
+                </div>
+            </form>
+        }
+        @if (ViewBag.Mensagem != null)
+        {
+            <div class="alert alert-danger" style="text-align:center">
+                <strong>ERRO!</strong> @ViewBag.Mensagem
             </div>
-        <div class="btConcluir">
-            <button type="submit" onclick="Perfil()" class="btConcluirCSS">Concluir</button>
-            <h4>
-                @ViewBag.Mensagem
-            </h4>
+        }
         </div>
-
-        </form>
-
         <div class="footer w3ls">
             <div class="container">
                 <div class="footer-main">
@@ -162,7 +173,7 @@
                             </div>
                         </div>
                         <div class="col-md-4 ftr-grid fg2">
-                            <h3>Nossos enderços</h3>
+                            <h3>Nossos endereços</h3>
                             <div class="ftr-address">
                                 <div class="local">
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>

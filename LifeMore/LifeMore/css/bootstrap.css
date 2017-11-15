@@ -12,6 +12,10 @@ html {
 body {
   margin: 0;
 }
+.Informacoescardap{
+    color: white;
+    margin-bottom: 100px;
+}
 article,
 aside,
 details,
@@ -123,6 +127,7 @@ button {
 button,
 select {
   text-transform: none;
+  width: 300px;
 }
 button,
 html input[type="button"],
@@ -1092,16 +1097,28 @@ body {
 input,
 select{
   font-family: inherit;
-  font-size: inherit;
+  font-size: 20px;
   line-height: inherit;
   
+}
+.fundo{
+   background-color: rgba(3, 4, 4, 0.6);
+width: 600px;
+margin-left: 650px;
+height: 1400px;
+}
+
+.mostrar{
+   float: right;
+width: 200px;
+height: 400px;
+margin-right: 300px;
+margin-top: 100px;
 }
 button,a:hover{
     font-family: inherit;
 font-size: inherit;
 line-height: inherit;
-width: 100%;
-height: 50px;
 color: blue;
 background: transparent;
 }

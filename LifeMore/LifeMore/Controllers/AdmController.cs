@@ -60,11 +60,52 @@ namespace LifeMore.Controllers
             ViewBag.Categoria = cs;
             ViewBag.Alimento = a;
 
-               
             return View();
         }
-        
-       
+
+        public ActionResult previsualizacao(Int32 id)
+        {
+            Nutricionista nutricionistas = new Nutricionista(id);
+            if (nutricionistas.BuscarDados(id))
+            {
+                TempData["Nutricionista"] = nutricionistas;
+
+                return RedirectToAction("VerN", "Nutricionista");
+            }
+            else
+            {
+                return RedirectToAction("Listar", "Adm");
+            }
+        }
+        public ActionResult previsualizacaoP(Int32 id)
+        {
+            Paciente Pacientes = new Paciente(id);
+            if (Pacientes.BuscarDados(id))
+            {
+                TempData["Paciente"] = Pacientes;
+
+                return RedirectToAction("VerP", "Adm");
+            }
+            else
+            {
+                return RedirectToAction("Listar", "Adm");
+            }
+        }
+        public ActionResult VerP()
+        {
+            ViewBag.LogadoA = Session["Adm"];
+
+            if (Session["Adm"] == null)
+            {
+                Response.Redirect("~/Home/Index", false);
+            }
+            if (TempData["Paciente"] != null)
+            {
+                ViewBag.Perfil = (Paciente)TempData["Paciente"];
+            }
+            return View();
+        }
+
         public void Sair()
         {
             Session.Abandon();

@@ -40,8 +40,14 @@ namespace LifeMore.Models
             this.Cod = (Int32)Leitor["Cod"];
             this.Email = (String)Leitor["Email"];
             this.Senha = (String)Leitor["Senha"];
+            this.Endereco = (String)Leitor["Endereco"];
             this.Nome = (String)Leitor["Nome"];
+            this.Idade = (int)Leitor["Idade"];
+            this.ImagemPerfil = (String)Leitor["Foto"];
             this.CPF = (String)Leitor["CPF_Nutri"];
+            this.Bio = (String)Leitor["Bio"];
+            this.LocalTrabalho = (String)Leitor["LocalTrabalho"];
+            this.Telefone = (String)Leitor["Telefone"];
 
             Conexao.Close();
         }
@@ -97,7 +103,7 @@ namespace LifeMore.Models
             Comando.Parameters.AddWithValue("@Telefone", this.Telefone);
             Comando.Parameters.AddWithValue("@Nome", this.Nome);
             Comando.Parameters.AddWithValue("@Foto", "imagemPadrao.jpeg");
-            Comando.Parameters.AddWithValue("@Objetivo", this.LocalTrabalho);
+            Comando.Parameters.AddWithValue("@LocalTrabalho", this.LocalTrabalho);
             Comando.Parameters.AddWithValue("@Bio", this.Bio);
 
 
@@ -109,18 +115,18 @@ namespace LifeMore.Models
         }
         public Boolean EditarPerfil()
         {
-            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["Nutricionista"].ConnectionString);
+            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
             Conexao.Open();
 
 
             SqlCommand Comando = new SqlCommand();
             Comando.Connection = Conexao;
-            Comando.CommandText = "UPDATE Nutricionista SET Foto = @Imagem, Idade = @Idade, Email = @Email, Telefone = @Telefone, LocalTrabalho = @LocalTrabalho Bio = @Bio"
-               + "Objetivo = @Objetivo, Endereco = @Endereco WHERE Cod = @ID;";
+            Comando.CommandText = "UPDATE Nutricionista SET Idade = @Idade, Endereco = @Endereco, Email = @Email, Telefone = @Telefone, LocalTrabalho = @LocalTrabalho, Bio = @Bio"
+               + " WHERE Cod = @ID;";
 
             Comando.Parameters.AddWithValue("@ID", this.Cod);
-            Comando.Parameters.AddWithValue("@Imagem", this.ImagemPerfil);
             Comando.Parameters.AddWithValue("@Idade", this.Idade);
+            Comando.Parameters.AddWithValue("@Endereco", this.Endereco);
             Comando.Parameters.AddWithValue("@Email", this.Email);
             Comando.Parameters.AddWithValue("@Telefone", this.Telefone);
             Comando.Parameters.AddWithValue("@LocalTrabalho", this.LocalTrabalho);
@@ -139,6 +145,7 @@ namespace LifeMore.Models
 
             SqlCommand Comando = new SqlCommand();
             Comando.Connection = Conexao;
+            
             Comando.CommandText = "SELECT * FROM Nutricionista;";
 
             SqlDataReader Leitor = Comando.ExecuteReader();
@@ -165,6 +172,38 @@ namespace LifeMore.Models
             Conexao.Close();
 
             return Nutricionistas;
+        }
+        public Boolean BuscarDados(Int32 ID)
+        {
+            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
+            Conexao.Open();
+
+            SqlCommand Comando = new SqlCommand();
+            Comando.Connection = Conexao;
+            Comando.CommandText = "SELECT * FROM Nutricionista WHERE Cod = @ID;";
+            Comando.Parameters.AddWithValue("@ID", ID);
+
+            SqlDataReader Leitor = Comando.ExecuteReader();
+
+            Boolean resultado = Leitor.HasRows;
+
+            Leitor.Read();
+
+            this.Cod = (Int32)Leitor["Cod"];
+            Nutricionista Nutricionistas = new Nutricionista((Int32)Leitor["Cod"]);
+            this.Email = (String)Leitor["Email"];
+            this.Senha = (String)Leitor["Senha"];
+            this.Endereco = (String)Leitor["Endereco"];
+            this.Nome = (String)Leitor["Nome"];
+            this.Idade = (Int32)Leitor["Idade"];
+            this.ImagemPerfil = (String)Leitor["Foto"];
+            this.CPF = (String)Leitor["CPF_Nutri"];
+            this.Bio = (String)Leitor["Bio"];
+            this.LocalTrabalho = (String)Leitor["LocalTrabalho"];
+            this.Telefone = (String)Leitor["Telefone"];
+
+            Conexao.Close();
+            return resultado;
         }
         public static Boolean Autenticar(String CPF, String Senha)
         {

@@ -15,9 +15,7 @@ body {
     background-position: center;
     background-attachment: fixed;
 }
-.CadastroA{
 
-}
 .precoconsulta{
     margin-left: 750px;
 margin-bottom: 20px;
@@ -70,8 +68,9 @@ margin-left: 750px;
 .titulos{
     text-align: center;
     font-size: 75px;
-    margin-top: 50px;
+    margin-top: 20px;
     color: white;
+    margin-bottom: 20px;
 }
 .emailtexto{
     text-align:center;
@@ -93,7 +92,6 @@ margin-left: 750px;
     color: white;
 text-align: center;
 font-size: 40px;
-margin-top: 75px;
 }
 .mensagem{
     text-align: center;
@@ -242,6 +240,7 @@ nav.fill ul li a:hover:after {
 .logo-w3l {
     font-size: 3em;
 	color:#fff;
+    margin-top: 80px;
 }
 .logo h1 a {
     font-size: 1.2em;
@@ -1555,24 +1554,24 @@ a.re-w3:hover {
 }
 .opinion form input[type="text"], .opinion form input[type="email"] {
     width: 100%;
-    color: #999999;
+    color: black;
     outline: none;
     font-size: .9em;
     padding: .5em;
     margin: 0 .5em 1em 0;
-    border: solid 1px #999999;
+    border: solid 2px black;
     -webkit-appearance: none;
     background: none;
 }
 .opinion form textarea {
     resize: none;
     width: 100%;
-    color: #999999;
+    color: black;
     font-size: .9em;
     outline: none;
     resize: none;
     padding: .5em;
-    border: solid 1px #999999;
+    border: solid 2px black;
     min-height: 125px;
 	background: none;
 }
@@ -3879,5 +3878,7 @@ h2.typoh2{
 	input#timepicker {
 		padding: 9px 10px;
 	}
-}
+
+
+
 /*--//responsive--*/

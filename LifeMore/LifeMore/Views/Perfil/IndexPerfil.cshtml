@@ -36,34 +36,36 @@
     <link rel="stylesheet" href="~/css/Login.css">
     <script src="~/js/login.js" type="text/javascript"></script>
     <script src="~/js/AcessarPag.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+        function calcularIMC() {
+            
+            var peso = document.getElementById("peso").innerText;
+            
+            var alt = document.getElementById("alt").innerText;
+            
+  var IMC = peso / (alt * alt)
 
+    if (IMC <18.5)
+        document.getElementById("massacor").innerText = IMC.toFixed(3) + " - Peso Baixo, procure um especialista! ";
+    if (IMC >=18.5 && IMC <=24.9)
+        document.getElementById("massacor").innerText = IMC.toFixed(3) + " - Peso Ideal, continue assim! ";
+    if (IMC >=25 && IMC <=29.9)
+        document.getElementById("massacor").innerText = IMC.toFixed(3) + " - Acima do Peso, cuide melhor da sua alimentação! ";
+    if (IMC >= 30 && IMC <= 34.9)
+        document.getElementById("massacor").innerText = IMC.toFixed(3) + " - Obesidade Tipo I, procure um especialista urgente!  ";
+    if (IMC >= 35 && IMC <= 39.9)
+        document.getElementById("massacor").innerText = IMC.toFixed(3) + " - Obesidade Tipo II, procure um especialista urgente!  ";
+    if (IMC >= 40 && IMC <= 49.9)
+        document.getElementById("massacor").innerText = IMC.toFixed(3) + " - Obesidade Mórbida, procure um especialista urgente!  ";
+    if (IMC > 40)
+        document.getElementById("massacor").innerText = IMC.toFixed(3) + " - Obesidade Extrema, procure um especialista urgente!  ";
+    }
+
+// End -->
+    </script>
 </head>
-<script type="text/javascript">
-function calcula_imc(){
-var altura = document.imcForm.altura.value;
-var peso = document.imcForm.peso.value;
 
-var quadrado = (altura * altura);
-
-var calculo = (peso/quadrado);
-
-if(calculo<18.5){
-alert("Você está magro com esse indice: " + calculo);
-}
-else if(calculo>=18.5 && calculo<24.9){
-alert("Você está normal com esse indice: " + calculo);
-}
-
-else if(calculo>=25 && calculo<29.9) {
-alert("Você está com sobre peso com esse indice: " + calculo);
-}
-else if(calculo>=30 && calculo<39.9) {
-alert("Você está com obesidade com esse indice: " + calculo);
-}
-else if (calculo>40)
-alert("Você estácom obesidade grave com esse indice: " + calculo);
-}
-</script>
 <body class="bgEntrar">
     <div class="Main-agile">
         <!-- banner -->
@@ -88,23 +90,23 @@ alert("Você estácom obesidade grave com esse indice: " + calculo);
                                     @if (ViewBag.Logado == null)
                                     {
 
-                                        <li class="entrar"><a href="~/Entrar/Cadastrar">Entrar</a></li>
+                                        <li class="entrar"><a href="~/Entrar/Cadastrar" style="text-shadow: 2px 1px 0px #000000">Entrar</a></li>
 
                                     }
                                     @if (ViewBag.Logado != null)
                                     {
 
-                                        <li class="active"><a href="~/Perfil/IndexPerfil">Perfil</a></li>
-                                        <li><a href="#">Cardápio</a></li>
+                                        <li class="active"><a href="~/Perfil/IndexPerfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                        <li><a href="~/Perfil/Cardapio" style="text-shadow: 2px 1px 0px #000000">Cardápio</a></li>
                                     }
 
-                                    <li ><a href="~/Home/Index">Home</a></li>
-                                    <li ><a href="~/Home/About">Quem somos</a></li>
-                                    <li><a href="~/Home/Contato">Fale conosco</a></li>
+                                    <li ><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000">Home</a></li>
+                                    <li ><a href="~/Home/About" style="text-shadow: 2px 1px 0px #000000">Quem somos</a></li>
+                                    <li><a href="~/Home/Contato" style="text-shadow: 2px 1px 0px #000000">Fale conosco</a></li>
                                     @if (ViewBag.Logado != null)
                                     {
 
-                                        <li><a href="~/Entrar/Sair">Sair</a></li>
+                                        <li><a href="~/Entrar/Sair" style="text-shadow: 2px 1px 0px #000000">Sair</a></li>
 
                                     }
                                 </ul>
@@ -117,17 +119,17 @@ alert("Você estácom obesidade grave com esse indice: " + calculo);
         </div>
 
        </div>
-    <br />
-    <div class="textoperfil">
-           Perfil
-    </div>
+    <div class="tips w3agile">
+        <div class="textoperfil" style="text-shadow: 5px 2px 0px #000000; margin-bottom:25px;">
+            Perfil
+        </div>
 
-    @* perfil *@
+        @* perfil *@
         <div class="perfil">
 
             <div class="imagem">
-                <input type="image" title="Editar Informações" onclick="EditaPerfil()" id="edit" src="/images/Entrar/@ViewBag.Imagem" onmouseover="this.src = '/images/useredit-hover.png'"
-                onmouseout="this.src = '/images/Entrar/@ViewBag.Imagem'" class="imgEdit"/>
+                <input type="image" title="Editar Informações" onclick="EditaPerfil()" id="edit" src="/images/img_users/@ViewBag.Imagem" onmouseover="this.src = '/images/useredit-hover.png'"
+                       onmouseout="this.src = '/images/img_users/@ViewBag.Imagem'" class="imgEdit" />
             </div>
 
             <div class="dadosPessoais">
@@ -139,94 +141,98 @@ alert("Você estácom obesidade grave com esse indice: " + calculo);
             </div>
 
             <div class="dadosSistema">
-                @if ( ViewBag.Objetivo == 1) { <p style="text-shadow: 2px 1px 0px #000000">Objetivo: Engordar</p> }
+                @if (ViewBag.Objetivo == 1)
+                { <p style="text-shadow: 2px 1px 0px #000000">Objetivo: Engordar</p> }
                 else {<p style="text-shadow: 2px 1px 0px #000000">Objetivo: Emagrecer</p>}
 
-                <p id="peso">Peso: @ViewBag.Peso Kg</p>
-                <p id="altura">Altura: @ViewBag.Altura Cm</p>
-                <a href="#"> Calcular IMC </a>
+                <span style="text-shadow: 2px 1px 0px #000000">Peso: </span><span style="text-shadow: 2px 1px 0px #000000" id="peso">@ViewBag.Peso </span><span style="text-shadow: 2px 1px 0px #000000"> Kg</span><br />
+                <span style="text-shadow: 2px 1px 0px #000000">Altura: </span> <span style="text-shadow: 2px 1px 0px #000000" id="alt"> @ViewBag.Altura </span> <span style="text-shadow: 2px 1px 0px #000000"> Cm</span>
                 <p style="text-shadow: 2px 1px 0px #000000">Idade: @ViewBag.Idade</p>
+
             </div>
             <div class="btPerfil">
-
-
+                <input type="button" class="btIMC" value="Calcular IMC" onClick="calcularIMC()" name="button">
+                <br>
+                <p name="massacor" id="massacor" size="15" style="text-shadow: 2px 1px 0px #000000"> </p>
+                <br>
+                <input type="button" class="btIMC" value="Feedback" onClick="feedback()" name="button">
             </div>
             <div class="espaco"> </div>
-         </div>
-
-
-    <div class="footer w3ls">
-        <div class="container">
-            <div class="footer-main">
-                <div class="footer-top">
-                    <div class="col-md-4 services-grids">
-                        <h3>Curiosidades</h3>
-                        <ul>
-                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Buscando o bem estar da sociedade sempre.</a></li>
-                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista jovens e experientes ajudando  clientes de qualquer idade</a></li>
-                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Comer saudávelmente é sinônimo de comer bem.</a></li>
-                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista de esportes pronto para ajudar no melhor desenvolvimento para seu corpo.</a></li>
-                        </ul>
-
-                    </div>
-
-
-                    <div class="col-md-4 ftr-grid">
-                        <div class="logo-fo">
-                            <div class="logo-w3l">
-                                <i class="fa fa-heartbeat" aria-hidden="true"></i>
-                            </div>
-                            <h2><a href="~/Home/Index">Life More<span>Cuide de você</span></a></h2>
-                        </div>
-                    </div>
-                    <div class="col-md-4 ftr-grid fg2">
-                        <h3>Nossos enderços</h3>
-                        <div class="ftr-address">
-                            <div class="local">
-                                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                            </div>
-                            <div class="ftr-text">
-                                <p style="text-shadow: 2px 1px 0px #000000">SENAI Zerbini</p>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="ftr-address">
-                            <div class="local">
-                                <i class="fa fa-phone" aria-hidden="true"></i>
-                            </div>
-                            <div class="ftr-text">
-                                <p style="text-shadow: 2px 1px 0px #000000">+55 19 9 9865 8943</p>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="ftr-address">
-                            <div class="local">
-                                <i class="fa fa-envelope" aria-hidden="true"></i>
-                            </div>
-                            <div class="ftr-text">
-                                <p style="text-shadow: 2px 1px 0px #000000"><a href="mailto:LifeMore@gmail.com">LifeMore@gmail.com</a></p>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="right-w3l">
-                    <ul class="top-links">
-
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    </ul>
-                </div>
-                <div class="copyrights">
-                    <p style="text-shadow: 2px 1px 0px #000000">&copy; 2017 Life More. Todos os direitos reservados | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
-                </div>
-            </div>
+        </div>
         </div>
 
+        <div class="footer w3ls">
+            <div class="container">
+                <div class="footer-main">
+                    <div class="footer-top">
+                        <div class="col-md-4 services-grids">
+                            <h3>Curiosidades</h3>
+                            <ul>
+                                <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Buscando o bem estar da sociedade sempre.</a></li>
+                                <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista jovens e experientes ajudando  clientes de qualquer idade</a></li>
+                                <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Comer saudávelmente é sinônimo de comer bem.</a></li>
+                                <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista de esportes pronto para ajudar no melhor desenvolvimento para seu corpo.</a></li>
+                            </ul>
 
-    </div>
+                        </div>
+
+
+                        <div class="col-md-4 ftr-grid">
+                            <div class="logo-fo">
+                                <div class="logo-w3l">
+                                    <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                                </div>
+                                <h2><a href="~/Home/Index">Life More<span>Cuide de você</span></a></h2>
+                            </div>
+                        </div>
+                        <div class="col-md-4 ftr-grid fg2">
+                            <h3>Nossos endereços</h3>
+                            <div class="ftr-address">
+                                <div class="local">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                </div>
+                                <div class="ftr-text">
+                                    <p style="text-shadow: 2px 1px 0px #000000">SENAI Zerbini</p>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="ftr-address">
+                                <div class="local">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                </div>
+                                <div class="ftr-text">
+                                    <p style="text-shadow: 2px 1px 0px #000000">+55 19 9 9865 8943</p>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="ftr-address">
+                                <div class="local">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                </div>
+                                <div class="ftr-text">
+                                    <p style="text-shadow: 2px 1px 0px #000000"><a href="mailto:LifeMore@gmail.com">LifeMore@gmail.com</a></p>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="right-w3l">
+                        <ul class="top-links">
+
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="copyrights">
+                        <p style="text-shadow: 2px 1px 0px #000000">&copy; 2017 Life More. Todos os direitos reservados | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
 
 
 </body>
