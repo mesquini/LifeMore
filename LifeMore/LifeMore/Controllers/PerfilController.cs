@@ -148,8 +148,17 @@ namespace LifeMore.Controllers
             ViewBag.Paciente = (Paciente)Session["Paciente"];
 
 
+            Cardapio c = new Cardapio();
+            if (!c.VerificaCPFCardapio(p.CPF))
+            {
+                return RedirectToAction("About", "Home");
+            }
+            else
+            {
+                return RedirectToAction("Index","Home");
+            }
 
-            return View();
+                
         }
     }
 }
