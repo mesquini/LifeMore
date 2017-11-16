@@ -17,6 +17,7 @@ namespace LifeMore.Models
         public Int32 Cod_Alimento { get; set; }
         public Int32 Qtd { get; set; }
         public String Observacao { get; set; }
+        public String NomeCardapio { get; set; }
         public Cardapio() { }
 
 

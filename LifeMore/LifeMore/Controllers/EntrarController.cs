@@ -44,7 +44,7 @@ namespace LifeMore.Controllers
                 NovoUser.Endereco = End;
                 NovoUser.ImagemPerfil = Foto;
 
-                if (NovoUser.VerificaCPF(CPF))
+                if (!NovoUser.VerificaCPF(CPF))
                 {
                     if (NovoUser.Novo())
                     {
@@ -55,6 +55,7 @@ namespace LifeMore.Controllers
                     {
                         ViewBag.Mensagem = "Houve um erro ao criar o Usuário. Verifique os dados e tente novamente.";
                     }
+                   
                 }
                 else
                 {

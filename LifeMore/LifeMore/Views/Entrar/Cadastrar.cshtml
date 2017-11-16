@@ -127,16 +127,16 @@
                                             <input type="submit" value="Cadastrar">
                                         
                                     </form>
-                                    <br/><br />
                                     @if (ViewBag.MsgErro != null)
                                     {
+                                        <br />
                                         <div class="alert alert-danger">
                                             <strong>ERRO!</strong> @ViewBag.MsgErro
                                         </div>
                                     }
-                                    <br /><br />
                                     @if (ViewBag.CPF != null)
                                     {
+                                        <br />
                                         <div class="alert alert-danger">
                                             <strong>ERRO!</strong> @ViewBag.CPF
                                         </div>

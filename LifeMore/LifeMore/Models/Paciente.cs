@@ -98,14 +98,18 @@ namespace LifeMore.Models
             Comando.Connection = Conexao;
 
             Comando.CommandText = "SELECT * FROM Paciente WHERE CPF_Paciente = @CPF_Paciente";
+            Comando.Parameters.AddWithValue("@CPF_Paciente", CPF);
 
-            Comando.Parameters.AddWithValue("@CPF_Paciente", this.CPF);
+            SqlDataReader Leitor = Comando.ExecuteReader();
 
-            Int32 Resultado = Comando.ExecuteNonQuery();
+            if(!Leitor.HasRows)
+            {
+                return false;
+            }
 
             Conexao.Close();
 
-            return Resultado > 0 ? true : false;
+            return true;
         }
         public Boolean Novo()
         {
@@ -130,13 +134,12 @@ namespace LifeMore.Models
             Comando.Parameters.AddWithValue("@Idade", this.Idade);
             Comando.Parameters.AddWithValue("@Email", this.Email);
 
-
-            
             Int32 Resultado = Comando.ExecuteNonQuery();
-
+           
             Conexao.Close();
 
             return Resultado > 0 ? true : false;
+
         }
         public Boolean EditarPerfil()
         {
