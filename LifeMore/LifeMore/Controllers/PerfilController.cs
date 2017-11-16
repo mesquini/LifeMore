@@ -138,6 +138,17 @@ namespace LifeMore.Controllers
         }
         public ActionResult Cardapio()
         {
+            if (Session["Paciente"] == null)
+            {
+                Response.Redirect("/Home/Index", false);
+            }
+
+            ViewBag.Logado = Session["Paciente"];
+            Paciente p = (Paciente)Session["Paciente"];
+            ViewBag.Paciente = (Paciente)Session["Paciente"];
+
+
+
             return View();
         }
     }

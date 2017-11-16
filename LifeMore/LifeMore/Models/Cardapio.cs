@@ -17,6 +17,7 @@ namespace LifeMore.Models
         public Int32 Cod_Alimento { get; set; }
         public Int32 Qtd { get; set; }
         public String Observacao { get; set; }
+        public String NomeCardapio { get; set; }
         public Cardapio() { }
 
 
@@ -114,7 +115,49 @@ namespace LifeMore.Models
 
             return Cardapios;
         }
+        public static List<Cardapio> ListarCardapioPaciente()
+        {
+            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
+            Conexao.Open();
 
+            SqlCommand Comando = new SqlCommand();
+            Comando.Connection = Conexao;
+
+            Comando.CommandText = "Select Cardapio.Cod_Cardapio, Paciente.Nome, Cardapio.Nome AS NomeCardapio, Alimento.Nome AS Alimento, Observacao, Qnt, Nutricionista.Nome"+
+
+                                                                    "from CardapioAlimento, Cardapio, Alimento, Nutricionista, Paciente"+
+
+                                                                   " where Cardapio.Cod_Cardapio = CardapioAlimento.Cod_Cardapio"+
+
+                                                                   " and CardapioAlimento.Cod_Alimento = Alimento.Cod_Alimento"+
+
+                                                                   " and Paciente.CPF_Paciente = Cardapio.Cod_Cliente"+
+
+                                                                   " and Cardapio.Cod_Nutri = Nutricionista.CPF_Nutri"+
+
+                                                                   " order by Cardapio.Cod_Cardapio; ";
+
+            SqlDataReader Leitor = Comando.ExecuteReader();
+
+            List<Cardapio> Cardapios = new List<Cardapio>();
+            while (Leitor.Read())
+            {
+                Cardapio N = new Cardapio();
+                N.Cod_Cardapio = (Int32)Leitor["Cod_Cardapio"];
+                N.Nome = (String)Leitor["Nome"];
+                N.Observacao = (String)Leitor["Observacao"];
+                N.NomeCardapio = (String)Leitor["NomeCardapio"];
+                N.Qtd = (Int32)Leitor["Qnt"];
+                N.Cod_Cliente = (String)Leitor["Cod_Cliente"];
+                N.Cod_Nutri = (String)Leitor["Cod_Nutri"];
+
+                Cardapios.Add(N);
+            }
+
+            Conexao.Close();
+
+            return Cardapios;
+        }
         public static int ultimoCardapio()
         {
             SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
