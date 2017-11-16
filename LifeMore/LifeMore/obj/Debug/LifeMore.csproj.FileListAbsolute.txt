@@ -319,3 +319,4 @@ C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\bin\S
 C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\bin\System.Web.Mvc.xml
 C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\obj\Debug\LifeMore.dll
 C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\obj\Debug\LifeMore.pdb
+C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\obj\Debug\LifeMore.csprojResolveAssemblyReference.cache
