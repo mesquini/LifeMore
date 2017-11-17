@@ -96,11 +96,23 @@
                 </div>
             </div>
         </div>                   
-        <div class="fundo">
+        <div class="fundo" style="height: 1440px;">
             <br />          <br />                        
             <!---Titulo do site-->
               <p style="font-size: 50px;text-align: center;color: white;">Cardápio</p>
             <div class="CadastrarC">
+                @if (ViewBag.Menssagem != null)
+                {
+                    <div class="alert alert-success">
+                        <strong>SUCESSO!</strong> @ViewBag.Menssagem
+                    </div>
+                }
+                @if (ViewBag.MenssagemErro != null)
+                {
+                    <div class="alert alert-danger">
+                        <strong>ERRO!</strong> @ViewBag.MenssagemErro
+                    </div>
+                }
                 <form action="/Cardapio/CadastrarC" method="post">
                     <!--Escreve nome do cardápio-->
                     <p style="color:white;">Nome do Cardapio: </p>
@@ -210,8 +222,6 @@
                     <br />                   
                 </div>
         </div>
-        <!-- //ResponsiveTabs js -->
-    </div>
     <div class="footer w3ls">
         <div class="container">
             <div class="footer-main">

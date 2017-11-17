@@ -35,9 +35,10 @@ namespace LifeMore.Controllers
                 ViewBag.Tel = p.Telefone;
                 ViewBag.Idade = p.Idade;
 
+
+
                 return View();
             }
-                
             return View();
         }
         public ActionResult Editar_Perfil()
@@ -88,22 +89,23 @@ namespace LifeMore.Controllers
                         Bitmap arquivoConvertido = img.ResizeImage(postedFile.InputStream, 100, 100);
                         string nomeArquivoUpload = "imagemPerfil" + ID + ".jpg";
                         postedFile.SaveAs(HttpRuntime.AppDomainAppPath + "\\images\\img_users\\" + nomeArquivoUpload);
-                        postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images\img_users" + nomeArquivoUpload);
+                       // postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images\img_users" + nomeArquivoUpload);
 
+                        postedFile.SaveAs(@"C:\Users\Mesquini\Source\LifeMore\LifeMore\LifeMore\images\img_users" + nomeArquivoUpload);
                         novoUser.ImagemPerfil = nomeArquivoUpload;
                     }
                     else
-                     postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
-                  
+                     //postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
 
+                    postedFile.SaveAs(@"C:\Users\Mesquini\Source\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
                 }
 
                 if (novoUser.EditarPerfil())
                     {
                         ViewBag.Mensagem = "Perfil Atualizado com sucesso!";
                         Response.Redirect("/Perfil/IndexPerfil");
-                    Session["Paciente"] = novoUser;
-                    ViewBag.Paciente = (Paciente)Session["Paciente"];
+                        Session["Paciente"] = novoUser;
+                        ViewBag.Paciente = (Paciente)Session["Paciente"];
                     }
                     else
                     {
@@ -136,29 +138,29 @@ namespace LifeMore.Controllers
 
             return RedirectToAction("Listar", "Adm");
         }
-        public ActionResult Cardapio()
+        public ActionResult Cardapio(string CPF)
         {
             if (Session["Paciente"] == null)
             {
                 Response.Redirect("/Home/Index", false);
             }
-
             ViewBag.Logado = Session["Paciente"];
             Paciente p = (Paciente)Session["Paciente"];
             ViewBag.Paciente = (Paciente)Session["Paciente"];
 
-
+            CPF = p.CPF;
+            //VERIFICA SE EXISTE ALGUM CPF CADASTRADO EM ALGUM CARDAPIO
             Cardapio c = new Cardapio();
-            if (!c.VerificaCPFCardapio(p.CPF))
+            if (c.VerificaCPFCardapio(CPF))
             {
-                return RedirectToAction("About", "Home");
-            }
-            else
-            {
-                return RedirectToAction("Index","Home");
-            }
+                c.BuscarDados(CPF);
 
-                
+                ViewBag.Cardapio = c;
+            }else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return View();
         }
     }
 }
