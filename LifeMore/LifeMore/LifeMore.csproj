@@ -280,6 +280,9 @@
     <Content Include="Views\Nutricionista\Perfil.cshtml" />
     <Content Include="Views\Nutricionista\EditarPerfil.cshtml" />
     <Content Include="Views\Perfil\Cardapio.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Cardapio\CardapioS.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
