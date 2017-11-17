@@ -10,6 +10,7 @@ namespace LifeMore.Models
 {
     public class Paciente
     {
+        //VARIAVEIS
         public Int32 Cod { get; set; }
         public String Nome { get; set; }
         public String Email { get; set; }
@@ -89,6 +90,7 @@ namespace LifeMore.Models
 
             Conexao.Close();
         }
+        //METODO PARA VERIFICAR SE O CPF JA EXISTE
         public Boolean VerificaCPF(String CPF)
         {
             SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
@@ -111,6 +113,7 @@ namespace LifeMore.Models
 
             return true;
         }
+        //METODO PARA CRIAR UM NOVO USUARIO
         public Boolean Novo()
         {
             SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
@@ -125,7 +128,6 @@ namespace LifeMore.Models
             Comando.Parameters.AddWithValue("@Nome", this.Nome);
             Comando.Parameters.AddWithValue("@Endereco", this.Endereco);
             Comando.Parameters.AddWithValue("@Foto", "imagemPadrao.jpeg");
-            //Comando.Parameters.AddWithValue("@Foto", this.ImagemPerfil);
             Comando.Parameters.AddWithValue("@Altura", this.Altura);
             Comando.Parameters.AddWithValue("@Objetivo", this.Objetivo);
             Comando.Parameters.AddWithValue("@Peso", this.Peso);
@@ -141,6 +143,7 @@ namespace LifeMore.Models
             return Resultado > 0 ? true : false;
 
         }
+        //METODO PARA EDITAR O PERFIL DE UM USUARIO
         public Boolean EditarPerfil()
         {
             SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
@@ -168,6 +171,7 @@ namespace LifeMore.Models
 
             return Resultado > 0 ? true : false;
         }
+        //METODO PARA BUSCAR INFORMAÇOES DO PACIENTE
         public Boolean BuscarDados(Int32 ID)
         {
             SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
@@ -203,6 +207,7 @@ namespace LifeMore.Models
             Conexao.Close();
             return resultado;
         }
+        //METODO PARA LISTAR OS PACIENTES
         public static List<Paciente> ListarP()
         {
             SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
@@ -238,6 +243,7 @@ namespace LifeMore.Models
 
             return Pacientes;
         }
+        //METODO PARA AUTENTICAR UM USUARIO COM O CPF E SENHA
         public static Boolean Autenticar(String CPF, String Senha)
         {
             SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
@@ -262,6 +268,7 @@ namespace LifeMore.Models
 
             return true;
         }
+        //METODO PARA APAGAR UM USUARIO
         public Boolean Apagar()
         {
             SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);

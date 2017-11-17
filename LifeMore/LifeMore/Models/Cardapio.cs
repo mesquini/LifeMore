@@ -11,15 +11,15 @@ namespace LifeMore.Models
     {
         
         public Int32 Cod_Cardapio { get; set; }
-        public String Nome { get; set; }
         public String Cod_Cliente { get; set; }
         public String Cod_Nutri { get; set; }
         public Int32 Cod_Alimento { get; set; }
-        public Int32 Qtd { get; set; }
+        public String Nome { get; set; }
         public String Observacao { get; set; }
         public String NomeCardapio { get; set; }
         public String NomePaciente { get;  set; }
         public String NomeNutri { get;  set; }
+        public Int32 Qtd { get; set; }
 
         public Cardapio() { }
 
@@ -205,6 +205,49 @@ namespace LifeMore.Models
 
             Conexao.Close();
             return Cod_Cardapio;
+        }
+        //METODO PARA BUSCAR INFORMAÇOES DO CARDAPIO
+        public Boolean BuscarDados(String CPF)
+        {
+            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
+            Conexao.Open();
+
+            SqlCommand Comando = new SqlCommand();
+            Comando.Connection = Conexao;
+            Comando.CommandText = "Select Cardapio.Cod_Cardapio, Cardapio.Nome AS NomeCardapio, Alimento.Nome AS Alimento, Observacao, Qnt, Nutricionista.Nome AS NomeNutri" +
+
+    " from CardapioAlimento, Cardapio, Alimento, Nutricionista"+
+
+    " where Cardapio.Cod_Cardapio = CardapioAlimento.Cod_Cardapio"+
+
+    " and CardapioAlimento.Cod_Alimento = Alimento.Cod_Alimento"+
+
+    " and Cardapio.Cod_Nutri = Nutricionista.CPF_Nutri"+
+
+    " and Cod_Cliente = @ID "+
+
+    " and Cardapio.Cod_Cardapio = (Select Max(cod_cardapio) from cardapio where Cod_Cliente = @ID)";
+
+            Comando.Parameters.AddWithValue("@ID", CPF);
+
+            SqlDataReader Leitor = Comando.ExecuteReader();
+
+            Boolean resultado = Leitor.HasRows;
+
+            Leitor.Read();
+
+            this.Cod_Cardapio = (Int32)Leitor["Cod_Cardapio"];
+
+            Cardapio cardapios = new Cardapio((Int32)Leitor["Cod_Cardapio"]);
+
+            this.Nome = (String)Leitor["Alimento"];
+            this.Observacao = (String)Leitor["Observacao"];
+            this.NomeCardapio = (String)Leitor["NomeCardapio"];
+            this.Qtd = (Int32)Leitor["Qnt"];
+            this.NomeNutri = (String)Leitor["NomeNutri"];
+
+            Conexao.Close();
+            return resultado;
         }
     }
 }
