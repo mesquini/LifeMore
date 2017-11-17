@@ -21,13 +21,12 @@
          addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
         function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!--// Meta tag Keywords -->
-    <!-- css files -->
+    <!-- css(s) -->
     <link rel="stylesheet" href="~/css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
     <link rel="stylesheet" href="~/css/style.css" type="text/css" media="all" /> <!-- Style-CSS -->
     <link rel="stylesheet" href="~/css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
     <link rel="stylesheet" href="~/css/jquery-ui.css" /> <!-- Date-script-CSS -->
     <link href="~/css/wickedpicker.css" rel="stylesheet" type='text/css' media="all" /> <!-- Time-script-CSS -->
-    <!-- //css files -->
     <!-- online-fonts -->
     <link href="//fonts.googleapis.com/css?family=Convergence" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=ABeeZee:400,400i" rel="stylesheet">
@@ -40,7 +39,6 @@
     <script type="text/javascript" src="~/js/bootstrap.js"></script> <!-- Necessary-JavaScript-File-For-Bootstrap -->
     <!-- //js -->
     <!-- Baneer-js -->
-
     <script src="~/js/responsiveslides.min.js"></script>
     <script>
         // You can also use "$(window).load(function() {"
@@ -101,7 +99,7 @@
                             </button>
                         </div>
 
-                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <!-- Menu do site -->
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="stroke">
                                 <ul class="nav navbar-nav">
@@ -138,7 +136,6 @@
                                 </ul>
                             </nav>
                         </div>
-                        <!-- /.navbar-collapse -->
                     </nav>
                 </div>
                 <div class="col-md-4 logo">
@@ -151,15 +148,15 @@
                     <div class="col-md-4 ph-agile">
                         <p><i class="fa fa-phone" aria-hidden="true"></i><span style="text-shadow: 2px 1px 0px #000000">+55 19 9 9865 8943</span></p>
                     </div>
+                <!--Título do site-->
                     <div class="clearfix"> </div>
-
                     @if (ViewBag.Logado == null)
                     {
                         <h2 style="text-shadow: 3px 2px 0px #000000">Seja Bem-Vindo ao site! </h2>
 
 
                     }
-
+                <!--Coloca o título do site e nome do usuário-->
                     @if (ViewBag.Logado != null || ViewBag.LogadoA != null)
                     {
 
@@ -203,9 +200,8 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="clearfix"> </div>
-
-                        <!-- //banner-text -->
+                        <div class="clearfix">
+                        </div>
                     </div>
                 </div>
             <div class="app-w3">
