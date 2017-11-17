@@ -19,6 +19,9 @@ namespace LifeMore.Models
         public String NomeCardapio { get; set; }
         public String NomePaciente { get;  set; }
         public String NomeNutri { get;  set; }
+        public String Peso { get; set; }
+        public Double Caloria { get; set; }
+        public Double Carboidrato { get; set; }
         public Int32 Qtd { get; set; }
 
         public Cardapio() { }
@@ -140,57 +143,6 @@ namespace LifeMore.Models
 
             return true;
         }
-        
-        public Boolean ListarCardapioPaciente()
-        {
-            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
-            Conexao.Open();
-
-            SqlCommand Comando = new SqlCommand();
-            Comando.Connection = Conexao;
-
-            Comando.CommandText = "Select Cardapio.Cod_Cardapio = @Cod_Cardapio, Paciente.Nome AS NomePaciente = @Nome, Cardapio.Nome AS NomeCardapio = @NomeCardapio, Alimento.Nome AS Alimento = @Alimento, Observacao = @Observacao, Qnt = @Qnt, Nutricionista.Nome AS NomeNutri = @NomeNutri " +
-
-                                                                    "from CardapioAlimento, Cardapio, Alimento, Nutricionista, Paciente"+
-
-                                                                   " where Cardapio.Cod_Cardapio = CardapioAlimento.Cod_Cardapio"+
-
-                                                                   " and CardapioAlimento.Cod_Alimento = Alimento.Cod_Alimento"+
-
-                                                                   " and Paciente.CPF_Paciente = Cardapio.Cod_Cliente"+
-
-                                                                   " and Cardapio.Cod_Nutri = Nutricionista.CPF_Nutri; ";
-
-            Comando.Parameters.AddWithValue("@Cod_Cardapio", Cod_Cardapio);
-            Comando.Parameters.AddWithValue("@Alimento", NomePaciente);
-            Comando.Parameters.AddWithValue("@Nome", NomePaciente);
-            Comando.Parameters.AddWithValue("@Observacao", Observacao);
-            Comando.Parameters.AddWithValue("@NomeCardapio", NomeCardapio);
-            Comando.Parameters.AddWithValue("@Qnt", Qtd);
-            Comando.Parameters.AddWithValue("@NomeNutri", NomeNutri);
-
-
-            SqlDataReader Leitor = Comando.ExecuteReader();
-            
-
-            //this.Cod_Cardapio = (Int32)Leitor["Cod_Cardapio"];
-            //this.Nome = (String)Leitor["Nome"];
-            //this.Observacao = (String)Leitor["Observacao"];
-            //this.NomeCardapio = (String)Leitor["NomeCardapio"];
-            //this.Qtd = (Int32)Leitor["Qnt"];
-            //this.Cod_Cliente = (String)Leitor["Cod_Cliente"];
-            //this.Cod_Nutri = (String)Leitor["Cod_Nutri"];
-            
-
-            if (!Leitor.HasRows)
-            {
-                return false;
-            }
-
-            Conexao.Close();
-
-            return true;
-        }
         public static int ultimoCardapio()
         {
             SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
@@ -214,7 +166,7 @@ namespace LifeMore.Models
 
             SqlCommand Comando = new SqlCommand();
             Comando.Connection = Conexao;
-            Comando.CommandText = "Select Cardapio.Cod_Cardapio, Cardapio.Nome AS NomeCardapio, Alimento.Nome AS Alimento, Observacao, Qnt, Nutricionista.Nome AS NomeNutri" +
+            Comando.CommandText = "Select Cardapio.Cod_Cardapio, Cardapio.Nome AS NomeCardapio, Alimento.Nome AS Alimento, Alimento.Peso, Alimento.Caloria, Alimento.Carboidrato, Observacao, Qnt, Nutricionista.Nome AS NomeNutri" +
 
     " from CardapioAlimento, Cardapio, Alimento, Nutricionista"+
 
@@ -245,6 +197,9 @@ namespace LifeMore.Models
             this.NomeCardapio = (String)Leitor["NomeCardapio"];
             this.Qtd = (Int32)Leitor["Qnt"];
             this.NomeNutri = (String)Leitor["NomeNutri"];
+            this.Caloria = (Double)Leitor["Caloria"];
+            this.Peso = (String)Leitor["Peso"];
+            this.Carboidrato = (Double)Leitor["Carboidrato"];
 
             Conexao.Close();
             return resultado;
