@@ -96,11 +96,23 @@
                 </div>
             </div>
         </div>                   
-        <div class="fundo">
+        <div class="fundo" style="height: 1440px;">
             <br />          <br />                        
             <!---Titulo do site-->
               <p style="font-size: 50px;text-align: center;color: white;">Cardápio</p>
             <div class="CadastrarC">
+                @if (ViewBag.Menssagem != null)
+                {
+                    <div class="alert alert-success">
+                        <strong>SUCESSO!</strong> @ViewBag.Menssagem
+                    </div>
+                }
+                @if (ViewBag.MenssagemErro != null)
+                {
+                    <div class="alert alert-danger">
+                        <strong>ERRO!</strong> @ViewBag.MenssagemErro
+                    </div>
+                }
                 <form action="/Cardapio/CadastrarC" method="post">
                     <!--Escreve nome do cardápio-->
                     <p style="color:white;">Nome do Cardapio: </p>
@@ -122,9 +134,7 @@
                             </select>
                             <br />   <br />
                     <!--Adiciona os alimentos,quantidade de alimentos e observação a respeito do alimento-->
-                            <!--Adiciona quantidade-->
                             <p style="float: right;color: white;">Quantidade:</p>
-                            <!--Adiciona alimento-->
                             <p style="color:white; width:200px;">Adicionar Alimento: </p>
                             <select name="alimento1" id="alimento1">
                                 <option>Selecione o alimento...</option>
@@ -134,14 +144,11 @@
                             </select>
                             <input style="text-align:center; width:50px;margin-left: 30px;" maxlength="2" id="Qtd1" name="Qtd1" placeholder="00" type="number" required>
                             <br />          <br />
-                            <!--Adiciona observação-->
-                             <p style="color:white; width:200px;">Adicionar Observação: </p>
+                    <p style="color:white; width:200px;">Adicionar Observação: </p>
                             <textarea data-hook="message-field" name="Informacoes1" type="textarea" style="width: 300px;height: 47px;" id="Informacoes1" required></textarea>
                             <br />  <br />
-                            <!--Adiciona quantidade-->
-                            <p style="float: right;color: white;">Quantidade:</p>
-                            <!--Adiciona alimento-->
-                            <p style="color:white; width:200px;">Adicionar Alimento: </p>
+                    <p style="float: right;color: white;">Quantidade:</p>
+                    <p style="color:white; width:200px;">Adicionar Alimento: </p>
                             <select name="alimento2" id="alimento2">
                                 <option>Selecione o alimento...</option>
                                 @foreach (var A in ViewBag.Alimento)
@@ -151,16 +158,14 @@
                             </select>
                             <input style="width:50px;margin-left: 30px;" maxlength="2" placeholder="00" id="Qtd2" name="Qtd2" type="number">
                             <br />                   <br />
-                            <!--Adiciona observação-->
-                            <p style="color:white; width:200px;">Adicionar Observação: </p>
+                    <p style="color:white; width:200px;">Adicionar Observação: </p>
                             <textarea data-hook="message-field" name="Informacoes2" type="textarea" style="width: 300px;height: 47px;" id="Informacoes2"></textarea>
                             <br />  <br />
-                            <!--Adiciona quantidade-->
-                            <p style="float: right;color: white;">Quantidade:</p>
-                            <!--Adiciona alimento-->
-                            <p style="color:white; width:200px;">Adicionar Alimento: </p>
+
+                    <p style="float: right;color: white;">Quantidade:</p>
+                    <p style="color:white; width:200px;">Adicionar Alimento: </p>
                             <select name="alimento3" id="alimento3">
-                                     <option>Selecione o alimento...</option>
+                                <option>Selecione o alimento...</option>
                                 @foreach (var A in ViewBag.Alimento)
                                 {
                                     <option value="@(A.Cod)">@(A.Nome)</option>
@@ -168,12 +173,12 @@
                             </select>
                             <input style="width:50px;margin-left: 30px;" maxlength="2" placeholder="00" id="Qtd3" name="Qtd3" type="number">
                             <br />          <br />
-                            <!--Adiciona observações-->
-                            <p style="color:white; width:200px;">Adicionar Observação: </p>
+                    <p style="color:white; width:200px;">Adicionar Observação: </p>
                             <textarea data-hook="message-field" name="Informacoes3" type="textarea" style="width: 300px;height: 47px;" id="Informacoes3"></textarea>
                             <br />  <br />
-                            <p style="float: right;color: white;">Quantidade:</p>
-                            <p style="color:white; width:200px;">Adicionar Alimento: </p>   
+
+                    <p style="float: right;color: white;">Quantidade:</p>
+                    <p style="color:white; width:200px;">Adicionar Alimento: </p>
                             <select name="alimento4" id="alimento4">
                                 <option>Selecione o alimento...</option>
                                 @foreach (var A in ViewBag.Alimento)
@@ -183,11 +188,12 @@
                             </select>
                             <input style="width:50px;margin-left: 30px;" maxlength="2" placeholder="00" id="Qtd4" name="Qtd4" type="number">
                             <br />   <br />
-                            <p style="color:white; width:200px;">Adicionar Observação: </p>
+                    <p style="color:white; width:200px;">Adicionar Observação: </p>
                             <textarea data-hook="message-field" name="Informacoes4" type="textarea" style="width: 300px;height: 47px;" id="Informacoes4"></textarea>
                             <br />  <br />
-                            <p style="float: right;color: white;">Quantidade:</p>
-                            <p style="color:white; width:200px;">Adicionar Alimento: </p>
+
+                    <p style="float: right;color: white;">Quantidade:</p>
+                    <p style="color:white; width:200px;">Adicionar Alimento: </p>
                             <select name="alimento5" id="alimento5">
                                 <option>Selecione o alimento...</option>
                                 @foreach (var A in ViewBag.Alimento)
@@ -197,27 +203,25 @@
                             </select>
                             <input style="width:50px;margin-left: 30px;" maxlength="2" placeholder="00" id="Qtd5" name="Qtd5" type="number">
                             <br />  <br />
-                              <!--Observações do cardápio-->
-                            <p style="color:white; width:200px;">Adicionar Observação: </p>
+                    <!--Observações do cardápio-->
+                    <p style="color:white; width:200px;">Adicionar Observação: </p>
                             <textarea data-hook="message-field" name="Informacoes5" type="textarea" style="width: 300px;height: 47px;" id="Informacoes5"></textarea>
                             <br />   <br />
-                            <!--Botão limpar (Limpa os campos do cardápio)-->
+                    <!--Botão limpar (Limpa os campos do cardápio)-->
                             <div style="text-align:center;">
-                            <input style="font-size: 1em;color: #336dd4;border: 3px solid #336dd4;outline: none;cursor: pointer; padding: .6em 1em;-webkit-appearance: none;
+                                <input style="font-size: 1em;color: #336dd4;border: 3px solid #336dd4;outline: none;cursor: pointer; padding: .6em 1em;-webkit-appearance: none;
                                        float:left;margin: 2em 0 0;transition: 0.5s all ;-webkit-transition: 0.5s all;-moz-transition: 0.5s all;-o-transition: 0.5s all;
                                        -ms-transition: 0.5s all; margin-top: 1px;"type="reset" value="Limpar" />
                             </div>
-                            <!---Botão Cadastrar Cardápio (Envia as informações p/ a página cardápio)-->
+                    <!---Botão Cadastrar Cardápio (Envia as informações p/ a página cardápio)-->
                             <input style="font-size: 1em; color: #336dd4;border: 3px solid #336dd4; outline: none;cursor: pointer;padding: .6em 1em;-webkit-appearance: none;
                                    float:right;margin: 2em 0 0;transition: 0.5s all ; -webkit-transition: 0.5s all;-moz-transition: 0.5s all;-o-transition: 0.5s all;
                                    -ms-transition: 0.5s all;margin-top: 1px;"type="submit" value="Cadastrar Cardápio" />
-                                    </form>
-                                </div>
-                            <br />                   
-                     </div>
+                        </form>
                     </div>
+                    <br />                   
                 </div>
-    <!--Adiciona observações-->  
+        </div>
     <div class="footer w3ls">
         <div class="container">
             <div class="footer-main">
@@ -231,11 +235,14 @@
                             <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Comer saudávelmente é sinônimo de comer bem.</a></li>
                             <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista de esportes pronto para ajudar no melhor desenvolvimento para seu corpo.</a></li>
                         </ul>
+
                     </div>
+
+
                     <div class="col-md-4 ftr-grid">
                         <div class="logo-fo">
                             <div class="logo-w3l">
-                             <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                                <i class="fa fa-heartbeat" aria-hidden="true"></i>
                             </div>
                             <h2><a href="~/Home/Index">Life More<span>Cuide de você</span></a></h2>
                         </div>
