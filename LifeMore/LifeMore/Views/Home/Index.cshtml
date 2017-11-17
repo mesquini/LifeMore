@@ -144,7 +144,6 @@
                     </div>
                     <h1><a href="~/Home/Index" style="text-shadow: 5px 3px 0px #000000">Life More<span style="text-shadow: 2px 1px 0px #000000">Cuidando de você</span></a></h1>
                 </div>
-
                     <div class="col-md-4 ph-agile">
                         <p><i class="fa fa-phone" aria-hidden="true"></i><span style="text-shadow: 2px 1px 0px #000000">+55 19 9 9865 8943</span></p>
                     </div>
@@ -153,18 +152,14 @@
                     @if (ViewBag.Logado == null)
                     {
                         <h2 style="text-shadow: 3px 2px 0px #000000">Seja Bem-Vindo ao site! </h2>
-
-
                     }
                 <!--Coloca o título do site e nome do usuário-->
                     @if (ViewBag.Logado != null || ViewBag.LogadoA != null)
                     {
-
                         <h2 style="text-shadow: 3px 2px 0px #000000">@ViewBag.Nome Seja Bem-Vindo ao site!</h2>
-
                     }
 
-                    <!-- banner-text -->
+                    <!-- CARROSSEL -->
                     <div class="slider">
                         <div class="callbacks_container">
                             <ul class="rslides callbacks callbacks1" id="slider4">
@@ -217,9 +212,7 @@
             </div>
         </div>
     </div>
-    <!-- //banner -->
-    <!-- main -->
-    <!-- About -->
+    <!-- //CARROSSEL -->
     <div class="tips w3agile">
         <div id="about" class="welcome">
             <!--QUEM SOMOS-->
@@ -252,8 +245,8 @@
                 <div class="clearfix"> </div>
             </div>
         </div>
-        <!-- //About -->
-        <!-- what-we-do -->
+        <!-- //QUEM SOMOS -->
+        <!-- O QUE FAZEMOS -->
             <div class="container">
                 <h3 class="tittle-one" style="text-shadow: 5px 2px 0px #000000">O que fazemos<span></span></h3>
                 <div class="tip-grids">
@@ -282,8 +275,7 @@
                     <div class="clearfix"></div>
                 </div>
             </div>
-        <!-- //what-we-do -->
-        <!-- Services -->
+        <!-- //O QUE FAZEMOS -->
         <!-- Outros servicos -->
         <div class="feature-w3l">
 
@@ -329,7 +321,7 @@
         </div>
         <!-- //Services -->
         <!-- //main -->
-        <!-- Footer -->
+        <!-- RODAPÉ -->
         <div class="footer w3ls">
             <div class="container">
                 <div class="footer-main">
@@ -397,16 +389,14 @@
                 </div>
             </div>
         </div>
-        <!-- //Footer -->
-    <!-- //Calendar -->
-    <!-- Time -->
+        <!-- //RODAPÉ -->
+    <!-- HORA -->
     <script type="text/javascript" src="~/js/wickedpicker.js"></script>
     <script type="text/javascript">
         $('.timepicker').wickedpicker({ twentyFour: false });
     </script>
     <!-- //Time -->
-    <!-- //Baneer-js -->
-    <!-- Calendar -->
+    <!-- CALENDARIO -->
     <script src="~/js/jquery-ui.js"></script>
     <script>
         $(function () {

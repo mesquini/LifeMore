@@ -89,15 +89,15 @@ namespace LifeMore.Controllers
                         Bitmap arquivoConvertido = img.ResizeImage(postedFile.InputStream, 100, 100);
                         string nomeArquivoUpload = "imagemPerfil" + ID + ".jpg";
                         postedFile.SaveAs(HttpRuntime.AppDomainAppPath + "\\images\\img_users\\" + nomeArquivoUpload);
-                       // postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images\img_users" + nomeArquivoUpload);
+                        postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images\img_users" + nomeArquivoUpload);
 
-                        postedFile.SaveAs(@"C:\Users\Mesquini\Source\LifeMore\LifeMore\LifeMore\images\img_users" + nomeArquivoUpload);
+                        //postedFile.SaveAs(@"C:\Users\Mesquini\Source\LifeMore\LifeMore\LifeMore\images\img_users" + nomeArquivoUpload);
                         novoUser.ImagemPerfil = nomeArquivoUpload;
                     }
                     else
-                     //postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
+                        postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
 
-                    postedFile.SaveAs(@"C:\Users\Mesquini\Source\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
+                    //postedFile.SaveAs(@"C:\Users\Mesquini\Source\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
                 }
 
                 if (novoUser.EditarPerfil())
@@ -158,7 +158,7 @@ namespace LifeMore.Controllers
                 ViewBag.Cardapio = c;
             }else
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("CardapioS", "Cardapio");
             }
             return View();
         }
