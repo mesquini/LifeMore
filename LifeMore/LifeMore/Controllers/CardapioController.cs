@@ -106,6 +106,12 @@ namespace LifeMore.Controllers
             //ViewBag.Nutricionista = nt;
             return View();
         }
-        
+        public ActionResult CardapioS()
+        {
+            return View();
+        }
+
+
+
     }
 }
