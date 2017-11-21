@@ -34,7 +34,7 @@ namespace LifeMore.Controllers
                 
                 c.Cod_Cliente = CPF_Paciente;
                 c.Cod_Nutri = Cod_Nutri;
-                c.Nome = NomeCardapio;
+                c.NomeC = NomeCardapio;
 
                 //Cadastro de novo cardápio
                 if (c.Novo())
@@ -108,6 +108,14 @@ namespace LifeMore.Controllers
         }
         public ActionResult CardapioS()
         {
+            if (Session["Paciente"] == null)
+            {
+                Response.Redirect("/Home/Index", false);
+            }
+
+            ViewBag.Logado = Session["Paciente"];
+            Paciente P = (Paciente)Session["Paciente"];
+
             return View();
         }
 
