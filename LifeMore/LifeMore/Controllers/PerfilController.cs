@@ -138,7 +138,7 @@ namespace LifeMore.Controllers
 
             return RedirectToAction("Listar", "Adm");
         }
-        public ActionResult Cardapio(string CPF)
+        public ActionResult CardapioV(string CPF)
         {
             if (Session["Paciente"] == null)
             {
@@ -151,12 +151,17 @@ namespace LifeMore.Controllers
             CPF = p.CPF;
             //VERIFICA SE EXISTE ALGUM CPF CADASTRADO EM ALGUM CARDAPIO
             Cardapio c = new Cardapio();
+            
             if (c.VerificaCPFCardapio(CPF))
             {
-                c.BuscarDados(CPF);
+                
+                List<Cardapio> cs = Cardapio.BuscarDados(CPF);
+                ViewBag.Cardapio = cs;
+                c.ListarCardapio(CPF);
+                ViewBag.Cardapio1 = c;
 
-                ViewBag.Cardapio = c;
-            }else
+            }
+            else
             {
                 return RedirectToAction("CardapioS", "Cardapio");
             }
