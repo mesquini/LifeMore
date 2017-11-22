@@ -280,9 +280,7 @@ namespace LifeMore.Models
             Comando.Parameters.AddWithValue("@ID", this.Cod);
 
             Int32 Resultado = Comando.ExecuteNonQuery();
-
-
-
+            
             return Resultado > 0 ? true : false;
         }
     }
