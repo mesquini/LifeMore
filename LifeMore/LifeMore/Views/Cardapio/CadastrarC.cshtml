@@ -53,7 +53,7 @@
                             </button>
                         </div>
 
-                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <!-- Menu do site -->
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="stroke">
                                 <ul class="nav navbar-nav">
@@ -95,21 +95,35 @@
                     </nav>
                 </div>
             </div>
-        </div>                     
-        <div class="fundo">
-            <br />          <br />                 <p style="font-size: 50px;
-                                                         text-align: center;
-                                                         color: white;">Cardápio</p>
+        </div>                   
+        <div class="fundo" style="height: 1440px;">
+            <br />          <br />                        
+            <!---Titulo do site-->
+              <p style="font-size: 50px;text-align: center;color: white;">Cardápio</p>
             <div class="CadastrarC">
+                @if (ViewBag.Menssagem != null)
+                {
+                    <div class="alert alert-success">
+                        <strong>SUCESSO!</strong> @ViewBag.Menssagem
+                    </div>
+                }
+                @if (ViewBag.MenssagemErro != null)
+                {
+                    <div class="alert alert-danger">
+                        <strong>ERRO!</strong> @ViewBag.MenssagemErro
+                    </div>
+                }
                 <form action="/Cardapio/CadastrarC" method="post">
-
+                    <!--Escreve nome do cardápio-->
                     <p style="color:white;">Nome do Cardapio: </p>
                     <input type="text" name="CardapioC" id="CardapioC" required maxlength="50" />
-                    <p style="color:white;">Nome da nutricionista: </p>
+                    <!--Escreve o nome do nutricionista-->
+                    <p style="color:white;">Nome do nutricionista: </p>
                     <p style="font-size: 20px; 
                               text-shadow: white 1px 1px;
                               color: white;" id="@ViewBag.Nutricionista.Cod">@ViewBag.Nutricionista.Nome</p>
                             <br />
+                    <!--Nome do paciente-->
                             <p style="color:white;">Nome do paciente: </p>
                             <select name="nomeP" id="nomeP">
                                 <option>Selecione o paciente...</option>
@@ -119,10 +133,9 @@
                                 }
                             </select>
                             <br />   <br />
-
+                    <!--Adiciona os alimentos,quantidade de alimentos e observação a respeito do alimento-->
                             <p style="float: right;color: white;">Quantidade:</p>
                             <p style="color:white; width:200px;">Adicionar Alimento: </p>
-
                             <select name="alimento1" id="alimento1">
                                 <option>Selecione o alimento...</option>
                                 @foreach (var A in ViewBag.Alimento)
@@ -134,7 +147,6 @@
                     <p style="color:white; width:200px;">Adicionar Observação: </p>
                             <textarea data-hook="message-field" name="Informacoes1" type="textarea" style="width: 300px;height: 47px;" id="Informacoes1" required></textarea>
                             <br />  <br />
-
                     <p style="float: right;color: white;">Quantidade:</p>
                     <p style="color:white; width:200px;">Adicionar Alimento: </p>
                             <select name="alimento2" id="alimento2">
@@ -191,55 +203,30 @@
                             </select>
                             <input style="width:50px;margin-left: 30px;" maxlength="2" placeholder="00" id="Qtd5" name="Qtd5" type="number">
                             <br />  <br />
+                    <!--Observações do cardápio-->
                     <p style="color:white; width:200px;">Adicionar Observação: </p>
                             <textarea data-hook="message-field" name="Informacoes5" type="textarea" style="width: 300px;height: 47px;" id="Informacoes5"></textarea>
                             <br />   <br />
+                    <!--Botão limpar (Limpa os campos do cardápio)-->
                             <div style="text-align:center;">
-                                <input style="font-size: 1em;
-    color: #336dd4;
-    border: 3px solid #336dd4;
-    outline: none;
-    cursor: pointer;
-    padding: .6em 1em;          
-    -webkit-appearance: none;
-    float:left;
-	margin: 2em 0 0;
-    transition: 0.5s all ;
-    -webkit-transition: 0.5s all;
-    -moz-transition: 0.5s all;
-    -o-transition: 0.5s all;
-    -ms-transition: 0.5s all;
-    margin-top: 1px;"
-                                       type="reset" value="Limpar" />
+                                <input style="font-size: 1em;color: #336dd4;border: 3px solid #336dd4;outline: none;cursor: pointer; padding: .6em 1em;-webkit-appearance: none;
+                                       float:left;margin: 2em 0 0;transition: 0.5s all ;-webkit-transition: 0.5s all;-moz-transition: 0.5s all;-o-transition: 0.5s all;
+                                       -ms-transition: 0.5s all; margin-top: 1px;"type="reset" value="Limpar" />
                             </div>
-                            <input style="font-size: 1em;
-    color: #336dd4;
-    border: 3px solid #336dd4;
-    outline: none;
-    cursor: pointer;
-    padding: .6em 1em;
-    -webkit-appearance: none;
-    float:right;
-	margin: 2em 0 0;
-	    transition: 0.5s all ;
-    -webkit-transition: 0.5s all;
-    -moz-transition: 0.5s all;
-    -o-transition: 0.5s all;
-    -ms-transition: 0.5s all;
-    margin-top: 1px;"
-                                   type="submit" value="Cadastrar Cardápio" />
+                    <!---Botão Cadastrar Cardápio (Envia as informações p/ a página cardápio)-->
+                            <input style="font-size: 1em; color: #336dd4;border: 3px solid #336dd4; outline: none;cursor: pointer;padding: .6em 1em;-webkit-appearance: none;
+                                   float:right;margin: 2em 0 0;transition: 0.5s all ; -webkit-transition: 0.5s all;-moz-transition: 0.5s all;-o-transition: 0.5s all;
+                                   -ms-transition: 0.5s all;margin-top: 1px;"type="submit" value="Cadastrar Cardápio" />
                         </form>
                     </div>
-                    <br />
-                    
+                    <br />                   
                 </div>
         </div>
-        <!-- //ResponsiveTabs js -->
-    </div>
     <div class="footer w3ls">
         <div class="container">
             <div class="footer-main">
                 <div class="footer-top">
+                    <!--Informações e curiosidades do site-->
                     <div class="col-md-4 services-grids">
                         <h3>Curiosidades</h3>
                         <ul>
@@ -261,11 +248,12 @@
                         </div>
                     </div>
                     <div class="col-md-4 ftr-grid fg2">
-                        <h3>Nossos enderços</h3>
+                        <h3>Nossos endereços</h3>
                         <div class="ftr-address">
                             <div class="local">
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                             </div>
+                            <!--Localização-->
                             <div class="ftr-text">
                                 <p style="text-shadow: 2px 1px 0px #000000">SENAI Zerbini</p>
                             </div>
@@ -275,6 +263,7 @@
                             <div class="local">
                                 <i class="fa fa-phone" aria-hidden="true"></i>
                             </div>
+                            <!--Telefone-->
                             <div class="ftr-text">
                                 <p style="text-shadow: 2px 1px 0px #000000">+55 19 9 9865 8943</p>
                             </div>
@@ -284,6 +273,7 @@
                             <div class="local">
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                             </div>
+                            <!--E-mail-->
                             <div class="ftr-text">
                                 <p style="text-shadow: 2px 1px 0px #000000"><a href="mailto:LifeMore@gmail.com">LifeMore@gmail.com</a></p>
                             </div>
@@ -294,7 +284,7 @@
                 </div>
                 <div class="right-w3l">
                     <ul class="top-links">
-
+                        <!--Redes socias do site-->
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                         <li><a href="#"><i class="fa fa-google-plus"></i></a></li>

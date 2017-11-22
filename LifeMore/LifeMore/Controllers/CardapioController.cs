@@ -90,6 +90,11 @@ namespace LifeMore.Controllers
 
                         c.NovoCardapio();
                     }
+                    ViewBag.Menssagem = "Cardapio cadastrado com sucesso!";
+                }
+                else
+                {
+                    ViewBag.MenssagemErro = "Erro ao cadastrar o cardapio, tente novamente!";
                 }
             }
 
@@ -101,6 +106,12 @@ namespace LifeMore.Controllers
             //ViewBag.Nutricionista = nt;
             return View();
         }
-        
+        public ActionResult CardapioS()
+        {
+            return View();
+        }
+
+
+
     }
 }

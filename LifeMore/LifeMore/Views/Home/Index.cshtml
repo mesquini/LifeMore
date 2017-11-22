@@ -21,13 +21,12 @@
          addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
         function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!--// Meta tag Keywords -->
-    <!-- css files -->
+    <!-- css(s) -->
     <link rel="stylesheet" href="~/css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
     <link rel="stylesheet" href="~/css/style.css" type="text/css" media="all" /> <!-- Style-CSS -->
     <link rel="stylesheet" href="~/css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
     <link rel="stylesheet" href="~/css/jquery-ui.css" /> <!-- Date-script-CSS -->
     <link href="~/css/wickedpicker.css" rel="stylesheet" type='text/css' media="all" /> <!-- Time-script-CSS -->
-    <!-- //css files -->
     <!-- online-fonts -->
     <link href="//fonts.googleapis.com/css?family=Convergence" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=ABeeZee:400,400i" rel="stylesheet">
@@ -40,7 +39,6 @@
     <script type="text/javascript" src="~/js/bootstrap.js"></script> <!-- Necessary-JavaScript-File-For-Bootstrap -->
     <!-- //js -->
     <!-- Baneer-js -->
-
     <script src="~/js/responsiveslides.min.js"></script>
     <script>
         // You can also use "$(window).load(function() {"
@@ -101,7 +99,7 @@
                             </button>
                         </div>
 
-                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <!-- Menu do site -->
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="stroke">
                                 <ul class="nav navbar-nav">
@@ -114,7 +112,7 @@
                                     {
                                        
                                        <li><a href="~/Perfil/IndexPerfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
-                                       <li><a href="#" style="text-shadow: 2px 1px 0px #000000">Cardápio</a></li>
+                                       <li><a href="~/Perfil/Cardapio" style="text-shadow: 2px 1px 0px #000000">Cardápio</a></li>
                                     }
                                     @if (ViewBag.LogadoA != null)
                                     {
@@ -138,7 +136,6 @@
                                 </ul>
                             </nav>
                         </div>
-                        <!-- /.navbar-collapse -->
                     </nav>
                 </div>
                 <div class="col-md-4 logo">
@@ -147,27 +144,22 @@
                     </div>
                     <h1><a href="~/Home/Index" style="text-shadow: 5px 3px 0px #000000">Life More<span style="text-shadow: 2px 1px 0px #000000">Cuidando de você</span></a></h1>
                 </div>
-
                     <div class="col-md-4 ph-agile">
                         <p><i class="fa fa-phone" aria-hidden="true"></i><span style="text-shadow: 2px 1px 0px #000000">+55 19 9 9865 8943</span></p>
                     </div>
+                <!--Título do site-->
                     <div class="clearfix"> </div>
-
                     @if (ViewBag.Logado == null)
                     {
                         <h2 style="text-shadow: 3px 2px 0px #000000">Seja Bem-Vindo ao site! </h2>
-
-
                     }
-
+                <!--Coloca o título do site e nome do usuário-->
                     @if (ViewBag.Logado != null || ViewBag.LogadoA != null)
                     {
-
                         <h2 style="text-shadow: 3px 2px 0px #000000">@ViewBag.Nome Seja Bem-Vindo ao site!</h2>
-
                     }
 
-                    <!-- banner-text -->
+                    <!-- CARROSSEL -->
                     <div class="slider">
                         <div class="callbacks_container">
                             <ul class="rslides callbacks callbacks1" id="slider4">
@@ -203,9 +195,8 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="clearfix"> </div>
-
-                        <!-- //banner-text -->
+                        <div class="clearfix">
+                        </div>
                     </div>
                 </div>
             <div class="app-w3">
@@ -221,9 +212,7 @@
             </div>
         </div>
     </div>
-    <!-- //banner -->
-    <!-- main -->
-    <!-- About -->
+    <!-- //CARROSSEL -->
     <div class="tips w3agile">
         <div id="about" class="welcome">
             <!--QUEM SOMOS-->
@@ -256,8 +245,8 @@
                 <div class="clearfix"> </div>
             </div>
         </div>
-        <!-- //About -->
-        <!-- what-we-do -->
+        <!-- //QUEM SOMOS -->
+        <!-- O QUE FAZEMOS -->
             <div class="container">
                 <h3 class="tittle-one" style="text-shadow: 5px 2px 0px #000000">O que fazemos<span></span></h3>
                 <div class="tip-grids">
@@ -286,8 +275,7 @@
                     <div class="clearfix"></div>
                 </div>
             </div>
-        <!-- //what-we-do -->
-        <!-- Services -->
+        <!-- //O QUE FAZEMOS -->
         <!-- Outros servicos -->
         <div class="feature-w3l">
 
@@ -333,7 +321,7 @@
         </div>
         <!-- //Services -->
         <!-- //main -->
-        <!-- Footer -->
+        <!-- RODAPÉ -->
         <div class="footer w3ls">
             <div class="container">
                 <div class="footer-main">
@@ -356,7 +344,7 @@
                             </div>
                         </div>
                         <div class="col-md-4 ftr-grid fg2">
-                            <h3>Nossos enderços</h3>
+                            <h3>Nossos endereços</h3>
                             <div class="ftr-address">
                                 <div class="local">
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -401,16 +389,14 @@
                 </div>
             </div>
         </div>
-        <!-- //Footer -->
-    <!-- //Calendar -->
-    <!-- Time -->
+        <!-- //RODAPÉ -->
+    <!-- HORA -->
     <script type="text/javascript" src="~/js/wickedpicker.js"></script>
     <script type="text/javascript">
         $('.timepicker').wickedpicker({ twentyFour: false });
     </script>
     <!-- //Time -->
-    <!-- //Baneer-js -->
-    <!-- Calendar -->
+    <!-- CALENDARIO -->
     <script src="~/js/jquery-ui.js"></script>
     <script>
         $(function () {

@@ -12,6 +12,10 @@ html {
 body {
   margin: 0;
 }
+.Informacoescardap{
+    color: white;
+    margin-bottom: 100px;
+}
 article,
 aside,
 details,
@@ -1101,7 +1105,7 @@ select{
    background-color: rgba(3, 4, 4, 0.6);
 width: 600px;
 margin-left: 650px;
-height: 1310px;
+height: 1400px;
 }
 
 .mostrar{
@@ -1629,7 +1633,7 @@ pre code {
 }
 @media (min-width: 1200px) {
   .container {
-    width: 1170px;
+    width: 1470px;
   }
 }
 .container-fluid {

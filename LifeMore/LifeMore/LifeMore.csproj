@@ -131,6 +131,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="images\c-arrows.png" />
+    <Content Include="images\Cardapio\tracobranco.png" />
     <Content Include="images\close.png" />
     <Content Include="images\Consulta\Aconselhamento.jpg" />
     <Content Include="images\Consulta\botaovoltar.png" />
@@ -149,7 +150,6 @@
     <Content Include="images\Dicas\gorduras.jpg" />
     <Content Include="images\Dicas\torta_frango.jpg" />
     <Content Include="images\img_users\imagemPadrao.jpeg" />
-    <Content Include="images\img_users\imagemPerfil1004.jpg" />
     <Content Include="images\prev.png" />
     <Content Include="images\Time\BarbaraVerdadeira.jpg" />
     <Content Include="images\Papeis_Parede\bg1.jpg" />
@@ -163,7 +163,6 @@
     <Content Include="images\Quem_somos-Index\Healthcare.jpg" />
     <Content Include="images\Quem_somos-Index\IDOSARUGAS.jpg" />
     <Content Include="images\Quem_somos-Index\Idososcomendofrutas.jpg" />
-    <Content Include="images\Entrar\imagemPadrao.jpeg" />
     <Content Include="images\Quem_somos-Index\JovemNutricionista.jpeg" />
     <Content Include="images\Quem_somos-Index\Medicocomputer.jpg" />
     <Content Include="images\Time\Mesquini.jpg" />
@@ -280,6 +279,10 @@
     <Content Include="Views\Nutricionista\VerN.cshtml" />
     <Content Include="Views\Nutricionista\Perfil.cshtml" />
     <Content Include="Views\Nutricionista\EditarPerfil.cshtml" />
+    <Content Include="Views\Perfil\Cardapio.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Cardapio\CardapioS.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -301,7 +304,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>41130</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
