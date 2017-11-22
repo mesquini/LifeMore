@@ -8,13 +8,13 @@ function VoltarConsulta() {
     window.location = "../Consulta/IndexConsulta";
 }
 function feedback() {
-    window.location = "../Home/Single";
+    window.location = "../Home/Feedback";
 }
 function CadastraC() {
     window.location = "../Cardapio/CadastrarC";
 }
 function Consulta() {
-    window.location = "../Home/Single";
+    window.location = "../Home/Feedback";
 }
 function EditaPerfilNutri() {
     window.location = "../Nutricionista/EditarPerfil";
