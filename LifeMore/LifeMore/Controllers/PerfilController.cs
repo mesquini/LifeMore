@@ -10,7 +10,7 @@ namespace LifeMore.Controllers
 {
     public class PerfilController : Controller
     {
-        // GET: Perfil
+        //METODO PARA EXIBIR PERFIL
         public ActionResult IndexPerfil()
         {
 
@@ -41,6 +41,7 @@ namespace LifeMore.Controllers
             }
             return View();
         }
+        //METODO PARA DAR UPDATE NO PERFIL
         public ActionResult Editar_Perfil()
         {
             if (Session["Paciente"] == null)
@@ -66,16 +67,17 @@ namespace LifeMore.Controllers
 
                 Paciente novoUser = new Paciente();
 
-                     novoUser = (Paciente)Session["Paciente"];
-                      novoUser.Email = Email;
+                    novoUser = (Paciente)Session["Paciente"];
+                    novoUser.Email = Email;
                     novoUser.Endereco = Endereco;
                     novoUser.Peso = Peso;
                     novoUser.Altura = Altura;
                     novoUser.Telefone = Tel;
                     novoUser.Idade = Idade;
                     novoUser.Objetivo = Objetivo;
-                    int ID = novoUser.Cod;
 
+                    int ID = novoUser.Cod;
+                //METODO PARA SALVAR A IMAGEM DO PERFIL NO PC OU EM UM SERVIDOR
                 foreach (string fileName in Request.Files)
                 {
                     HttpPostedFileBase postedFile = Request.Files[fileName];
@@ -146,14 +148,15 @@ namespace LifeMore.Controllers
                     }
                 }
         }
-            //CASO FALHE EXIBIRA ESSA MENSAGEM
+            //CASO ELE NAO TENHA CADASTRO EM ALGUM CARDAPIO ELE É APAGADO DIRETO
             else
             {
-                ViewBag.Error = "Não é possivel deletar esse Usuario!";
+                P.Apagar();
             }
                 
             return RedirectToAction("Listar", "Adm");
         }
+        //METODO PARA LISTAR CARDAPIO DO PACIENTE
         public ActionResult CardapioV(string CPF)
         {
             if (Session["Paciente"] == null)

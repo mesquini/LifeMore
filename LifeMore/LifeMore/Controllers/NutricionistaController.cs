@@ -130,6 +130,7 @@ namespace LifeMore.Controllers
                 novoUser.LocalTrabalho = Trab;
                 novoUser.Telefone = Tel;
                 novoUser.Idade = Idade;
+
                 int ID = novoUser.Cod;
 
                 foreach (string fileName in Request.Files)
