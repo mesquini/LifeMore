@@ -12,8 +12,27 @@ namespace LifeMore.Controllers
         // GET: MarcarConsulta
         public ActionResult MarcarConsulta()
         {
+            if (Request.HttpMethod == "POST")
+            {
+                //PEGAR OS VALORES DIGITADOS 
+                Int32 NomeNutri = Int32.Parse(Request.Form["NomeN"]);
+                String Nome = Request.Form["Nome"];
+                String Email = Request.Form["Email"];
+                String Telefone = Request.Form["Tel"];
+                String Dia = Request.Form["datepicker"];
+                String Hora = Request.Form["timepicker"];
+                String Comentario = Request.Form["mensagem"];
+                String precoConsulta = Request.Form["precoConsulta"];
+                String horaConsulta = Request.Form["horaConsulta"];
+                String tipoConsulta = Request.Form["tipoConsulta"];
 
-            if (Session["Adm"] != null)
+
+                Consulta NovaConsulta = new Consulta();
+                //ATRIBUILOS NA VARIAVEL
+
+                
+            }
+                if (Session["Adm"] != null)
             {
 
                 ViewBag.LogadoA = Session["Adm"];

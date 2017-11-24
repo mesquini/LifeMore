@@ -137,47 +137,67 @@
             </div>
         </div>
     </div>
-    
-    <img  style="width: 100px; height: 100px; margin-left: 50px; margin-top: 10px; cursor: pointer" src="~/images/Consulta/botaovoltar.png" onclick="VoltarConsulta()"/>
+
+    <div class="tips w3agile">
+    <img  style="height: 100px; margin-right: 1800px; cursor: pointer" src="~/images/Consulta/botaovoltar.png" onclick="VoltarConsulta()"/>
+        <!-- FORM PARA CADASTRAR CONSULTA-->
     <form action="#" method="post">
-        <div style="text-shadow: 2px 1px 0px #000000" class="Tituloconsulta" >
+        <div style="text-shadow: 2px 1px 0px #000000;" class="Tituloconsulta" >
             Informações do paciente
         </div>
-        <div style="text-shadow: 2px 1px 0px #000000" class="nome">
+        <!--NOME DA NUTRICIONISTA-->
+        <div style="text-shadow: 2px 1px 0px #000000; margin-right: 800px;" class="nome">
             <p style="color:white;">*Nome do Nutricionista: </p>
-            <select name="nomeN" id="nomeN" style="color:black; margin-left: 29px;">
+            <select name="NomeN" id="NomeN" style="color:black; margin-left: 29px;">
                 <option style="color:black">Selecione o Nutricionista...</option>
                 @foreach (var N in ViewBag.Nutricionista)
                 {
-                    <option value="@(N.Cod)" style="color:black">@(N.Nome)</option>
+                    <option value="@(N.CPF)" style="color:black">@(N.Nome)</option>
                 }
             </select>
         </div>
-        <div style="text-shadow: 2px 1px 0px #000000" class="nome">
+        <!--NOME DO PACIENTE-->
+        <div style="text-shadow: 2px 1px 0px #000000; margin-right: 800px;" class="nome">
             *Nome Completo
         </div>
-        <input class="nometexto" type="text" id="nomeconsulta" name="nomeconsulta   " required />
-        <div style="text-shadow: 2px 1px 0px #000000" class="email">
+        <input class="nometexto" type="text" id="Nome" name="Nome" style="margin-right: 800px;" required />
+        <!--EMAIL -->
+        <div style="text-shadow: 2px 1px 0px #000000; margin-right: 800px;" class="email">
             *Email
         </div>
-        <input class="emailtexto" id="emailconsulta" name="emailconsulta" required="" style="text-align: left;" type="text">
-        <div style="text-shadow: 2px 1px 0px #000000" class="telefone">
+        <input class="emailtexto" id="Email" name="Email" required="" style="text-align: left;margin-right: 800px;" type="text">
+        <!--TELEFONE-->
+        <div style="text-shadow: 2px 1px 0px #000000;margin-right: 800px;" class="telefone">
             *Telefone
         </div>
-        <input class="telefonetexto" type="text" id="telefone" name="telefone"/>
-        <div class="mensagem">
-            <p style="text-shadow: 2px 1px 0px #000000">Sinta-se a vontade para deixar uma mensagem para o seu médico</p>
-            <textarea data-hook="message-field" id="mensagemconsulta" name="mensagemconsulta" type="textarea" style="color: black;"></textarea>
+        <input class="telefonetexto" type="text" id="Tel" name="Tel" style="margin-right: 800px;"/>
+        <!--DIA-->
+        <div style="text-shadow: 2px 1px 0px #000000;margin-right: 800px;" class="telefone">
+            *Dia
         </div>
+        <input class="telefonetexto" id="datepicker" name="date" type="text" style="margin-right: 800px;" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required>
+        <!--HORA-->
+        <div style="text-shadow: 2px 1px 0px #000000;margin-right: 800px;" class="telefone">
+            *Hora
+        </div>
+        <input type="text" id="timepicker" name="Time" class="timepicker form-control" value="Hrs:Min" style="width:300px;" required>
+        <!--MENSAGEM-->
+        <div class="mensagem">
+            <p style="text-shadow: 2px 1px 0px #000000; margin-left: 100px;">Sinta-se a vontade para deixar uma mensagem para o seu médico</p>
+            <textarea data-hook="message-field" id="mensagem" name="mensagem" type="textarea" style="color: black;margin-left: 70px;"></textarea>
+        </div>
+        <!--INFORMAÇOES DA CONSULTA-->
         <div style="text-shadow: 2px 1px 0px #000000" class="precoconsulta">
             <p id="precoConsulta"></p>
             <p id="horaConsulta"></p>
             <p id="tipoConsulta"></p>
         </div>
-        <button class="botaoinfo">
+        <button class="botaoinfo" style="margin-right: 800px;">
             Enviar Informações
         </button>
     </form>
+        <!--//FORM-->
+        </div>
     <div class="footer w3ls">
         <div class="container">
             <div class="footer-main">
@@ -190,9 +210,7 @@
                             <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Comer saudávelmente é sinônimo de comer bem.</a></li>
                             <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista de esportes pronto para ajudar no melhor desenvolvimento para seu corpo.</a></li>
                         </ul>
-
-                    </div>
-
+                    </div>     
 
                     <div class="col-md-4 ftr-grid">
                         <div class="logo-fo">
@@ -236,7 +254,6 @@
                 </div>
                 <div class="right-w3l">
                     <ul class="top-links">
-
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                         <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -247,9 +264,21 @@
                 </div>
             </div>
         </div>
-
-
     </div>
+
+    <!-- HORA -->
+    <script type="text/javascript" src="~/js/wickedpicker.js"></script>
+    <script type="text/javascript">
+        $('.timepicker').wickedpicker({ twentyFour: false });
+    </script>
+    <!-- //Time -->
+    <!-- CALENDARIO -->
+    <script src="~/js/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker,#datepicker1,#datepicker2,#datepicker3").datepicker();
+        });
+    </script>
 
 
 </body>
