@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Life More Single</title>
+    <title>Life More</title>
 
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -112,7 +112,7 @@
                     <div class="col-md-8 agile-blog-grid-left">
                         <div class="agile-blog-grid">
                             <div class="agile-blog-grid-left-img">
-                                <a href="~/Home/Single"><img src="images/single.jpg" alt="" /></a>
+                                <a href="~/Home/Feedback"><img src="images/single.jpg" alt="" /></a>
                             </div>
                             <div class="blog-left-grids">
                                 <div class="blog-left-left">
@@ -133,15 +133,35 @@
                                 </div>
                                 <div class="clearfix"> </div>
                             </div>
+                           
+                            <div>
+                                @foreach (var f in ViewBag.Feedback)
+                                {
+                                @f.Nome
+                                @f.Email
+                                @f.Mensagem
 
+                                }
+
+
+                            </div>
+                            
                             <div class="opinion">
+                                @if (ViewBag.MsgErro != null)
+                                {
+                                    <div class="alert alert-danger">
+                                        <strong>ERRO!</strong> @ViewBag.MsgErro
+                                    </div>
+                                }
                                 <h3 style="text-shadow: 2px 1px #000000; font-size:18px; color:white;">Deixe o seu comentário:</h3>
-                                <form action="#" method="post">
-                                    <input type="text" name="Nome" placeholder="Nome Completo" required="" style="color:white">
-                                    <input type="email" name="Email" placeholder="Email" required="" style="color:white">
-                                    <textarea name="mensagem" placeholder="Mensagem" required style="color:white"></textarea>
+
+                                <form action="/Home/FeedbackE" method="post">
+                                    <input type="text" name="Nome" id="Nome" placeholder="Nome Completo" required="" style="color:white">
+                                    <input type="email" name="Email" id="Email" placeholder="Email" required="" style="color:white">
+                                    <textarea name="Mensagem" id="Mensagem" placeholder="Mensagem" required style="color:white"></textarea>
                                     <input style="text-shadow: 2px 1px #000000; font-size:20px; color:white;" type="submit" value="ENVIAR">
                                 </form>
+
                             </div>
                         </div>
                     </div>                   

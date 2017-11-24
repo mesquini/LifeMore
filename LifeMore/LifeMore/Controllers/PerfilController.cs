@@ -117,7 +117,8 @@ namespace LifeMore.Controllers
 
             return View();
         }
-        public ActionResult ApagarP(String ID)
+        //METODO PARA APGAR O PACIENTE
+        public ActionResult ApagarP(Int32 ID)
         {
             if (Session["Paciente"] == null)
             {
@@ -125,17 +126,32 @@ namespace LifeMore.Controllers
             }
 
             Paciente P = new Paciente(Convert.ToInt32(ID));
+            Cardapio C = new Cardapio();
+            
+            //METODO PARA VERIFICAR O CPF NO CARDAPIO
+            if (C.VerificaCPFCardapio(P.CPF)) {
 
-
-            if (P.Apagar())
-            {
-                TempData["Mensagem"] = "Post removido com sucesso!";
-            }
+                //METODO PARA BUSCAR AS INFORMAÇÕES DO CARDAPIO
+                C.ListarCardapio(P.CPF);
+                C = new Cardapio(C.Cod_Cardapio);
+                
+                //METODO PARA APAGAR O CARDAPIOALIMENTO DO PACIENTE
+                if (C.ApagarCA())
+                {
+                    //METODO PARA APAGAR O CARDAPIO DO PACIENTE
+                    if (C.ApagarC(P.CPF))
+                    {
+                        //METODO PARA APAGAR O PACIENTE
+                        P.Apagar();
+                    }
+                }
+        }
+            //CASO FALHE EXIBIRA ESSA MENSAGEM
             else
             {
-                TempData["Mensagem"] = "Não foi possível remover o Post. Verifique os dados e tente novamente";
+                ViewBag.Error = "Não é possivel deletar esse Usuario!";
             }
-
+                
             return RedirectToAction("Listar", "Adm");
         }
         public ActionResult CardapioV(string CPF)
@@ -157,6 +173,7 @@ namespace LifeMore.Controllers
                 
                 List<Cardapio> cs = Cardapio.BuscarDados(CPF);
                 ViewBag.Cardapio = cs;
+
                 c.ListarCardapio(CPF);
                 ViewBag.Cardapio1 = c;
 

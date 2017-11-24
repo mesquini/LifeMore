@@ -142,7 +142,7 @@ namespace LifeMore.Models
             SqlCommand Comando = new SqlCommand();
             Comando.Connection = Conexao;
 
-            Comando.CommandText = "select Paciente.CPF_Paciente from Paciente, Cardapio where Cod_Cliente = @CPF_Paciente";
+            Comando.CommandText = "select Cardapio.Cod_Cliente from Paciente, Cardapio where Cod_Cliente = @CPF_Paciente";
             Comando.Parameters.AddWithValue("@CPF_Paciente", CPF);
 
             SqlDataReader Leitor = Comando.ExecuteReader();
@@ -219,6 +219,36 @@ namespace LifeMore.Models
             Conexao.Close();
 
             return Cardapios;
+        }
+        //METODO PARA APAGAR A TABELA CARDAPIOALIMENTO
+        public Boolean ApagarCA()
+        {
+            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
+            Conexao.Open();
+
+            SqlCommand Comando = new SqlCommand();
+            Comando.Connection = Conexao;
+            Comando.CommandText = "DELETE FROM CardapioAlimento WHERE Cod_Cardapio = @ID;";
+            Comando.Parameters.AddWithValue("@ID", this.Cod_Cardapio);
+
+            Int32 Resultado = Comando.ExecuteNonQuery();
+
+            return Resultado > 0 ? true : false;
+        }
+        //METODO PARA APAGAR O CARDAPIO
+        public Boolean ApagarC(string CPF)
+        {
+            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
+            Conexao.Open();
+
+            SqlCommand Comando = new SqlCommand();
+            Comando.Connection = Conexao;
+            Comando.CommandText = "DELETE FROM Cardapio WHERE Cod_Cliente = @ID;";
+            Comando.Parameters.AddWithValue("@ID", CPF);
+
+            Int32 Resultado = Comando.ExecuteNonQuery();
+
+            return Resultado > 0 ? true : false;
         }
     }
 }
