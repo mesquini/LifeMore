@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Life More Single</title>
+    <title>Life More</title>
 
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,8 +31,27 @@
     <link href="//fonts.googleapis.com/css?family=Convergence" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=ABeeZee:400,400i" rel="stylesheet">
     <!-- //online-fonts -->
+    <link rel="stylesheet" href="~/css/Feedback.css">
+    <script type="text/javascript">
+        function time()
+        {
+            today=new Date();
+            h=today.getHours();
+            m=today.getMinutes();
+            s = today.getSeconds();
+
+            data = new Date();
+            d = data.getDay();
+            m = data.getMonth();
+            a = data.getYear();
+
+            document.getElementById('data').innerHTML = "Data: "+d + "/" + m + "/" + a + " " + h + ":" + m + ":" + s;
+            setTimeout('time()',500);
+        }
+
+    </script>
 </head>
-<body>
+<body onload="time()">
     <div class="Main-agile">
         <!-- banner -->
         <div class="banner-2">
@@ -62,7 +81,7 @@
                                     {
 
                                         <li><a href="~/Perfil/IndexPerfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
-                                        <li><a href="~/Perfil/Cardapio" style="text-shadow: 2px 1px 0px #000000">Cardápio</a></li>
+                                        <li><a href="~/Perfil/CardapioV" style="text-shadow: 2px 1px 0px #000000">Cardápio</a></li>
                                     }
                                     @if (ViewBag.LogadoA != null)
                                     {
@@ -112,7 +131,7 @@
                     <div class="col-md-8 agile-blog-grid-left">
                         <div class="agile-blog-grid">
                             <div class="agile-blog-grid-left-img">
-                                <a href="~/Home/Single"><img src="images/single.jpg" alt="" /></a>
+                                <a href="~/Home/Feedback"><img src="images/single.jpg" alt="" /></a>
                             </div>
                             <div class="blog-left-grids">
                                 <div class="blog-left-left">
@@ -133,15 +152,37 @@
                                 </div>
                                 <div class="clearfix"> </div>
                             </div>
-
+                            <!-- VERIFICA SE TEM ALGUM FEEDBACK -->
+                           @if(ViewBag.Feedback != null) { 
+                            <div class="tips w3agile">
+                                <div class="feedback">
+                                    @foreach (var f in ViewBag.Feedback)
+                                    {
+                                        <strong style="margin-bottom:10px;">Nome: @f.Nome</strong>
+                                        <p style="float:right; margin-bottom:10px; font-size:15px;">Data: @f.Data</p>
+                                        <p style="margin-bottom:10px;">Email: @f.Email</p>
+                                        <p style="margin-bottom:20px;">Comentario: @f.Mensagem</p>
+                                        <hr />
+                                    }
+                                </div>
+                            </div>
+                            }
                             <div class="opinion">
+                                @if (ViewBag.MsgErro != null)
+                                {
+                                    <div class="alert alert-danger">
+                                        <strong>ERRO!</strong> @ViewBag.MsgErro
+                                    </div>
+                                }
                                 <h3 style="text-shadow: 2px 1px #000000; font-size:18px; color:white;">Deixe o seu comentário:</h3>
-                                <form action="#" method="post">
-                                    <input type="text" name="Nome" placeholder="Nome Completo" required="" style="color:white">
-                                    <input type="email" name="Email" placeholder="Email" required="" style="color:white">
-                                    <textarea name="mensagem" placeholder="Mensagem" required style="color:white"></textarea>
+
+                                <form action="/Home/FeedbackE" method="post">
+                                    <input type="text" name="Nome" id="Nome" placeholder="Nome Completo" required="" style="color:white">
+                                    <input type="email" name="Email" id="Email" placeholder="Email" required="" style="color:white">
+                                    <textarea name="Mensagem" id="Mensagem" placeholder="Mensagem" required style="color:white"></textarea>
                                     <input style="text-shadow: 2px 1px #000000; font-size:20px; color:white;" type="submit" value="ENVIAR">
                                 </form>
+
                             </div>
                         </div>
                     </div>                   

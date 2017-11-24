@@ -1,4 +1,6 @@
-﻿
+﻿@{ 
+    Layout = null;  
+}
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -83,9 +85,8 @@
                 <div class="perfil">
 
                     <div class="imagem">
-                        <input type="image" title="Editar Informações" id="edit" src="/images/img_users/@ViewBag.Nutricionista.ImagemPerfil" onmouseover="this.src = '/images/useredit-hover.png'"
-                               onmouseout="this.src = '/images/img_users/@ViewBag.Nutricionista.ImagemPerfil'" class="imgEdit" />
-                        <input type="file" name="Img" id="Img" runat="server" />
+                        <input type="image" id="edit" src="/images/img_users/@ViewBag.Nutricionista.ImagemPerfil"  class="imgEdit" />
+                        <input type="file" name="Imagem" id="img" />
                     </div>
 
                     <div class="dadosPessoais">

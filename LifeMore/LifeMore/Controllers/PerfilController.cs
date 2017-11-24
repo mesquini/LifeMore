@@ -10,7 +10,7 @@ namespace LifeMore.Controllers
 {
     public class PerfilController : Controller
     {
-        // GET: Perfil
+        //METODO PARA EXIBIR PERFIL
         public ActionResult IndexPerfil()
         {
 
@@ -35,11 +35,13 @@ namespace LifeMore.Controllers
                 ViewBag.Tel = p.Telefone;
                 ViewBag.Idade = p.Idade;
 
+
+
                 return View();
             }
-                
             return View();
         }
+        //METODO PARA DAR UPDATE NO PERFIL
         public ActionResult Editar_Perfil()
         {
             if (Session["Paciente"] == null)
@@ -65,16 +67,17 @@ namespace LifeMore.Controllers
 
                 Paciente novoUser = new Paciente();
 
-                     novoUser = (Paciente)Session["Paciente"];
-                      novoUser.Email = Email;
+                    novoUser = (Paciente)Session["Paciente"];
+                    novoUser.Email = Email;
                     novoUser.Endereco = Endereco;
                     novoUser.Peso = Peso;
                     novoUser.Altura = Altura;
                     novoUser.Telefone = Tel;
                     novoUser.Idade = Idade;
                     novoUser.Objetivo = Objetivo;
-                    int ID = novoUser.Cod;
 
+                    int ID = novoUser.Cod;
+                //METODO PARA SALVAR A IMAGEM DO PERFIL NO PC OU EM UM SERVIDOR
                 foreach (string fileName in Request.Files)
                 {
                     HttpPostedFileBase postedFile = Request.Files[fileName];
@@ -90,20 +93,21 @@ namespace LifeMore.Controllers
                         postedFile.SaveAs(HttpRuntime.AppDomainAppPath + "\\images\\img_users\\" + nomeArquivoUpload);
                         postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images\img_users" + nomeArquivoUpload);
 
+                        //postedFile.SaveAs(@"C:\Users\Mesquini\Source\LifeMore\LifeMore\LifeMore\images\img_users" + nomeArquivoUpload);
                         novoUser.ImagemPerfil = nomeArquivoUpload;
                     }
                     else
-                     postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
-                  
+                        postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
 
+                    //postedFile.SaveAs(@"C:\Users\Mesquini\Source\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
                 }
 
                 if (novoUser.EditarPerfil())
                     {
                         ViewBag.Mensagem = "Perfil Atualizado com sucesso!";
                         Response.Redirect("/Perfil/IndexPerfil");
-                    Session["Paciente"] = novoUser;
-                    ViewBag.Paciente = (Paciente)Session["Paciente"];
+                        Session["Paciente"] = novoUser;
+                        ViewBag.Paciente = (Paciente)Session["Paciente"];
                     }
                     else
                     {
@@ -115,7 +119,8 @@ namespace LifeMore.Controllers
 
             return View();
         }
-        public ActionResult ApagarP(String ID)
+        //METODO PARA APGAR O PACIENTE
+        public ActionResult ApagarP(Int32 ID)
         {
             if (Session["Paciente"] == null)
             {
@@ -123,32 +128,63 @@ namespace LifeMore.Controllers
             }
 
             Paciente P = new Paciente(Convert.ToInt32(ID));
+            Cardapio C = new Cardapio();
+            
+            //METODO PARA VERIFICAR O CPF NO CARDAPIO
+            if (C.VerificaCPFCardapio(P.CPF)) {
 
-
-            if (P.Apagar())
-            {
-                TempData["Mensagem"] = "Post removido com sucesso!";
-            }
+                //METODO PARA BUSCAR AS INFORMAÇÕES DO CARDAPIO
+                C.ListarCardapio(P.CPF);
+                C = new Cardapio(C.Cod_Cardapio);
+                
+                //METODO PARA APAGAR O CARDAPIOALIMENTO DO PACIENTE
+                if (C.ApagarCA())
+                {
+                    //METODO PARA APAGAR O CARDAPIO DO PACIENTE
+                    if (C.ApagarC(P.CPF))
+                    {
+                        //METODO PARA APAGAR O PACIENTE
+                        P.Apagar();
+                    }
+                }
+        }
+            //CASO ELE NAO TENHA CADASTRO EM ALGUM CARDAPIO ELE É APAGADO DIRETO
             else
             {
-                TempData["Mensagem"] = "Não foi possível remover o Post. Verifique os dados e tente novamente";
+                P.Apagar();
             }
-
+                
             return RedirectToAction("Listar", "Adm");
         }
-        public ActionResult Cardapio()
+        //METODO PARA LISTAR CARDAPIO DO PACIENTE
+        public ActionResult CardapioV(string CPF)
         {
             if (Session["Paciente"] == null)
             {
                 Response.Redirect("/Home/Index", false);
             }
-
             ViewBag.Logado = Session["Paciente"];
             Paciente p = (Paciente)Session["Paciente"];
             ViewBag.Paciente = (Paciente)Session["Paciente"];
 
+            CPF = p.CPF;
+            //VERIFICA SE EXISTE ALGUM CPF CADASTRADO EM ALGUM CARDAPIO
+            Cardapio c = new Cardapio();
+            
+            if (c.VerificaCPFCardapio(CPF))
+            {
+                
+                List<Cardapio> cs = Cardapio.BuscarDados(CPF);
+                ViewBag.Cardapio = cs;
 
+                c.ListarCardapio(CPF);
+                ViewBag.Cardapio1 = c;
 
+            }
+            else
+            {
+                return RedirectToAction("CardapioS", "Cardapio");
+            }
             return View();
         }
     }

@@ -1,10 +1,11 @@
 ﻿@{
     Layout = null;
 }
+
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 <head>
-    <title>LifeMore</title>
+    <title> Cardapio </title>
 
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,34 +16,19 @@
         function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!--// Meta tag Keywords -->
     <!-- css files -->
-    <link rel="stylesheet" href="~/css/bootstrap.css" type="text/css"> <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="~/css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
     <link rel="stylesheet" href="~/css/style.css" type="text/css" media="all" /> <!-- Style-CSS -->
     <link rel="stylesheet" href="~/css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
-    <link rel="stylesheet" href="~/css/jquery-ui.css" /> <!-- Date-script-CSS -->
-    <link href="~/css/wickedpicker.css" rel="stylesheet" type='text/css' media="all" /> <!-- Time-script-CSS -->
     <!-- //css files -->
     <!-- online-fonts -->
     <link href="//fonts.googleapis.com/css?family=Convergence" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=ABeeZee:400,400i" rel="stylesheet">
     <!-- //online-fonts -->
-
-    <link rel="stylesheet" href="~/css/Login.css">
-    <script src="~/js/AcessarPag.js" type="text/javascript"></script>
-
-    <script src="~/js/jquery.js"></script>
-    <script src="~/js/jquery.mask.js"></script>
 </head>
-<script type="text/javascript">
-    jQuery(function ($) {
-        $("#telefone").mask("(99)9 9999-9999", { required: true });
-        $("#peso").mask("999.999", { required: true});
-        $("#altura").mask("9.99", { required: true });
-    });
-</script>
-<body class="bgEntrar">
+<body>
     <div class="Main-agile">
         <!-- banner -->
-        <div class="bannerEntrar">
+        <div class="banner-2">
             <div class="container">
                 <div class="col-md-4 agile1">
                     <nav class="navbar navbar-default">
@@ -56,28 +42,35 @@
                             </button>
                         </div>
 
-                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <!-- Menu do site -->
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="stroke">
                                 <ul class="nav navbar-nav">
-                                    @if (ViewBag.Logado == null)
+                                    @if (ViewBag.Logado == null && ViewBag.LogadoA == null && ViewBag.LogadoN == null)
                                     {
-
-                                        <li class="entrar"><a href="~/Entrar/Cadastrar" style="text-shadow: 2px 1px 0px #000000">Entrar</a></li>
+                                        <li class="entrar"><a href="~/Entrar/Logar" style="text-shadow: 2px 1px 0px #000000">Entrar</a></li>
 
                                     }
                                     @if (ViewBag.Logado != null)
                                     {
 
-                                        <li class="active"><a href="~/Perfil/IndexPerfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                        <li><a href="~/Perfil/IndexPerfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
                                         <li><a href="~/Perfil/CardapioV" style="text-shadow: 2px 1px 0px #000000">Cardápio</a></li>
+                                    }
+                                    @if (ViewBag.LogadoA != null)
+                                    {
+                                        <li><a href="~/Adm/Listar" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                    }
+                                    @if (ViewBag.LogadoN != null)
+                                    {
+                                        <li><a href="~/Nutricionista/Perfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
                                     }
 
                                     <li><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000">Home</a></li>
                                     <li><a href="~/Home/Dicas" style="text-shadow: 2px 1px 0px #000000">Dicas</a></li>
                                     <li><a href="~/Home/About" style="text-shadow: 2px 1px 0px #000000">Quem somos</a></li>
                                     <li><a href="~/Home/Contato" style="text-shadow: 2px 1px 0px #000000">Fale conosco</a></li>
-                                    @if (ViewBag.Logado != null)
+                                    @if (ViewBag.Logado != null || ViewBag.LogadoA != null || ViewBag.LogadoN != null)
                                     {
 
                                         <li><a href="~/Entrar/Sair" style="text-shadow: 2px 1px 0px #000000">Sair</a></li>
@@ -89,65 +82,30 @@
                         <!-- /.navbar-collapse -->
                     </nav>
                 </div>
+                <!--Logo do site-->
+                <div class="col-md-4 logo">
+                    <div class="logo-w3l">
+                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                    </div>
+                    <h1><a href="~/Home/Index" style="text-shadow: 5px 3px 0px #000000">Life More<span style="text-shadow: 2px 1px 0px #000000">Cuidando de você</span></a></h1>
+                </div>
+                <div class="col-md-4 ph-agile">
+                    <p style="text-shadow: 2px 1px 0px #000000"><i class="fa fa-phone" aria-hidden="true"></i><span style="text-shadow: 2px 1px 0px #000000">+55 19 9 9865 8943</span></p>
+                </div>
+                <div class="clearfix"> </div>
             </div>
         </div>
-
-    </div>
-    <div class="tips w3agile">
-        <div class="textoperfil" style="text-shadow: 5px 2px 0px #000000">Perfil</div>
-
-        @if (ViewBag.Logado != null)
-        {
-            <form action="~/Perfil/Editar_Perfil" method="post" enctype="multipart/form-data">
-                @* perfil *@
-                <div class="perfil">
-
-                    <div class="imagem">
-                        <input type="image" src="/images/img_users/@ViewBag.Paciente.ImagemPerfil" class="imgEdit" />
-                        <input type="file" name="Imagem" id="img"/>
-                    </div>
-
-                    <div class="dadosPessoais">
-                        <p style="text-shadow: 2px 1px 0px #000000">Nome: @ViewBag.Paciente.Nome</p>
-                        <p style="text-shadow: 2px 1px 0px #000000">E-mail: <input type="text" value="@ViewBag.Paciente.Email" class="editPerfil" name="Email" required /></p>
-                        <p style="text-shadow: 2px 1px 0px #000000">CPF: @ViewBag.Paciente.CPF </p>
-                        <p style="text-shadow: 2px 1px 0px #000000">Endereço: <input type="text" value="@ViewBag.Paciente.Endereco" class="editPerfil" name="Endereco" required /></p>
-                        <p style="text-shadow: 2px 1px 0px #000000">Telefone: <input type="text" id="telefone" value="@ViewBag.Paciente.Telefone" class="editTel" name="Tel" required /></p>
-
-                    </div>
-
-                    <div class="dadosSistema">
-                        <p style="text-shadow: 2px 1px 0px #000000">
-                            Objetivo:
-                            <input type="radio" name="objetivo" id="engordar" value="1" /> <label for="engordar" class="objetivo">Engordar</label>
-                            <input type="radio" name="objetivo" id="emagrecer" value="2" checked /> <label for="emagrecer" class="objetivo">Emagrecer</label>
-                        </p>
-                        <p style="text-shadow: 2px 1px 0px #000000">Peso: <input type="text" id="peso" value="@ViewBag.Paciente.Peso" class="editPeso" name="Peso" required />Kg </p>
-                        <p style="text-shadow: 2px 1px 0px #000000">Altura: <input type="text" id="altura" value="@ViewBag.Paciente.Altura" class="editAltura" name="Altura" required />M</p>
-                        <p style="text-shadow: 2px 1px 0px #000000">Idade: <input type="text" value="@ViewBag.Paciente.Idade" class="editIdade" name="Idade" maxlength="2" required /></p>
-                    </div>
-                    <div class="btPerfil">
-                    </div>
-                    <div class="espaco"> </div>
-
-                </div>
-                <div class="btConcluir">
-                    <button type="submit" class="btConcluirCSS">Concluir</button>
-                </div>
-            </form>
-        }
-        @if (ViewBag.Mensagem != null)
-        {
-            <div class="alert alert-danger" style="text-align:center">
-                <strong>ERRO!</strong> @ViewBag.Mensagem
+        <div class="tips w3agile">
+            <div class="ncard">
+                <p style="color: white; font-size: 35px; text-shadow: black 3px 2px;">Você não tem cardápios disponíveis ainda! Consulte o nutricionista para receber.</p>            
             </div>
-        }
         </div>
         <div class="footer w3ls">
             <div class="container">
                 <div class="footer-main">
                     <div class="footer-top">
                         <div class="col-md-4 services-grids">
+                            <!--Informações e curiosidades do site-->
                             <h3>Curiosidades</h3>
                             <ul>
                                 <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Buscando o bem estar da sociedade sempre.</a></li>
@@ -155,16 +113,13 @@
                                 <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Comer saudávelmente é sinônimo de comer bem.</a></li>
                                 <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista de esportes pronto para ajudar no melhor desenvolvimento para seu corpo.</a></li>
                             </ul>
-
                         </div>
-
-
                         <div class="col-md-4 ftr-grid">
                             <div class="logo-fo">
                                 <div class="logo-w3l">
                                     <i class="fa fa-heartbeat" aria-hidden="true"></i>
                                 </div>
-                                <h2><a href="~/Home/Index">Life More<span>Cuide de você</span></a></h2>
+                                <h2><a href="~/Home/Index">Life More<span>Cuidando de você</span></a></h2>
                             </div>
                         </div>
                         <div class="col-md-4 ftr-grid fg2">
@@ -173,6 +128,7 @@
                                 <div class="local">
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                                 </div>
+                                <!--Localização-->
                                 <div class="ftr-text">
                                     <p style="text-shadow: 2px 1px 0px #000000">SENAI Zerbini</p>
                                 </div>
@@ -183,6 +139,7 @@
                                     <i class="fa fa-phone" aria-hidden="true"></i>
                                 </div>
                                 <div class="ftr-text">
+                                    <!--Telefone-->
                                     <p style="text-shadow: 2px 1px 0px #000000">+55 19 9 9865 8943</p>
                                 </div>
                                 <div class="clearfix"> </div>
@@ -192,6 +149,7 @@
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
                                 </div>
                                 <div class="ftr-text">
+                                    <!--E-mail-->
                                     <p style="text-shadow: 2px 1px 0px #000000"><a href="mailto:LifeMore@gmail.com">LifeMore@gmail.com</a></p>
                                 </div>
                                 <div class="clearfix"> </div>
@@ -201,7 +159,7 @@
                     </div>
                     <div class="right-w3l">
                         <ul class="top-links">
-
+                            <!--Redes sociais-->
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                             <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -212,10 +170,43 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
-
-
+        <!-- //Footer -->
+        <!-- js-scripts -->
+        <!-- js -->
+        <script type="text/javascript" src="~/js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="~/js/bootstrap.js"></script> <!-- Necessary-JavaScript-File-For-Bootstrap -->
+        <!-- //js -->
+        <!-- jarallax-js -->
+        <script src="~/js/jarallax.js"></script>
+        <script src="~/js/SmoothScroll.min.js"></script>
+        <script type="text/javascript">
+				/* init Jarallax */
+				$('.jarallax').jarallax({
+					speed: 0.5,
+					imgWidth: 1366,
+					imgHeight: 768
+				})
+        </script>
+        <!-- //jarallax-js -->
+        <!-- for-Testimonials -->
+        <!-- required-js-files-->
+        <link href="~/css/owl.carousel.css" rel="stylesheet">
+        <script src="~/js/owl.carousel.js"></script>
+        <script>
+							    $(document).ready(function() {
+							      $("#owl-demo").owlCarousel({
+							        items : 1,
+							        lazyLoad : true,
+							        autoPlay : true,
+							        navigation : false,
+							        navigationText :  false,
+							        pagination : true,
+							      });
+							    });
+        </script>
+        <!--//required-js-files-->
+        <!-- //for-Testimonials -->
+        <!-- //js-scripts -->
 </body>
 </html>

@@ -15,7 +15,7 @@ namespace LifeMore.Controllers
             
             if (Request.HttpMethod == "POST")
             {
-
+                //PEGAR OS VALORES DIGITADOS 
                 String Nome = Request.Form["nome"];
                 String Senha = Request.Form["senha"];
                 String CPF = Request.Form["cpf"];
@@ -30,10 +30,9 @@ namespace LifeMore.Controllers
                
 
                 Paciente NovoUser = new Paciente();
-
+                //ATRIBUILOS NA VARIAVEL
                 NovoUser.Nome = Nome;
                 NovoUser.Senha = Senha;
-                
                 NovoUser.CPF = CPF;
                 NovoUser.Email = Email;
                 NovoUser.Objetivo = Objetivo;
@@ -42,9 +41,9 @@ namespace LifeMore.Controllers
                 NovoUser.Altura = Altura;
                 NovoUser.Telefone = Tel;
                 NovoUser.Endereco = End;
-                NovoUser.ImagemPerfil = Foto;
 
-                if (NovoUser.VerificaCPF(CPF))
+                //TESTAR SE O CPF PARA VER SE EXISTE
+                if (!NovoUser.VerificaCPF(CPF))
                 {
                     if (NovoUser.Novo())
                     {
@@ -55,6 +54,7 @@ namespace LifeMore.Controllers
                     {
                         ViewBag.Mensagem = "Houve um erro ao criar o Usuário. Verifique os dados e tente novamente.";
                     }
+                   
                 }
                 else
                 {

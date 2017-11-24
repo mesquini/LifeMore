@@ -34,7 +34,7 @@ namespace LifeMore.Controllers
                 
                 c.Cod_Cliente = CPF_Paciente;
                 c.Cod_Nutri = Cod_Nutri;
-                c.Nome = NomeCardapio;
+                c.NomeC = NomeCardapio;
 
                 //Cadastro de novo cardápio
                 if (c.Novo())
@@ -90,6 +90,11 @@ namespace LifeMore.Controllers
 
                         c.NovoCardapio();
                     }
+                    ViewBag.Menssagem = "Cardapio cadastrado com sucesso!";
+                }
+                else
+                {
+                    ViewBag.MenssagemErro = "Erro ao cadastrar o cardapio, tente novamente!";
                 }
             }
 
@@ -101,6 +106,20 @@ namespace LifeMore.Controllers
             //ViewBag.Nutricionista = nt;
             return View();
         }
-        
+        public ActionResult CardapioS()
+        {
+            if (Session["Paciente"] == null)
+            {
+                Response.Redirect("/Home/Index", false);
+            }
+
+            ViewBag.Logado = Session["Paciente"];
+            Paciente P = (Paciente)Session["Paciente"];
+
+            return View();
+        }
+
+
+
     }
 }

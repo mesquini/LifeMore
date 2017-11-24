@@ -147,16 +147,15 @@ namespace LifeMore.Controllers
             }
             return false;
         }
-        public ActionResult Single()
+        public ActionResult Feedback()
         {
+            
+           
+        
             if (Session["Paciente"] != null)
             {
                 ViewBag.Logado = Session["Paciente"];
                 Paciente Paciente = (Paciente)Session["Paciente"];
-                ViewBag.Imagem = Paciente.ImagemPerfil;
-                ViewBag.CPF = Paciente.CPF;
-                ViewBag.Nome = Paciente.Nome;
-                ViewBag.Objetivo = Paciente.Objetivo;
 
             }
             if (Session["Nutricionista"] != null)
@@ -172,11 +171,41 @@ namespace LifeMore.Controllers
                 Adm p = (Adm)Session["Adm"];
                 ViewBag.Nome = p.Nome;
             }
+
+            List<Feedbacks> f = Feedbacks.ListarF();
+            ViewBag.Feedback = f;
+
             return View();
-
-
+            
         }
+        public ActionResult FeedbackE()
+        {
+            if (Request.HttpMethod == "POST")
+            {
+                String Nome = Request.Form["Nome"].ToString();
+                String Email = Request.Form["Email"].ToString();
+                String Mensagem = Request.Form["Mensagem"].ToString();
+                DateTime data = Convert.ToDateTime(Request.Form["Data"]);
 
+                Feedbacks f = new Feedbacks();
+                //ATRIBUILOS NA VARIAVEL
+                f.Nome = Nome;
+                f.Email = Email;
+                f.Mensagem = Mensagem;
+                f.Data = data;
+
+                if (f.Novo())
+                {
+                    return RedirectToAction("Feedback", "Home");
+                }
+                else
+                {
+                    ViewBag.MsgErro = "Não foi possivel fazer o Feedback, tente novamente!";
+                }
+            }
+
+            return View();
+        }
         public ActionResult Dicas()
         {
             if (Session["Paciente"] != null)

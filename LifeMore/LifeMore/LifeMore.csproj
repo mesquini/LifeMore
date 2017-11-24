@@ -119,6 +119,7 @@
   <ItemGroup>
     <Content Include="css\bootstrap.css" />
     <Content Include="css\cm-overlay.css" />
+    <Content Include="css\Feedback.css" />
     <Content Include="css\font-awesome.css" />
     <Content Include="css\jquery-ui.css" />
     <Content Include="css\Login.css" />
@@ -150,7 +151,14 @@
     <Content Include="images\Dicas\gorduras.jpg" />
     <Content Include="images\Dicas\torta_frango.jpg" />
     <Content Include="images\img_users\imagemPadrao.jpeg" />
+    <Content Include="images\img_users\imagemPerfil1.jpg" />
     <Content Include="images\img_users\imagemPerfil1004.jpg" />
+    <Content Include="images\img_users\imagemPerfil1014.jpg" />
+    <Content Include="images\img_users\imagemPerfil1015.jpg" />
+    <Content Include="images\img_users\imagemPerfil1024.jpg" />
+    <Content Include="images\img_users\imagemPerfil2.jpg" />
+    <Content Include="images\img_users\imagemPerfil4.jpg" />
+    <Content Include="images\img_users\imagemPerfil5.jpg" />
     <Content Include="images\prev.png" />
     <Content Include="images\Time\BarbaraVerdadeira.jpg" />
     <Content Include="images\Papeis_Parede\bg1.jpg" />
@@ -231,6 +239,8 @@
     <Compile Include="Models\Alimento.cs" />
     <Compile Include="Models\Cardapio.cs" />
     <Compile Include="Models\Categoria.cs" />
+    <Compile Include="Models\Consulta.cs" />
+    <Compile Include="Models\Feedbacks.cs" />
     <Compile Include="Models\Imagem.cs" />
     <Compile Include="Models\MarcarConsulta.cs" />
     <Compile Include="Models\Nutricionista.cs" />
@@ -258,7 +268,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Views\Home\Contato.cshtml" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Home\Single.cshtml" />
+    <Content Include="Views\Home\Feedback.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Entrar\Cadastrar.cshtml" />
     <Content Include="Views\Consulta\IndexConsulta.cshtml" />
@@ -280,7 +290,10 @@
     <Content Include="Views\Nutricionista\VerN.cshtml" />
     <Content Include="Views\Nutricionista\Perfil.cshtml" />
     <Content Include="Views\Nutricionista\EditarPerfil.cshtml" />
-    <Content Include="Views\Perfil\Cardapio.cshtml" />
+    <Content Include="Views\Perfil\CardapioV.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Cardapio\CardapioS.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

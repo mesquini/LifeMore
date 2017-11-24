@@ -172,6 +172,12 @@
                     <section>
                         <table border="1">
                             <thead>
+                                @if (ViewBag.Error != null)
+                                {
+                                    <div class="alert alert-danger">
+                                        <strong>ERRO!</strong> @ViewBag.Error
+                                    </div>
+                                }
                                 <tr><a href="/Entrar/Cadastrar/">Cadastrar novo Usuário</a></tr>
                                 <tr class="Produto">
                                     <th class="texto">Nome</th>
@@ -214,6 +220,7 @@
                                         <td>@(P.ImagemPerfil)</td>
                                         <td>
                                             <a href="~/Perfil/ApagarP/@(P.Cod)">Apagar/</a>
+                                            <a href="~/Adm/previsualizacaoP/@(P.Cod)">Ver</a>
                                         </td>
                                     </tr>
                                 }
@@ -259,7 +266,7 @@
                                         <td>@(N.Telefone)</td>
                                         <td>@(N.ImagemPerfil)</td>
                                         <td>@(N.LocalTrabalho)</td>
-                                        <td>@(N.Bio)</td>
+                                        <td>@(N.Bio.Substring(0, Math.Min(N.Bio.Length, 45)) + "...")</td>
                                         <td>
                                             <a href="~/Nutricionista/ApagarN/@(N.Cod)">Apagar/</a>
                                             <a href="~/Adm/previsualizacao/@(N.Cod)">Ver</a>
@@ -276,11 +283,11 @@
             <li class="tabs">
                 <input type="button" name="tabs" class="rd_tabs" id="tab3">
                 <label for="tab3" id="label3"> Alimentos </label>
-                <div class="content_tab" id="content_tab3">
-                    <section>
+                <div class="content_tab" id="content_tab3" style="overflow: scroll;" >
+                    <section style="padding-bottom: 20px">
                         <table border="1">
                             <thead>
-                                <tr><a href="/Alimentos/CadastrarA/">Cadastrar uma novo alimento</a></tr>
+                                <tr><a href="~/Alimentos/CadastrarA/">Cadastrar uma novo alimento</a></tr>
                                 <tr class="Produto">
                                     <th class="texto">Nome</th>
                                     <th class="texto">Peso</th>
@@ -303,7 +310,7 @@
                                         <td>@(A.Proteina) g</td>
                                         <td>@(A.Categoria1)</td>
                                         <td>
-                                            <a href="/Alimentos/ApagarA/@(A.Cod)">Apagar</a>
+                                            <a href="~/Alimentos/ApagarA/@(A.Cod)">Apagar</a>
                                         </td>
                                     </tr>
                                 }

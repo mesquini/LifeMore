@@ -76,7 +76,7 @@
                 var inputTime = this.getText(element).replace(':', '').split(' ');
                 var newTime = new Date();
                 newTime.setHours(inputTime[0]);
-                newTime.setMinutes(inputTime[2]);
+                newTime.setMinutes(inputTime[1]);
                 this.setTime(newTime);
                 this.setMeridiem(inputTime[3]);
             }
@@ -298,7 +298,7 @@
             if (targetClass.endsWith('hours')) {
                 this.setHours(eval(this.getHours() + operator + 1));
             } else if (targetClass.endsWith('minutes')) {
-                this.setMinutes(eval(this.getMinutes() + operator + 1));
+                this.setMinutes(eval(this.getMinutes() + operator + 30));
             } else {
                 this.setMeridiem();
             }

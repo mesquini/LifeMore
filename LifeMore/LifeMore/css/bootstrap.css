@@ -1633,7 +1633,7 @@ pre code {
 }
 @media (min-width: 1200px) {
   .container {
-    width: 1170px;
+    width: 1470px;
   }
 }
 .container-fluid {
@@ -2002,7 +2002,7 @@ pre code {
   }
   .col-md-perfil {
     width: 25%;
-    margin-left:120px;
+    margin-left:13%;
   }
     .icon-service {
         width: 25%;

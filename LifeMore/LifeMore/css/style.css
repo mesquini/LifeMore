@@ -65,6 +65,14 @@ margin-left: 750px;
     text-align: center;
     margin-bottom: 20px;
 }
+.botaoinfo:hover{
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: blue;
+    background: black;
+    font-size: 1.1em;
+}
 .titulos{
     text-align: center;
     font-size: 75px;
