@@ -149,6 +149,9 @@ namespace LifeMore.Controllers
         }
         public ActionResult Feedback()
         {
+            
+           
+        
             if (Session["Paciente"] != null)
             {
                 ViewBag.Logado = Session["Paciente"];
@@ -169,7 +172,7 @@ namespace LifeMore.Controllers
                 ViewBag.Nome = p.Nome;
             }
 
-            List<Feedback> f = new List<Feedback>();
+            List<Feedbacks> f = Feedbacks.ListarF();
             ViewBag.Feedback = f;
 
             return View();
@@ -182,13 +185,14 @@ namespace LifeMore.Controllers
                 String Nome = Request.Form["Nome"].ToString();
                 String Email = Request.Form["Email"].ToString();
                 String Mensagem = Request.Form["Mensagem"].ToString();
-                //String Data = Request.Form["Mensagem"].ToString();
+                DateTime data = Convert.ToDateTime(Request.Form["Data"]);
 
-                Feedback f = new Feedback();
+                Feedbacks f = new Feedbacks();
                 //ATRIBUILOS NA VARIAVEL
                 f.Nome = Nome;
                 f.Email = Email;
                 f.Mensagem = Mensagem;
+                f.Data = data;
 
                 if (f.Novo())
                 {

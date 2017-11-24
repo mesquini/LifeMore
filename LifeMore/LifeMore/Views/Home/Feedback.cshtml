@@ -31,8 +31,27 @@
     <link href="//fonts.googleapis.com/css?family=Convergence" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=ABeeZee:400,400i" rel="stylesheet">
     <!-- //online-fonts -->
+    <link rel="stylesheet" href="~/css/Feedback.css">
+    <script type="text/javascript">
+        function time()
+        {
+            today=new Date();
+            h=today.getHours();
+            m=today.getMinutes();
+            s = today.getSeconds();
+
+            data = new Date();
+            d = data.getDay();
+            m = data.getMonth();
+            a = data.getYear();
+
+            document.getElementById('data').innerHTML = "Data: "+d + "/" + m + "/" + a + " " + h + ":" + m + ":" + s;
+            setTimeout('time()',500);
+        }
+
+    </script>
 </head>
-<body>
+<body onload="time()">
     <div class="Main-agile">
         <!-- banner -->
         <div class="banner-2">
@@ -133,19 +152,21 @@
                                 </div>
                                 <div class="clearfix"> </div>
                             </div>
-                           
-                            <div>
-                                @foreach (var f in ViewBag.Feedback)
-                                {
-                                @f.Nome
-                                @f.Email
-                                @f.Mensagem
-
-                                }
-
-
+                            <!-- VERIFICA SE TEM ALGUM FEEDBACK -->
+                           @if(ViewBag.Feedback != null) { 
+                            <div class="tips w3agile">
+                                <div class="feedback">
+                                    @foreach (var f in ViewBag.Feedback)
+                                    {
+                                        <strong style="margin-bottom:10px;">Nome: @f.Nome</strong>
+                                        <p style="float:right; margin-bottom:10px; font-size:15px;">Data: @f.Data</p>
+                                        <p style="margin-bottom:10px;">Email: @f.Email</p>
+                                        <p style="margin-bottom:20px;">Comentario: @f.Mensagem</p>
+                                        <hr />
+                                    }
+                                </div>
                             </div>
-                            
+                            }
                             <div class="opinion">
                                 @if (ViewBag.MsgErro != null)
                                 {

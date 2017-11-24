@@ -7,17 +7,17 @@ using System.Web;
 
 namespace LifeMore.Models
 {
-    public class Feedback
+    public class Feedbacks
     {
         public Int32 Cod { get; set; }
         public String Nome { get; set; }
         public String Email { get; set; }
         public String Mensagem { get; set; }
-        public String Data { get; set; }
+        public DateTime Data { get; set; }
 
-        public Feedback() { }
+        public Feedbacks() { }
 
-        public Feedback(Int32 ID)
+        public Feedbacks(Int32 ID)
         {
             SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
             Conexao.Open();
@@ -42,12 +42,12 @@ namespace LifeMore.Models
 
             SqlCommand Comando = new SqlCommand();
             Comando.Connection = Conexao;
-            Comando.CommandText = "INSERT INTO Feedback (Nome, Email, Comentario) VALUES (@Nome, @Email, @Comentario);";
+            Comando.CommandText = "INSERT INTO Feedback (Nome, Email, Comentario, Data) VALUES (@Nome, @Email, @Comentario, @Data);";
 
             Comando.Parameters.AddWithValue("@Nome", this.Nome);
             Comando.Parameters.AddWithValue("@Email", this.Email);
             Comando.Parameters.AddWithValue("@Comentario", this.Mensagem);
-           // Comando.Parameters.AddWithValue("@Data", this.Data);
+            Comando.Parameters.AddWithValue("@Data", DateTime.Now);
 
             Int32 Resultado = Comando.ExecuteNonQuery();
 
@@ -55,7 +55,7 @@ namespace LifeMore.Models
 
             return Resultado > 0 ? true : false;
         }
-        public static List<Feedback> ListarF()
+        public static List<Feedbacks> ListarF()
         {
             SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
             Conexao.Open();
@@ -66,15 +66,15 @@ namespace LifeMore.Models
 
             SqlDataReader Leitor = Comando.ExecuteReader();
 
-            List<Feedback> feedbacks = new List<Feedback>();
+            List<Feedbacks> feedbacks = new List<Feedbacks>();
             while (Leitor.Read())
             {
-                Feedback F = new Feedback();
-                F.Cod = (Int32)Leitor["Cod_Categoria"];
+                Feedbacks F = new Feedbacks();
+                F.Cod = (Int32)Leitor["Cod_Feedback"];
                 F.Nome = ((String)Leitor["Nome"]);
                 F.Email = ((String)Leitor["Email"]);
-                F.Mensagem = ((String)Leitor["Mensagem"]);
-                F.Data = ((String)Leitor["Data"]);
+                F.Mensagem = ((String)Leitor["Comentario"]);
+                F.Data = (DateTime)Leitor["Data"];
 
                 feedbacks.Add(F);
             }
