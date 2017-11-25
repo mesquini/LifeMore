@@ -294,6 +294,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Cardapio\CardapioS.cshtml" />
+    <Content Include="Views\Nutricionista\ConsultasMarcadas.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

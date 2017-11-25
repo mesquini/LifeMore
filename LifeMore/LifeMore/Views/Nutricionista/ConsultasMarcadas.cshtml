@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+
+<h2>ConsultasMarcadas</h2>
+@if(ViewBag.Consulta != null){
+    
+    foreach(var c in ViewBag.Consulta)
+    {
+
+        <p>@c.Nome</p>
+        <p>@c.Dia</p>
+        <p>@c.Hora</p>
+        <p>@c.Email</p>
+        <p>@c.Comentario</p>
+        <p>@c.Telefone</p>
+        <p>@c.precoConsulta</p>
+        <p>@c.horaConsulta</p>
+        <p>@c.tipoConsulta</p>
+
+    }
+
+}
+

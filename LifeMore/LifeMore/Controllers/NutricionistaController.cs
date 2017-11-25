@@ -173,6 +173,33 @@ namespace LifeMore.Controllers
 
             return View();
         }
+        public ActionResult ConsultasMarcadas()
+        {
+            if(Session["Nutricionista"] == null)
+            {
+                Response.Redirect("/Home/Index", false);
+            }
+
+            ViewBag.LogadoN = Session["Nutricionista"];
+            Nutricionista N = (Nutricionista)Session["Nutricionista"];
+            ViewBag.Nutricionista = (Nutricionista)Session["Nutricionista"];
+
+            Consulta c = new Consulta();
+            if (c.VerificaCPF(N.CPF))
+            {
+                List<Consulta> cs = Consulta.ListarC(N.CPF);
+                ViewBag.Consulta = cs;
+
+                
+            }
+            else {
+
+                ViewBag.nada = "Nenhuma consulta marcada no momento!";
+            }
+
+
+            return View();
+        }
         public ActionResult ApagarN(String ID)
         {
             if (Session["Adm"] == null)

@@ -140,15 +140,21 @@
 
     <div class="tips w3agile">
     <img  style="height: 100px; margin-right: 1800px; cursor: pointer" src="~/images/Consulta/botaovoltar.png" onclick="VoltarConsulta()"/>
+        @if (ViewBag.Sucesso != null)
+        {
+            <div class="alert alert-success">
+                <strong>Sucesso!</strong> @ViewBag.Sucesso
+            </div>
+        }
         <!-- FORM PARA CADASTRAR CONSULTA-->
-    <form action="#" method="post">
+    <form action="/Consulta/MarcarConsulta" method="post">
         <div style="text-shadow: 2px 1px 0px #000000;" class="Tituloconsulta" >
             Informações do paciente
         </div>
         <!--NOME DA NUTRICIONISTA-->
         <div style="text-shadow: 2px 1px 0px #000000; margin-right: 800px;" class="nome">
             <p style="color:white;">*Nome do Nutricionista: </p>
-            <select name="NomeN" id="NomeN" style="color:black; margin-left: 29px;">
+            <select name="NomeN" id="NomeN" style="color:black; margin-left: 29px;" required>
                 <option style="color:black">Selecione o Nutricionista...</option>
                 @foreach (var N in ViewBag.Nutricionista)
                 {
@@ -156,6 +162,26 @@
                 }
             </select>
         </div>
+        @if (ViewBag.Logado != null)
+        {
+            <!--NOME DO PACIENTE-->
+            <div style="text-shadow: 2px 1px 0px #000000; margin-right: 800px;" class="nome">
+                *Nome Completo
+            </div>
+            <input class="nometexto" type="text" id="Nome" name="Nome" style="margin-right: 800px;" required value="@ViewBag.Nome" />
+        <!--EMAIL -->
+            <div style="text-shadow: 2px 1px 0px #000000; margin-right: 800px;" class="email">
+                *Email
+            </div>
+            <input class="emailtexto" id="Email" name="Email" required="" style="text-align: left;margin-right: 800px;" type="text" value="@ViewBag.Email">
+            <!--TELEFONE-->
+            <div style="text-shadow: 2px 1px 0px #000000;margin-right: 800px;" class="telefone">
+                *Telefone
+            </div>
+            <input class="telefonetexto" type="text" id="Tel" name="Tel" style="margin-right: 800px;" value="@ViewBag.Telefone"/>
+        }
+       @if (ViewBag.Logado == null)
+       {
         <!--NOME DO PACIENTE-->
         <div style="text-shadow: 2px 1px 0px #000000; margin-right: 800px;" class="nome">
             *Nome Completo
@@ -166,21 +192,23 @@
             *Email
         </div>
         <input class="emailtexto" id="Email" name="Email" required="" style="text-align: left;margin-right: 800px;" type="text">
-        <!--TELEFONE-->
+           <!--TELEFONE-->
         <div style="text-shadow: 2px 1px 0px #000000;margin-right: 800px;" class="telefone">
             *Telefone
         </div>
-        <input class="telefonetexto" type="text" id="Tel" name="Tel" style="margin-right: 800px;"/>
+        <input class="telefonetexto" type="text" id="Tel" name="Tel" style="margin-right: 800px;" />
+       }
+        
         <!--DIA-->
         <div style="text-shadow: 2px 1px 0px #000000;margin-right: 800px;" class="telefone">
             *Dia
         </div>
-        <input class="telefonetexto" id="datepicker" name="date" type="text" style="margin-right: 800px;" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required>
+        <input class="telefonetexto" id="datepicker" name="datepicker" type="text" style="margin-right: 800px;" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required>
         <!--HORA-->
         <div style="text-shadow: 2px 1px 0px #000000;margin-right: 800px;" class="telefone">
             *Hora
         </div>
-        <input type="text" id="timepicker" name="Time" class="timepicker form-control" value="Hrs:Min" style="width:300px;" required>
+        <input type="text" id="timepicker" name="timepicker" class="timepicker form-control" value="Hrs:Min" style="width:300px;" required>
         <!--MENSAGEM-->
         <div class="mensagem">
             <p style="text-shadow: 2px 1px 0px #000000; margin-left: 100px;">Sinta-se a vontade para deixar uma mensagem para o seu médico</p>
@@ -188,12 +216,12 @@
         </div>
         <!--INFORMAÇOES DA CONSULTA-->
         <div style="text-shadow: 2px 1px 0px #000000" class="precoconsulta">
-            <p id="precoConsulta"></p>
-            <p id="horaConsulta"></p>
-            <p id="tipoConsulta"></p>
+            <a name="precoConsulta" id="precoConsulta"></a>
+            <a id="horaConsulta" name="horaConsulta"></a>
+            <a id="tipoConsulta" name="tipoConsulta"></a>
         </div>
         <button class="botaoinfo" style="margin-right: 800px;">
-            Enviar Informações
+            Enviar
         </button>
     </form>
         <!--//FORM-->
