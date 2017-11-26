@@ -10,7 +10,26 @@ namespace LifeMore.Controllers
 {
     public class NutricionistaController : Controller
     {
-        // GET: Nutricionista
+        public ActionResult ListarN()
+        {
+            if (Session["Nutricionista"] == null)
+            {
+                Response.Redirect("~/Home/Index", false);
+            }
+
+            ViewBag.LogadoN = Session["Nutricionista"];
+            Nutricionista ns = (Nutricionista)Session["Nutricionista"];
+
+            List<Paciente> ps = Paciente.ListarP();
+            List<Categoria> cs = Categoria.ListarC();
+            List<Alimento> a = Alimento.ListarA();
+
+            ViewBag.Usuario = ps;
+            ViewBag.Categoria = cs;
+            ViewBag.Alimento = a;
+
+            return View();
+        }
         public ActionResult CadastrarN()
         {
             if (Request.HttpMethod == "POST")

@@ -80,10 +80,32 @@
             <div class="inset agile">
                 <div class="sap_tabs w3ls-tabs">
                     <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
-                        <a href="~/Adm/Listar">Voltar</a>
+
+                        @if (ViewBag.LogadoA != null)
+                        {
+
+                            <a href="~/Adm/Listar">Voltar</a>
+                        }
+                        @if (ViewBag.LogadoN != null)
+                        {
+
+                            <a href="~/Nutricionista/Perfil">Voltar</a>
+                        }
                         <ul class="resp-tabs-list">
                             <li class="resp-tab-item resp-tab-active" aria-controls="tab_item-1" role="tab"><a href="~/Alimentos/CadastrarA">Cadastrar Alimento</a></li>
                         </ul>
+                        @if (ViewBag.Mensagem != null)
+                        {
+                            <div class="alert alert-success">
+                                <strong>Sucesso!</strong> @ViewBag.Mensagem
+                            </div>
+                        }
+                        @if (ViewBag.MsgErro != null)
+                        {
+                            <div class="alert alert-danger">
+                                <strong>ERRO!</strong> @ViewBag.MsgErro
+                            </div>
+                        }
                         <div class="clear"> </div>
                         <div class="resp-tabs-container">
 

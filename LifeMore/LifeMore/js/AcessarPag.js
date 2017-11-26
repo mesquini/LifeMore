@@ -33,3 +33,7 @@ function CadastrarAli() {
 function CadastrarCa() {
     window.location = "../Categoria/CadastrarC";
 }
+
+function ListarN() {
+    window.location = "../Nutricionista/ListarN";
+}

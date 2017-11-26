@@ -12,7 +12,18 @@ namespace LifeMore.Controllers
         // GET: Categoria
         public ActionResult CadastrarC()
         {
+            if (Session["Adm"] != null)
+            {
+                ViewBag.LogadoA = Session["Adm"];
+                Adm Adms = (Adm)Session["Adm"];
 
+            }
+            if (Session["Nutricionista"] != null)
+            {
+                ViewBag.LogadoN = Session["Nutricionista"];
+                Nutricionista Ns = (Nutricionista)Session["Nutricionista"];
+
+            }
             if (Request.HttpMethod == "POST")
             {
                 String Nome = Request.Form["nome"].ToString();
@@ -24,12 +35,10 @@ namespace LifeMore.Controllers
                 if (C.Novo())
                 {
                     ViewBag.Mensagem = "Categoria criado com sucesso!";
-                    Response.Redirect("/Adm/Listar");
-                    
                 }
                 else
                 {
-                    ViewBag.Mensagem = "Houve um erro ao criar a Categoria. Verifique o Nome e tente novamente.";
+                    ViewBag.MsgErro = "Houve um erro ao criar a Categoria. Verifique o Nome e tente novamente.";
                 }
             }
             return View();

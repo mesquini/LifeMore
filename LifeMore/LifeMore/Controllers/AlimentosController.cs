@@ -12,7 +12,18 @@ namespace LifeMore.Controllers
         // GET: Alimentos
         public ActionResult CadastrarA()
         {
-
+            if (Session["Adm"] != null)
+            {
+                ViewBag.LogadoA = Session["Adm"];
+                Adm Adms = (Adm)Session["Adm"];
+                
+            }
+            if (Session["Nutricionista"] != null)
+            {
+                ViewBag.LogadoN = Session["Nutricionista"];
+                Nutricionista Ns = (Nutricionista)Session["Nutricionista"];
+                
+            }
             if (Request.HttpMethod == "POST")
             {
                 String Nome = Request.Form["nomeA"];
@@ -35,12 +46,11 @@ namespace LifeMore.Controllers
 
                 if (Ali.Novo())
                 {
-                    ViewBag.Mensagem = "Usuário criado com sucesso!";
-                    Response.Redirect("/Adm/Listar");
+                    ViewBag.Mensagem = "Alimento cadastrado com sucesso!";
                 }
                 else
                 {
-                    ViewBag.Mensagem = "Houve um erro ao criar o Usuário. Verifique os dados e tente novamente.";
+                    ViewBag.MsgErro = "Houve um erro ao cadastrar o alimento. Verifique os dados e tente novamente.";
                 }
             }
 
