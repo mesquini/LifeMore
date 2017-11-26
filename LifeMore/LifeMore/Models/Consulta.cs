@@ -108,6 +108,7 @@ namespace LifeMore.Models
             while (Leitor.Read())
             {
                 Consulta A = new Consulta();
+                A.Cod_Consulta = (Int32)Leitor["Cod_Consulta"];
                 A.Cod_Nutri = (String)Leitor["CPF_Nutri"];
                 A.Nome = ((String)Leitor["Nome"]);
                 A.Dia = ((String)Leitor["Dia"]);

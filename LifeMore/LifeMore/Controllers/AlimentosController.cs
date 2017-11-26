@@ -12,10 +12,9 @@ namespace LifeMore.Controllers
         // GET: Alimentos
         public ActionResult CadastrarA()
         {
+
             if (Request.HttpMethod == "POST")
             {
-                
-
                 String Nome = Request.Form["nomeA"];
                 String Peso = Request.Form["pesoA"];
                 double Caloria = Double.Parse(Request.Form["caloriaA"]);

@@ -92,5 +92,27 @@ namespace LifeMore.Controllers
             }
             return View();
         }
+        public ActionResult ApagarC(String ID)
+        {
+            if (Session["Adm"] == null)
+            {
+                Response.Redirect("~/Home/Index", false);
+            }
+
+            Consulta c = new Consulta(Convert.ToInt32(ID));
+
+            if (c.Apagar())
+            {
+                ViewBag.Mensagem = "Consulta removida com sucesso!";
+            }
+
+
+            else
+            {
+                TempData["Mensagem"] = "Não foi possível remover o Usuario. Verifique os dados e tente novamente";
+            }
+
+            return RedirectToAction("ConsultasMarcadas", "Nutricionista");
+        }
     }
 }

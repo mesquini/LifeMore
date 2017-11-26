@@ -71,12 +71,14 @@
                                     @if (ViewBag.LogadoN != null)
                                     {
                                         <li><a href="~/Nutricionista/Perfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                        <li><a href="~/Nutricionista/ConsultasMarcadas" style="text-shadow: 2px 1px 0px #000000">Consultas Marcadas</a></li>
+
                                     }
 
                                     <li ><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000">Home</a></li>
                                     <li><a href="~/Home/Dicas" style="text-shadow: 2px 1px 0px #000000">Dicas</a></li>
                                     <li><a href="~/Home/About" style="text-shadow: 2px 1px 0px #000000">Quem somos</a></li>
-                                    <li class="active"><a href="~/Home/Contato" style="text-shadow: 2px 1px 0px #000000">Fale conosco</a></liclass="active">
+                                    <li class="active"><a href="~/Home/Contato" style="text-shadow: 2px 1px 0px #000000">Fale conosco</a></li>
                                     @if (ViewBag.Logado != null || ViewBag.LogadoA != null || ViewBag.LogadoN != null)
                                     {
 
@@ -122,13 +124,15 @@
         <div class="jarallax mail" id="mail">
             <div class="container">
                 <h3 class="mail-w3" style="text-shadow: 5px 2px 0px #000000">Contate nos<span></span></h3>
+                
                 <div class="w3agile_mail_grids">
                     <div class="w3agile_mail_grid">
+                        <!--FORM PARA ENVIAR EMAIL-->
                         <form action="/Home/EnviarEmail" method="post">
                             <input type="text" placeholder="Nome" name="Nome" id="Nome" required="">
                             <input type="email" placeholder="Email" name="Email" id="Email" required="" >
                             <input type="text" placeholder="Assunto" name="Assunto" id="Assunto" required="" style="margin-bottom:20px;width: 97.3%;margin-left: 15px;">
-                            <textarea name="Mesagem" id="Mensagem" placeholder="Mensagem" required=""></textarea>
+                            <textarea name="Mensagem" id="Mensagem" placeholder="Mensagem" required=""></textarea>
                             <div class="con-form text-center">
                                 <input type="submit" value="Enviar">
                             </div>

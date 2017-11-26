@@ -25,6 +25,7 @@ namespace LifeMore.Controllers
                 {
                     ViewBag.Mensagem = "Categoria criado com sucesso!";
                     Response.Redirect("/Adm/Listar");
+                    
                 }
                 else
                 {
@@ -47,13 +48,7 @@ namespace LifeMore.Controllers
                 ViewBag.Mensagem = "Categoria removida com sucesso!";
             }
 
-
-            else
-            {
-                TempData["Mensagem"] = "Não foi possível remover a Categoria. Verifique os dados e tente novamente";
-            }
-
-            return RedirectToAction("/Adm/Listar");
+            return RedirectToAction("Listar","Adm");
         }
     }
 }

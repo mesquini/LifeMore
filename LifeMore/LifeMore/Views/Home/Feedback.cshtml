@@ -90,6 +90,8 @@
                                     @if (ViewBag.LogadoN != null)
                                     {
                                         <li><a href="~/Nutricionista/Perfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                        <li><a href="~/Nutricionista/ConsultasMarcadas" style="text-shadow: 2px 1px 0px #000000">Consultas Marcadas</a></li>
+
                                     }
 
                                     <li><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000">Home</a></li>
@@ -175,15 +177,25 @@
                                     </div>
                                 }
                                 <h3 style="text-shadow: 2px 1px #000000; font-size:18px; color:white;">Deixe o seu comentário:</h3>
-
+                                @if (ViewBag.Logado == null)
+                                {
                                 <form action="/Home/FeedbackE" method="post">
                                     <input type="text" name="Nome" id="Nome" placeholder="Nome Completo" required="" style="color:white">
                                     <input type="email" name="Email" id="Email" placeholder="Email" required="" style="color:white">
                                     <textarea name="Mensagem" id="Mensagem" placeholder="Mensagem" required style="color:white"></textarea>
                                     <input style="text-shadow: 2px 1px #000000; font-size:20px; color:white;" type="submit" value="ENVIAR">
                                 </form>
-
-                            </div>
+                                }
+                                @if (ViewBag.Logado != null)
+                                {
+                                 <form action="/Home/FeedbackE" method="post">
+                                    <input type="text" name="Nome" id="Nome" value="@ViewBag.Nome" placeholder="Nome Completo" required="" style="color:white">
+                                    <input type="email" name="Email" id="Email" value="@ViewBag.Email" placeholder="Email" required="" style="color:white">
+                                    <textarea name="Mensagem" id="Mensagem" placeholder="Mensagem" required style="color:white"></textarea>
+                                    <input style="text-shadow: 2px 1px #000000; font-size:20px; color:white;" type="submit" value="ENVIAR">
+                                </form>
+                                }
+</div>
                         </div>
                     </div>                   
                 </div>
