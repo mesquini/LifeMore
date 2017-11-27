@@ -114,7 +114,7 @@ namespace LifeMore.Controllers
 
                     
                     //45b7Ac senha nova padrão para inserir depois
-                    String mensagem = Request.Form["Nome"] + " : " + Request.Form["Mensagem"] + Environment.NewLine + " De: " + Request.Form["Email"].ToString();
+                    String mensagem = Request.Form["Nome"] + " \n\n\n Mensagem: " + Request.Form["Mensagem"] + Environment.NewLine + "\n\n De: " + Request.Form["Email"].ToString();
                     String titulo = Request.Form["Assunto"];
                     //destinatarios do e-mail, para incluir mais de um basta separar por ponto e virgula 
                     mailMessage.To.Add(destinatario);
@@ -134,9 +134,14 @@ namespace LifeMore.Controllers
                     smtpClient.Port = 587;
 
                     //credenciais da conta que utilizará para enviar o e-mail
-                    smtpClient.Credentials = new NetworkCredential("mesquini@live.com", "aser2728");
+                    smtpClient.Credentials = new NetworkCredential("mesquini@live.com", "senha");
 
                     smtpClient.Send(mailMessage);
+
+                    if (true)
+                    {
+                        ViewBag.Enviado = "Email enviado com sucesso!";
+                    }
                     return true;
 
                 }
@@ -147,17 +152,17 @@ namespace LifeMore.Controllers
             }
             return false;
         }
-        public ActionResult Single()
+        public ActionResult Feedback()
         {
+            
+           
+        
             if (Session["Paciente"] != null)
             {
                 ViewBag.Logado = Session["Paciente"];
-                Paciente Paciente = (Paciente)Session["Paciente"];
-                ViewBag.Imagem = Paciente.ImagemPerfil;
-                ViewBag.CPF = Paciente.CPF;
-                ViewBag.Nome = Paciente.Nome;
-                ViewBag.Objetivo = Paciente.Objetivo;
-
+                Paciente p = (Paciente)Session["Paciente"];
+                ViewBag.Nome = p.Nome;
+                ViewBag.Email = p.Email;
             }
             if (Session["Nutricionista"] != null)
             {
@@ -170,13 +175,42 @@ namespace LifeMore.Controllers
 
                 ViewBag.LogadoA = Session["Adm"];
                 Adm p = (Adm)Session["Adm"];
-                ViewBag.Nome = p.Nome;
             }
+
+            List<Feedbacks> f = Feedbacks.ListarF();
+            ViewBag.Feedback = f;
+
             return View();
-
-
+            
         }
+        public ActionResult FeedbackE()
+        {
+            if (Request.HttpMethod == "POST")
+            {
+                String Nome = Request.Form["Nome"].ToString();
+                String Email = Request.Form["Email"].ToString();
+                String Mensagem = Request.Form["Mensagem"].ToString();
+                DateTime data = Convert.ToDateTime(Request.Form["Data"]);
 
+                Feedbacks f = new Feedbacks();
+                //ATRIBUILOS NA VARIAVEL
+                f.Nome = Nome;
+                f.Email = Email;
+                f.Mensagem = Mensagem;
+                f.Data = data;
+
+                if (f.Novo())
+                {
+                    return RedirectToAction("Feedback", "Home");
+                }
+                else
+                {
+                    ViewBag.MsgErro = "Não foi possivel fazer o Feedback, tente novamente!";
+                }
+            }
+
+            return View();
+        }
         public ActionResult Dicas()
         {
             if (Session["Paciente"] != null)

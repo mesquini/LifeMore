@@ -1,0 +1,373 @@
+﻿@{
+    Layout = null;
+}
+
+<!--
+    Author: W3layouts
+    Author URL: http://w3layouts.com
+    License: Creative Commons Attribution 3.0 Unported
+    License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <title>LifeMore</title>
+
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Life More web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--// Meta tag Keywords -->
+    <!-- css files -->
+    <link rel="stylesheet" href="~/css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="~/css/style.css" type="text/css" media="all" /> <!-- Style-CSS -->
+    <link rel="stylesheet" href="~/css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
+    <link rel="stylesheet" href="~/css/jquery-ui.css" /> <!-- Date-script-CSS -->
+    <link href="~/css/wickedpicker.css" rel="stylesheet" type='text/css' media="all" /> <!-- Time-script-CSS -->
+    <!-- //css files -->
+    <!-- online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Convergence" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=ABeeZee:400,400i" rel="stylesheet">
+    <!-- //online-fonts -->
+
+    <link rel="stylesheet" href="~/css/Login.css">
+    <script src="~/js/login.js" type="text/javascript"></script>
+    <script src="~/js/AcessarPag.js" type="text/javascript"></script>
+
+    <script src="~/js/jquery.js" type="text/javascript"></script>
+    @*<script language="JavaScript">
+
+        function pergunta(){
+           if (confirm('Tem certeza que deseja deletar?')){
+               document.seuformulario.submit("~/Perfil/ApagarP/"+@(ViewBag.Cod))
+           }
+        }
+    </script>*@ 
+    <script>
+        $(document).ready(function () {
+            $("#content_tab1").css("display", "block");
+            $("#content_tab1").css("position", "absolute");
+            $("#content_tab1").css("top", "70px");
+            $("#label1").css("backgroundColor", "#5D5C5C");
+
+            $("#tab1").click(function(){
+                $("#content_tab1").css("display", "block");
+                $("#content_tab1").css("position", "absolute");
+                $("#content_tab1").css("top", "70px");
+                $("#label1").css("backgroundColor", "#5D5C5C");
+
+                $("#content_tab2").css("display", "none");
+                $("#content_tab3").css("display", "none");
+                $("#content_tab4").css("display", "none");
+                $("#label2").css("backgroundColor", "#B01030");
+                $("#label3").css("backgroundColor", "#B01030");
+                $("#label4").css("backgroundColor", "#B01030");
+            });
+            $("#tab2").click(function () {
+                $("#content_tab2").css("display", "block");
+                $("#content_tab2").css("position", "absolute");
+                $("#content_tab2").css("top", "70px");
+                $("#label2").css("backgroundColor", "#5D5C5C");
+
+                $("#content_tab1").css("display", "none");
+                $("#content_tab3").css("display", "none");
+                $("#content_tab4").css("display", "none");
+                $("#label1").css("backgroundColor", "#B01030");
+                $("#label3").css("backgroundColor", "#B01030");
+                $("#label4").css("backgroundColor", "#B01030");
+            });
+            $("#tab3").click(function () {
+                $("#content_tab3").css("display", "block");
+                $("#content_tab3").css("position", "absolute");
+                $("#content_tab3").css("top", "70px");
+                $("#label3").css("backgroundColor", "#5D5C5C");
+
+                $("#content_tab1").css("display", "none");
+                $("#content_tab2").css("display", "none");
+                $("#content_tab4").css("display", "none");
+                $("#label1").css("backgroundColor", "#B01030");
+                $("#label2").css("backgroundColor", "#B01030");
+                $("#label4").css("backgroundColor", "#B01030");
+            });
+            $("#tab4").click(function () {
+                $("#content_tab4").css("display", "block");
+                $("#content_tab4").css("position", "absolute");
+                $("#content_tab4").css("top", "70px");
+                $("#label4").css("backgroundColor", "#5D5C5C");
+
+                $("#content_tab1").css("display", "none");
+                $("#content_tab2").css("display", "none");
+                $("#content_tab3").css("display", "none");
+                $("#label1").css("backgroundColor", "#B01030");
+                $("#label2").css("backgroundColor", "#B01030");
+                $("#label3").css("backgroundColor", "#B01030");
+
+            });
+        });
+    </script>
+
+</head>
+<body class="bgEntrar">
+    <div class="Main-agile">
+        <!-- banner -->
+        <div class="bannerEntrar">
+            <div class="container">
+                <div class="col-md-4 agile1">
+                    <nav class="navbar navbar-default">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                            <nav class="stroke">
+                                <ul class="nav navbar-nav"> 
+                                    <li><a href="~/Nutricionista/Perfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                    <li><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000">Home</a></li>
+                                    <li><a href="~/Home/Dicas" style="text-shadow: 2px 1px 0px #000000">Dicas</a></li>
+                                    <li><a href="~/Home/About" style="text-shadow: 2px 1px 0px #000000">Quem somos</a></li>
+                                    <li><a href="~/Home/Contato" style="text-shadow: 2px 1px 0px #000000">Fale conosco</a></li>
+                                    <li><a href="~/Adm/Sair" style="text-shadow: 2px 1px 0px #000000">Sair</a></li>
+                                    
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </nav>
+                </div>
+                <div class="col-md-4 logo">
+                    <div class="logo-w3l">
+                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                    </div>
+                    <h1><a href="~/Home/Index" style="text-shadow: 5px 2px 0px #000000">Life More<span style="text-shadow: 2px 1px 0px #000000">Cuide de você</span></a></h1>
+                </div>
+
+                <div class="col-md-4 ph-agile">
+                    <p><i class="fa fa-phone" aria-hidden="true"></i><span style="text-shadow: 2px 1px 0px #000000">+55 19 9 9865 8943</span></p>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+
+    </div>
+    <br />
+    
+    <!--USUARIOS-->
+    <div class="nav_tabs">
+        <ul>
+            <li class="tabs">
+                <input type="button" name="tabs" class="rd_tabs" id="tab1" checked>
+                <label for="tab1" id="label1" style="width:600px"> Pacientes </label>
+
+                <div class="content_tab" id="content_tab1">
+                    <section>
+                        <table border="1">
+                            <thead>
+                                @if (ViewBag.Error != null)
+                                {
+                                    <div class="alert alert-danger">
+                                        <strong>ERRO!</strong> @ViewBag.Error
+                                    </div>
+                                }
+                                <tr><a href="/Entrar/Cadastrar/">Cadastrar novo Usuário</a></tr>
+                                <tr class="Produto">
+                                    <th class="texto">Nome</th>
+                                    <th class="texto">Senha</th>
+                                    <th class="texto">CPF</th>
+                                    <th class="texto">Email</th>
+                                    <th class="texto">Objetivo</th>
+                                    <th class="texto">Idade</th>
+                                    <th class="texto">Peso</th>
+                                    <th class="texto">Altura</th>
+                                    <th class="texto">Endereco</th>
+                                    <th class="texto">Telefone</th>
+                                    <th class="texto">Foto</th>
+                                    <th class="texto">Ação</th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                @foreach (var P in ViewBag.Usuario)
+                                {
+
+
+                                    <tr>
+                                        <td>@(P.Nome)</td>
+                                        <td>@(P.Senha)</td>
+                                        <td>@(P.CPF)</td>
+                                        <td>@(P.Email)</td>
+                                        <td>
+                                        @if (P.Objetivo == 1)
+                                        {
+                                        <p>Engordar</p> }
+                                         else {
+                                        <p>Emagrecer</p>}
+                                        </td>
+                                        <td>@(P.Idade)</td>
+                                        <td>@(P.Peso)</td>
+                                        <td>@(P.Altura)</td>
+                                        <td>@(P.Endereco)</td>
+                                        <td>@(P.Telefone)</td>
+                                        <td>@(P.ImagemPerfil)</td>
+                                        <td>
+                                            <a href="~/Adm/previsualizacaoP/@(P.Cod)">Ver Perfil</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            </li>
+            <!--ALIMENTOS-->
+            <li class="tabs">
+                <input type="button" name="tabs" class="rd_tabs" id="tab3">
+                <label for="tab3" id="label3" style="width:600px"> Alimentos </label>
+                <div class="content_tab" id="content_tab3" style="overflow: scroll;" >
+                    <section style="padding-bottom: 20px">
+                        <table border="1">
+                            <thead>
+                                <tr><a href="~/Alimentos/CadastrarA/">Cadastrar uma novo alimento</a></tr>
+                                <tr class="Produto">
+                                    <th class="texto">Nome</th>
+                                    <th class="texto">Peso</th>
+                                    <th class="texto">Caloria</th>
+                                    <th class="texto">Gordura</th>
+                                    <th class="texto">Carboidrato</th>
+                                    <th class="texto">Proteina</th>
+                                    <th class="texto">Categoria</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               @foreach(var A in ViewBag.Alimento) { 
+                                    <tr>
+                                        <td>@(A.Nome)</td>
+                                        <td>@(A.Peso)</td>
+                                        <td>@(A.Caloria) Kcal</td>
+                                        <td>@(A.Gordura) g</td>
+                                        <td>@(A.Carboidrato) g</td>
+                                        <td>@(A.Proteina) g</td>
+                                        <td>@(A.Categoria1)</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </section>
+
+                </div>
+            </li>
+            @* CATEGORIA *@
+            <li class="tabs">
+                <input type="button" name="tabs" class="rd_tabs" id="tab4">
+                <label for="tab4" id="label4" style="width:543px"> Categorias </label>
+                <div class="content_tab" id="content_tab4">
+                    <section >
+                        <table border="1">
+                            <thead>
+                                <tr><a href="~/Categoria/CadastrarC">Cadastrar uma nova Categoria</a></tr>
+                                <tr class="Produto">
+                                    <th class="texto">Codigo</th>
+                                    <th class="texto">Nome</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               @foreach(var C in ViewBag.Categoria) { 
+                                    <tr>
+                                        <td>@(C.Cod)</td>
+                                        <td>@(C.Nome)</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="footer w3ls">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-top">
+                    <div class="col-md-4 services-grids">
+                        <h3>Curiosidades</h3>
+                        <ul>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Buscando o bem estar da sociedade sempre.</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista jovens e experientes ajudando  clientes de qualquer idade</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Comer saudávelmente é sinônimo de comer bem.</a></li>
+                            <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista de esportes pronto para ajudar no melhor desenvolvimento para seu corpo.</a></li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class="col-md-4 ftr-grid">
+                        <div class="logo-fo">
+                            <div class="logo-w3l">
+                                <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                            </div>
+                            <h2><a href="~/Home/Index">Life More<span>Cuide de você</span></a></h2>
+                        </div>
+                    </div>
+                    <div class="col-md-4 ftr-grid fg2">
+                        <h3>Nossos endereços</h3>
+                        <div class="ftr-address">
+                            <div class="local">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            </div>
+                            <div class="ftr-text">
+                                <p style="text-shadow: 2px 1px 0px #000000">SENAI Zerbini</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="ftr-address">
+                            <div class="local">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                            </div>
+                            <div class="ftr-text">
+                                <p style="text-shadow: 2px 1px 0px #000000">+55 19 9 9865 8943</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="ftr-address">
+                            <div class="local">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <div class="ftr-text">
+                                <p style="text-shadow: 2px 1px 0px #000000"><a href="mailto:LifeMore@gmail.com">LifeMore@gmail.com</a></p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="right-w3l">
+                    <ul class="top-links">
+
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    </ul>
+                </div>
+                <div class="copyrights">
+                    <p style="text-shadow: 2px 1px 0px #000000">&copy; 2017 Life More. Todos os direitos reservados | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</body>
+</html>

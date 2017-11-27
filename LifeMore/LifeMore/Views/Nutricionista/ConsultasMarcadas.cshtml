@@ -1,0 +1,243 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title> Cardapio </title>
+
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Life More web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--// Meta tag Keywords -->
+    <!-- css files -->
+    <link rel="stylesheet" href="~/css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="~/css/style.css" type="text/css" media="all" /> <!-- Style-CSS -->
+    <link rel="stylesheet" href="~/css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
+    <!-- //css files -->
+    <!-- online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Convergence" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=ABeeZee:400,400i" rel="stylesheet">
+    <!-- //online-fonts -->
+    <link rel="stylesheet" href="~/css/Consulta.css">
+</head>
+<body>
+    <div class="Main-agile">
+        <!-- banner -->
+        <div class="banner-2">
+            <div class="container">
+                <div class="col-md-4 agile1">
+                    <nav class="navbar navbar-default">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+
+                        <!-- Menu do site -->
+                        <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                            <nav class="stroke">
+                                <ul class="nav navbar-nav">
+                                    @if (ViewBag.Logado == null && ViewBag.LogadoA == null && ViewBag.LogadoN == null)
+                                    {
+                                        <li class="entrar"><a href="~/Entrar/Logar" style="text-shadow: 2px 1px 0px #000000">Entrar</a></li>
+
+                                    }
+                                    @if (ViewBag.Logado != null)
+                                    {
+
+                                        <li><a href="~/Perfil/IndexPerfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                        <li><a href="~/Perfil/CardapioV" style="text-shadow: 2px 1px 0px #000000">Cardápio</a></li>
+                                    }
+                                    @if (ViewBag.LogadoA != null)
+                                    {
+                                        <li><a href="~/Adm/Listar" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                        
+
+                                    }
+                                    @if (ViewBag.LogadoN != null)
+                                    {
+                                        <li><a href="~/Nutricionista/Perfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                        <li class="active"><a href="~/Nutricionista/ConsultasMarcadas" style="text-shadow: 2px 1px 0px #000000">Consultas Marcadas</a></li>
+                                    }
+
+                                    <li><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000">Home</a></li>
+                                    <li><a href="~/Home/Dicas" style="text-shadow: 2px 1px 0px #000000">Dicas</a></li>
+                                    <li><a href="~/Home/About" style="text-shadow: 2px 1px 0px #000000">Quem somos</a></li>
+                                    <li><a href="~/Home/Contato" style="text-shadow: 2px 1px 0px #000000">Fale conosco</a></li>
+                                    @if (ViewBag.Logado != null || ViewBag.LogadoA != null || ViewBag.LogadoN != null)
+                                    {
+
+                                        <li><a href="~/Entrar/Sair" style="text-shadow: 2px 1px 0px #000000">Sair</a></li>
+
+                                    }
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </nav>
+                </div>
+                <!--Logo do site-->
+                <div class="col-md-4 logo">
+                    <div class="logo-w3l">
+                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                    </div>
+                    <h1><a href="~/Home/Index" style="text-shadow: 5px 3px 0px #000000">Life More<span style="text-shadow: 2px 1px 0px #000000">Cuidando de você</span></a></h1>
+                </div>
+                <div class="col-md-4 ph-agile">
+                    <p style="text-shadow: 2px 1px 0px #000000"><i class="fa fa-phone" aria-hidden="true"></i><span style="text-shadow: 2px 1px 0px #000000">+55 19 9 9865 8943</span></p>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div class="tips w3agile" style=" height:500px;">
+            <div class="ncard" style="color:white">
+
+                <h2 style="margin-bottom:20px;">ConsultasMarcadas</h2>
+
+                @if (ViewBag.Consulta != null)
+                {
+
+                    foreach (var c in ViewBag.Consulta)
+                    {
+                        <div class="consultaMarcada">
+                            <p>Nome: @c.Nome</p>
+                            <p>Data marcada: @c.Dia às @c.Hora</p>
+                            <p>Email: @c.Email</p>
+                            <p>Telefone: @c.Telefone</p>
+                            <p style="margin-bottom:10px">Observação: @c.Comentario</p>
+                            <p>@c.precoConsulta</p>
+                            <p>@c.horaConsulta</p>
+                            <p>@c.tipoConsulta</p>
+                            <a href="~/Consulta/ApagarC/@c.Cod_Consulta">Apagar</a>
+                        </div>
+                    }
+
+                }
+                @if (ViewBag.nada != null)
+                {
+                    <p>@ViewBag.nada</p>
+                }
+            </div>
+        </div>
+        <div class="footer w3ls">
+            <div class="container">
+                <div class="footer-main">
+                    <div class="footer-top">
+                        <div class="col-md-4 services-grids">
+                            <!--Informações e curiosidades do site-->
+                            <h3>Curiosidades</h3>
+                            <ul>
+                                <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Buscando o bem estar da sociedade sempre.</a></li>
+                                <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista jovens e experientes ajudando  clientes de qualquer idade</a></li>
+                                <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Comer saudávelmente é sinônimo de comer bem.</a></li>
+                                <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista de esportes pronto para ajudar no melhor desenvolvimento para seu corpo.</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 ftr-grid">
+                            <div class="logo-fo">
+                                <div class="logo-w3l">
+                                    <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                                </div>
+                                <h2><a href="~/Home/Index">Life More<span>Cuidando de você</span></a></h2>
+                            </div>
+                        </div>
+                        <div class="col-md-4 ftr-grid fg2">
+                            <h3>Nossos endereços</h3>
+                            <div class="ftr-address">
+                                <div class="local">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                </div>
+                                <!--Localização-->
+                                <div class="ftr-text">
+                                    <p style="text-shadow: 2px 1px 0px #000000">SENAI Zerbini</p>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="ftr-address">
+                                <div class="local">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                </div>
+                                <div class="ftr-text">
+                                    <!--Telefone-->
+                                    <p style="text-shadow: 2px 1px 0px #000000">+55 19 9 9865 8943</p>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="ftr-address">
+                                <div class="local">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                </div>
+                                <div class="ftr-text">
+                                    <!--E-mail-->
+                                    <p style="text-shadow: 2px 1px 0px #000000"><a href="mailto:LifeMore@gmail.com">LifeMore@gmail.com</a></p>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="right-w3l">
+                        <ul class="top-links">
+                            <!--Redes sociais-->
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="copyrights">
+                        <p style="text-shadow: 2px 1px 0px #000000">&copy; 2017 Life More. Todos os direitos reservados | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //Footer -->
+        <!-- js-scripts -->
+        <!-- js -->
+        <script type="text/javascript" src="~/js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="~/js/bootstrap.js"></script> <!-- Necessary-JavaScript-File-For-Bootstrap -->
+        <!-- //js -->
+        <!-- jarallax-js -->
+        <script src="~/js/jarallax.js"></script>
+        <script src="~/js/SmoothScroll.min.js"></script>
+        <script type="text/javascript">
+				/* init Jarallax */
+				$('.jarallax').jarallax({
+					speed: 0.5,
+					imgWidth: 1366,
+					imgHeight: 768
+				})
+        </script>
+        <!-- //jarallax-js -->
+        <!-- for-Testimonials -->
+        <!-- required-js-files-->
+        <link href="~/css/owl.carousel.css" rel="stylesheet">
+        <script src="~/js/owl.carousel.js"></script>
+        <script>
+							    $(document).ready(function() {
+							      $("#owl-demo").owlCarousel({
+							        items : 1,
+							        lazyLoad : true,
+							        autoPlay : true,
+							        navigation : false,
+							        navigationText :  false,
+							        pagination : true,
+							      });
+							    });
+        </script>
+        <!--//required-js-files-->
+        <!-- //for-Testimonials -->
+        <!-- //js-scripts -->
+</body>
+</html>
+
+

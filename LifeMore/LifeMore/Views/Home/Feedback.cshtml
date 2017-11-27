@@ -1,0 +1,283 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!--
+    Author: W3layouts
+    Author URL: http://w3layouts.com
+    License: Creative Commons Attribution 3.0 Unported
+    License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Life More</title>
+
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Life More web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--// Meta tag Keywords -->
+    <!-- css files -->
+    <link rel="stylesheet" href="~/css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="~/css/style.css" type="text/css" media="all" /> <!-- Style-CSS -->
+    <link rel="stylesheet" href="~/css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
+    <!-- //css files -->
+    <!-- online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Convergence" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=ABeeZee:400,400i" rel="stylesheet">
+    <!-- //online-fonts -->
+    <link rel="stylesheet" href="~/css/Feedback.css">
+    <script type="text/javascript">
+        function time()
+        {
+            today=new Date();
+            h=today.getHours();
+            m=today.getMinutes();
+            s = today.getSeconds();
+
+            data = new Date();
+            d = data.getDay();
+            m = data.getMonth();
+            a = data.getYear();
+
+            document.getElementById('data').innerHTML = "Data: "+d + "/" + m + "/" + a + " " + h + ":" + m + ":" + s;
+            setTimeout('time()',500);
+        }
+
+    </script>
+</head>
+<body onload="time()">
+    <div class="Main-agile">
+        <!-- banner -->
+        <div class="banner-2">
+            <div class="container">
+                <div class="col-md-4 agile1">
+                    <nav class="navbar navbar-default">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                            <nav class="stroke">
+                                <ul class="nav navbar-nav">
+                                    @if (ViewBag.Logado == null && ViewBag.LogadoA == null && ViewBag.LogadoN == null)
+                                    {
+                                        <li class="entrar"><a href="~/Entrar/Logar" style="text-shadow: 2px 1px 0px #000000">Entrar</a></li>
+
+                                    }
+                                    @if (ViewBag.Logado != null)
+                                    {
+
+                                        <li><a href="~/Perfil/IndexPerfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                        <li><a href="~/Perfil/CardapioV" style="text-shadow: 2px 1px 0px #000000">Cardápio</a></li>
+                                    }
+                                    @if (ViewBag.LogadoA != null)
+                                    {
+                                        <li><a href="~/Adm/Listar" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                    }
+                                    @if (ViewBag.LogadoN != null)
+                                    {
+                                        <li><a href="~/Nutricionista/Perfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                        <li><a href="~/Nutricionista/ConsultasMarcadas" style="text-shadow: 2px 1px 0px #000000">Consultas Marcadas</a></li>
+
+                                    }
+
+                                    <li><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000">Home</a></li>
+                                    <li><a href="~/Home/Dicas" style="text-shadow: 2px 1px 0px #000000">Dicas</a></li>
+                                    <li><a href="~/Home/About" style="text-shadow: 2px 1px 0px #000000">Quem somos</a></li>
+                                    <li><a href="~/Home/Contato" style="text-shadow: 2px 1px 0px #000000">Fale conosco</a></li>
+                                    @if (ViewBag.Logado != null || ViewBag.LogadoA != null || ViewBag.LogadoN != null)
+                                    {
+
+                                        <li><a href="~/Entrar/Sair" style="text-shadow: 2px 1px 0px #000000">Sair</a></li>
+
+                                    }
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </nav>
+                </div>
+                <div class="col-md-4 logo">
+                    <div class="logo-w3l">
+                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                    </div>
+                    <h1><a href="~/Home/Index" style="text-shadow: 5px 3px 0px #000000">Life More<span style="text-shadow: 2px 1px 0px #000000">Cuidando de você</span></a></h1>
+                </div>
+                <div class="col-md-4 ph-agile">
+                    <p style="text-shadow: 2px 1px 0px #000000"><i class="fa fa-phone" aria-hidden="true"></i><span>+55 19 9 9865 8943</span></p>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!-- //banner -->
+    <!-- main -->
+    <div class="tips w3agile">
+        <div class="blog">
+            <div class="container">
+                <h3 style="text-shadow: 2px 1px #000000;" class="w3l-sing">Feedback <span></span></h3>
+                <div class="agile-blog-grids">
+                    <div class="col-md-8 agile-blog-grid-left">
+                        <div class="agile-blog-grid">
+                            <div class="agile-blog-grid-left-img">
+                                <a href="~/Home/Feedback"><img src="images/single.jpg" alt="" /></a>
+                            </div>
+                            <div class="blog-left-grids">
+                                <div class="blog-left-left">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                </div>
+                                <div class="blog-left-right">
+                                    <div class="blog-left-right-top">
+                                        <h4 style="text-shadow: 2px 1px #000000; font-size:18px; color:white;">Sua opinião é importante</h4>
+
+                                    </div>
+                                    <div class="blog-left-right-bottom">
+                                        <p style="text-shadow: 2px 1px #000000; font-size:23px; color:white; margin-left:10px;">
+                                            Use o formulário abaixo para nos enviar seus comentários. Nós lemos cuidadosamente todos os comentários, mas não podemos responder a cada apresentação individualmente.
+                                            Se você fornecer seu endereço de e-mail, você concorda que podemos contatá-lo para entender melhor os comentários que você enviou.
+
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <!-- VERIFICA SE TEM ALGUM FEEDBACK -->
+                           @if(ViewBag.Feedback != null) { 
+                            <div class="tips w3agile">
+                                <div class="feedback">
+                                    @foreach (var f in ViewBag.Feedback)
+                                    {
+                                        <strong style="margin-bottom:10px;">Nome: @f.Nome</strong>
+                                        <p style="float:right; margin-bottom:10px; font-size:15px;">Data: @f.Data</p>
+                                        <p style="margin-bottom:10px;">Email: @f.Email</p>
+                                        <p style="margin-bottom:20px;">Comentario: @f.Mensagem</p>
+                                        <hr />
+                                    }
+                                </div>
+                            </div>
+                            }
+                            <div class="opinion">
+                                @if (ViewBag.MsgErro != null)
+                                {
+                                    <div class="alert alert-danger">
+                                        <strong>ERRO!</strong> @ViewBag.MsgErro
+                                    </div>
+                                }
+                                <h3 style="text-shadow: 2px 1px #000000; font-size:18px; color:white;">Deixe o seu comentário:</h3>
+                                @if (ViewBag.Logado == null)
+                                {
+                                <form action="/Home/FeedbackE" method="post">
+                                    <input type="text" name="Nome" id="Nome" placeholder="Nome Completo" required="" style="color:white">
+                                    <input type="email" name="Email" id="Email" placeholder="Email" required="" style="color:white">
+                                    <textarea name="Mensagem" id="Mensagem" placeholder="Mensagem" required style="color:white"></textarea>
+                                    <input style="text-shadow: 2px 1px #000000; font-size:20px; color:white;" type="submit" value="ENVIAR">
+                                </form>
+                                }
+                                @if (ViewBag.Logado != null)
+                                {
+                                 <form action="/Home/FeedbackE" method="post">
+                                    <input type="text" name="Nome" id="Nome" value="@ViewBag.Nome" placeholder="Nome Completo" required="" style="color:white">
+                                    <input type="email" name="Email" id="Email" value="@ViewBag.Email" placeholder="Email" required="" style="color:white">
+                                    <textarea name="Mensagem" id="Mensagem" placeholder="Mensagem" required style="color:white"></textarea>
+                                    <input style="text-shadow: 2px 1px #000000; font-size:20px; color:white;" type="submit" value="ENVIAR">
+                                </form>
+                                }
+</div>
+                        </div>
+                    </div>                   
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- //main -->
+        <!-- Footer -->
+        <div class="footer w3ls">
+            <div class="container">
+                <div class="footer-main">
+                    <div class="footer-top">
+                        <div class="col-md-4 services-grids">
+                            <h3>Curiosidades.</h3>
+                            <ul>
+                                <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Buscando o bem estar da sociedade sempre.</a></li>
+                                <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista jovens e experientes ajudando  clientes de qualquer idade</a></li>
+                                <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Comer saudávelmente é sinônimo de comer bem.</a></li>
+                                <li><i class="fa fa-angle-double-right" aria-hidden="true"></i><a>Nutricionista de esportes pronto para ajudar no melhor desenvolvimento para seu corpo.</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 ftr-grid">
+                            <div class="logo-fo">
+                                <div class="logo-w3l">
+                                    <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                                </div>
+                                <h2><a href="~/Home/Index">Life More<span>Cuidando de você</span></a></h2>
+                            </div>
+                        </div>
+                        <div class="col-md-4 ftr-grid fg2">
+                            <h3>Nossos endereços</h3>
+                            <div class="ftr-address">
+                                <div class="local">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                </div>
+                                <div class="ftr-text">
+                                    <p style="text-shadow: 2px 1px 0px #000000">SENAI Zerbini</p>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="ftr-address">
+                                <div class="local">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                </div>
+                                <div class="ftr-text">
+                                    <p style="text-shadow: 2px 1px 0px #000000">+55 19 9 9865 8943</p>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="ftr-address">
+                                <div class="local">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                </div>
+                                <div class="ftr-text">
+                                    <p style="text-shadow: 2px 1px 0px #000000"><a href="mailto:LifeMore@gmail.com">LifeMore@gmail.com</a></p>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="right-w3l">
+                        <ul class="top-links">
+
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="copyrights">
+                        <p style="text-shadow: 2px 1px 0px #000000">&copy; 2017 Life More. Todos os direitos reservados | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //Footer -->
+        <!-- js-scripts -->
+        <!-- js -->
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script> <!-- Necessary-JavaScript-File-For-Bootstrap -->
+        <!-- //js -->
+        <!-- //js-scripts -->
+</body>
+</html>
+

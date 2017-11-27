@@ -172,6 +172,12 @@
                     <section>
                         <table border="1">
                             <thead>
+                                @if (ViewBag.Error != null)
+                                {
+                                    <div class="alert alert-danger">
+                                        <strong>ERRO!</strong> @ViewBag.Error
+                                    </div>
+                                }
                                 <tr><a href="/Entrar/Cadastrar/">Cadastrar novo Usuário</a></tr>
                                 <tr class="Produto">
                                     <th class="texto">Nome</th>
@@ -323,6 +329,11 @@
                         <table border="1">
                             <thead>
                                 <tr><a href="~/Categoria/CadastrarC">Cadastrar uma nova Categoria</a></tr>
+                                @if(ViewBag.Mensagem != null)
+                                {
+                                    <tr><p>@ViewBag.Mensagem</p></tr>
+
+                                }
                                 <tr class="Produto">
                                     <th class="texto">Codigo</th>
                                     <th class="texto">Nome</th>

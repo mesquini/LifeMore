@@ -47,7 +47,7 @@ namespace LifeMore.Controllers
                 Response.Redirect("~/Home/Index", false);
             }
 
-            ViewBag.Logado = Session["Adm"];
+            ViewBag.LogadoA = Session["Adm"];
             Adm p = (Adm)Session["Adm"];
 
              List<Paciente> ps = Paciente.ListarP();
