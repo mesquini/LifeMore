@@ -131,7 +131,7 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="stroke">
                                 <ul class="nav navbar-nav"> 
-                                    <li class="active" ><a href="~/Adm/Listar" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
+                                    <li><a href="~/Nutricionista/Perfil" style="text-shadow: 2px 1px 0px #000000">Perfil</a></li>
                                     <li><a href="~/Home/Index" style="text-shadow: 2px 1px 0px #000000">Home</a></li>
                                     <li><a href="~/Home/Dicas" style="text-shadow: 2px 1px 0px #000000">Dicas</a></li>
                                     <li><a href="~/Home/About" style="text-shadow: 2px 1px 0px #000000">Quem somos</a></li>
@@ -166,7 +166,7 @@
         <ul>
             <li class="tabs">
                 <input type="button" name="tabs" class="rd_tabs" id="tab1" checked>
-                <label for="tab1" id="label1"> Pacientes </label>
+                <label for="tab1" id="label1" style="width:600px"> Pacientes </label>
 
                 <div class="content_tab" id="content_tab1">
                     <section>
@@ -219,8 +219,7 @@
                                         <td>@(P.Telefone)</td>
                                         <td>@(P.ImagemPerfil)</td>
                                         <td>
-                                            <a href="~/Perfil/ApagarP/@(P.Cod)">Apagar/</a>
-                                            <a href="~/Adm/previsualizacaoP/@(P.Cod)">Ver</a>
+                                            <a href="~/Adm/previsualizacaoP/@(P.Cod)">Ver Perfil</a>
                                         </td>
                                     </tr>
                                 }
@@ -229,60 +228,10 @@
                     </section>
                 </div>
             </li>
-            <!--PACOTES-->
-            <li class="tabs">
-                <input type="button" name="tabs" class="rd_tabs" id="tab2" u>
-                <label for="tab2" id="label2"> Nutricionistas </label>
-
-                <div class="content_tab" id="content_tab2">
-                    <section>
-                        <table border="1">
-                            <thead>
-                                <tr><a href="~/Nutricionista/CadastrarN">Cadastrar um novo Nutricionista</a></tr>
-                                <tr class="Produto">
-                                    <th class="texto">Nome</th>
-                                    <th class="texto">Senha</th>
-                                    <th class="texto">CPF</th>
-                                    <th class="texto">Email</th>
-                                    <th class="texto">Idade</th>
-                                    <th class="texto">Endereco</th>
-                                    <th class="texto">Telefone</th>
-                                    <th class="texto">Foto</th>
-                                    <th class="texto">Local De Trabalho</th>
-                                    <th class="texto">Biografia</th>
-                                    <th class="texto">Ação</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                               @foreach (var N in ViewBag.Nutricionista)
-                               {
-                                    <tr>
-                                        <td>@(N.Nome)</td>
-                                        <td>@(N.Senha)</td>
-                                        <td>@(N.CPF)</td>
-                                        <td>@(N.Email)</td>
-                                        <td>@(N.Idade)</td>
-                                        <td>@(N.Endereco)</td>
-                                        <td>@(N.Telefone)</td>
-                                        <td>@(N.ImagemPerfil)</td>
-                                        <td>@(N.LocalTrabalho)</td>
-                                        <td>@(N.Bio.Substring(0, Math.Min(N.Bio.Length, 45)) + "...")</td>
-                                        <td>
-                                            <a href="~/Nutricionista/ApagarN/@(N.Cod)">Apagar/</a>
-                                            <a href="~/Adm/previsualizacao/@(N.Cod)">Ver</a>
-                                        </td>
-                                    </tr>
-                               }
-
-                            </tbody>
-                        </table>
-                    </section>
-                </div>
-            </li>
-            <!--DLC-->
+            <!--ALIMENTOS-->
             <li class="tabs">
                 <input type="button" name="tabs" class="rd_tabs" id="tab3">
-                <label for="tab3" id="label3"> Alimentos </label>
+                <label for="tab3" id="label3" style="width:600px"> Alimentos </label>
                 <div class="content_tab" id="content_tab3" style="overflow: scroll;" >
                     <section style="padding-bottom: 20px">
                         <table border="1">
@@ -296,7 +245,6 @@
                                     <th class="texto">Carboidrato</th>
                                     <th class="texto">Proteina</th>
                                     <th class="texto">Categoria</th>
-                                    <th class="texto">Ação</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -309,9 +257,6 @@
                                         <td>@(A.Carboidrato) g</td>
                                         <td>@(A.Proteina) g</td>
                                         <td>@(A.Categoria1)</td>
-                                        <td>
-                                            <a href="~/Alimentos/ApagarA/@(A.Cod)">Apagar</a>
-                                        </td>
                                     </tr>
                                 }
                             </tbody>
@@ -320,10 +265,10 @@
 
                 </div>
             </li>
-            @* POSTS *@
+            @* CATEGORIA *@
             <li class="tabs">
                 <input type="button" name="tabs" class="rd_tabs" id="tab4">
-                <label for="tab4" id="label4"> Categorias </label>
+                <label for="tab4" id="label4" style="width:543px"> Categorias </label>
                 <div class="content_tab" id="content_tab4">
                     <section >
                         <table border="1">
@@ -332,7 +277,6 @@
                                 <tr class="Produto">
                                     <th class="texto">Codigo</th>
                                     <th class="texto">Nome</th>
-                                    <th class="texto">Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -340,9 +284,6 @@
                                     <tr>
                                         <td>@(C.Cod)</td>
                                         <td>@(C.Nome)</td>
-                                        <td>
-                                            <a href="~/Categoria/ApagarC/@(C.Cod)">Apagar</a>
-                                        </td>
                                     </tr>
                                 }
                             </tbody>

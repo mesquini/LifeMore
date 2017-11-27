@@ -285,7 +285,7 @@
     <Content Include="Views\Home\Dicas.cshtml" />
     <Content Include="Views\Alimentos\Listar.cshtml" />
     <Content Include="Views\Categoria\Listar.cshtml" />
-    <Content Include="Views\Nutricionista\Listar.cshtml" />
+    <Content Include="Views\Nutricionista\ListarN.cshtml" />
     <Content Include="Views\Adm\VerP.cshtml" />
     <Content Include="Views\Nutricionista\VerN.cshtml" />
     <Content Include="Views\Nutricionista\Perfil.cshtml" />
@@ -294,6 +294,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Cardapio\CardapioS.cshtml" />
+    <Content Include="Views\Nutricionista\ConsultasMarcadas.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

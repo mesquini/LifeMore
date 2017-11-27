@@ -329,6 +329,11 @@
                         <table border="1">
                             <thead>
                                 <tr><a href="~/Categoria/CadastrarC">Cadastrar uma nova Categoria</a></tr>
+                                @if(ViewBag.Mensagem != null)
+                                {
+                                    <tr><p>@ViewBag.Mensagem</p></tr>
+
+                                }
                                 <tr class="Produto">
                                     <th class="texto">Codigo</th>
                                     <th class="texto">Nome</th>
