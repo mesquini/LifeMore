@@ -114,7 +114,7 @@ namespace LifeMore.Controllers
 
                     
                     //45b7Ac senha nova padrão para inserir depois
-                    String mensagem = Request.Form["Nome"] + " : " + Request.Form["Mensagem"] + Environment.NewLine + " De: " + Request.Form["Email"].ToString();
+                    String mensagem = Request.Form["Nome"] + " \n\n\n Mensagem: " + Request.Form["Mensagem"] + Environment.NewLine + "\n\n De: " + Request.Form["Email"].ToString();
                     String titulo = Request.Form["Assunto"];
                     //destinatarios do e-mail, para incluir mais de um basta separar por ponto e virgula 
                     mailMessage.To.Add(destinatario);
@@ -134,9 +134,14 @@ namespace LifeMore.Controllers
                     smtpClient.Port = 587;
 
                     //credenciais da conta que utilizará para enviar o e-mail
-                    smtpClient.Credentials = new NetworkCredential("mesquini@live.com", "aser2728");
+                    smtpClient.Credentials = new NetworkCredential("mesquini@live.com", "senha");
 
                     smtpClient.Send(mailMessage);
+
+                    if (true)
+                    {
+                        ViewBag.Enviado = "Email enviado com sucesso!";
+                    }
                     return true;
 
                 }
@@ -155,8 +160,9 @@ namespace LifeMore.Controllers
             if (Session["Paciente"] != null)
             {
                 ViewBag.Logado = Session["Paciente"];
-                Paciente Paciente = (Paciente)Session["Paciente"];
-
+                Paciente p = (Paciente)Session["Paciente"];
+                ViewBag.Nome = p.Nome;
+                ViewBag.Email = p.Email;
             }
             if (Session["Nutricionista"] != null)
             {
@@ -169,7 +175,6 @@ namespace LifeMore.Controllers
 
                 ViewBag.LogadoA = Session["Adm"];
                 Adm p = (Adm)Session["Adm"];
-                ViewBag.Nome = p.Nome;
             }
 
             List<Feedbacks> f = Feedbacks.ListarF();

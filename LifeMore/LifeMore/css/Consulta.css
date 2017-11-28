@@ -85,3 +85,14 @@
             font-size: 18px;
             cursor: pointer;
         }
+
+.consultaMarcada{
+    border: solid 2px black;
+    text-align:center;
+    margin-right:10px;
+    margin-left:20px;
+    margin-bottom:5px;
+    margin-top:5px;
+    width:500px;
+    float:left;
+}
