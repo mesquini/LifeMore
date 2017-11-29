@@ -21,6 +21,7 @@ namespace LifeMore.Models
         public String LocalTrabalho { get; set; }
         public String Bio { get; set; }
         public String Endereco { get; set; }
+        public String crm { get; set; }
         public Nutricionista() { }
 
         public Nutricionista(Int32 ID)
@@ -48,6 +49,7 @@ namespace LifeMore.Models
             this.Bio = (String)Leitor["Bio"];
             this.LocalTrabalho = (String)Leitor["LocalTrabalho"];
             this.Telefone = (String)Leitor["Telefone"];
+            this.crm = (String)Leitor["CRM"];
 
             Conexao.Close();
         }
@@ -79,7 +81,7 @@ namespace LifeMore.Models
             this.Bio = (String)Leitor["Bio"];
             this.LocalTrabalho = (String)Leitor["LocalTrabalho"];
             this.Telefone = (String)Leitor["Telefone"];
-
+            this.crm = (String)Leitor["CRM"];
 
 
 
@@ -92,8 +94,8 @@ namespace LifeMore.Models
 
             SqlCommand Comando = new SqlCommand();
             Comando.Connection = Conexao; /*'111.111.111-11','1', 40, 'Rua40','mesquini@live.com', '(19)9 8745-6321', 'Nutri', 'imagemPadrao.jpeg', 'SENAI'*/
-            Comando.CommandText = "INSERT INTO Nutricionista (CPF_Nutri, Senha, Idade, Endereco, Email, Telefone, Nome, Foto, LocalTrabalho, Bio)"
-              + "VALUES                                     (@CPF_Nutri, @Senha, @Idade, @Endereco, @Email, @Telefone, @Nome, @Foto, @LocalTrabalho, @Bio);";
+            Comando.CommandText = "INSERT INTO Nutricionista (CPF_Nutri, Senha, Idade, Endereco, Email, Telefone, Nome, Foto, LocalTrabalho, CRM, Bio)"
+              + "VALUES                                     (@CPF_Nutri, @Senha, @Idade, @Endereco, @Email, @Telefone, @Nome, @Foto, @LocalTrabalho, @CRM, @Bio);";
 
             Comando.Parameters.AddWithValue("@CPF_Nutri", this.CPF);
             Comando.Parameters.AddWithValue("@Senha", this.Senha);
@@ -104,6 +106,7 @@ namespace LifeMore.Models
             Comando.Parameters.AddWithValue("@Nome", this.Nome);
             Comando.Parameters.AddWithValue("@Foto", "imagemPadrao.jpeg");
             Comando.Parameters.AddWithValue("@LocalTrabalho", this.LocalTrabalho);
+            Comando.Parameters.AddWithValue("@CRM", this.crm);
             Comando.Parameters.AddWithValue("@Bio", this.Bio);
 
 
@@ -164,6 +167,7 @@ namespace LifeMore.Models
                 N.Nome = ((String)Leitor["Nome"]);
                 N.ImagemPerfil = (String)Leitor["Foto"];
                 N.LocalTrabalho = (String)Leitor["LocalTrabalho"];
+                N.crm = (String)Leitor["CRM"];
                 N.Bio = ((String)Leitor["Bio"]);
 
                 Nutricionistas.Add(N);
@@ -200,6 +204,7 @@ namespace LifeMore.Models
             this.CPF = (String)Leitor["CPF_Nutri"];
             this.Bio = (String)Leitor["Bio"];
             this.LocalTrabalho = (String)Leitor["LocalTrabalho"];
+            this.crm = (String)Leitor["CRM"];
             this.Telefone = (String)Leitor["Telefone"];
 
             Conexao.Close();
