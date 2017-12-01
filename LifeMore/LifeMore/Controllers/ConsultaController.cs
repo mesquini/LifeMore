@@ -22,7 +22,7 @@ namespace LifeMore.Controllers
                 String Dia = Request.Form["datepicker"];
                 String Hora = Request.Form["timepicker"];
                 String Comentario = Request.Form["mensagem"];
-                String precoConsulta = Request.Form["precoConsulta"];
+                String precoConsulta =  Request.Form["precoConsulta"];
                 String horaConsulta = Request.Form["horaConsulta"];
                 String tipoConsulta = Request.Form["tipoConsulta"];
 
