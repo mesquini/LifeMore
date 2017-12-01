@@ -44,6 +44,7 @@ namespace LifeMore.Controllers
                 String Bio = Request.Form["bio"];
                 String End = Request.Form["enderecoN"];
                 String Tel = Request.Form["telefoneN"];
+                String crm = Request.Form["crm"];
 
 
                 Nutricionista NovoUser = new Nutricionista();
@@ -57,6 +58,7 @@ namespace LifeMore.Controllers
                 NovoUser.Endereco = End;
                 NovoUser.Bio = Bio;
                 NovoUser.LocalTrabalho = LocalTrabalho;
+                NovoUser.crm = crm;
 
                 
 
@@ -110,6 +112,7 @@ namespace LifeMore.Controllers
                 ViewBag.Idade = p.Idade;
                 ViewBag.LocalTrabalho = p.LocalTrabalho;
                 ViewBag.Bio = p.Bio;
+                ViewBag.CRM = p.crm;
 
                 return View();
             }

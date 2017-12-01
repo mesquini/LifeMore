@@ -34,7 +34,6 @@
     <!-- //online-fonts -->
 
     <link rel="stylesheet" href="~/css/Login.css">
-    <script src="~/js/login.js" type="text/javascript"></script>
     <script src="~/js/AcessarPag.js" type="text/javascript"></script>
 
     <script src="~/js/jquery.js" type="text/javascript"></script>
@@ -249,6 +248,7 @@
                                     <th class="texto">Telefone</th>
                                     <th class="texto">Foto</th>
                                     <th class="texto">Local De Trabalho</th>
+                                    <th class="texto">CRM</th>
                                     <th class="texto">Biografia</th>
                                     <th class="texto">Ação</th>
                                 </tr>
@@ -266,7 +266,8 @@
                                         <td>@(N.Telefone)</td>
                                         <td>@(N.ImagemPerfil)</td>
                                         <td>@(N.LocalTrabalho)</td>
-                                        <td>@(N.Bio.Substring(0, Math.Min(N.Bio.Length, 45)) + "...")</td>
+                                        <td>@(N.crm)</td>
+                                        <td>@(N.Bio.Substring(0, Math.Min(N.Bio.Length, 35)) + "...")</td>
                                         <td>
                                             <a href="~/Nutricionista/ApagarN/@(N.Cod)">Apagar/</a>
                                             <a href="~/Adm/previsualizacao/@(N.Cod)">Ver</a>
