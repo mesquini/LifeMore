@@ -94,12 +94,15 @@ namespace LifeMore.Controllers
                         //postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images\img_users" + nomeArquivoUpload);
 
                         //postedFile.SaveAs(@"C:\Users\Mesquini\Source\Repos\LifeMore\LifeMore\LifeMore\images\img_users" + nomeArquivoUpload);
+                        postedFile.SaveAs(@"C:\Users\16128605\Source\Repos\LifeMore2\LifeMore\LifeMore\images\img_users" + nomeArquivoUpload);
+
                         novoUser.ImagemPerfil = nomeArquivoUpload;
                     }
                     else
                         //postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
-                        postedFile.SaveAs(HttpRuntime.AppDomainAppPath + "\\images\\img_users\\" + Request.Form["Desc"] + ".txt");
+
                     //postedFile.SaveAs(@"C:\Users\Mesquini\Source\Repos\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
+                    postedFile.SaveAs(@"C:\Users\16128605\Source\Repos\LifeMore2\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
                 }
 
                 if (novoUser.EditarPerfil())
