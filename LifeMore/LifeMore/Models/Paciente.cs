@@ -243,6 +243,44 @@ namespace LifeMore.Models
 
             return Pacientes;
         }
+
+        //METODO PARA LISTAR OS DADOS DO PACIENTE ATRAVÉS DO CPF
+        public List<Paciente> ListarPacienteCPF(String CPF)
+        {
+            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
+            Conexao.Open();
+
+            SqlCommand Comando = new SqlCommand();
+            Comando.Connection = Conexao;
+            Comando.CommandText = "SELECT * FROM Paciente WHERE CPF_Paciente = @CPF;";
+            Comando.Parameters.AddWithValue("@CPF", CPF);
+
+            SqlDataReader Leitor = Comando.ExecuteReader();
+
+            List<Paciente> Pacientes = new List<Paciente>();
+            while (Leitor.Read())
+            {
+                Paciente P = new Paciente();
+                P.Cod = (Int32)Leitor["Cod"];
+                P.Nome = ((String)Leitor["Nome"]);
+                P.Endereco = Leitor["Endereco"].ToString();
+                P.CPF = (String)Leitor["CPF_Paciente"];
+                P.Idade = (String)Leitor["Idade"];
+                P.Email = ((String)Leitor["Email"]);
+                P.Senha = (String)Leitor["Senha"];
+                P.Altura = ((String)Leitor["Altura"]);
+                P.Peso = (String)Leitor["Peso"];
+                P.ImagemPerfil = (String)Leitor["Foto"];
+                P.Telefone = (String)Leitor["Telefone"];
+
+
+                Pacientes.Add(P);
+            }
+
+            Conexao.Close();
+
+            return Pacientes;
+        }
         //METODO PARA AUTENTICAR UM USUARIO COM O CPF E SENHA
         public static Boolean Autenticar(String CPF, String Senha)
         {

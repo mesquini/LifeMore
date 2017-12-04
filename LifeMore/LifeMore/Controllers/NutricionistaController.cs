@@ -134,7 +134,7 @@ namespace LifeMore.Controllers
                 ViewBag.Nome = p.Nome;
                 ViewBag.Email = p.Email;
                 ViewBag.Endereco = p.Endereco;
-                ViewBag.Imagem = p.ImagemPerfil;
+                ViewBag.Imagem = p.ImagemPerfilN;
                 ViewBag.Tel = p.Telefone;
                 ViewBag.Idade = p.Idade;
                 ViewBag.LocalTrabalho = p.LocalTrabalho;
@@ -197,7 +197,7 @@ namespace LifeMore.Controllers
                         postedFile.SaveAs(HttpRuntime.AppDomainAppPath + "\\images\\img_users\\" + nomeArquivoUpload);
                         //postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images\img_users" + nomeArquivoUpload);
 
-                        novoUser.ImagemPerfil = nomeArquivoUpload;
+                        novoUser.ImagemPerfilN = nomeArquivoUpload;
                     }
                     else
                        // postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");

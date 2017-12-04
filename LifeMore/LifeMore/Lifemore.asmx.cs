@@ -22,14 +22,24 @@ namespace LifeMore
 
         [WebMethod]
 
-        public Paciente AutenticarP(String CPF, String Senha)
+        public List<Paciente> AutenticarP(String CPF, String Senha)
         {
-            Paciente.Autenticar(CPF, Senha);
-            Paciente P   = new Paciente(CPF, Senha);
-            Paciente.ListarP();
-            
-            return P;
+            List<Paciente> lista = new List<Paciente>();
+
+            if (Paciente.Autenticar(CPF, Senha))
+            {
+                lista = new Paciente().ListarPacienteCPF(CPF);
+                return lista;
+            }               
+            else
+            {
+                return null;
+            }
+                
+            //Paciente.ListarP();
+            //return P;
         }
+
         [WebMethod]
 
         public Paciente listarP(String nome, int cod, String email, String CPF, int objetivo, String senha, String telefone, String idade, String imagemPerfil, String peso, String altura, String endereco)
@@ -57,8 +67,6 @@ namespace LifeMore
 
         public Nutricionista AutenticarN(String CPF, String Senha)
         {
-
-
             Nutricionista.Autenticar(CPF, Senha);
             Nutricionista N = new Nutricionista(CPF, Senha);
             return N;
