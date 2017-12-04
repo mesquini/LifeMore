@@ -74,7 +74,34 @@ namespace LifeMore.Controllers
             }
             return View();
         }
+        public ActionResult previsualizacaoP(Int32 id)
+        {
+            Paciente Pacientes = new Paciente(id);
+            if (Pacientes.BuscarDados(id))
+            {
+                TempData["Paciente"] = Pacientes;
 
+                return RedirectToAction("VerP", "Nutricionista");
+            }
+            else
+            {
+                return RedirectToAction("ListarN", "Nutricionista");
+            }
+        }
+        public ActionResult VerP()
+        {
+            ViewBag.LogadoN = Session["Nutricionista"];
+
+            if (Session["Nutricionista"] == null)
+            {
+                Response.Redirect("~/Home/Index", false);
+            }
+            if (TempData["Paciente"] != null)
+            {
+                ViewBag.Perfil = (Paciente)TempData["Paciente"];
+            }
+            return View();
+        }
         public ActionResult VerN()
         {
             ViewBag.LogadoA = Session["Adm"];
@@ -166,15 +193,15 @@ namespace LifeMore.Controllers
                     if (contentType.IndexOf("jpeg") > 0 || contentType.IndexOf("jpg") > 0 || contentType.IndexOf("png") > 0)
                     {
                         Bitmap arquivoConvertido = img.ResizeImage(postedFile.InputStream, 100, 100);
-                        string nomeArquivoUpload = "imagemPerfil" + ID + ".jpg";
+                        string nomeArquivoUpload = "imagemPerfilN" + ID + ".jpg";
                         postedFile.SaveAs(HttpRuntime.AppDomainAppPath + "\\images\\img_users\\" + nomeArquivoUpload);
-                        postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images\img_users" + nomeArquivoUpload);
+                        //postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images\img_users" + nomeArquivoUpload);
 
                         novoUser.ImagemPerfil = nomeArquivoUpload;
                     }
                     else
-                        postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
-
+                       // postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
+                        postedFile.SaveAs(HttpRuntime.AppDomainAppPath + "\\images\\img_users\\" + Request.Form["Desc"] + ".txt");
 
                 }
 

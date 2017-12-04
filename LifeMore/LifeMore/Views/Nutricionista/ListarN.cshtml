@@ -34,7 +34,6 @@
     <!-- //online-fonts -->
 
     <link rel="stylesheet" href="~/css/Login.css">
-    <script src="~/js/login.js" type="text/javascript"></script>
     <script src="~/js/AcessarPag.js" type="text/javascript"></script>
 
     <script src="~/js/jquery.js" type="text/javascript"></script>
@@ -190,7 +189,6 @@
                                     <th class="texto">Altura</th>
                                     <th class="texto">Endereco</th>
                                     <th class="texto">Telefone</th>
-                                    <th class="texto">Foto</th>
                                     <th class="texto">Ação</th>
                                 </tr>
 
@@ -217,9 +215,8 @@
                                         <td>@(P.Altura)</td>
                                         <td>@(P.Endereco)</td>
                                         <td>@(P.Telefone)</td>
-                                        <td>@(P.ImagemPerfil)</td>
                                         <td>
-                                            <a href="~/Adm/previsualizacaoP/@(P.Cod)">Ver Perfil</a>
+                                            <a href="~/Nutricionista/previsualizacaoP/@(P.Cod)">Ver Perfil</a>
                                         </td>
                                     </tr>
                                 }

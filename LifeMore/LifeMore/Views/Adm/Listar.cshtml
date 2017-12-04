@@ -34,7 +34,6 @@
     <!-- //online-fonts -->
 
     <link rel="stylesheet" href="~/css/Login.css">
-    <script src="~/js/login.js" type="text/javascript"></script>
     <script src="~/js/AcessarPag.js" type="text/javascript"></script>
 
     <script src="~/js/jquery.js" type="text/javascript"></script>
@@ -62,9 +61,11 @@
                 $("#content_tab2").css("display", "none");
                 $("#content_tab3").css("display", "none");
                 $("#content_tab4").css("display", "none");
+                $("#content_tab5").css("display", "none");
                 $("#label2").css("backgroundColor", "#B01030");
                 $("#label3").css("backgroundColor", "#B01030");
                 $("#label4").css("backgroundColor", "#B01030");
+                $("#label5").css("backgroundColor", "#B01030");
             });
             $("#tab2").click(function () {
                 $("#content_tab2").css("display", "block");
@@ -75,9 +76,11 @@
                 $("#content_tab1").css("display", "none");
                 $("#content_tab3").css("display", "none");
                 $("#content_tab4").css("display", "none");
+                $("#content_tab5").css("display", "none");
                 $("#label1").css("backgroundColor", "#B01030");
                 $("#label3").css("backgroundColor", "#B01030");
                 $("#label4").css("backgroundColor", "#B01030");
+                $("#label5").css("backgroundColor", "#B01030");
             });
             $("#tab3").click(function () {
                 $("#content_tab3").css("display", "block");
@@ -88,9 +91,11 @@
                 $("#content_tab1").css("display", "none");
                 $("#content_tab2").css("display", "none");
                 $("#content_tab4").css("display", "none");
+                $("#content_tab5").css("display", "none");
                 $("#label1").css("backgroundColor", "#B01030");
                 $("#label2").css("backgroundColor", "#B01030");
                 $("#label4").css("backgroundColor", "#B01030");
+                $("#label5").css("backgroundColor", "#B01030");
             });
             $("#tab4").click(function () {
                 $("#content_tab4").css("display", "block");
@@ -101,9 +106,27 @@
                 $("#content_tab1").css("display", "none");
                 $("#content_tab2").css("display", "none");
                 $("#content_tab3").css("display", "none");
+                $("#content_tab5").css("display", "none");
                 $("#label1").css("backgroundColor", "#B01030");
                 $("#label2").css("backgroundColor", "#B01030");
                 $("#label3").css("backgroundColor", "#B01030");
+                $("#label5").css("backgroundColor", "#B01030");
+
+            });
+            $("#tab5").click(function () {
+                $("#content_tab5").css("display", "block");
+                $("#content_tab5").css("position", "absolute");
+                $("#content_tab5").css("top", "70px");
+                $("#label5").css("backgroundColor", "#5D5C5C");
+
+                $("#content_tab1").css("display", "none");
+                $("#content_tab2").css("display", "none");
+                $("#content_tab3").css("display", "none");
+                $("#content_tab4").css("display", "none");
+                $("#label1").css("backgroundColor", "#B01030");
+                $("#label2").css("backgroundColor", "#B01030");
+                $("#label3").css("backgroundColor", "#B01030");
+                $("#label4").css("backgroundColor", "#B01030");
 
             });
         });
@@ -190,7 +213,6 @@
                                     <th class="texto">Altura</th>
                                     <th class="texto">Endereco</th>
                                     <th class="texto">Telefone</th>
-                                    <th class="texto">Foto</th>
                                     <th class="texto">Ação</th>
                                 </tr>
 
@@ -217,7 +239,6 @@
                                         <td>@(P.Altura)</td>
                                         <td>@(P.Endereco)</td>
                                         <td>@(P.Telefone)</td>
-                                        <td>@(P.ImagemPerfil)</td>
                                         <td>
                                             <a href="~/Perfil/ApagarP/@(P.Cod)">Apagar/</a>
                                             <a href="~/Adm/previsualizacaoP/@(P.Cod)">Ver</a>
@@ -229,7 +250,7 @@
                     </section>
                 </div>
             </li>
-            <!--PACOTES-->
+            <!--Nutricionista-->
             <li class="tabs">
                 <input type="button" name="tabs" class="rd_tabs" id="tab2" u>
                 <label for="tab2" id="label2"> Nutricionistas </label>
@@ -247,7 +268,6 @@
                                     <th class="texto">Idade</th>
                                     <th class="texto">Endereco</th>
                                     <th class="texto">Telefone</th>
-                                    <th class="texto">Foto</th>
                                     <th class="texto">Local De Trabalho</th>
                                     <th class="texto">CRM</th>
                                     <th class="texto">Biografia</th>
@@ -265,7 +285,6 @@
                                         <td>@(N.Idade)</td>
                                         <td>@(N.Endereco)</td>
                                         <td>@(N.Telefone)</td>
-                                        <td>@(N.ImagemPerfil)</td>
                                         <td>@(N.LocalTrabalho)</td>
                                         <td>@(N.crm)</td>
                                         <td>@(N.Bio.Substring(0, Math.Min(N.Bio.Length, 35)) + "...")</td>
@@ -281,7 +300,7 @@
                     </section>
                 </div>
             </li>
-            <!--DLC-->
+            <!--Alimentos-->
             <li class="tabs">
                 <input type="button" name="tabs" class="rd_tabs" id="tab3">
                 <label for="tab3" id="label3"> Alimentos </label>
@@ -322,7 +341,7 @@
 
                 </div>
             </li>
-            @* POSTS *@
+            @* Categoria *@
             <li class="tabs">
                 <input type="button" name="tabs" class="rd_tabs" id="tab4">
                 <label for="tab4" id="label4"> Categorias </label>
@@ -349,6 +368,44 @@
                                         <td>@(C.Nome)</td>
                                         <td>
                                             <a href="~/Categoria/ApagarC/@(C.Cod)">Apagar</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            </li>
+            @* Feedback *@
+            <li class="tabs">
+                <input type="button" name="tabs" class="rd_tabs" id="tab5">
+                <label for="tab5" id="label5"> Feedback </label>
+                <div class="content_tab" id="content_tab5">
+                    <section>
+                        <table border="1">
+                            <thead>
+                                <tr><a href="~/Home/Feedback">Pagina Feedback</a></tr>
+                                
+                                <tr class="Produto">
+                                    <th class="texto">Codigo</th>
+                                    <th class="texto">Nome</th>
+                                    <th class="texto">Email</th>
+                                    <th class="texto">Mensagem</th>
+                                    <th class="texto">Data</th>
+                                    <th class="texto">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var F in ViewBag.Feedback)
+                                {
+                                    <tr>
+                                        <td>@(F.Cod)</td>
+                                        <td>@(F.Nome)</td>
+                                        <td>@(F.Email)</td>
+                                        <td>@(F.Mensagem)</td>
+                                        <td>@(F.Data)</td>
+                                        <td>
+                                            <a href="~/Home/ApagarFeedback/@(F.Cod)">Apagar</a>
                                         </td>
                                     </tr>
                                 }
