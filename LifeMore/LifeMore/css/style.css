@@ -1015,7 +1015,7 @@ figure.effect-julia p {
     -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
     transition: opacity 0.35s, transform 0.35s;
     -webkit-transform: translate3d(-500px,0,0);
-    transform: translate3d(-500px,0,0);
+    transform: translate3d(-800px,0,0);
 }
 figure.effect-julia p:first-child {
 	-webkit-transition-delay: 0.15s;
