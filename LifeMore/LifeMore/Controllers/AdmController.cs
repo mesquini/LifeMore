@@ -54,11 +54,13 @@ namespace LifeMore.Controllers
              List<Nutricionista> ns = Nutricionista.ListarN();
              List<Categoria> cs = Categoria.ListarC();
              List<Alimento> a = Alimento.ListarA();
+            List<Feedbacks> fs = Feedbacks.ListarF();
 
             ViewBag.Usuario = ps;
             ViewBag.Nutricionista = ns;
             ViewBag.Categoria = cs;
             ViewBag.Alimento = a;
+            ViewBag.Feedback = fs;
 
             return View();
         }

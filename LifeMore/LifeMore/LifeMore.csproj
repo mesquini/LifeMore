@@ -151,13 +151,10 @@
     <Content Include="images\Dicas\gorduras.jpg" />
     <Content Include="images\Dicas\torta_frango.jpg" />
     <Content Include="images\img_users\imagemPadrao.jpeg" />
-    <Content Include="images\img_users\imagemPerfil1.jpg" />
     <Content Include="images\img_users\imagemPerfil1004.jpg" />
-    <Content Include="images\img_users\imagemPerfil1014.jpg" />
+    <Content Include="images\img_users\imagemPerfil2023.jpg" />
     <Content Include="images\img_users\imagemPerfil1015.jpg" />
     <Content Include="images\img_users\imagemPerfil1024.jpg" />
-    <Content Include="images\img_users\imagemPerfil2.jpg" />
-    <Content Include="images\img_users\imagemPerfil4.jpg" />
     <Content Include="images\img_users\imagemPerfil5.jpg" />
     <Content Include="images\prev.png" />
     <Content Include="images\Time\BarbaraVerdadeira.jpg" />
@@ -202,6 +199,10 @@
     <Content Include="Lifemore.asmx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <None Include="Properties\PublishProfiles\LifeMore - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\LifeMore - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\LifeMore - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\LifeMore - Web Deploy.pubxml" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
@@ -215,7 +216,9 @@
     <Content Include="scripts\jquery.validate.unobtrusive.js" />
     <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -242,7 +245,6 @@
     <Compile Include="Models\Consulta.cs" />
     <Compile Include="Models\Feedbacks.cs" />
     <Compile Include="Models\Imagem.cs" />
-    <Compile Include="Models\MarcarConsulta.cs" />
     <Compile Include="Models\Nutricionista.cs" />
     <Compile Include="Models\Paciente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -295,6 +297,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Cardapio\CardapioS.cshtml" />
     <Content Include="Views\Nutricionista\ConsultasMarcadas.cshtml" />
+    <Content Include="Views\Nutricionista\VerP.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -304,6 +307,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
