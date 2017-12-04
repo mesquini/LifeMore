@@ -17,7 +17,7 @@ namespace LifeMore.Models
         public String Senha { get; set; }
         public String Telefone { get; set; }
         public Int32 Idade { get; set; }
-        public String ImagemPerfil { get; set; }
+        public String ImagemPerfilN { get; set; }
         public String LocalTrabalho { get; set; }
         public String Bio { get; set; }
         public String Endereco { get; set; }
