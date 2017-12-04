@@ -211,6 +211,22 @@ namespace LifeMore.Controllers
 
             return View();
         }
+        public ActionResult ApagarFeedback(Int32 ID)
+        {
+            if (Session["Adm"] == null)
+            {
+                Response.Redirect("~/Home/Index", false);
+            }
+
+            Feedbacks f = new Feedbacks(Convert.ToInt32(ID));
+
+            if (f.Apagar())
+            {
+                ViewBag.OK = "Apagado com sucesso!";
+            }
+
+            return RedirectToAction("Listar", "Adm");
+        }
         public ActionResult Dicas()
         {
             if (Session["Paciente"] != null)
