@@ -199,9 +199,9 @@ namespace LifeMore.Controllers
 
                         novoUser.ImagemPerfilN = nomeArquivoUpload;
                     }
-                    else
-                       // postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
-                        postedFile.SaveAs(HttpRuntime.AppDomainAppPath + "\\images\\img_users\\" + Request.Form["Desc"] + ".txt");
+                //    else
+                //       // postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
+                //        postedFile.SaveAs(HttpRuntime.AppDomainAppPath + "\\images\\img_users\\" + Request.Form["Desc"] + ".txt");
 
                 }
 
