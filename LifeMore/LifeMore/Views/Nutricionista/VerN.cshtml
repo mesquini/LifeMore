@@ -123,37 +123,39 @@
         </div>
 
     </div>
-    <br />
-    <div class="textoperfil" style="text-shadow: 5px 2px 0px #000000">
-        Perfil - Nutricionista
+    <div class="tips w3agile">
+        <br />
+        <div class="textoperfil" style="text-shadow: 5px 2px 0px #000000">
+            Perfil - Nutricionista
+        </div>
+
+        @* perfil *@
+        <div class="perfil" style="margin-bottom: 180px;">
+
+            <div class="imagem">
+                <input type="image" src="/images/img_users/@ViewBag.Perfil.ImagemPerfilN" class="imgEdit" />
+            </div>
+
+            <div class="dadosPessoais">
+                <p style="text-shadow: 2px 1px 0px #000000">Nome: @(ViewBag.Perfil.Nome)</p>
+                <p style="text-shadow: 2px 1px 0px #000000">CPF: @ViewBag.Perfil.CPF</p>
+                <p style="text-shadow: 2px 1px 0px #000000">E-mail: @ViewBag.Perfil.Email</p>
+                <p style="text-shadow: 2px 1px 0px #000000">Telefone: @ViewBag.Perfil.Telefone</p>
+                <p style="text-shadow: 2px 1px 0px #000000">Endereço: @ViewBag.Perfil.Endereco</p>
+                <p style="text-shadow: 2px 1px 0px #000000">Endereço: @ViewBag.Perfil.crm</p>
+            </div>
+
+            <div class="dadosSistema">
+                <p style="text-shadow: 2px 1px 0px #000000">Idade: @ViewBag.Perfil.Idade</p>
+                <p style="text-shadow: 2px 1px 0px #000000">Local de Trabalho: @ViewBag.Perfil.LocalTrabalho</p>
+                <p style="text-shadow: 2px 1px 0px #000000">Biografia: @ViewBag.Perfil.Bio</p>
+            </div>
+            <div class="btPerfil">
+
+            </div>
+            <div class="espaco"> </div>
+        </div>
     </div>
-   
-    @* perfil *@
-    <div class="perfil">
-
-        <div class="imagem">
-            <input type="image" src="/images/img_users/@ViewBag.Perfil.ImagemPerfil" class="imgEdit" />
-        </div>
-
-        <div class="dadosPessoais">
-            <p style="text-shadow: 2px 1px 0px #000000">Nome: @(ViewBag.Perfil.Nome)</p>
-            <p style="text-shadow: 2px 1px 0px #000000">CPF: @ViewBag.Perfil.CPF</p>
-            <p style="text-shadow: 2px 1px 0px #000000">E-mail: @ViewBag.Perfil.Email</p>
-            <p style="text-shadow: 2px 1px 0px #000000">Telefone: @ViewBag.Perfil.Telefone</p>
-            <p style="text-shadow: 2px 1px 0px #000000">Endereço: @ViewBag.Perfil.Endereco</p>
-        </div>
-
-        <div class="dadosSistema">
-            <p style="text-shadow: 2px 1px 0px #000000">Idade: @ViewBag.Perfil.Idade</p>
-            <p style="text-shadow: 2px 1px 0px #000000">Local de Trabalho: @ViewBag.Perfil.LocalTrabalho</p>
-            <p style="text-shadow: 2px 1px 0px #000000">Biografia: @ViewBag.Perfil.Bio</p>
-        </div>
-        <div class="btPerfil">
-            
-        </div>
-        <div class="espaco"> </div>
-    </div>
-    
 
     <div class="footer w3ls">
         <div class="container">

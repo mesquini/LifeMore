@@ -104,16 +104,9 @@ namespace LifeMore.Controllers
         }
         public ActionResult VerN()
         {
-            ViewBag.LogadoA = Session["Adm"];
-
-            if (Session["Adm"] == null)
-            {
-                Response.Redirect("~/Home/Index", false);
-            }
-            if(TempData["Nutricionista"] != null)
-            {
+            
                 ViewBag.Perfil = (Nutricionista)TempData["Nutricionista"];
-            }
+            
             return View();
         }
 

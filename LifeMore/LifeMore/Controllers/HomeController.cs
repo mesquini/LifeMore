@@ -27,7 +27,7 @@ namespace LifeMore.Controllers
             {
 
                 ViewBag.LogadoN = Session["Nutricionista"];
-                Nutricionista n = (Nutricionista)Session["Adm"];
+                Nutricionista n = (Nutricionista)Session["Nutricionista"];
             }
 
             if (Session["Paciente"] != null)
@@ -40,6 +40,8 @@ namespace LifeMore.Controllers
                 ViewBag.Objetivo = Paciente.Objetivo;
 
             }
+            List<Nutricionista> ns = Nutricionista.ListarN();
+            ViewBag.Nutri = ns;
             return View();
         }
         public ActionResult About()
