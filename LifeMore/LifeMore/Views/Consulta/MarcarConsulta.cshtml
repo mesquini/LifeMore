@@ -39,7 +39,7 @@
     <script src="~/js/jquery.js"></script>
     <script src="~/js/jquery.mask.js"></script>
 
-    @* INICIA O JAVA SCRIPT DA PÁGINA COM FUNÇÃO DE MOSTRAR  AO USUÁRIO O  *@
+    @* INICIA O JAVA SCRIPT DA PÁGINA COM FUNÇÃO DE MOSTRAR  AO USUÁRIO A CONSULTA  *@
     <script>
         function textoConsulta() {
             var url = new URL(window.location.href);
@@ -147,7 +147,7 @@
             </div>
         }
         <!-- FORM PARA CADASTRAR CONSULTA-->
-    <form action="/Consulta/MarcarConsulta" method="post">
+    <form action="/Consulta/MarcarConsulta" method="post" onsubmit="javascript: return textoConsulta()">
         <div style="text-shadow: 2px 1px 0px #000000;" class="Tituloconsulta" >
             Informações do paciente
         </div>
@@ -216,9 +216,10 @@
         </div>
         <!--INFORMAÇOES DA CONSULTA-->
         <div style="text-shadow: 2px 1px 0px #000000" class="precoconsulta">
-            <a name="precoConsulta" id="precoConsulta"></a>
-            <a id="horaConsulta" name="horaConsulta"></a>
-            <a id="tipoConsulta" name="tipoConsulta"></a>
+            
+            <a id="tipoConsulta" name="tipoConsulta"></a><br />
+            <a name="precoConsulta" id="precoConsulta"></a><br />
+            <a id="horaConsulta" name="horaConsulta"></a><br />
         </div>
         <button class="botaoinfo" style="margin-right: 800px;">
             Enviar

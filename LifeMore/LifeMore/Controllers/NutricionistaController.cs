@@ -104,16 +104,9 @@ namespace LifeMore.Controllers
         }
         public ActionResult VerN()
         {
-            ViewBag.LogadoA = Session["Adm"];
-
-            if (Session["Adm"] == null)
-            {
-                Response.Redirect("~/Home/Index", false);
-            }
-            if(TempData["Nutricionista"] != null)
-            {
+            
                 ViewBag.Perfil = (Nutricionista)TempData["Nutricionista"];
-            }
+            
             return View();
         }
 
@@ -199,9 +192,9 @@ namespace LifeMore.Controllers
 
                         novoUser.ImagemPerfilN = nomeArquivoUpload;
                     }
-                    else
-                       // postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
-                        postedFile.SaveAs(HttpRuntime.AppDomainAppPath + "\\images\\img_users\\" + Request.Form["Desc"] + ".txt");
+                //    else
+                //       // postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
+                //        postedFile.SaveAs(HttpRuntime.AppDomainAppPath + "\\images\\img_users\\" + Request.Form["Desc"] + ".txt");
 
                 }
 

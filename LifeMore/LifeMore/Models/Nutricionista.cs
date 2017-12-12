@@ -44,7 +44,7 @@ namespace LifeMore.Models
             this.Endereco = (String)Leitor["Endereco"];
             this.Nome = (String)Leitor["Nome"];
             this.Idade = (int)Leitor["Idade"];
-            this.ImagemPerfil = (String)Leitor["Foto"];
+            this.ImagemPerfilN = (String)Leitor["Foto"];
             this.CPF = (String)Leitor["CPF_Nutri"];
             this.Bio = (String)Leitor["Bio"];
             this.LocalTrabalho = (String)Leitor["LocalTrabalho"];
@@ -76,7 +76,7 @@ namespace LifeMore.Models
             this.Endereco = (String)Leitor["Endereco"];
             this.Nome = (String)Leitor["Nome"];
             this.Idade = (int)Leitor["Idade"];
-            this.ImagemPerfil = (String)Leitor["Foto"];
+            this.ImagemPerfilN = (String)Leitor["Foto"];
             this.CPF = (String)Leitor["CPF_Nutri"];
             this.Bio = (String)Leitor["Bio"];
             this.LocalTrabalho = (String)Leitor["LocalTrabalho"];
@@ -124,7 +124,7 @@ namespace LifeMore.Models
 
             SqlCommand Comando = new SqlCommand();
             Comando.Connection = Conexao;
-            Comando.CommandText = "UPDATE Nutricionista SET Idade = @Idade, Endereco = @Endereco, Email = @Email, Telefone = @Telefone, LocalTrabalho = @LocalTrabalho, Bio = @Bio"
+            Comando.CommandText = "UPDATE Nutricionista SET Idade = @Idade, Endereco = @Endereco, Email = @Email, Telefone = @Telefone, Foto = @Foto, LocalTrabalho = @LocalTrabalho, Bio = @Bio"
                + " WHERE Cod = @ID;";
 
             Comando.Parameters.AddWithValue("@ID", this.Cod);
@@ -132,6 +132,7 @@ namespace LifeMore.Models
             Comando.Parameters.AddWithValue("@Endereco", this.Endereco);
             Comando.Parameters.AddWithValue("@Email", this.Email);
             Comando.Parameters.AddWithValue("@Telefone", this.Telefone);
+            Comando.Parameters.AddWithValue("@Foto", this.ImagemPerfilN);
             Comando.Parameters.AddWithValue("@LocalTrabalho", this.LocalTrabalho);
             Comando.Parameters.AddWithValue("@Bio", this.Bio);
 
@@ -165,7 +166,7 @@ namespace LifeMore.Models
                 N.Email = ((String)Leitor["Email"]);
                 N.Telefone = (String)Leitor["Telefone"];
                 N.Nome = ((String)Leitor["Nome"]);
-                N.ImagemPerfil = (String)Leitor["Foto"];
+                N.ImagemPerfilN = (String)Leitor["Foto"];
                 N.LocalTrabalho = (String)Leitor["LocalTrabalho"];
                 N.crm = (String)Leitor["CRM"];
                 N.Bio = ((String)Leitor["Bio"]);
@@ -200,7 +201,7 @@ namespace LifeMore.Models
             this.Endereco = (String)Leitor["Endereco"];
             this.Nome = (String)Leitor["Nome"];
             this.Idade = (Int32)Leitor["Idade"];
-            this.ImagemPerfil = (String)Leitor["Foto"];
+            this.ImagemPerfilN = (String)Leitor["Foto"];
             this.CPF = (String)Leitor["CPF_Nutri"];
             this.Bio = (String)Leitor["Bio"];
             this.LocalTrabalho = (String)Leitor["LocalTrabalho"];

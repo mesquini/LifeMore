@@ -85,7 +85,7 @@ namespace LifeMore.Controllers
                     string contentType = postedFile.ContentType;
                     string nome = postedFile.FileName;
                     Imagem img = new Imagem();
-                    
+
                     if (contentType.IndexOf("jpeg") > 0 || contentType.IndexOf("jpg") > 0 || contentType.IndexOf("png") > 0)
                     {
                         Bitmap arquivoConvertido = img.ResizeImage(postedFile.InputStream, 100, 100);
@@ -94,15 +94,15 @@ namespace LifeMore.Controllers
                         //postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images\img_users" + nomeArquivoUpload);
 
                         //postedFile.SaveAs(@"C:\Users\Mesquini\Source\Repos\LifeMore\LifeMore\LifeMore\images\img_users" + nomeArquivoUpload);
-                        postedFile.SaveAs(@"C:\Users\16128605\Source\Repos\LifeMore2\LifeMore\LifeMore\images\img_users" + nomeArquivoUpload);
+                       // postedFile.SaveAs(@"C:\Users\16128605\Source\Repos\LifeMore2\LifeMore\LifeMore\images\img_users" + nomeArquivoUpload);
 
                         novoUser.ImagemPerfil = nomeArquivoUpload;
                     }
-                    else
-                        //postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
-
-                    //postedFile.SaveAs(@"C:\Users\Mesquini\Source\Repos\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
-                    postedFile.SaveAs(@"C:\Users\16128605\Source\Repos\LifeMore2\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
+                    //    else
+                    //        //postedFile.SaveAs(@"C:\Users\16128611\Source\Repos\LifeMore\Projeto\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
+                    //        postedFile.SaveAs(HttpRuntime.AppDomainAppPath + "\\images\\img_users\\" + Request.Form["Desc"] + ".txt");
+                    //    //postedFile.SaveAs(@"C:\Users\Mesquini\Source\Repos\LifeMore\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
+                    //    //postedFile.SaveAs(@"C:\Users\16128605\Source\Repos\LifeMore2\LifeMore\LifeMore\images" + Request.Form["Desc"] + ".txt");
                 }
 
                 if (novoUser.EditarPerfil())
