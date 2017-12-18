@@ -35,32 +35,25 @@ namespace LifeMore
             {
                 return null;
             }
-                
-            //Paciente.ListarP();
-            //return P;
         }
 
         [WebMethod]
 
-        public Paciente listarP(String nome, int cod, String email, String CPF, int objetivo, String senha, String telefone, String idade, String imagemPerfil, String peso, String altura, String endereco)
+        public List<Cardapio> buscaCardapio(String CPF)
         {
-            Paciente.ListarP();
-            Paciente P = new Paciente();
-            //P.Nome = nome;
-            //P.Cod = cod;
-            //P.Email = email;
-            //P.CPF = CPF;
-            //P.Objetivo = objetivo;
-            //P.Senha = senha;
-            //P.Telefone = telefone;
-            //P.Idade = idade;
-            //P.ImagemPerfil = imagemPerfil;
-            //P.Peso = peso;
-            //P.Altura = altura;
-            //P.Endereco = endereco;
-           
+            List<Cardapio> lista = new List<Cardapio>();
+            Cardapio c = new Cardapio();
 
-            return P;
+            if (Cardapio.VerificaCPFCardapioWeb(CPF))
+            {
+                lista = new Cardapio().BuscarDadosWeb(CPF);
+
+                return lista;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         [WebMethod]

@@ -156,6 +156,28 @@ namespace LifeMore.Models
 
             return true;
         }
+        public static Boolean  VerificaCPFCardapioWeb(String CPF)
+        {
+            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
+            Conexao.Open();
+
+            SqlCommand Comando = new SqlCommand();
+            Comando.Connection = Conexao;
+
+            Comando.CommandText = "select Cardapio.Cod_Cliente from Paciente, Cardapio where Cod_Cliente = @CPF_Paciente";
+            Comando.Parameters.AddWithValue("@CPF_Paciente", CPF);
+
+            SqlDataReader Leitor = Comando.ExecuteReader();
+
+            if (!Leitor.HasRows)
+            {
+                return false;
+            }
+
+            Conexao.Close();
+
+            return true;
+        }
         //METODO PARA RETORNAR ULTIMO CARDAPIO CADASTRADO
         public static int ultimoCardapio()
         {
@@ -216,6 +238,53 @@ namespace LifeMore.Models
                     Cardapios.Add(N);
                 }
             
+            Conexao.Close();
+
+            return Cardapios;
+        }
+        public  List<Cardapio> BuscarDadosWeb(String CPF)
+        {
+            SqlConnection Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["LifeMore"].ConnectionString);
+            Conexao.Open();
+
+            SqlCommand Comando = new SqlCommand();
+            Comando.Connection = Conexao;
+            Comando.CommandText = "Select Cardapio.Cod_Cardapio, Cardapio.Nome AS NomeCardapio, Alimento.Nome AS Alimento, Alimento.Peso, Alimento.Caloria, Alimento.Carboidrato, Observacao, Qnt, Nutricionista.Nome AS NomeNutri" +
+
+    " from CardapioAlimento, Cardapio, Alimento, Nutricionista" +
+
+    " where Cardapio.Cod_Cardapio = CardapioAlimento.Cod_Cardapio" +
+
+    " and CardapioAlimento.Cod_Alimento = Alimento.Cod_Alimento" +
+
+    " and Cardapio.Cod_Nutri = Nutricionista.CPF_Nutri" +
+
+    " and Cod_Cliente = @ID " +
+
+    " and Cardapio.Cod_Cardapio = (Select Max(cod_cardapio) from cardapio where Cod_Cliente = @ID)";
+
+            Comando.Parameters.AddWithValue("@ID", CPF);
+
+
+            SqlDataReader Leitor = Comando.ExecuteReader();
+
+            List<Cardapio> Cardapios = new List<Cardapio>();
+
+            while (Leitor.Read())
+            {
+                Cardapio N = new Cardapio((Int32)Leitor["Cod_Cardapio"]);
+
+                N.Cod_Cardapio = (Int32)Leitor["Cod_Cardapio"];
+                N.NomeAli = (String)Leitor["Alimento"];
+                N.Observacao = (String)Leitor["Observacao"];
+                N.Qtd = (Int32)Leitor["Qnt"];
+                N.Caloria = (Double)Leitor["Caloria"];
+                N.Peso = (String)Leitor["Peso"];
+                N.Carboidrato = (Double)Leitor["Carboidrato"];
+
+                Cardapios.Add(N);
+            }
+
             Conexao.Close();
 
             return Cardapios;
